@@ -1,6 +1,7 @@
 var liveeurope = function(){    
-    var width = 212,
-        height = 212,
+    // Bit hacky to ge the width and height
+    var width = $("#live-world").parent().parent().width()
+        height = width,
         speed = -1e-3,
         start = Date.now();
 

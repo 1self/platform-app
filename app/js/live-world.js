@@ -1,6 +1,6 @@
 var liveworld = function(){
-        var width = 212,
-        height = 212,
+        var width = $("#live-world").parent().parent().width()
+        height = width,
         speed = -1e-3,
         start = Date.now();
 
