@@ -1,0 +1,915 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Earth Square</title>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+      <meta name="description" content="Earth Square Admin Dashboard" />
+      <meta name="keywords" content="Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Wrapbootstrap, Bootstrap" />
+      <meta name="author" content="Bootstrap Gallery" />
+      <link rel="shortcut icon" href="img/favicon.ico">
+      
+      <!-- Main CSS -->
+      <link href="css/import.css" rel="stylesheet" media="screen">
+
+      <!-- Font Awesome CSS -->
+      <link href="fonts/font-awesome.css" rel="stylesheet">
+      <!--[if IE 7]>
+        <link rel="stylesheet" href="fonts/font-awesome.css">
+      <![endif]-->
+
+      <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+      <![endif]-->
+
+    </head>
+
+    <body class="animated fadeInDown">
+
+      <!-- Top Bar Start -->
+      <div class="top-bar">
+
+        <!-- Logo start -->
+        <a href="index.html" class="logo"><img src="img/quantified-dev-logo.png" alt="EarthSquare"></a>
+        <!-- Logo end -->
+
+        <!-- Mini Nav Left Start -->
+        <ul id="mini-nav" class="hidden-xs">
+          <li class="arrow-box list-box">
+            <a href="#">
+              <i class="icon-reorder text-warning"></i>
+            </a>
+          </li>
+          
+          <li class="dropdown list-box">
+            <a id="drop3" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="icon-envelope-alt text-info"></i>
+              <span class="count-label count-lb-blue"></span>
+            </a>
+            <div class="dropdown-menu animated flipInY featured-articles">
+              <div class="articles">
+                <a href="#">
+                  <span class="label-bullet">
+                    &nbsp;
+                  </span>
+                  Raw denim you probably
+                  <span class="date">12th Jan @1:45am / 8 Comments</span>
+                </a>
+                <a href="#">
+                  <span class="label-bullet">
+                    &nbsp;
+                  </span>
+                  Skateboard dolor brunch
+                  <span class="date">11th Jan @11:19am / 15 Comments</span>
+                </a>
+                <a href="#">
+                  <span class="label-bullet">
+                    &nbsp;
+                  </span>
+                  accusam / 3 Commentsus terry richardson
+                  <span class="date">10th Jan @8:12am / 13 Comments</span>
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- Mini Nav Left End -->
+
+        <!-- Mini Nav Right Start -->
+        <ul id="mini-nav-right">
+          <li class="list-box hidden-xs">
+            <a href="login.html">
+              <i class="icon-signout"></i>
+            </a>
+          </li>
+          <li class="list-box hidden-xs">
+            <a href="#" class="sb-open-right sb-close">
+            <i class="icon-user text-warning"></i>
+            </a>
+          </li>
+          <li class="list-box hidden-lg hidden-md hidden-sm" id="mob-nav">
+            <a href="#">
+              <span>Menu</span>
+              <i class="icon-reorder"></i>
+            </a>
+          </li>
+        </ul>
+        <!-- Mini Nav Right End -->
+
+       
+      </div>
+      <!-- Top Bar End -->
+
+      <!-- Right sidebar start -->
+      <div class="sb-slidebar sb-right sb-close">
+
+        <!-- User Profile Start -->
+        <section class="user-profile">
+          <div class="profile-container">
+            <img src="img/avatar-4.jpg" class="user-img" alt="User Image">
+            <div class="desc">
+              <h4>John Doe</h4>
+              <p class="text-info">UX Designer</p>
+            </div>
+          </div>
+          <ul class="ftr-link">
+            <li class="active">
+              <a href="javascript:;">
+                <i class="icon-eye-open"></i> 375
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;" class="text-success">
+                <i class=" icon-comment"></i> 999
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;" class="text-danger">
+                <i class=" icon-heart"></i> 143
+              </a>
+            </li>
+          </ul>
+        </section>
+        <!-- User Profile End -->
+
+        <!-- Online Users start -->
+        <div class="block">
+          <div class="heading">Users Online</div>
+          <div class="wrapper">
+            <!-- Online Users Start -->
+            <ul class="online-users">
+              <li>
+                <a href="" data-lastname="Sandhya" data-status="online" data-original-title="">
+                  <span>Sunny</span>
+                  <div class="user-status online"></div>
+                </a>
+              </li>
+              <li>
+                <a href="" data-lastname="Sandhya" data-status="online" data-original-title="">
+                  <span>Henrik</span>
+                  <div class="user-status online"></div>
+                </a>
+              </li>
+              <li>
+                <a href="" data-lastname="Sandhya" data-status="online" data-original-title="">
+                  <span>John Doe</span>
+                  <div class="user-status busy"></div>
+                </a>
+              </li>
+              <li>
+                <a href="" data-lastname="Sandhya" data-status="online" data-original-title="">
+                  <span>Fleming</span>
+                  <div class="user-status away"></div>
+                </a>
+              </li>
+              <li>
+                <a href="" data-lastname="Sandhya" data-status="online" data-original-title="">
+                  <span>Wills</span>
+                  <div class="user-status"></div>
+                </a>
+              </li>
+            </ul>
+            <!-- Online Users End -->
+          </div>
+        </div>
+        <!-- Online Users end -->
+
+        <!-- Checkout start -->
+        <div class="block">
+          <div class="heading">Checkout</div>
+          <ul class="cart">
+            <li class="cart-item">
+              <span class="cart-item-pic">
+                <img src="img/avatar-2.jpg" alt="EarthSquare">
+              </span>
+              Item #1
+              <span class="cart-item-desc">Description</span>
+              <span class="cart-item-price">$16.80</span>
+            </li>
+            <li class="cart-item">
+              <span class="cart-item-pic">
+                <img src="img/avatar-5.png" alt="EarthSquare">
+              </span>
+              Item #2
+              <span class="cart-item-desc">Description</span>
+              <span class="cart-item-price">$15.00</span>
+            </li>
+            <li class="cart-item">
+              <span class="cart-item-pic">
+                <img src="img/avatar-3.jpg" alt="EarthSquare">
+              </span>
+              Item #3
+              <span class="cart-item-desc">Description</span>
+              <span class="cart-item-price">$23.00</span>
+            </li>
+          </ul>
+          <div class="cart-bottom">
+            Total: $54.80
+            <a href="#" class="cart-button">Continue</a>
+          </div>
+        </div>
+        <!-- Checkout end -->
+
+        <!-- Notifications Start -->
+        <div class="block">
+          <div class="heading">Notifications</div>
+          <!-- Notifications -->
+          <ul class="infos">
+            <li>
+              <span class="label label-primary pull-left">
+                <i class="icon-twitter"></i>
+              </span>
+              <div class="info">
+                <h6>Guru Tweeted</h6>
+                <p class="designation">Few seconds ago</p>
+              </div>
+            </li>
+            <li>
+              <span class="label label-danger pull-left">
+                <i class="icon-warning-sign"></i>
+              </span>
+              <div class="info">
+                <h6>Server #999 Crashed</h6>
+                <p class="designation">2 minutes ago</p>
+              </div>
+            </li>
+            <li>
+              <span class="label label-info pull-left">
+                <i class="icon-plus"></i>
+              </span>
+              <div class="info">
+                <h6>Kiri's account was created</h6>
+                <p class="designation">5 days ago</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- Notifications End -->
+
+        <!-- Sliding Tags Start -->
+        <ul class="sliding-tags tags-blue">
+          <li><a href="index.html">Friends <span>4</span></a></li>
+          <li><a href="index.html">Family <span>8</span></a></li>
+          <li><a href="index.html">Books <span>16</span></a></li>
+          <li><a href="index.html">Colleagues <span>15</span></a></li>
+        </ul>
+        <!-- Sliding Tags End -->
+      </div>
+      <!-- Right sidebar end -->
+
+      <!-- Left sidebar start -->
+      <aside id="sidebar">
+
+        <!-- Search bar start -->
+        <div class="custom-search">
+          <input type="text" class="search-query" placeholder="Search here">
+          <i class="icon-search"></i>
+        </div>
+        <!-- Search bar end -->
+
+        <!-- Menu start -->
+        <div id='menu'>
+          <ul>
+            <li class="highlight">
+              <a href='dashboard.html'>
+                <i class="icon-dashboard"></i>
+                <span>My Dev</span>
+                <em class="arrow-active"></em>
+              </a>
+            </li>
+            <li class="highlight">
+              <a href='community.html'>
+                <i class="icon-globe"></i>
+                <span>Community</span>
+                <em class="arrow-active"></em>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Menu End -->
+
+        
+      </aside>
+      <!-- Left sidebar end -->
+
+      <!-- Main Container start -->
+      <div class="dashboard-wrapper">
+
+        <!-- Bootstrap Container Start -->
+        <div class="container">
+          
+          <!-- Page title start -->
+          <div class="row page-title">
+            
+            <div class="col-lg-9 col-md-8 col-sm-9 col-xs-12">
+              <h2>Dashboard</h2>
+              <ul class="breadcrumb">
+                <li>Home</li>
+                <li>Dashboard</li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-3 hidden-sm hidden-xs">
+              <div id="reportrange">
+                <i class="icon-calendar"></i>
+                <span></span> <b class="caret"></b>
+              </div>
+            </div>
+          </div>
+          <!-- Page title end -->
+
+          <!-- Row start -->
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+              <a class="info-tiles tiles-secondary" href="google-graphs.html">
+                <div class="tiles-heading">
+                  <div class="pull-left">Local Builds Today</div>
+                  <div class="pull-right"><i class="icon-caret-down"></i> 21.9%</div>
+                </div>
+                <div class="tiles-body">
+                  <div class="pull-left animated bounceIn">
+                    <i class="icon-cog"></i>
+                  </div>
+                  <div class="pull-right number"><span id="views-x">0</span></div>
+                </div>
+                <div class="tiles-footer">
+                  <span class="pull-left">View more...</span>
+                  <span class="inline-sparkline pull-right" id="visits"></span>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+              <a class="info-tiles tiles-secondary" href="graphs.html">
+                <div class="tiles-heading">
+                  <div class="pull-left">Successful Builds Today</div>
+                  <div class="pull-right"><i class="icon-caret-up"></i> 7.7%</div>
+                </div>
+                <div class="tiles-body">
+                  <div class="pull-left animated bounceIn">
+                    <i class="icon-cog"></i><i class="icon-smile"></i>
+                  </div>
+                  <div class="pull-right number"><span id="likes-x">0</span></div>
+                </div>
+                <div class="tiles-footer">
+                  <span class="pull-left">View more...</span>
+                  <span class="inline-sparkline pull-right" id="unique-visitors"></span>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+              <a class="info-tiles tiles-secondary" href="google-graphs.html">
+                <div class="tiles-heading">
+                  <div class="pull-left">Failed Builds Today</div>
+                  <div class="pull-right"><i class="icon-caret-up"></i> 19.2%</div>
+                </div>
+                <div class="tiles-body">
+                  <div class="pull-left animated bounceIn">
+                    <i class="icon-cog"></i><i class="icon-frown"></i>
+                  </div>
+                  <div class="pull-right number"><span id="uploaded-x">0</span></div>
+                </div>
+                <div class="tiles-footer">
+                  <span class="pull-left">View more...</span>
+                  <span class="inline-sparkline pull-right" id="page-views"></span>
+                </div>
+              </a>
+            </div>
+            
+          </div>
+          <!-- Row end -->
+
+          <!-- Row start -->
+          <div class="row">
+            <div class="col-lg-8 col-md-12 col-sx-12 col-sm-12">
+              <div class="panel panel-secondary">
+                <div class="panel-heading">
+                  <h3 class="panel-title"><i class="icon-bar-chart"></i>Statastics</h3>
+                </div>
+                <div class="panel-body">
+                  <div id="us-map" style="width: 100%; height: 260px"></div>
+                  <div class="jvectormap-title">
+                    Total Visits
+                    <h3 id="dyn-visits">0</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sx-12 col-sm-12">
+              <div class="panel panel-secondary">
+                <div class="panel-heading">
+                  <i class="icon-signal"></i>
+                  <h3 class="panel-title">Data Graph</h3>
+                </div>
+                <div class="panel-body center-align-text">
+                  <div class="light-grey-bg md-padding sm-border-radius">
+                    <span class="chart-width inline-sparkline" id="dataLine"></span>
+                    <span id="dow"></span>
+                  </div>
+                  <table class="table table-hover left-align-text">
+                    <thead>
+                      <tr>
+                        <th style="width:45%;">Type</th>
+                        <th style="width:35%;">Date</th>
+                        <th style="width:20%;" class="right-align-text">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><i class="icon-cloud text-info"></i>Market</td>
+                        <td>25/01/14</td>
+                        <td class="right-align-text text-info">3257</td>
+                      </tr>
+                      <tr>
+                        <td><i class="icon-inbox text-danger"></i> Referal</td>
+                        <td>18/01/14</td>
+                        <td class="right-align-text text-danger">1879</td>
+                      </tr>
+                      <tr>
+                        <td><i class="icon-envelope text-info"></i> Affiliate</td>
+                        <td>07/01/14</td>
+                        <td class="right-align-text text-info">5598</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Row End -->
+
+          <!-- Row Start -->
+          <div class="row sortable">
+            <div class="col-lg-4 col-md-6 col-sx-12 col-sm-12">
+              <div class="panel panel-secondary ui-state-default">
+                <div class="panel-heading cursor-move">
+                  <i class="icon-list"></i>
+                  <h3 class="panel-title">Tasks List</h3>
+                </div>
+                <div class="panel-body">
+                  <section class="todo">
+                    <fieldset class="todo-list">
+                      <label class="todo-list-item">
+                        <input type="checkbox" class="todo-list-cb">
+                        <span class="todo-list-mark"></span>
+                        <span class="todo-list-desc">Attend research seminar</span>
+                        <span class="todo-list-date">
+                          <span class="label label-info">Feb 15</span>
+                        </span>
+                      </label>
+                      <label class="todo-list-item">
+                        <input type="checkbox" class="todo-list-cb">
+                        <span class="todo-list-mark"></span>
+                        <span class="todo-list-desc">Social media workshop</span>
+                        <span class="todo-list-date">
+                          <span class="label label-info">Feb 09</span>
+                        </span>
+                      </label>
+                      <label class="todo-list-item">
+                        <input type="checkbox" class="todo-list-cb" checked>
+                        <span class="todo-list-mark"></span>
+                        <span class="todo-list-desc">Pickup kids @4pm</span>
+                        <span class="todo-list-date">
+                          <span class="label label-info">Feb 02</span>
+                        </span>
+                      </label>
+                      <label class="todo-list-item">
+                        <input type="checkbox" class="todo-list-cb">
+                        <span class="todo-list-mark"></span>
+                        <span class="todo-list-desc">Attend Birthday party</span>
+                        <span class="todo-list-date">
+                          <span class="label label-info">Jan 21</span>
+                        </span>
+                      </label>
+                      <label class="todo-list-item">
+                        <input type="checkbox" class="todo-list-cb" checked>
+                        <span class="todo-list-mark"></span>
+                        <span class="todo-list-desc">The Power of Habit</span>
+                        <span class="todo-list-date">
+                          <span class="label label-info">Jan 17</span>
+                        </span>
+                      </label>
+                      <label class="todo-list-item">
+                        <input type="checkbox" class="todo-list-cb">
+                        <span class="todo-list-mark"></span>
+                        <span class="todo-list-desc">Learn Chess</span>
+                        <span class="todo-list-date">
+                          <span class="label label-info">Jan 14</span>
+                        </span>
+                      </label>
+                      <label class="todo-list-item">
+                        <input type="checkbox" class="todo-list-cb">
+                        <span class="todo-list-mark"></span>
+                        <span class="todo-list-desc">Send an email to Jas</span>
+                        <span class="todo-list-date">
+                          <span class="label label-info">Jan 11</span>
+                        </span>
+                      </label>
+                    </fieldset>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sx-12 col-sm-12">
+              <div class="panel panel-secondary ui-state-default">
+                <div class="panel-heading cursor-move">
+                  <i class="icon-twitter"></i>
+                  <h3 class="panel-title">Server Activity</h3>
+                </div>
+                <div class="panel-body">
+                  <ul class="activity-list">
+                    <li>
+                      <div class="row">
+                        <div class="col-xs-8">
+                          <p><i class="icon-flag-alt text-info"></i> Pending request</p>
+                        </div>
+                        <div class="col-xs-4">
+                          <p class="time">3 hrs</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="row">
+                        <div class="col-xs-8">
+                          <p><i class="icon-fire text-warning"></i> Server Crashed</p>
+                        </div>
+                        <div class="col-xs-4">
+                          <p class="time">3mins</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="row">
+                        <div class="col-xs-8">
+                          <p><i class="icon-smile text-success"></i> 3 New users</p>
+                        </div>
+                        <div class="col-xs-4">
+                          <p class="time">1 min</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="row">
+                        <div class="col-xs-8">
+                          <p><i class="icon-bell text-danger"></i>9 pending requests</p>
+                        </div>
+                        <div class="col-xs-4">
+                          <p class="time">5 min</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="row">
+                        <div class="col-xs-8">
+                          <p><i class="icon-plane text-info"></i> Performance</p>
+                        </div>
+                        <div class="col-xs-4">
+                          <p class="time">25 min</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="row">
+                        <div class="col-xs-8">
+                          <p><i class="icon-envelope-alt text-warning"></i>12 new emails</p>
+                        </div>
+                        <div class="col-xs-4">
+                          <p class="time">25 min</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="row">
+                        <div class="col-xs-8">
+                          <p><i class="icon-cog icon-spin text-success"></i> Location settings</p>
+                        </div>
+                        <div class="col-xs-4">
+                          <p class="time">4 hrs</p>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Row End -->
+
+          <!-- Row Start -->
+          <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 col-sx-12">
+              <div class="panel panel-secondary">
+                <div class="panel-heading">
+                  <i class="icon-coffee"></i>
+                  <h3 class="panel-title">Invoice Activity</h3>
+                </div>
+                <div class="panel-body">
+                  <div id="dt_example" class="table-responsive example_alt_pagination clearfix">
+                    <table class="table table-condensed table-striped table-hover table-bordered pull-left" id="data-table">    
+                      <thead>
+                        <tr>
+                          <th style="width:3%">
+                            <input type="checkbox">
+                          </th>
+                          <th style="width:12%">Date</th>
+                          <th style="width:15%">Inv. No</th>
+                          <th style="width:40%">Client Details</th>
+                          <th style="width:15%">Status</th>
+                          <th style="width:15%">Balance</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="gradeA">
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td>Feb 10</td>
+                          <td>Inv - 1167</td>
+                          <td>
+                            <a href="invoice.html">
+                              Honey - <small>Consultancy fee</small>
+                            </a>
+                          </td>
+                          <td>
+                            <span class="label label-info">Sent</span>
+                          </td>
+                          <td>
+                            <span class="text-info">$839</span>
+                          </td>
+                        </tr>
+                        <tr class="gradeC">
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td>Jan 12</td>
+                          <td>Inv - 3981</td>
+                          <td>
+                            <a href="invoice.html">
+                              James - <small>Testing</small>
+                            </a>
+                          </td>
+                          <td>
+                            <span class="label label-info">Success</span>
+                          </td>
+                          <td>
+                            <span class="text-primary">$2187</span>
+                          </td>
+                        </tr>
+                        <tr class="gradeU">
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td>Feb 10</td>
+                          <td>Inv - 4482</td>
+                          <td>
+                            <a href="invoice.html">
+                               Selva - <small>Web Design</small>
+                            </a>
+                          </td>
+                          <td>
+                            <span class="label label-warning">Warning</span>
+                          </td>
+                          <td>
+                            <span class="text-warning">$490</span>
+                          </td>
+                        </tr>
+                        <tr class="gradeA">
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td>Jan 29</td>
+                          <td>Inv - 3289</td>
+                          <td>
+                            <a href="invoice.html">
+                              Sweet Dreams - <small>Web Developement</small>
+                            </a>
+                          </td>
+                          <td>
+                            <span class="label label-default">Pending</span>
+                          </td>
+                          <td>
+                            <span class="text-warning">$1184</span>
+                          </td>
+                        </tr>
+                        <tr class="gradeA">
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td>Nov 23</td>
+                          <td>Inv - 1093</td>
+                          <td>
+                            <a href="invoice.html">
+                              Kohli - <small>Photography fee</small>
+                            </a>
+                          </td>
+                          <td>
+                            <span class="label label-info">Sent</span>
+                          </td>
+                          <td>
+                            <span class="text-info">$280</span>
+                          </td>
+                        </tr>
+                        <tr class="gradeU">
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td>Nov 28</td>
+                          <td>Inv - 2289</td>
+                          <td>
+                            <a href="invoice.html">
+                              Nyra - <small>Fireworks</small>
+                            </a>
+                          </td>
+                          <td>
+                            <span class="label label-default">Pending</span>
+                          </td>
+                          <td>
+                            <span class="text-warning">$110</span>
+                          </td>
+                        </tr>
+                        <tr class="gradeX">
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td>Apr 09</td>
+                          <td>Inv - 1145</td>
+                          <td>
+                            <a href="invoice.html">
+                              Henrik - <small>Design works</small>
+                            </a>
+                          </td>
+                          <td>
+                            <span class="label label-info">Sent</span>
+                          </td>
+                          <td>
+                            <span class="text-primary">$27</span>
+                          </td>
+                        </tr>
+                        <tr class="gradeC">
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td>Jan 01</td>
+                          <td>Inv - 5120</td>
+                          <td>
+                            <a href="invoice.html">
+                              Rosy - <small>Salary</small>
+                            </a>
+                          </td>
+                          <td>
+                            <span class="label label-default">Pending</span>
+                          </td>
+                          <td>
+                            <span class="text-warning">$600</span>
+                          </td>
+                        </tr>
+                        <tr class="gradeA">
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td>Feb 10</td>
+                          <td>Inv - 1167</td>
+                          <td>
+                            <a href="invoice.html">
+                              Honey - <small>Consultancy fee</small>
+                            </a>
+                          </td>
+                          <td>
+                            <span class="label label-info">Sent</span>
+                          </td>
+                          <td>
+                            <span class="text-info">$839</span>
+                          </td>
+                        </tr>
+                        <tr class="gradeC">
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td>Jan 12</td>
+                          <td>Inv - 3981</td>
+                          <td>
+                            <a href="invoice.html">
+                               James - <small>Testing</small>
+                            </a>
+                          </td>
+                          <td>
+                            <span class="label label-info">Success</span>
+                          </td>
+                          <td>
+                            <span class="text-primary">$2187</span>
+                          </td>
+                        </tr>
+                        <tr class="gradeU">
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td>Feb 10</td>
+                          <td>Inv - 4482</td>
+                          <td>
+                            <a href="invoice.html">
+                              Selva - <small>Web Design</small>
+                            </a>
+                          </td>
+                          <td>
+                            <span class="label label-warning">Warning</span>
+                          </td>
+                          <td>
+                            <span class="text-warning">$490</span>
+                          </td>
+                        </tr>
+                        <tr class="gradeA">
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td>Jan 29</td>
+                          <td>Inv - 3289</td>
+                          <td>
+                            <a href="invoice.html">
+                              Sweet Dreams - <small>Web Developement</small>
+                            </a>
+                          </td>
+                          <td>
+                            <span class="label label-default">Pending</span>
+                          </td>
+                          <td>
+                            <span class="text-warning">$1184</span>
+                          </td>
+                        </tr>
+                        <tr class="gradeC">
+                          <td>
+                            <input type="checkbox">
+                          </td>
+                          <td>Jan 10</td>
+                          <td>Inv - 5120</td>
+                          <td>
+                            <a href="invoice.html">
+                              Rosy - <small>Salary</small>
+                            </a>
+                          </td>
+                          <td>
+                            <span class="label label-default">Pending</span>
+                          </td>
+                          <td>
+                            <span class="text-warning">$2600</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-12 col-sm-12 col-sx-12">
+              <div class="panel panel-secondary">
+                <div class="panel-heading">
+                  <i class="icon-calendar"></i>
+                  <h3 class="panel-title">Datepicker</h3>
+                </div>
+                <div class="panel-body">
+                  <div id="datepicker"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Row End -->
+
+        </div>
+        <!-- Bootstrap Container End -->
+
+      </div>
+      <!-- Main Container End -->
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="js/jquery.js"></script>
+      
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="js/bootstrap.min.js"></script>
+
+      <!-- jQuery UI JS -->
+      <script src="js/jquery-ui-v1.10.3.js"></script>
+
+      <!-- Sparkline graphs -->
+      <script src="js/sparkline.js"></script>
+
+      <!-- Data tables -->
+      <script src="js/jquery.datatables.js"></script>
+
+      <!-- Date Range -->
+      <script src="js/daterange/moment.js"></script>
+      <script src="js/daterange/daterangepicker.js"></script>
+
+      <!-- Animated Right Sidebar -->
+      <script src="js/slidebars.js"></script>
+
+      <!-- JVector Map -->
+      <script src="js/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+      <script src="js/jvectormap/jquery-jvectormap-usa.js"></script>
+
+      <!-- Custom JS -->
+      <script src="js/custom.js"></script>
+      <script src="js/custom-index.js"></script>
+
+    </body>
+  </html>

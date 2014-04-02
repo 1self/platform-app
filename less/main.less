@@ -1,0 +1,139 @@
+@import 'mixins.less';
+@import 'tricks.less';
+
+.trocchi, .cursive {
+	font-family: 'Trocchi', serif !important; 
+}
+
+.shadow-text{
+	text-shadow: 1px 2px 1px black;
+}
+
+@dark-font: #393939;
+@washed-green: #96ceca;
+@washed-yellow: #fbcc71;
+@dark-purple: #422d34;
+@washed-blue: #8BCCEF; 
+@washed-red: #FC7364;
+@washed-orange: #E66740;
+
+
+body.red {
+	background: @washed-red;
+}
+
+body.blue {
+	background: @washed-blue;
+}
+
+body.dark {
+	background: @dark-font;
+	color: white;
+}
+
+#signup {
+	padding: 80-41px 0 70px 0;
+}
+
+#about {
+	.hero {
+		padding-top: 0;
+	}
+}
+
+section.blue {
+	padding: 60px 0; 
+	background: @washed-blue;
+	color: white;
+}
+
+section.red {
+	padding: 60px 0; 
+	background: @washed-red;
+	color: white;
+}
+
+section.yellow {
+	padding: 60px 0; 
+	background: @washed-yellow;
+}
+
+section.dark {
+	padding: 60px 0; 
+	background: @dark-font;
+	color: white;
+}
+
+section.white {
+	padding: 60px 0;
+	background: white;
+}
+
+footer {
+	padding: 70px 0 30px;
+	background: whiteSmoke;
+	border-top: 1px solid #E5E5E5;
+	color: lighten(@dark-font, 30%);
+	font-weight: 300;
+	.links {
+		li {
+			display: inline-block;
+			margin-left: 20px;
+		}
+	}
+	.rights {
+		font-size: 13px;
+	}
+}
+
+.pricing {
+	.plan {
+		color: @dark-font;
+		padding: 24px;
+		margin: 12px;
+
+		background: #FAF9F4;
+		.border-radius(5px);
+
+		h3 {
+			font-size: 24px;
+			line-height: 28px;
+			.center();
+		}
+
+		h4 {
+			font-size: 34px;
+			line-height: 38px;
+			.center();
+		}
+
+		span.tail {
+			font-size: 18px;
+			line-height: 1;
+		}
+
+		ul {
+			border-top: 1px dashed #888;
+			border-bottom:  1px dashed #888;
+			//padding: 12px 0;
+			margin: 12px 0;
+			li {
+				margin: 12px 0;
+			}
+		}
+	}
+}
+
+.feature {
+	padding-bottom: 15px;
+	p {
+		padding: 0 48px;
+	}
+}
+
+.video {
+	padding-top: 30px;
+	width: 80%;
+	max-width: 480px;
+	margin: 0 auto;
+}

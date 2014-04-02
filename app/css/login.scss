@@ -1,0 +1,390 @@
+/*  Variables  */
+$primary-color: #33393c;
+$primary-font-color: #ffffff;
+
+$white: #ffffff;
+$black: #000000;
+
+$indigoDye: #2782c4;
+$skyblue: #87CEEB;
+$slategrey: #708090;
+$danger: #e73c3c;
+$warning: #F3CD33;
+$success: #2ecc71;
+
+/*   Mixins  */
+
+/*  Gradients  */
+@mixin linear-gradient($fromColor, $toColor) {
+  background-color: $toColor; /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+  background-image: -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+  background-image: -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
+  background-image: linear-gradient(top, $fromColor, $toColor);
+}
+
+/*  Transition  */
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+
+/*  Box Sizing  */
+@mixin box-sizing($string){
+  -webkit-box-sizing: $string;
+  -moz-box-sizing: $string;
+  box-sizing: $string;
+}
+
+/*  Box Shadow  */
+@mixin box-shadow($off-y, $off-x, $blur, $color){
+  -moz-box-shadow: $off-y $off-x $blur $color; /* FF3.5+ */
+  -webkit-box-shadow: $off-y $off-x $blur $color; /* Saf3.0+, Chrome */
+  box-shadow: $off-y $off-x $blur $color; /* Opera 10.5, IE9 */
+}
+
+@mixin box-shadow-inset($top, $left, $blur, $color, $inset:"") {
+  -webkit-box-shadow: $top $left $blur $color $inset;
+  -moz-box-shadow: $top $left $blur $color $inset;
+  box-shadow: $top $left $blur $color $inset;
+}
+
+/*  Border Radius  */
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transform($args){
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -o-transform: $args;
+  -ms-transform: $args;
+  transform: $args;
+}
+
+/*  Opacity  */
+@mixin opacity($opacity) {
+  opacity: $opacity / 100;
+  filter: alpha(opacity=$opacity);
+}
+
+body {
+  margin: 0;
+  font: normal 12px, arial, sans-serif;
+  line-height: 18px;
+  color: lighten($black, 20%);
+  background: url(../img/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  body{
+    width: 300px;
+    margin: auto;
+    position: relative;
+  }
+}
+
+a {
+  color: $black;
+  text-decoration: none;
+  @include transition(All, 0.5s, ease);
+  &:hover {
+    color: $indigoDye;
+    text-decoration: none;
+  }
+}
+
+//Reusable class names
+.no-margin{
+  margin: 0!important;
+}
+.no-padding{
+  padding: 0!important;
+}
+.center-align-text{
+  text-align: center!important;
+}
+.right-align-text{
+  text-align: right!important;
+}
+
+//BG Colors
+.indigoDye-bg {
+  background: $indigoDye;
+}
+.danger-bg {
+  background: $danger;
+}
+.warning-bg {
+  background: $warning;
+}
+.success-bg {
+  background: $success;
+}
+.skyblue-bg {
+  background: $skyblue;
+}
+.slategrey-bg{
+  background: $slategrey;
+}
+
+
+h3.stylish{
+  font-family: arial;
+  font-weight: 500;
+  font-size: 42px;
+  color: $white;
+  margin-top: 100px;
+  span{
+    color: $success;
+  }
+}
+
+/*  Login  */
+.login-container{
+  margin-top: 0px;
+  .login-wrapper{
+    font-family: arial;
+    background: rgba(46, 204, 113, 0.7);
+    @include border-radius (4px);
+    .header {
+      padding: 20px 20px 0px 20px;
+      margin: 0;
+      p{
+        text-align: center;
+        font-size: 18px;
+        color: lighten($black, 13.75%);
+        padding: 10px 0;
+        font-weight: 500;
+        margin: 0;
+      }
+    }
+    .content {
+      padding: 10px 20px;
+      .input{
+        height: 38px;
+        font-weight: normal;
+        font-size: 12px;
+        color: lighten($black, 30%);
+        box-shadow: none;
+        @include border-radius (4px);
+        border: 0;
+        @include transition(All, 0.5s, ease);
+      }
+    }
+    .btn {
+      background: lighten($black, 13.75%);
+      color: $white;
+      @include transition(All, 0.7s, ease);
+      &:hover{
+        background: lighten($black, 5%);
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .login-container{
+    margin-top: 20px;
+  }
+}
+
+// Main Header
+header{
+  margin-top: 50px;
+  height: 60px;
+  vertical-align: middle;
+  line-height: 60px;
+  .logo{
+    margin: 0;
+    font-size: 36px;
+    color: $white;
+    font-weight: 100;
+    cursor: pointer;
+  }
+}
+
+.social-buttons{
+  h5{
+    color: lighten($black, 50%);
+    text-align: center;
+    font-weight: 400;
+  }
+}
+
+
+//Footer
+#footer{
+  margin: 30px auto;
+  p.copyright{
+    font-size: 14px;
+    color: lighten($black, 50%);
+    line-height: 36px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  #footer{
+    position: relative;
+    width: 300px;
+    ul#footer-links{
+      text-align: center;
+    }
+    p.copyright{
+      text-align: center;
+    }
+  }
+}
+
+#login, #register, #reset{
+  background: darken($white, 5%);
+  padding: 20px;
+  -webkit-border-radius: 0 4px 4px 4px;
+  -moz-border-radius: 0 4px 4px 4px;
+  border-radius: 0 4px 4px 4px;
+}
+.flat-form {
+  margin: 15px auto 25px auto;
+  position: relative;
+}
+.tabs {
+  height: 46px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+  position: relative;
+  display: block;
+}
+.tabs li {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.tabs a {
+  background: $indigoDye;
+  display: block;
+  float: left;
+  margin-right: 1px;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  padding: 14px 22px;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+  /*border-right: 1px solid @tab-border;*/
+}
+@media (max-width: 767px) {
+  .tabs{
+    height: 38px;
+  }
+  .tabs a{
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+.tabs li:last-child a {
+  border-right: none;
+  text-align: center;
+}
+.tabs a.active {
+  background: darken($white, 5%);
+  color: lighten($black, 30%);
+  border-right: none;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+.form-action {
+  padding: 0 20px;
+  position: relative;
+}
+
+.form-action h1 {
+  font-size: 24px;
+  padding-bottom: 10px;
+  font-weight: 400;
+  color: lighten($black, 50%);
+}
+.form-action p {
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+
+form input[type=text],
+form input[type=password], 
+form input[type=email] {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  background: #fff;
+  border: none;
+  color: lighten($black, 30%);
+  border: 1px solid darken($white, 20%);
+  outline: none;
+  &:focus {
+    border: 1px solid lighten($indigoDye, 20%);
+  }
+}
+
+form ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+
+.button {
+  border: none;
+  display: block;
+  background: $indigoDye;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: $white;
+  text-align: center;
+  @include border-radius(2px);
+  /*box-shadow: 0px 3px 1px #2075aa;*/
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+
+.button:hover {
+  background: darken($indigoDye, 10%);
+  color: $white;
+  /*box-shadow: 0 3px 1px #237bb2;*/
+}
+
+.button:active {
+  outline: none;
+  border: none;
+  /*box-shadow: 0 3px 1px #0f608c;*/
+}
+
+@media (max-width: 767px) {
+  .btn{
+    margin: 3px;
+  }
+}

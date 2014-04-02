@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Earth Square Login</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="description" content="Earth Square Admin Dashboard" />
+    <meta name="keywords" content="Notifications, Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Wrapbootstrap, Bootstrap, bootstrap.gallery" />
+    <meta name="author" content="Bootstrap Gallery" />
+    <link rel="shortcut icon" href="img/favicon.ico">
+    
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+
+    <!-- Main CSS -->
+    <link href="css/login.css" rel="stylesheet" media="screen">
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+
+    <!-- Font Awesome CSS -->
+    <link href="fonts/font-awesome.css" rel="stylesheet">
+    <!--[if IE 7]>
+      <link rel="stylesheet" href="fonts/font-awesome.css">
+    <![endif]-->
+
+    <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body class="animated fadeInDown">
+
+    <!-- Main Container start -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-push-4 col-md-4 col-sm-push-3 col-sm-6 col-sx-12 animated flipInY">
+          <!-- Header start -->
+          <header>
+            <!-- Logo start -->
+              <a href="index.html" class="logo">EarthSquare</a>
+            <!-- Logo end -->
+          </header>
+          <!-- Header end -->
+          <div class="login-container">
+            <div class="flat-form">
+              <ul class="tabs">
+                <li>
+                  <a href="#login" class="active">Login</a>
+                </li>
+                <li>
+                  <a href="#register">Register</a>
+                </li>
+                <li>
+                  <a href="#reset">Reset Password</a>
+                </li>
+              </ul>
+              <div id="login" class="form-action show animated bounceInDown">
+                <h1>Login on webapp</h1>
+                <p>Welcome to EarthSquare. </p>
+                <form>
+                  <ul>
+                    <li>
+                      <input type="text" placeholder="Username" />
+                    </li>
+                    <li>
+                      <input type="password" placeholder="Password" />
+                    </li>
+                  </ul>
+                  <a class="button" href="index.html">Login</a>
+                </form>
+              </div>
+              <!--/#login.form-action-->
+              <div id="register" class="form-action hide animated flipInY">
+                <h1>Register</h1>
+                <p>
+                  You should totally sign up for our super awesome service.
+                  It's what all the cool kids are doing nowadays.
+                </p>
+                <form>
+                  <ul>
+                    <li>
+                      <input type="text" placeholder="Name" />
+                    </li>
+                    <li>
+                      <input type="text" placeholder="Email ID" />
+                    </li>
+                    <li>
+                      <input type="password" placeholder="Password" />
+                    </li>
+                    <li>
+                      <input type="password" placeholder="Confirm Password" />
+                    </li>
+                  </ul>
+                  <a class="button" href="index.html">Register</a>
+                </form>
+              </div>
+              <!--/#register.form-action-->
+              <div id="reset" class="form-action hide animated flipInX">
+                <h1>Reset Password</h1>
+                <p>
+                  To reset your password enter your email and your birthday
+                  and we'll send you a link to reset your password.
+                </p>
+                <form>
+                  <ul>
+                    <li>
+                      <input type="email" placeholder="Enter your Email ID" />
+                    </li>
+                    <li>
+                      <input type="text" placeholder="DOB" />
+                    </li>
+                  </ul>
+                  <a class="button" href="index.html">Send</a>
+                </form>
+              </div>
+              <!--/#register.form-action-->
+            </div>
+            <div class="social-buttons">
+              <h5>-- Or Sign In using --</h5>
+              <p class="center-align-text btn-stack"> 
+                <a href="#" class="btn btn-success"><i class="icon-twitter"></i> Twitter</a>
+                <a href="#" class="btn btn-warning"><i class="icon-facebook"></i> Facebook</a>
+                <a href="#" class="btn btn-info"><i class="icon-google-plus"></i> Google+</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main Container end -->
+
+    <footer id="footer">
+      <p class="copyright">&copy; 2014 EarthSquare. All Rights Reserved.</p>
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    (function( $ ) {
+      // constants
+      var SHOW_CLASS = 'show',
+          HIDE_CLASS = 'hide',
+          ACTIVE_CLASS = 'active';
+      
+      $( '.tabs' ).on( 'click', 'li a', function(e){
+        e.preventDefault();
+        var $tab = $( this ),
+             href = $tab.attr( 'href' );
+      
+         $( '.active' ).removeClass( ACTIVE_CLASS );
+         $tab.addClass( ACTIVE_CLASS );
+      
+         $( '.show' )
+            .removeClass( SHOW_CLASS )
+            .addClass( HIDE_CLASS )
+            .hide();
+        
+          $(href)
+            .removeClass( HIDE_CLASS )
+            .addClass( SHOW_CLASS )
+            .hide()
+            .fadeIn( 550 );
+      });
+    })( jQuery );
+    </script>
+
+  </body>
+</html>
