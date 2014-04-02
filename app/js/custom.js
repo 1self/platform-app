@@ -38,9 +38,9 @@ $(document).ready(function() {
       timePickerIncrement: 1,
       timePicker12Hour: true,
       ranges: {
-       'Today': [moment(), moment()],
-       'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
-       'Last 7 Days': [moment().subtract('days', 6), moment()],
+       'Minute': [moment(), moment()],
+       'Hour': [moment().subtract('days', 1), moment().subtract('days', 1)],
+       'Day': [moment().subtract('days', 6), moment()],
        'Last 30 Days': [moment().subtract('days', 29), moment()],
        'This Month': [moment().startOf('month'), moment().endOf('month')],
        'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
@@ -63,6 +63,7 @@ $(document).ready(function() {
      },
      function(start, end) {
       console.log("Callback has been called!");
+      window.updateLiveDuration(0);
       $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
      }
   );
@@ -83,18 +84,6 @@ $(function() {
 
 //Timer for tiles info
 var x = 3395, y=5578;
-
-function incrementX() {
-  x++;
-  document.getElementById('sales-x').innerHTML = x;
-}
-setInterval('incrementX()', 5000);
-
-function incrementY() {
-  y++;
-  document.getElementById('income-y').innerHTML = "$"+y;
-}
-setInterval('incrementY()', 3000);
 
 //Dropdown Menu
 $( document ).ready(function() {
