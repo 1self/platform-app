@@ -1,6 +1,28 @@
-var liveuk = function(){    
-    var width = 212,
-        height = 212,
+var liveuk = function(){  
+    var liveDurationMins = 1;
+
+    $('#last-minute').click(function(){
+        liveDurationMins = 1;
+        loadData();
+    });
+
+    $('#last-hour').click(function(){
+        liveDurationMins = 60;
+        loadData();
+    });
+
+    $('#last-day').click(function(){
+        liveDurationMins = 60 * 24;
+        loadData()
+    });
+
+    $('#last-week').click(function(){
+       liveDurationMins = 60 * 24 * 7;
+       loadData();
+    });
+
+    var width = $("#live-world").parent().parent().width()
+        height = width,
         speed = -1e-3,
         start = Date.now();
 
@@ -87,21 +109,27 @@ var liveuk = function(){
         // },
     ];
 
-    d3.json("http://quantifieddev.herokuapp.com/live/devbuild", function(error, builds){
-        var data = builds;
-        for (var i = builds.length - 1; i >= 0; i--) {
-            var buildFromServer = builds[i];
-            var isFinish = buildFromServer.actionTags.indexOf('Finish');
-            var build = {
-                id: i,
-                location: [buildFromServer.location.long, buildFromServer.location.lat],
-                status: isFinish == -1 ? 'buildStarted' : 'buildFailing'
-            }
-            compileCoords.push(build);
-        };
+    var loadData = function(){
+        d3.json("http://quantifieddev.herokuapp.com/live/devbuild/" + liveDurationMins, function(error, builds){
+            var data = builds;
+            compileCoords = [];
+            for (var i = builds.length - 1; i >= 0; i--) {
+                var buildFromServer = builds[i];
+                var isFinish = buildFromServer.actionTags.indexOf('Finish');
+                var build = {
+                    id: i,
+                    location: [buildFromServer.location.long, buildFromServer.location.lat],
+                    status: isFinish == -1 ? 'buildStarted' : 'buildFailing'
+                }
+                compileCoords.push(build);
+            };
 
-        createCircles();
-    })
+            createCircles();
+        });
+    };
+
+    loadData();
+    setInterval(function(){loadData()}, 5000);
 
     function CircleSize(compile){
         var size = Math.random(1, 0.07) * 0.07;
