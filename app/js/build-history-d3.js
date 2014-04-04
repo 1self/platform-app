@@ -75,6 +75,12 @@ d3.csv("js/crimea.csv", function(crimea) {
             return (i % 7) ? null : formatMonth(d);
         });
 
+    var filterFormat = format;
+    if (w < 500) {
+        filterFormat = function(d, i) {
+            return (i % 7) ? null : format(d);
+        };
+    }
     var label = svg.selectAll("text.day")
         .data(x.domain())
         .enter().append("svg:text")
@@ -84,7 +90,7 @@ d3.csv("js/crimea.csv", function(crimea) {
         .attr("y", 19)
         .attr("text-anchor", "middle")
         .attr("dy", ".71em")
-        .text(format);
+        .text(filterFormat);
 
     // Add y-axis rules.
     var rule = svg.selectAll("g.rule")
