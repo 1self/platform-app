@@ -7,3 +7,13 @@
 	color: white;
 	padding-left: 18px;
 }
+
+	.x.axis {
+	   stroke-width: 1.0;
+	}
+
+	.domain { 
+  fill: none; 
+  stroke: black; 
+  stroke-width; 1px; 
+} 
