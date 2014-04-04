@@ -1,152 +1,111 @@
-// var data = d3.range(40).map(function(i) {
-//   return {x: i / 39, y: i % 5 ? (Math.sin(i / 3) + 2) / 4 : null};
-// });
+var w = $("#build-history").width() * 1;
+var h = w / 1.61;
+var p = [20, 50, 30, 20],
+    x = d3.scale.ordinal().rangeRoundBands([0, w - p[1] - p[3]]),
+    y = d3.scale.linear().range([0, h - p[0] - p[2]]),
+    z = d3.scale.ordinal().range(["lightpink", "darkgray", "lightblue"]),
+    parse = d3.time.format("%d/%m/%Y").parse,
+    format = d3.time.format("%d");
+formatMonth = d3.time.format("%b");
 
-example_data = function() {
-    //Building a random growing trend
-    var data = [
-        [new Date(2014, 2, 4, 8, 0, 0, 0), 58],
-        [new Date(2014, 2, 5, 8, 0, 0, 0), 44],
-        [new Date(2014, 2, 6, 8, 0, 0, 0), 50],
-        [new Date(2014, 2, 7, 8, 0, 0, 0), 49],
-        null,
-        null, [new Date(2014, 2, 10, 8, 0, 0, 0), 45],
-        [new Date(2014, 2, 11, 8, 0, 0, 0), 53],
-        [new Date(2014, 2, 12, 8, 0, 0, 0), 60],
-        [new Date(2014, 2, 13, 8, 0, 0, 0), 59],
-        [new Date(2014, 2, 14, 8, 0, 0, 0), 47],
-        null,
-        null, [new Date(2014, 2, 17, 8, 0, 0, 0), 40],
-        [new Date(2014, 2, 18, 8, 0, 0, 0), 5],
-        [new Date(2014, 2, 19, 8, 0, 0, 0), 0],
-        [new Date(2014, 2, 20, 8, 0, 0, 0), 0],
-        [new Date(2014, 2, 21, 8, 0, 0, 0), 10],
-        null,
-        null, [new Date(2014, 2, 24, 8, 0, 0, 0), 49],
-        [new Date(2014, 2, 25, 8, 0, 0, 0), 50],
-        [new Date(2014, 2, 26, 8, 0, 0, 0), 56],
-        [new Date(2014, 2, 27, 8, 0, 0, 0), 59],
-        [new Date(2014, 2, 28, 8, 0, 0, 0), 50],
-        null,
-        null, [new Date(2014, 2, 31, 8, 0, 0, 0), 55],
-        [new Date(2014, 3, 1, 8, 0, 0, 0), 36],
-        [new Date(2014, 3, 2, 8, 0, 0, 0), 48],
-        [new Date(2014, 3, 3, 8, 0, 0, 0), 33],
-        [new Date(2014, 3, 4, 8, 0, 0, 0), 18]
-    ];
-    return data;
-}
+var svg = d3.select("#build-history").append("svg:svg")
+    .attr("width", w)
+    .attr("height", h)
+    .append("svg:g")
+    .attr("transform", "translate(" + p[3] + "," + (h - p[2]) + ")");
 
-var data = example_data();
+d3.csv("js/crimea.csv", function(crimea) {
 
-var margin = {
-    top: 20,
-    right: 20,
-    bottom: 30,
-    left: 40
-},
-    width = $("#build-history").width() * .9;
-height = width / 1.61;
+    // Transpose the data into layers by cause.
+    var causes = d3.layout.stack()(["wounds", "other", "disease"].map(function(cause) {
+        return crimea.map(function(d) {
+            return {
+                x: parse(d.date),
+                y: +d[cause]
+            };
+        });
+    }));
 
-// var x = d3.scale.linear()
-//     .range([0, width]);
+    // Compute the x-domain (by date) and y-domain (by top).
+    x.domain(causes[0].map(function(d) {
+        return d.x;
+    }));
+    y.domain([0, d3.max(causes[causes.length - 1], function(d) {
+        return d.y0 + d.y;
+    })]);
 
-// var y = d3.scale.linear()
-//     .range([height, 0]);
+    // Add a group for each cause.
+    var cause = svg.selectAll("g.cause")
+        .data(causes)
+        .enter().append("svg:g")
+        .attr("class", "cause")
+        .style("fill", function(d, i) {
+            return z(i);
+        })
+        .style("stroke", function(d, i) {
+            return d3.rgb(z(i)).darker();
+        });
 
-var x = d3.time.scale().range([0, width]);
-var y = d3.scale.linear().range([height, 0]);
+    // Add a rect for each date.
+    var rect = cause.selectAll("rect")
+        .data(Object)
+        .enter().append("svg:rect")
+        .attr("x", function(d) {
+            return x(d.x);
+        })
+        .attr("y", function(d) {
+            return -y(d.y0) - y(d.y);
+        })
+        .attr("height", function(d) {
+            return y(d.y);
+        })
+        .attr("width", x.rangeBand());
 
-var xDomain = x.domain(d3.extent(data, function(d) {
-    if (d == null) {
-        return null;
-    }
-    return d[0];
-}));
-y.domain([0, d3.max(data, function(d) {
-    if (d == null) {
-        return null;
-    }
+    //    Add a label per date
+    var label = svg.selectAll("text.month")
+        .data(x.domain())
+        .enter().append("svg:text")
+        .attr("x", function(d) {
+            return x(d) + x.rangeBand() / 2;
+        })
+        .attr("y", 6)
+        .attr("text-anchor", "middle")
+        .attr("dy", ".71em")
+        .text(function(d, i) {
+            return (i % 7) ? null : formatMonth(d);
+        });
 
-    return d[1];
-})]);
+    var label = svg.selectAll("text.day")
+        .data(x.domain())
+        .enter().append("svg:text")
+        .attr("x", function(d) {
+            return x(d) + x.rangeBand() / 2;
+        })
+        .attr("y", 19)
+        .attr("text-anchor", "middle")
+        .attr("dy", ".71em")
+        .text(format);
 
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .tickFormat(d3.time.format('%d/%m'))
-    .ticks(d3.time.weeks, 1)
-    .orient("bottom");
+    // Add y-axis rules.
+    var rule = svg.selectAll("g.rule")
+        .data(y.ticks(5))
+        .enter().append("svg:g")
+        .attr("class", "rule")
+        .attr("transform", function(d) {
+            return "translate(0," + -y(d) + ")";
+        });
 
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left");
+    rule.append("svg:line")
+        .attr("x2", w - p[1] - p[3])
+        .style("stroke", function(d) {
+            return d ? "#fff" : "#000";
+        })
+        .style("stroke-opacity", function(d) {
+            return d ? .7 : null;
+        });
 
-var line = d3.svg.line()
-    .defined(function(d) {
-        return d != null;
-    })
-    .x(function(d) {
-        if (d == null) {
-            return null;
-        }
-
-        return x(d[0]);
-    })
-
-.y(function(d) {
-    if (d == null) {
-        return null;
-    }
-
-    return y(d[1]);
+    rule.append("svg:text")
+        .attr("x", w - p[1] - p[3] + 6)
+        .attr("dy", ".35em")
+        .text(d3.format(",d"));
 });
-
-var area = d3.svg.area()
-    .defined(line.defined())
-    .x(line.x())
-    .y1(line.y())
-    .y0(y(0));
-
-var svg = d3.select("#build-history").append("svg")
-    .datum(data)
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-svg.append("path")
-    .attr("class", "area")
-    .attr("d", area)
-    .style("fill", "#1e91cf");
-
-svg.append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);
-
-svg.append("g")
-    .attr("class", "y axis")
-    .call(yAxis);
-
-svg.append("path")
-//.attr("class", "line")
-.attr("d", line)
-    .style("fill", "none")
-    .style("stroke", "#3da9e3")
-    .style("stroke-width", 2);
-
-
-svg.selectAll(".dot")
-    .data(data.filter(function(d) {
-        if (d == null) {
-            return null;
-        }
-        return d[1];
-    }))
-    .enter().append("circle")
-    .attr("class", "dot")
-    .attr("cx", line.x())
-    .attr("cy", line.y())
-    .attr("r", 1.5)
-    .style("stroke", "none")
-    .style("fill", "rgba(249, 117, 0, 1");
