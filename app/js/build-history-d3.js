@@ -17,7 +17,7 @@ var svg = d3.select("#build-history").append("svg:svg")
 d3.csv("js/crimea.csv", function(crimea) {
 
     // Transpose the data into layers by cause.
-    var causes = d3.layout.stack()(["wounds", "other", "disease"].map(function(cause) {
+    var causes = d3.layout.stack()(["failed", "passed"].map(function(cause) {
         return crimea.map(function(d) {
             return {
                 x: parse(d.date),
