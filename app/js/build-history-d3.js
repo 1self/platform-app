@@ -1,11 +1,11 @@
 var w = $("#build-history").width() * 1;
 var h = w / 1.61;
-var p = [4, 10, 6, 4],
+var p = [h * 0.05, w * 0.1, h * 0.2, w * 0.05],
     x = d3.scale.ordinal().rangeRoundBands([0, w - p[1] - p[3]]),
     xLinear = d3.scale.linear().range([0, w - p[1] - p[3]]);
 y = d3.scale.linear().range([0, h - p[0] - p[2]]),
 z = d3.scale.ordinal().range(["lightpink", "lightblue"]),
-parse = d3.time.format("%d/%m/%Y").parse,
+parse = d3.time.format("%m/%d/%Y").parse,
 format = d3.time.format("%d");
 formatMonth = d3.time.format("%b");
 
@@ -130,21 +130,44 @@ d3.csv("js/crimea.csv", function(crimea) {
         .attr("dy", ".35em")
         .text(d3.format(",d"));
 
-    // Average:
-    var movingAverageLine = d3.svg.line()
+    // Failed Builds Average:
+    var failedBuildsMovingAverage = d3.svg.line()
         .x(function(d, i) {
             //return xLinear(i) * w;
             return xLinear(i);
         })
-        .y(function(d, i) {
-            var filteredData = crimea.filter(function(d, fi) {
-                if (fi <= i && i - fi <= 5) {
-                    return d;
-                } else {
-                    return null;
+        .y(function(meanDay, i) {
+            var filteredData = crimea.filter(function(rangeDay, fi) {
+
+
+                var extent = 5;
+                var end = 0;
+                var begin = 5;
+
+                if (day == 0) {
+                    end += 2;
+                    begin += 2;
+                }
+
+                if (day == 6) {
+                    end += 1;
+                    begin += 1;
+                }
+
+                var day = new Date(rangeDay.date).getDay();
+                if (fi > i - 7 && fi <= i) {
+                    if (day != 0 && day != 6) {
+                        return rangeDay;
+                    }
                 }
             })
             var curval = d3.mean(filteredData, function(d) {
+                // var day = new Date(d.date).getDay();
+                // if (day > 0 && day < 6) {
+                //     return d.failed;
+                // } else {
+                //     return null;
+                // }
                 return d.failed;
             });
             return -y(curval); // going up in height so need to go negative
@@ -153,8 +176,61 @@ d3.csv("js/crimea.csv", function(crimea) {
 
     svg.append("path")
         .attr("class", "average")
-        .attr("d", movingAverageLine(crimea))
+        .attr("d", failedBuildsMovingAverage(crimea))
         .style("fill", "none")
         .style("stroke", "red")
         .style("stroke-width", 2);
+
+    // Successful Builds Average:
+    var passedBuildsMovingAverage = d3.svg.line()
+        .x(function(d, i) {
+            //return xLinear(i) * w;
+            return xLinear(i);
+        })
+        .y(function(d, i) {
+            var filteredData = crimea.filter(function(rangeDay, fi) {
+
+
+                var extent = 5;
+                var end = 0;
+                var begin = 5;
+
+                if (day == 0) {
+                    end += 2;
+                    begin += 2;
+                }
+
+                if (day == 6) {
+                    end += 1;
+                    begin += 1;
+                }
+
+                var day = new Date(rangeDay.date).getDay();
+                if (fi > i - 7 && fi <= i) {
+                    if (day != 0 && day != 6) {
+                        return rangeDay;
+                    }
+                }
+            });
+
+            var curval = d3.mean(filteredData, function(d) {
+                // var day = new Date(d.date).getDay();
+                // if (day > 0 && day < 6) {
+                //     return d.passed;
+                // } else {
+                //     return null;
+                // }
+                return +d.passed + +d.failed;
+            });
+            return -y(curval); // going up in height so need to go negative
+        })
+        .interpolate("basis");
+
+    svg.append("path")
+        .attr("class", "average")
+        .attr("d", passedBuildsMovingAverage(crimea))
+        .style("fill", "none")
+        .style("stroke", "blue")
+        .style("stroke-width", 2);
+
 });
