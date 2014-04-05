@@ -1,6 +1,6 @@
 var w = $("#build-history").width() * 1;
 var h = w / 1.61;
-var p = [20, 50, 30, 20],
+var p = [4, 10, 6, 4],
     x = d3.scale.ordinal().rangeRoundBands([0, w - p[1] - p[3]]),
     xLinear = d3.scale.linear().range([0, w - p[1] - p[3]]);
 y = d3.scale.linear().range([0, h - p[0] - p[2]]),
