@@ -6,10 +6,11 @@ var hoursSleptVsBuilds = function() {
         left: 40
     },
         width = $("#hours-slept-vs-builds").width() * 1,
-        height = width / 1.61;
+        height = width / 1.61 * 0.8;
 
     var x = d3.scale.linear()
         .range([0, width - margin.right]);
+
 
     var y = d3.scale.linear()
         .range([height, 0]);
@@ -19,6 +20,7 @@ var hoursSleptVsBuilds = function() {
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom");
+
 
     var yAxis = d3.svg.axis()
         .scale(y)
@@ -35,6 +37,12 @@ var hoursSleptVsBuilds = function() {
             d.sepalLength = +d.sepalLength;
             d.sepalWidth = +d.sepalWidth;
         });
+
+        var rawData = data.map(function(d, i) {
+            return [d.sepalWidth, d.sepalLength];
+        })
+
+        var reg = regression("linear", rawData);
 
         x.domain(d3.extent(data, function(d) {
             return d.sepalWidth;
@@ -79,6 +87,26 @@ var hoursSleptVsBuilds = function() {
             .style("fill", function(d) {
                 return color(d.species);
             });
+
+        // regression line
+        var regLine = d3.svg.line()
+            .x(function(d, i) {
+                //return xLinear(i) * w;
+                return x(d[0]);
+            })
+            .y(function(d, i) {
+
+                return y(d[1]);
+            });
+
+        var lineToDraw = regLine(reg.points);
+
+        svg.append("path")
+            .attr("class", "regression-line")
+            .attr("d", lineToDraw)
+            .style("fill", "none")
+            .style("stroke", "lightblue")
+            .style("stroke-width", 2);
 
 
 

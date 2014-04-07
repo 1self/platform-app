@@ -17,3 +17,7 @@
   stroke: black; 
   stroke-width; 1px; 
 } 
+
+.fixed-height{
+	height: 400px;
+}
