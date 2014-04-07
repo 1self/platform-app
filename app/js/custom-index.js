@@ -62,6 +62,33 @@ $(function() {
         lineColor: '#1e91cf',
         tooltipPrefix: 'Index: '
     });
+    $('#noise').sparkline([10, 69, 58, 32, 16, 29, 15], {
+        type: 'line',
+        lineWidth: 1,
+        fillColor: '#3da9e3',
+        lineColor: '#9FD5F1',
+        height: 18,
+        width: 90,
+        spotRadius: 2,
+    });
+    $('#productivity').sparkline([69, 54, 78, 83, 24, 56, 71], {
+        type: 'line',
+        lineWidth: 1,
+        fillColor: '#3da9e3',
+        lineColor: '#9FD5F1',
+        height: 18,
+        width: 90,
+        spotRadius: 2,
+    });
+    $('#sleep').sparkline([6.2, 7.5, 6.3, 6.9, 7.3, 8.2, 8.3], {
+        type: 'line',
+        lineWidth: 1,
+        fillColor: '#3da9e3',
+        lineColor: '#9FD5F1',
+        height: 18,
+        width: 90,
+        spotRadius: 2,
+    });
 
 });
 
@@ -243,7 +270,7 @@ $({
 //Timer for tiles info
 
 // builds
-var incrementI = $('#views-x').text();
+var incrementI = $('#builds-x').text();
 
 $({
     numberValue: incrementI
@@ -253,15 +280,15 @@ $({
     duration: 3000,
     easing: 'linear',
     step: function() {
-        $('#views-x').text(Math.ceil(this.numberValue));
+        $('#builds-x').text(Math.ceil(this.numberValue));
     },
     done: function() {
-        $('#views-x').text(Math.ceil(this.numberValue));
+        $('#builds-x').text(Math.ceil(this.numberValue));
     }
 });
 
 // successful builds
-var incrementJ = $('#likes-x').text();
+var incrementJ = $('#passed-x').text();
 
 $({
     numberValue: incrementJ
@@ -271,15 +298,15 @@ $({
     duration: 1500,
     easing: 'linear',
     step: function() {
-        $('#likes-x').text(Math.ceil(this.numberValue));
+        $('#passed-x').text(Math.ceil(this.numberValue));
     },
     done: function() {
-        $('#likes-x').text(Math.ceil(this.numberValue));
+        $('#passed-x').text(Math.ceil(this.numberValue));
     }
 });
 
 // failed builds
-var incrementK = $('#uploaded-x').text();
+var incrementK = $('#failed-x').text();
 
 $({
     numberValue: incrementK
@@ -289,10 +316,64 @@ $({
     duration: 3000,
     easing: 'linear',
     step: function() {
-        $('#uploaded-x').text(Math.ceil(this.numberValue));
+        $('#failed-x').text(Math.ceil(this.numberValue));
     },
     done: function() {
-        $('#uploaded-x').text(Math.ceil(this.numberValue));
+        $('#failed-x').text(Math.ceil(this.numberValue));
+    }
+});
+
+// noise 
+var incrementK = $('#noise-x').text();
+
+$({
+    numberValue: incrementK
+}).animate({
+    numberValue: 41.2
+}, {
+    duration: 3000,
+    easing: 'linear',
+    step: function() {
+        $('#noise-x').text(Math.ceil(this.numberValue));
+    },
+    done: function() {
+        $('#noise-x').text(Math.ceil(this.numberValue));
+    }
+});
+
+// productivity 
+var incrementK = $('#productivity-x').text();
+
+$({
+    numberValue: incrementK
+}).animate({
+    numberValue: 69
+}, {
+    duration: 3000,
+    easing: 'linear',
+    step: function() {
+        $('#productivity-x').text(Math.ceil(this.numberValue));
+    },
+    done: function() {
+        $('#productivity-x').text(Math.ceil(this.numberValue));
+    }
+});
+
+// sleep
+var incrementK = $('#sleep-x').text();
+
+$({
+    numberValue: incrementK
+}).animate({
+    numberValue: 7.4
+}, {
+    duration: 3000,
+    easing: 'linear',
+    step: function() {
+        $('#sleep-x').text(Math.ceil(this.numberValue));
+    },
+    done: function() {
+        $('#sleep-x').text(Math.ceil(this.numberValue));
     }
 });
 

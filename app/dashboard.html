@@ -7,7 +7,7 @@
     <meta name="description" content="Quantified Dev My Dev Dashboard" />
     <meta name="keywords" content="Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Wrapbootstrap, Bootstrap" />
     <meta name="author" content="Bootstrap Gallery" />
-    <link rel="shortcut icon" href="img/quantified-dev-browser-favicon.ico">
+    <link rel="shortcut icon" href="img/quantified-dev-favicon.ico">
     
     <!-- Main CSS -->
     <link href="css/import.css" rel="stylesheet" media="screen">
@@ -308,57 +308,111 @@
         <!-- Page title end -->
         <!-- Row start -->
         <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-6">
+          <div class="col-lg-2 col-md-4 col-sm-6">
             <a class="info-tiles tiles-secondary" href="google-graphs.html">
             <div class="tiles-heading">
-              <div class="pull-left">Local Builds Today</div>
+              <div class="pull-left">Local Builds</div>
               <div class="pull-right"><i class="icon-caret-down"></i> 21.9%</div>
             </div>
             <div class="tiles-body">
               <div class="pull-left animated bounceIn">
                 <i class="icon-cog"></i>
               </div>
-              <div class="pull-right number"><span id="views-x">0</span></div>
+              <div class="pull-right number"><span id="builds-x">0</span></div>
             </div>
             <div class="tiles-footer">
-              <span class="pull-left">View more...</span>
+              <span class="pull-left">Today</span>
               <span class="inline-sparkline pull-right" id="visits"></span>
             </div>
             </a>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6">
+          <div class="col-lg-2 col-md-4 col-sm-6">
             <a class="info-tiles tiles-secondary" href="graphs.html">
             <div class="tiles-heading">
-              <div class="pull-left">Successful Builds Today</div>
+              <div class="pull-left">Passed Builds</div>
               <div class="pull-right"><i class="icon-caret-up"></i> 7.7%</div>
             </div>
             <div class="tiles-body">
               <div class="pull-left animated bounceIn">
                 <i class="icon-cog"></i> <i class="icon-smile"></i>
               </div>
-              <div class="pull-right number"><span id="likes-x">0</span></div>
+              <div class="pull-right number"><span id="passed-x">0</span></div>
             </div>
             <div class="tiles-footer">
-              <span class="pull-left">View more...</span>
+              <span class="pull-left">Today</span>
               <span class="inline-sparkline pull-right" id="unique-visitors"></span>
             </div>
             </a>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6">
+          <div class="col-lg-2 col-md-4 col-sm-6">
             <a class="info-tiles tiles-secondary" href="google-graphs.html">
             <div class="tiles-heading">
-              <div class="pull-left">Failed Builds Today</div>
-              <div class="pull-right"><i class="icon-caret-up"></i> 19.2%</div>
+              <div class="pull-left">Failed Builds</div>
+              <span class="pull-right"><i class="icon-caret-down"></i> 4.9%</span>
             </div>
             <div class="tiles-body">
               <div class="pull-left animated bounceIn">
                 <i class="icon-cog"></i> <i class="icon-frown"></i>
               </div>
-              <div class="pull-right number"><span id="uploaded-x">0</span></div>
+              <div class="pull-right number"><span id="failed-x">0</span></div>
             </div>
             <div class="tiles-footer">
-              <span class="pull-left">View more...</span>
+              <span class="pull-left">Today</span>
               <span class="inline-sparkline pull-right" id="page-views"></span>
+            </div>
+            </a>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <a class="info-tiles tiles-secondary" href="google-graphs.html">
+            <div class="tiles-heading">
+              <div class="pull-left">Avg Noise </div>
+              <div class="pull-right"><i class="icon-caret-down"></i> 8.9%</div>
+            </div>
+            <div class="tiles-body">
+              <div class="pull-left animated bounceIn">
+                <i class="icon-volume-up"></i>
+              </div>
+              <div class="pull-right number"><span id="noise-x">0</span>dB</div>
+            </div>
+            <div class="tiles-footer">
+              <span class="pull-left">This week</span>
+              <span class="inline-sparkline pull-right" id="noise"></span>
+            </div>
+            </a>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <a class="info-tiles tiles-secondary" href="graphs.html">
+            <div class="tiles-heading">
+              <div class="pull-left">Productivity</div>
+              <div class="pull-right"><i class="icon-caret-up"></i> 3.1%</div>
+            </div>
+            <div class="tiles-body">
+              <div class="pull-left animated bounceIn">
+                <i class="icon-fire"></i> 
+              </div>
+              <div class="pull-right number"><span id="productivity-x">0</span>%</div>
+            </div>
+            <div class="tiles-footer">
+              <span class="pull-left">Last Week</span>
+              <span class="inline-sparkline pull-right" id="productivity"></span>
+            </div>
+            </a>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <a class="info-tiles tiles-secondary" href="google-graphs.html">
+            <div class="tiles-heading">
+              <div class="pull-left">Average Sleep</div>
+              <div class="pull-right"><i class="icon-caret-up"></i> 5.4%</div>
+            </div>
+            <div class="tiles-body">
+              <div class="pull-left animated bounceIn">
+                <i class="icon-moon"></i>
+              </div>
+              <div class="pull-right number"><span id="sleep-x">0</span></div>
+            </div>
+            <div class="tiles-footer">
+              <span class="pull-left">This week</span>
+              <span class="inline-sparkline pull-right" id="sleep"></span>
             </div>
             </a>
           </div>
