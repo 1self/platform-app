@@ -65,6 +65,13 @@ var noiseLevel = function() {
             })
             .attr("height", function(d) {
                 return height - y(d.frequency);
+            })
+            .style("fill", function(d, i) {
+                if (i == 3) {
+                    return "blue";
+                } else {
+                    return "lightblue";
+                }
             });
 
     });
