@@ -6,7 +6,7 @@ var hoursSleptVsPassedBuilds = function() {
         left: 40
     },
         width = $("#hours-slept-vs-passed-builds").width() * 1,
-        height = width / 1.61;
+        height = width / 1.61 * 0.8;
 
     var x = d3.scale.linear()
         .range([0, width - margin.right]);

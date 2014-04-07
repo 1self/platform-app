@@ -5,7 +5,7 @@ var buildDurationVsUnproductivity = function() {
         bottom: 30,
         left: 40
     },
-        width = $("#build-duration-vs-unproductivity").width() * 1,
+        width = $("#build-duration-vs-unproductivity").width() * 0.855,
         height = width / 1.61;
 
     var x = d3.scale.linear()
