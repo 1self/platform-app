@@ -32,9 +32,15 @@ var buildDurationVsUnproductivity = function() {
 
     d3.tsv("js/build-duration-vs-unproductivity.tsv", function(error, data) {
         data.forEach(function(d) {
-            d.sepalLength = +d.sepalLength;
+            d.sepalLength = +d.sepalLength * 9;
             d.sepalWidth = +d.sepalWidth;
         });
+
+        var rawData = data.map(function(d, i) {
+            return [d.sepalWidth, d.sepalLength];
+        })
+
+        var reg = regression("linear", rawData);
 
         x.domain(d3.extent(data, function(d) {
             return d.sepalWidth;
@@ -63,7 +69,7 @@ var buildDurationVsUnproductivity = function() {
             .attr("y", 6)
             .attr("dy", ".71em")
             .style("text-anchor", "end")
-            .text("Unproductivity %")
+            .text("Productivity %")
 
         svg.selectAll(".dot")
             .data(data)
@@ -80,6 +86,25 @@ var buildDurationVsUnproductivity = function() {
                 return color(d.species);
             });
 
+        // regression line
+        var regLine = d3.svg.line()
+            .x(function(d, i) {
+                //return xLinear(i) * w;
+                return x(d[0]);
+            })
+            .y(function(d, i) {
+
+                return y(d[1]);
+            });
+
+        var lineToDraw = regLine(reg.points);
+
+        svg.append("path")
+            .attr("class", "regression-line")
+            .attr("d", lineToDraw)
+            .style("fill", "none")
+            .style("stroke", "lightblue")
+            .style("stroke-width", 2);
 
 
     });
