@@ -36,12 +36,20 @@ var hoursSleptVsPassedBuilds = function() {
             d.sepalWidth = +d.sepalWidth;
         });
 
+        var rawData = data.map(function(d, i) {
+            return [d.sepalWidth, d.sepalLength];
+        })
+
+        var reg = regression("linear", rawData);
+
         x.domain(d3.extent(data, function(d) {
             return d.sepalWidth;
         })).nice();
         y.domain(d3.extent(data, function(d) {
             return d.sepalLength;
         })).nice();
+
+
 
         svg.append("g")
             .attr("class", "x axis")
@@ -80,6 +88,25 @@ var hoursSleptVsPassedBuilds = function() {
                 return color(d.species);
             });
 
+        // regression line
+        var regLine = d3.svg.line()
+            .x(function(d, i) {
+                //return xLinear(i) * w;
+                return x(d[0]);
+            })
+            .y(function(d, i) {
+
+                return y(d[1]);
+            });
+
+        var lineToDraw = regLine(reg.points);
+
+        svg.append("path")
+            .attr("class", "regression-line")
+            .attr("d", lineToDraw)
+            .style("fill", "none")
+            .style("stroke", "lightblue")
+            .style("stroke-width", 2);
 
 
     });
