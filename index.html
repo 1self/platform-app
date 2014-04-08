@@ -38,6 +38,7 @@
 
             var navbar_moreinfo_click = document.getElementById('navbar_moreinfo');
             addListener(navbar_moreinfo_click, 'click', function() {
+                alert('mi click');
                 ga('send', 'event', 'navbar_link', 'click', 'navbar_moreinfo');
             });
 
@@ -50,6 +51,19 @@
             addListener(navbar_download_click, 'click', function() {
                 ga('send', 'event', 'navbar_link', 'click', 'navbar_download');
             });
+
+
+/*
+            var mc_embedded_subscribe_click = document.getElementById('mc-embedded-subscribe');
+            addListener(mc_embedded_subscribe_click, 'click', function() {
+                alert('sup click');
+                ga('send', 'event', 'signup_button', 'click', 'mc-embedded-subscribe');
+            });*/
+
+            $('#mc-embedded-subscribe').on('click', function() {
+              ga('send', 'event', 'mc-embedded-subscribe', 'click', 'signup_button');
+            });
+            
 
 
             /**
@@ -256,7 +270,7 @@
                                     You're welcome to <a href="https://github.com/QuantifiedDev/event-sources" target="_blank">view and modify the code</a>.
                                 </p>
                                 <p>
-                                    <a href="#">Download QuantifiedDev VS extension</a> 
+                                    <a href="/QuantifiedDevVisualStudioExtension.vsix">Download QuantifiedDev VS extension</a> 
                                 </p>
                             </div>
                         </div>
