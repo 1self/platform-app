@@ -26,6 +26,46 @@
           ga('create', 'UA-49828181-1', 'quantifieddev.org');
           ga('send', 'pageview');
 
+            var navbar_top_click = document.getElementById('navbar_top');
+            addListener(navbar_top_click, 'click', function() {
+                ga('send', 'event', 'navbar_link', 'click', 'navbar_top');
+            });
+
+            var navbar_signup_click = document.getElementById('navbar_signup');
+            addListener(navbar_signup_click, 'click', function() {
+                ga('send', 'event', 'navbar_link', 'click', 'navbar_signup');
+            });
+
+            var navbar_moreinfo_click = document.getElementById('navbar_moreinfo');
+            addListener(navbar_moreinfo_click, 'click', function() {
+                ga('send', 'event', 'navbar_link', 'click', 'navbar_moreinfo');
+            });
+
+            var navbar_getinvolved_click = document.getElementById('navbar_getinvolved');
+            addListener(navbar_getinvolved_click, 'click', function() {
+                ga('send', 'event', 'navbar_link', 'click', 'navbar_getinvolved');
+            });
+
+            var navbar_download_click = document.getElementById('navbar_download');
+            addListener(navbar_download_click, 'click', function() {
+                ga('send', 'event', 'navbar_link', 'click', 'navbar_download');
+            });
+
+
+            /**
+            * Utility to wrap the different behaviors between W3C-compliant browsers
+            * and IE when adding event handlers.
+            *
+            * @param {Object} element Object on which to attach the event listener.
+            * @param {string} type A string representing the event type to listen for
+            *     (e.g. load, click, etc.).
+            * @param {function()} callback The function that receives the notification.
+            */
+            function addListener(element, type, callback) {
+                if (element.addEventListener) element.addEventListener(type, callback);
+                else if (element.attachEvent) element.attachEvent('on' + type, callback);
+            }
+
         </script>
     </head>
     <body data-spy="scroll" data-target=".navbar">
@@ -44,11 +84,11 @@
                     <a class="brand" href="/"><img src="/app/img/quantified-dev-logo.png" /></a>
                     <div class="nav-collapse collapse pull-right">
                         <ul class="nav">
-                            <li class="active"><a href="#top">Top</a></li>
-                            <li><a href="#signup">Sign Up</a></li>
-                            <li><a href="#moreinfo">More Info</a></li>
-                            <li><a href="#getinvolved">Get Involved</a></li>
-                            <li><a href="#download">Download</a></li>
+                            <li class="active"><a href="#top" id="navbar_top">Top</a></li>
+                            <li><a href="#signup" id="navbar_signup">Sign Up</a></li>
+                            <li><a href="#moreinfo" id="navbar_moreinfo">More Info</a></li>
+                            <li><a href="#getinvolved" id="navbar_getinvolved">Get Involved</a></li>
+                            <li><a href="#download" id="navbar_download">Download</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
