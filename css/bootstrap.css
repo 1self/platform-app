@@ -1292,7 +1292,7 @@ select:focus:required:invalid:focus {
   position: relative;
   margin-bottom: 0;
   *margin-left: 0;
-  font-size: 16px;
+  font-size: 18px;
   vertical-align: top;
   -webkit-border-radius: 0 3px 3px 0;
   -moz-border-radius: 0 3px 3px 0;
@@ -4202,7 +4202,7 @@ input[type="submit"].btn.btn-mini {
   color: white;
 }
 .navbar-transparent .navbar-inner {
-  background: rgba(57, 57, 57, 0.65);
+  background: rgba(57, 57, 57, 1);
   border: none;
   box-shadow: none;
 }
