@@ -120,7 +120,7 @@
                             </div>
                         </div>
                         <div class="video span5">
-                            <iframe src="http://player.vimeo.com/video/91448290?title=0&amp;byline=0&amp;portrait=0&amp;color=38e8ae" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                            <iframe id="vimeoPlayer" src="http://player.vimeo.com/video/91448290?title=0&amp;byline=0&amp;portrait=0&amp;color=38e8ae" width="500" height="281" frameborder="0" data-progress="true" data-seek="true" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
                         </div>
                     </div>
                     <div class="row">&nbsp;
@@ -333,11 +333,11 @@
         <link href='http://fonts.googleapis.com/css?family=Questrial|Lato:300,400,700,900,300italic,400italic,700italic,900italic|Trocchi' rel='stylesheet' type='text/css'>
 
 
-                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-                            </script>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+        </script>
 
-                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-                            </script>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+        </script>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
         <script>window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js"><\/script>')</script>
@@ -349,6 +349,7 @@
 
         <script type="text/javascript" src="js/fitvid.js"></script>
         <script type="text/javascript" src="js/launch.js"></script>
+        <script type="text/javascript" src="js/vimeo.ga.js"></script>
 
     </body>
 </html>
