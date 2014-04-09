@@ -26,30 +26,25 @@
           ga('create', 'UA-49828181-1', 'quantifieddev.org');
           ga('send', 'pageview');
 
-            var navbar_top_click = document.getElementById('navbar_top');
-            addListener(navbar_top_click, 'click', function() {
-                ga('send', 'event', 'navbar_link', 'click', 'navbar_top');
+            $('#navbar_top').on('click', function() {
+                ga('send', 'event', 'navbar_link', 'navbar_top_click');
             });
 
-            var navbar_signup_click = document.getElementById('navbar_signup');
-            addListener(navbar_signup_click, 'click', function() {
-                ga('send', 'event', 'navbar_link', 'click', 'navbar_signup');
+            $('#navbar_signup').on('click', function() {
+                ga('send', 'event', 'navbar_link', 'navbar_signup_click');
             });
 
-            var navbar_moreinfo_click = document.getElementById('navbar_moreinfo');
-            addListener(navbar_moreinfo_click, 'click', function() {
-                alert('mi click');
-                ga('send', 'event', 'navbar_link', 'click', 'navbar_moreinfo');
+            $('#navbar_moreinfo').on('click', function() {
+//                alert('mi click');
+                ga('send', 'event', 'navbar_link', 'navbar_moreinfo_click');
             });
 
-            var navbar_getinvolved_click = document.getElementById('navbar_getinvolved');
-            addListener(navbar_getinvolved_click, 'click', function() {
-                ga('send', 'event', 'navbar_link', 'click', 'navbar_getinvolved');
+            $('#navbar_getinvolved').on('click', function() {
+                ga('send', 'event', 'navbar_link', 'navbar_getinvolved_click');
             });
 
-            var navbar_download_click = document.getElementById('navbar_download');
-            addListener(navbar_download_click, 'click', function() {
-                ga('send', 'event', 'navbar_link', 'click', 'navbar_download');
+            $('#navbar_download').on('click', function() {
+                ga('send', 'event', 'navbar_link', 'navbar_download_click');
             });
 
 
@@ -61,7 +56,7 @@
             });*/
 
             $('#mc-embedded-subscribe').on('click', function() {
-              ga('send', 'event', 'mc-embedded-subscribe', 'click', 'signup_button');
+              ga('send', 'event', 'mc-embedded-subscribe', 'click');
             });
             
 
