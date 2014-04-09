@@ -59,6 +59,19 @@
               ga('send', 'event', 'mc-embedded-subscribe', 'click');
             });
             
+            /**
+
+            * Function that tracks a click on an outbound link in Google Analytics.
+            * This function takes a valid URL string as an argument, and uses that URL string
+            * as the event label.
+            */
+            var trackLinkClick = function(url) {
+               ga('send', 'event', 'outbound', 'click', url, {'hitCallback':
+                 function () {
+                 document.location = url;
+                 }
+               });
+            }
 
 
             /**
@@ -265,7 +278,7 @@
                                     You're welcome to <a href="https://github.com/QuantifiedDev/event-sources" target="_blank">view and modify the code</a>.
                                 </p>
                                 <p>
-                                    <a href="/QuantifiedDevVisualStudioExtension.vsix">Download QuantifiedDev VS extension</a> 
+                                    <a href="/QuantifiedDevVisualStudioExtension.vsix" onclick="trackLinkClick('DownloadVSExtension')">Download QuantifiedDev VS extension</a> 
                                 </p>
                             </div>
                         </div>
