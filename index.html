@@ -131,7 +131,7 @@
                         <div class="span12 center">
                             <a href="https://twitter.com/QuantifiedDev" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @QuantifiedDev</a>
                             <a href="https://twitter.com/intent/tweet?button_hashtag=QuantifiedDev" class="twitter-hashtag-button" data-size="large" data-related="QuantifiedDev" data-url="http://QuantifiedDev.org">Tweet #QuantifiedDev</a>
-                            <iframe src="http://ghbtns.com/github-btn.html?user=QuantifiedDev&type=follow&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="220" height="30"></iframe>
+                            <iframe src="http://ghbtns.com/github-btn.html?user=QuantifiedDev&type=follow&size=large" onclick="alert('dkdkd')" allowtransparency="true" frameborder="0" scrolling="0" width="220" height="30"></iframe>
                         </div>
                     </div>
                 </div>
@@ -158,7 +158,7 @@
                                     Plug in your favourite development tools and other sources of data to create your own private store of development statistics.
                                 </p>
                                 <p>
-                                    <a href="#signup">Sign up</a> to find out new insights about yourself by discovering new connections between data sets and by comparisons with your peers.
+                                    <a href="#signup" id="moreInfoBenefitsSignUp">Sign up</a> to find out new insights about yourself by discovering new connections between data sets and by comparisons with your peers.
                                     <br /><br />
                                 </p>
                             </div>
@@ -177,7 +177,7 @@
                                 <p>
                                     QuantifiedDev gives you these answers and more
                                 </p>
-                                <p><a href="#signup">Sign up</a> to start exploring<br/><br/></p>
+                                <p><a href="#signup" id="moreInfoPossibilitiesSignUp">Sign up</a> to start exploring<br/><br/></p>
                             </div>
                         </div>
                         <div class = "span4">
@@ -187,7 +187,7 @@
                                 </p>
                                 <p>Once we're up and running QuantifiedDev will be open source. Please help us to extend the capability of QuantifiedDev by building extensions to it that plug into your favourite tools to log the information and deliver the insights that interest you.
                                 </p>
-                                <p><a href="#signup">Sign up</a> for more information and the earliest access
+                                <p><a href="#signup" id="moreInfoCommunitySignUp">Sign up</a> for more information and the earliest access
                                 </p>
                             </div>
                         </div>
@@ -204,7 +204,7 @@
                                 <i class="icon-group icon-feature"></i>
                                 <p>Start logging your own stats to help create a richer data set.</p>
                                 <p>Your personal stats are private but QuantifiedDev will aggregate statistics to enable comparisons with the wider community</p>
-                                <p><a class="btn btn-outline btn-red margin-verticals" href="#signup">&nbsp;Sign up&nbsp;&nbsp; &raquo;</a></p>
+                                <p><a class="btn btn-outline btn-red margin-verticals" href="#signup" id="getInvolvedSignUpButton">&nbsp;Sign up&nbsp;&nbsp; &raquo;</a></p>
                             </div>
                         </div>
                         <div class="span4">
@@ -213,7 +213,7 @@
                                 <i class="icon-plus icon-feature"></i>
                                 <p>QuantifiedDev will get better and better as it is integrated with more development tools</p>
                                 <p>Help the community by extending the open source platform<br /><br /></P>
-                                <p><a class="btn btn-outline btn-red margin-verticals" href="https://github.com/QuantifiedDev" target="_blank">&nbsp;&nbsp;GitHub&nbsp;&nbsp; &raquo;</a></p>
+                                <p><a class="btn btn-outline btn-red margin-verticals" href="https://github.com/QuantifiedDev" target="_blank" id="getInvolvedGitHubButton">&nbsp;&nbsp;GitHub&nbsp;&nbsp; &raquo;</a></p>
                             </div>
                        </div>
                         <div class="span4">
@@ -222,7 +222,7 @@
                                 <i class="icon-bullhorn icon-feature"></i>
                                 <p>QuantifiedDev can take off with your help </p>
                                 <p>Tell your friends and we'll soon have an amazing community<br /><br /><br /></p>
-                                <p><a class="btn btn-outline btn-red margin-verticals" href="https://twitter.com/intent/tweet?url=http://QuantifiedDev.org&button_hashtag=QuantifiedDev" data-related="QuantifiedDev" data-url="http://QuantifiedDev.org">Tweet us &raquo;</a></p>
+                                <p><a class="btn btn-outline btn-red margin-verticals" href="https://twitter.com/intent/tweet?url=http://QuantifiedDev.org&button_hashtag=QuantifiedDev" data-related="QuantifiedDev" data-url="http://QuantifiedDev.org" id="getInvolvedTweetButton">Tweet us &raquo;</a></p>
                             </div>
                         </div>
                     </div>
@@ -241,7 +241,7 @@
                                     Our VS extension currently logs each build that you perform and whether that build succeeded or failed. It will also ask you for your location when you initially install it.
                                 </p>
                                 <p>
-                                    You're welcome to <a href="https://github.com/QuantifiedDev/event-sources" target="_blank">view and modify the code</a>.
+                                    You're welcome to <a href="https://github.com/QuantifiedDev/event-sources" target="_blank" id="downloadModifyCodeLink">view and modify the code</a>.
                                 </p>
                                 <p>
                                     <a href="/QuantifiedDevVisualStudioExtension.vsix" onclick="trackLinkClick('DownloadVSExtension')">Download QuantifiedDev VS extension</a> 
@@ -345,6 +345,37 @@
             $('#navbar_download').on('click', function() {
                 ga('send', 'event', 'navbar_link', 'navbar_download_click');
             });
+
+            $('#moreInfoBenefitsSignUp').on('click', function() {
+                ga('send', 'event', 'moreinfo', 'moreInfoBenefitsSignUp_click');
+            });
+
+            $('#moreInfoPossibilitiesSignUp').on('click', function() {
+                ga('send', 'event', 'moreinfo', 'moreInfoPossibilitiesSignUpd_click');
+            });
+
+            $('#moreInfoCommunitySignUp').on('click', function() {
+                ga('send', 'event', 'moreinfo', 'moreInfoCommunitySignUp_click');
+            });
+
+
+
+            $('#getInvolvedSignUpButton').on('click', function() {
+                ga('send', 'event', 'getinvolved', 'getInvolvedSignUpButton_click');
+            });
+
+            $('#getInvolvedGitHubButton').on('click', function() {
+                ga('send', 'event', 'getinvolved', 'getInvolvedGitHubButton_click');
+            });
+
+            $('#getInvolvedTweetButton').on('click', function() {
+                ga('send', 'event', 'getinvolved', 'getInvolvedTweetButton_click');
+            });
+
+            $('#downloadModifyCodeLink').on('click', function() {
+                ga('send', 'event', 'download', 'downloadModifyCodeLink_click');
+            });
+
 
 
 
