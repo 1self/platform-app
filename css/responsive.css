@@ -846,6 +846,10 @@
   .carousel-caption {
     position: static;
   }
+  
+  #mce-EMAIL {
+    width: 150px;
+  }
 }
 @media (max-width: 979px) {
   body {
