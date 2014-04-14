@@ -55,6 +55,19 @@
             }*/
 
         </script>
+        <script>
+        var vimeoCategory = "vimeo";
+        $(document).ready(function(){
+          if (Math.random() > 0.5) {
+            vimeoCategory = "vimeo_chart";
+            $("#vidDiv1").append('<iframe id="vimeoPlayer" src="http://player.vimeo.com/video/91935724?title=0&amp;byline=0&amp;portrait=0&amp;color=38e8ae" width="500" height="281" frameborder="0" data-progress="true" data-seek="true" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
+          } else {
+            vimeoCategory = "vimeo_dogs";
+            $("#vidDiv1").append('<iframe id="vimeoPlayer" src="http://player.vimeo.com/video/91448290?title=0&amp;byline=0&amp;portrait=0&amp;color=38e8ae" width="500" height="281" frameborder="0" data-progress="true" data-seek="true" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
+          }
+          ga('send', 'event', vimeoCategory, 'loaded video');
+        });
+        </script>
     </head>
     <body data-spy="scroll" data-target=".navbar">
         <!--[if lt IE 7]>
@@ -89,12 +102,12 @@
                         <div class="span7">
                             <div class="hero ">
                                 <!-- Main hero unit for a primary marketing message or call to action -->
-                                <h1>Become a better developer</h1>
+                                <h1 id="mainTitle">Become a better developer</h1>
                                 <p class="cursive">Log and compare your development data for personal insights</p>
                             </div>
                         </div>
-                        <div class="video span5">
-                            <iframe id="vimeoPlayer" src="http://player.vimeo.com/video/91448290?title=0&amp;byline=0&amp;portrait=0&amp;color=38e8ae" width="500" height="281" frameborder="0" data-progress="true" data-seek="true" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                        <div class="video span5" id="vidDiv1">
+                            
                         </div>
                     </div>
                     <div class="row">&nbsp;

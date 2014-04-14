@@ -5,8 +5,14 @@
  */
 
 $(function () {
-    var f = $('#vimeoPlayer'),
-        url = f.attr('src').split('?')[0],
+    var category = "vimeo";
+    if (vimeoCategory)
+        category = vimeoCategory;
+
+    var f;
+    f = $('#vimeoPlayer');
+
+    var url = f.attr('src').split('?')[0],
         trackProgress = f.data('progress'), // Data attribute to enable progress tracking
         trackSeeking = f.data('seek'); // Data attribute to enable seek tracking
 
@@ -33,14 +39,14 @@ $(function () {
         case 'seek':
             if (trackSeeking && !videoSeeking) {
                 //ga('send', 'event', 'category', 'action', 'label');
-                ga('send', 'event', 'Vimeo', 'Skipped video forward or backward');
+                ga('send', 'event', category, 'Skipped video forward or backward');
                 videoSeeking = true; // Avoid subsequent seek trackings
             }
             break;
 
         case 'play':
             if (!videoPlayed) {
-                ga('send', 'event', 'Vimeo', 'Started video');
+                ga('send', 'event', category, 'Started video');
                 videoPaused = false;
                 videoPlayed = true; //  Avoid subsequent play trackings
             }
@@ -48,14 +54,14 @@ $(function () {
 
         case 'pause':
             if (timePercentComplete < 100 && !videoPaused) {
-                ga('send', 'event', 'Vimeo', 'Paused video');
+                ga('send', 'event', category, 'Paused video');
                 videoPaused = true; // Avoid subsequent pause trackings
             }
             break;
 
         case 'finish':
             if (!videoCompleted) {
-                ga('send', 'event', 'Vimeo', 'Completed video');
+                ga('send', 'event', category, 'Completed video');
                 videoCompleted = true; // Avoid subsequent finish trackings
             }
             break;
@@ -112,7 +118,7 @@ $(function () {
         }
 
         if (progressTracked && trackProgress) {
-            ga('send', 'event', 'Vimeo', progress);
+            ga('send', 'event', category, progress);
         }
     }
 
