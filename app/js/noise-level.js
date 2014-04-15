@@ -52,6 +52,10 @@ var noiseLevel = function() {
             .style("text-anchor", "end")
             .text("count");
 
+        firstValue = data.map(function(d, i) {
+            return d[0];
+        });
+
         svg.selectAll(".bar")
             .data(data)
             .enter().append("rect")
