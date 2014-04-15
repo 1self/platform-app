@@ -116,41 +116,41 @@
                                     
                                             <h1>Track</h1>
                                             <p class="lead">Log and compare your software development data for personal insights</p>
-                                            <a class="btn btn-large btn-primary" href="#">Yes, I want this!</a>
-                                            <a class="btn btn-large btn-danger" href="#">Boring!</a>
+                                            <a class="btn btn-large" href="#">Yes, I want this!</a>
+                                            <a class="btn btn-large" href="#">Boring!</a>
                                      
                                 </div>
                                 <div class="item item-padded ">
                                             <h1>Connect</h1>
                                             <p class="lead">Plug in your favourite dev tools to auto-log your data
 </p>
-                                            <a class="btn btn-large btn-primary" href="#">Yes, I want this!</a>
-                                            <a class="btn btn-large btn-danger" href="#">Boring!</a>
+                                            <a class="btn btn-large" href="#">Yes, I want this!</a>
+                                            <a class="btn btn-large" href="#">Boring!</a>
                                 </div>
-                                <div class="item item-padded ">
+                                <div class="item item-padded">
                                             <h1>Keep</h1>
                                             <p class="lead">Your personal record - across projects, tools and languages</p>
-                                            <a class="btn btn-large btn-primary" href="#">Yes, I want this!</a>
-                                            <a class="btn btn-large btn-danger" href="#">Boring!</a>
+                                            <a class="btn btn-large" href="#">Yes, I want this!</a>
+                                            <a class="btn btn-large" href="#">Boring!</a>
                                 </div>
-                                <div class="item item-padded ">
+                                <div class="item item-padded">
                                             <h1>Improve</h1>
                                             <p class="lead">See what affects and act to improve the metrics that matter to you
 </p>
-                                            <a class="btn btn-large btn-primary" href="#">Yes, I want this!</a>
-                                            <a class="btn btn-large btn-danger" href="#">Boring!</a>
+                                            <a class="btn btn-large" href="#">Yes, I want this!</a>
+                                            <a class="btn btn-large" href="#">Boring!</a>
                                 </div>
-                                <div class="item item-padded ">
+                                <div class="item item-padded">
                                             <h1>Compare</h1>
                                             <p class="lead">See how you compare to your peers, your team and the experts</p>
-                                            <a class="btn btn-large btn-primary" href="#">Yes, I want this!</a>
-                                            <a class="btn btn-large btn-danger" href="#">Boring!</a>
+                                            <a class="btn btn-large" href="#">Yes, I want this!</a>
+                                            <a class="btn btn-large" href="#">Boring!</a>
                                 </div>
                                 <div class="item item-padded">
                                             <h1>Prove</h1>
                                             <p class="lead">Improve your career prospects with your provable skills CV</p>
-                                            <a class="btn btn-large btn-primary" href="#">Yes, I want this!</a>
-                                            <a class="btn btn-large btn-danger" href="#">Boring!</a>
+                                            <a class="btn btn-large" href="#">Yes, I want this!</a>
+                                            <a class="btn btn-large" href="#">Boring!</a>
                                 </div>
                             </div>
                             <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
@@ -465,8 +465,52 @@
     }
     </script>
     <script>
+        var debug = console.log;
+        debug = function(){}; // comment this out to get logging
         $(document).ready(function(){
-            $(".carousel").carousel({interval: 3000});
+            $('.carousel').carousel('pause');
+        });
+        $(document).ready(function(){
+            var timings = [6000, 4000, 4000, 4000, 4000, 4000];
+            var index = 0;
+            var animate = true;
+
+            var nextAnimation = function(timings){
+                if(animate){
+                    $('.right.carousel-control').click();                  
+                }
+
+                debug("staying on step " + index + " for " + timings[index]);
+                setTimeout(nextAnimation, timings[index], timings);
+            }
+
+            debug("staying on step " + index + " for " + timings[index]);
+            setTimeout(nextAnimation, timings[index], timings);
+
+            $('.carousel')
+            .mouseover(function(){
+                animate = false;
+                debug("animate false");
+            })
+            .mouseleave(function(){
+                animate = true;
+                debug("animate true");
+            });
+
+            $('.left.carousel-control').click(function(){
+                index -= 1;
+                index = index % timings.length ;
+                index = Math.abs(index);
+                debug(index);
+            });
+
+            $('.right.carousel-control').click(function(){
+                console.log("moving from " + index );
+                index += 1;
+                index = index % timings.length ;
+                debug("to " + index);
+            })
+
         });
     </script>
 </body>
