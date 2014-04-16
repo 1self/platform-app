@@ -12,6 +12,7 @@
 }
 
 #headline-id{
+	margin: 50px 0px 30px 0px;
 	padding: 30px 0px 30px 0px;
 }
 
@@ -46,5 +47,8 @@
 }
 
 #vidDiv1{
-	width: 100%;
+}
+
+.video {
+  margin: 0 auto;
 }
