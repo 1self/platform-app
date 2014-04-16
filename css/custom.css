@@ -22,3 +22,15 @@
 .carousel-indicators .active{
 	background-color: black;
 }
+
+.mainlogo{
+	padding-top: 15px;
+}
+
+#mc-embedded-subscribe-form{
+	margin-bottom: 20px;
+}
+
+#mce-EMAIL{
+	color: black;
+}

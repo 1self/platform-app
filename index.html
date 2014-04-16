@@ -76,33 +76,36 @@
     <!--[if lt IE 7]>
     <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
-    <div class="navbar navbar-transparent navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container-fluid">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </a>
+                </button>
+                <div class="mainlogo">
                 <a class="brand" href="/">
                     <img src="/app/img/quantified-dev-logo.png" />
                 </a>
-                <div class="nav-collapse collapse pull-right">
-                    <ul class="nav">
-                        <li class="active" id="liclass"><a href="#top" id="navbar_top">Top</a>
-                        </li>
-                        <li><a href="#signup" id="navbar_signup">Sign Up</a>
-                        </li>
-                        <li><a href="#moreinfo" id="navbar_moreinfo">More Info</a>
-                        </li>
-                        <li><a href="#getinvolved" id="navbar_getinvolved">Get Involved</a>
-                        </li>
-                        <li><a href="#download" id="navbar_download">Download</a>
-                        </li>
-                    </ul>
                 </div>
-                <!--/.nav-collapse -->
             </div>
+            <div class="collapse navbar-collapse pull-right">
+                <ul class="nav navbar-nav">
+                    <li class="active" id="liclass"><a href="#top" id="navbar_top">Top</a>
+                    </li>
+                    <li><a href="#signup" id="navbar_signup">Sign Up</a>
+                    </li>
+                    <li><a href="#moreinfo" id="navbar_moreinfo">More Info</a>
+                    </li>
+                    <li><a href="#getinvolved" id="navbar_getinvolved">Get Involved</a>
+                    </li>
+                    <li><a href="#download" id="navbar_download">Download</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
         </div>
     </div>
     <div class="body">
@@ -160,7 +163,7 @@
                                     <a class="btn btn-large" href="#">Boring!</a> -->
                                 </div>
                             </div>
-                            
+
                         </div>
                         <!-- /.carousel -->
 
@@ -178,13 +181,18 @@
                         <div class="input-append">
                             <!-- Begin MailChimp Signup Form -->
                             <div id="mc_embed_signup">
-                                <form action="http://QuantifiedDev.us8.list-manage.com/subscribe/post?u=6cba468ceea6fc41a7d7db50e&amp;id=36b7c99957" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate>
-                                    <input type="email" value="" name="EMAIL" class="input-large" id="mce-EMAIL" placeholder="you@email.com" required>
+                                <form action="http://QuantifiedDev.us8.list-manage.com/subscribe/post?u=6cba468ceea6fc41a7d7db50e&amp;id=36b7c99957" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate role="form">
+                                    <div class="form-group">
+                                    <input type="email" value="" name="EMAIL" class="input input-lg" id="mce-EMAIL" placeholder="you@email.com" required>
+                                    </div>
                                     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                                     <div style="position: absolute; left: -5000px;">
                                         <input type="text" name="b_6cba468ceea6fc41a7d7db50e_36b7c99957" value="">
                                     </div>
-                                    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-outline btn-red btn-large">
+
+                                    <div class="form-group">
+                                        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-danger btn-lg">
+                                    </div>
                                 </form>
                             </div>
                             <!--End mc_embed_signup-->
@@ -466,7 +474,7 @@
     }
     </script>
     <script>
-    var debug = console.log;
+    var debug = console.log.bind(console);
     //debug = function() {}; // comment this out to get logging
     $(document).ready(function() {
         $('.carousel').carousel('pause');
