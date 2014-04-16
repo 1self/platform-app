@@ -472,7 +472,7 @@
     </script>
     <script>
     var debug = console.log.bind(console);
-    //debug = function() {}; // comment this out to get logging
+    debug = function() {}; // comment this out to get logging
     $(document).ready(function() {
         $('.carousel').carousel('pause');
     });
@@ -515,6 +515,10 @@
             index += 1;
             index = index % timings.length;
             debug("to " + index);
+        })
+
+        $('#myCarousel').on('slid.bs.carousel', function (data, other) {
+          console.log('check check');
         })
 
     });
