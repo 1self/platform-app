@@ -13,50 +13,59 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width" />
     <meta name="google-site-verification" content="2nQMCYUg7F7nHAOl6fTyThrdNcOmOT7cXKWOMfB0onk" />
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/main.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
-    <script src="js/bootstrap-carousel.js"></script>
+    <link rel="stylesheet" href="/bootstrap-3.1.1/css/bootstrap.css">
+    <script src="/bootstrap-3.1.1/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    
 </head>
 
 <body data-spy="scroll" data-target=".navbar">
-<div id="myCarousel" class="carousel slide">
-      <div class="carousel-inner">
-        <div class="item active">
-          <div class="container">
-            <div class="">
-              <h1>Example headline.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Sign up today</a>
+    <div id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+            <li data-target="#myCarousel" data-slide-to="5"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="container">
+                    <div class="">
+                        <h1>Example headline.</h1>
+                        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <a class="btn btn-large btn-primary" href="#">Sign up today</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="container">
-            <div class="">
-              <h1>Another example headline.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Learn more</a>
+            <div class="item">
+                <div class="container">
+                    <div class="">
+                        <h1>Another example headline.</h1>
+                        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <a class="btn btn-large btn-primary" href="#">Learn more</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="container">
-            <div class="">
-              <h1>One more for good measure.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
+            <div class="item">
+                <div class="container">
+                    <div class="">
+                        <h1>One more for good measure.</h1>
+                        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div><!-- /.carousel -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+    <!-- /.carousel -->
     <script>
-    $(document).ready(function(){
-    	    $('.carousel').carousel();
+    $(document).ready(function() {
+        $('.carousel').carousel();
     });
     </script>
 </body>

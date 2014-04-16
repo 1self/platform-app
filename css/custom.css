@@ -1,12 +1,24 @@
-#myCarousel .item {
-	margin: 10px 80px;
-}
+/*#myCarousel .item {
+	margin: 10px 30px;
+}*/
 
 #carousel-container-id{
 	margin: 20px auto;
 
 }
 
+.carousel.inner{
+	width: 100px;
+}
+
 #headline-id{
 	padding: 30px 0px 30px 0px;
+}
+
+.carousel-indicators li{
+	border: 1px solid black;
+}
+
+.carousel-indicators .active{
+	background-color: black;
 }
