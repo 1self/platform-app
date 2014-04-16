@@ -34,3 +34,17 @@
 #mce-EMAIL{
 	color: black;
 }
+
+.build-graph{
+	width: 100%;
+	height: auto;
+}
+
+.container > .navbar-header{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+#vidDiv1{
+	width: 100%;
+}
