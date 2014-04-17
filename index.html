@@ -20,6 +20,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
     <script src="bootstrap-3.1.1/js/bootstrap.js"></script>
+    <script src="js/bootstrap-carousel-interval-array.js"></script>
     <script>
     window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js"><\/script>')
     </script>
@@ -114,7 +115,7 @@
             <div class="container">
                 <div class="row" id="headline-id">
                     <div class="col-xs-12 col-sm-7" id="carousel-container-id">
-                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <div id="myCarousel" class="carousel " data-ride="carousel" data-interval="false" data-interval-array="true">
                             <ol class="carousel-indicators">
                                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                                 <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -124,40 +125,40 @@
                                 <li data-target="#myCarousel" data-slide-to="5"></li>
                             </ol>
                             <div class="carousel-inner">
-                                <div class="item item-padded active">
+                                <div class="item item-padded active" data-array-step-pause="6000">
                                     <h1>Track</h1>
                                     <p class="lead">Log and compare your software development data for personal insights</p>
                                     <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
                                     <a class="btn btn-large" href="#">Boring!</a> -->
 
                                 </div>
-                                <div class="item item-padded ">
+                                <div class="item item-padded " data-array-step-pause="4000">
                                     <h1>Connect</h1>
                                     <p class="lead">Plug in your favourite dev tools to auto-log your data
                                     </p>
                                     <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
                                     <a class="btn btn-large" href="#">Boring!</a> -->
                                 </div>
-                                <div class="item item-padded">
+                                <div class="item item-padded" data-array-step-pause="4000">
                                     <h1>Keep</h1>
                                     <p class="lead">Your personal record - across projects, tools and languages</p>
                                     <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
                                     <a class="btn btn-large" href="#">Boring!</a> -->
                                 </div>
-                                <div class="item item-padded">
+                                <div class="item item-padded" data-array-step-pause="4000">
                                     <h1>Improve</h1>
                                     <p class="lead">See what affects and act to improve the metrics that matter to you
                                     </p>
                                     <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
                                     <a class="btn btn-large" href="#">Boring!</a> -->
                                 </div>
-                                <div class="item item-padded">
+                                <div class="item item-padded" data-array-step-pause="4000">
                                     <h1>Compare</h1>
                                     <p class="lead">See how you compare to your peers, your team and the experts</p>
                                     <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
                                     <a class="btn btn-large" href="#">Boring!</a> -->
                                 </div>
-                                <div class="item item-padded">
+                                <div class="item item-padded" data-array-step-pause="4000">
                                     <h1>Prove</h1>
                                     <p class="lead">Improve your career prospects with your provable skills CV</p>
                                     <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
@@ -471,59 +472,7 @@
         });
     }
     </script>
-    <script>
-    var debug = console.log.bind(console);
-    debug = function() {}; // comment this out to get logging
-    $(document).ready(function() {
-        $('.carousel').carousel('pause');
-    });
-    $(document).ready(function() {
-        var timings = [6000, 4000, 4000, 4000, 4000, 4000];
-        var index = 0;
-        var animate = true;
-
-        var nextAnimation = function(timings) {
-            if (animate) {
-                $('.right.carousel-control').click();
-            }
-
-            debug("staying on step " + index + " for " + timings[index]);
-            setTimeout(nextAnimation, timings[index], timings);
-        }
-
-        debug("staying on step " + index + " for " + timings[index]);
-        setTimeout(nextAnimation, timings[index], timings);
-
-        $('.carousel')
-            .mouseover(function() {
-                animate = false;
-                debug("animate false");
-            })
-            .mouseleave(function() {
-                animate = true;
-                debug("animate true");
-            });
-
-        $('.left.carousel-control').click(function() {
-            index -= 1;
-            index = index % timings.length;
-            index = Math.abs(index);
-            debug(index);
-        });
-
-        $('.right.carousel-control').click(function() {
-            console.log("moving from " + index);
-            index += 1;
-            index = index % timings.length;
-            debug("to " + index);
-        })
-
-        $('#myCarousel').on('slid.bs.carousel', function (data, other) {
-          console.log('check check');
-        })
-
-    });
-    </script>
+    
 </body>
 
 </html>
