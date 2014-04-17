@@ -41,6 +41,7 @@
   	-moz-border-radius: 3px 0px 0px 3px;
   	border-radius: 3px 0px 0px 3px;
   	border-width: 2px;
+  	width:280px;
 
 }
 
@@ -119,7 +120,7 @@
 	border-width: 2px;
 	border-color: #555555;
 	margin-bottom:20px;
-	height: 440px;
+	height: 400px;
 	-webkit-border-radius: 8px 8px 8px 8px;
   	-moz-border-radius: 8px 8px 8px 8px;
   	border-radius: 8px 8px 8px 8px;
@@ -130,10 +131,34 @@
 	font-size: 27px;
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
 	.feature{
 		border: none;	
 		height: 400px;
 	}
+
+	#mc-embedded-subscribe {
+	  
+	  -webkit-border-radius: 3px 3px 3px 3px;
+	  -moz-border-radius: 3px 3px 3px 3px;
+	  border-radius: 3px 3px 3px 3px;
+	  margin-left:0;
+	    border-style: solid solid solid solid;
+
+	}
+
+	#mce-EMAIL{
+		border-style: solid solid solid solid;
+		-webkit-border-radius: 3px 3px 3px 3px;
+	  	-moz-border-radius: 3px 3px 3px 3px;
+  		border-radius: 3px 3px 3px 3px;
+	}
+}
+
+@media (max-width: 992px){
+	.feature{
+		height: 500px;
+	}
+
 }
 
