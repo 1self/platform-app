@@ -33,7 +33,15 @@
 }
 
 #mce-EMAIL{
-	color: black;
+	color: white;
+	border-style: solid none solid solid;
+	border-color: #FFFFFF #FFFFFF #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.8);
+	-webkit-border-radius: 3px 0px 0px 3px;
+  	-moz-border-radius: 3px 0px 0px 3px;
+  	border-radius: 3px 0px 0px 3px;
+  	border-width: 2px;
+
 }
 
 .build-graph{
@@ -52,3 +60,47 @@
 .video {
   margin: 0 auto;
 }
+
+.navbar-inverse{
+	background-color: rgb(43, 43, 43);
+	border-color: rgb(43, 43, 43);
+}
+
+.navbar-transparent .nav .active > a {
+	background-color: rgba(139, 204, 239, 0.65);
+}
+
+.btn-prominent {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #fc7364;
+  background-image: -moz-linear-gradient(top, #fc7364, #fc8173);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fc7364), to(#fc8173));
+  background-image: -webkit-linear-gradient(top, #fc7364, #fc8173);
+  background-image: -o-linear-gradient(top, #fc7364, #fc8173);
+  background-image: linear-gradient(to bottom, #fc7364, #fc8173);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fc7364', endColorstr='#fc8173', GradientType=0);
+  border-color: #FFFFFF #FFFFFF #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.8);
+  background-color: #fc8173;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+
+  -webkit-border-radius: 0px 3px 3px 0px;
+  -moz-border-radius: 0px 3px 3px 0px;
+  border-radius: 0px 3px 3px 0px;
+
+  border-style: solid solid solid none;
+  
+
+}
+
+#mc-embedded-subscribe{
+	height: 46px;
+  border-width: 2px;
+  margin-left:-4px;
+
+}
+
