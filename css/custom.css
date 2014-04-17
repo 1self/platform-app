@@ -88,19 +88,52 @@
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 
-  -webkit-border-radius: 0px 3px 3px 0px;
-  -moz-border-radius: 0px 3px 3px 0px;
-  border-radius: 0px 3px 3px 0px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
 
-  border-style: solid solid solid none;
-  
+  border-style: solid solid solid solid;
+  border-width: 2px;
+
 
 }
 
 #mc-embedded-subscribe{
 	height: 46px;
-  border-width: 2px;
-  margin-left:-4px;
+	margin-left:-4px;
+	-webkit-border-radius: 0px 3px 3px 0px;
+	-moz-border-radius: 0px 3px 3px 0px;
+	border-radius: 0px 3px 3px 0px;
 
+  border-style: solid solid solid none;
+}
+
+.featurefa{
+	font-size: 50px;
+	margin: 10px auto 30px auto;
+}
+
+.feature{
+	padding: 10px 3px 10px 3px;
+	border: solid;
+	border-width: 2px;
+	border-color: #555555;
+	margin-bottom:20px;
+	height: 440px;
+	-webkit-border-radius: 8px 8px 8px 8px;
+  	-moz-border-radius: 8px 8px 8px 8px;
+  	border-radius: 8px 8px 8px 8px;
+  	color: #EEEEEE;
+}
+
+.feature h2{
+	font-size: 27px;
+}
+
+@media (max-width: 768px){
+	.feature{
+		border: none;	
+		height: 400px;
+	}
 }
 
