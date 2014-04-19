@@ -147,7 +147,7 @@
                                 </div>
                                 <div class="item item-padded" data-array-step-pause="4000">
                                     <h1>Improve</h1>
-                                    <p class="lead">See what affects and act to improve the metrics that matter to you
+                                    <p class="lead">See what affects the metrics that matter to you<br />Set targets to improve them
                                     </p>
                                     <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
                                     <a class="btn btn-large" href="#">Boring!</a> -->
@@ -179,7 +179,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 center">
-                        <h2 class="cursive">Sign up for access to the private beta</h2>
+                        <h2 class="cursive">Sign up to get the earliest updates</h2>
                         <div class="input-append">
                             <!-- Begin MailChimp Signup Form -->
                             <div id="mc_embed_signup">
@@ -331,7 +331,7 @@
                                 You're welcome to <a href="https://github.com/QuantifiedDev/event-sources" target="_blank" id="downloadModifyCodeLink">view and modify the code</a>.
                             </p>
                             <p>
-                                <a href="/QuantifiedDevVisualStudioExtension.vsix" onclick="trackLinkClick('DownloadVSExtension')">Download QuantifiedDev VS extension</a>
+                                <a href="/QuantifiedDevVisualStudioExtension.vsix" id="downloadVSExtensionLink">Download QuantifiedDev VS extension</a>
                             </p>
                         </div>
                     </div>
@@ -459,18 +459,10 @@
     $('#mc-embedded-subscribe').on('click', function() {
         ga('send', 'event', 'mc-embedded-subscribe', 'click');
     });
-    /**
-     * Function that tracks a click on an outbound link in Google Analytics.
-     * This function takes a valid URL string as an argument, and uses that URL string
-     * as the event label.
-     */
-    var trackLinkClick = function(url) {
-        ga('send', 'event', 'outbound', 'click', url, {
-            'hitCallback': function() {
-                document.location = url;
-            }
-        });
-    }
+    $('#downloadVSExtensionLink').on('click', function() {
+        ga('send', 'event', 'download', 'DownloadVSExtension_click');
+    });
+
     </script>
     
 </body>
