@@ -25,8 +25,10 @@ var buildHistory = function() {
         return data;
     }
 
-    d3.json("http://quantifieddev.herokuapp.com/quantifieddev/mydev/HPEYJCCGREGTZOPU")
-        .header("Authorization", "D6B1leGgHLIaACVQZ8ezMt2gUGT1jIY1Tc0FQXfP5HYBvRN50bEeK1ORJu7ckJT82wPmGQeojrKtiXo4HzYdeYANOZWFCfPQyw5CmKrkJyZ6EIMEoSOmvURUyNuqCgbSYhtj11t0VhxduJfOxajMxAJM+eOURleagk0UxVshvJm0cCrnhzqFf9QFQKps4VMdAI9F15BmpchaarOYmEg2whIbLN5uw0xqtQ6BCmpOX3n71ELGTr5rYkeWL1B5V8PcqcC1vmlV7FdOl59vy/Xk64/DrSO6uR/cfKVM/I+ZEDrJ4tcAK2CbfrV8u+wSkRTabAAAdW6OaHFokFl7MLsgHA==")
+    //HPEYJCCGREGTZOPU
+    //D6B1leGgHLIaACVQZ8ezMt2gUGT1jIY1Tc0FQXfP5HYBvRN50bEeK1ORJu7ckJT82wPmGQeojrKtiXo4HzYdeYANOZWFCfPQyw5CmKrkJyZ6EIMEoSOmvURUyNuqCgbSYhtj11t0VhxduJfOxajMxAJM+eOURleagk0UxVshvJm0cCrnhzqFf9QFQKps4VMdAI9F15BmpchaarOYmEg2whIbLN5uw0xqtQ6BCmpOX3n71ELGTr5rYkeWL1B5V8PcqcC1vmlV7FdOl59vy/Xk64/DrSO6uR/cfKVM/I+ZEDrJ4tcAK2CbfrV8u+wSkRTabAAAdW6OaHFokFl7MLsgHA==")
+    d3.json("http://quantifieddev.herokuapp.com/quantifieddev/mydev/" + window.qd.streamId)
+        .header("Authorization", window.qd.readToken)
         .header("Content-Type", "application/json")
         .get(function(error, buildHistory) {
 
@@ -258,6 +260,7 @@ var buildHistory = function() {
                 })
                 .y(function(d, i) {
                     return -y(overallMean);
+                    s
                 });
 
             svg.append("path")
@@ -270,4 +273,4 @@ var buildHistory = function() {
         });
 };
 
-buildHistory();
+window.qd.registerOnSave(buildHistory);

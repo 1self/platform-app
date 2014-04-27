@@ -1,0 +1,127 @@
+// // Setup
+// var 1self = require('1self');
+
+// // setting api key
+// 1self.apiKey("XXXYYYZZZ");
+
+// // registration of stream
+// 1self.register();
+
+// logging a code kata
+// 1self.event()
+//     .object().computer().software().kata()
+//     .action().practice().start()
+//     .location().lat(52).long(0)
+//     .properties().language("javascript").tool("cyber-dojo")
+//     .send();
+
+// <script src="http://1self.co/1self-client-1.0.0.js"/>
+// <div id="globe-container" class="globe" 
+// 	data-object="computers software" 
+// 	data-action="build" 
+// 	data-events-dislay="circles" 
+// 	data-animation="spin"
+// 	data-apiKey="XXXYYYZZZ">
+
+
+// visualising the builds
+// var globe = 1self.select('globe-container.globe()
+//             .object().build()
+//             .action().computers().software()
+//             .dom().addTo(".globe-container")
+//             .events().circles()
+//             .animation().spin();
+// globe.render();
+// var buildHistory = 1self.histogram()
+
+<script src="http://1self.co/1self-client-1.0.0.js"/>
+<div class="globe" 
+	data-object="computers software" 
+	data-action="build" 
+	data-events-dislay="circles" 
+	data-animation="spin"
+	data-apiKey="XXXYYYZZZ">
+
+<script src="http://1self.co/1self-client-1.0.0.js"/>
+<div class="histogram" 
+	data-object="computers software" 
+	data-action="build"
+	data-aggregation-measure="count" 
+	data-aggregation-dimension="date"
+	data-aggregation-over="day">
+	data-apiKey="XXXYYYZZZ"
+	data-streamid="12345">
+	data-token="AAABBBCCC">
+
+
+<div class="histogram" 
+	data-object="computers software" 
+	data-action="build"
+	data-aggregation-measure="count" 
+	data-aggregation-dimension="date"
+	data-aggregation-over="day">
+	data-apiKey="XXXYYYZZZ"
+	data-token="AAABBBCCC">
+
+
+
+
+
+
+<div class="histogram" 
+	data-object="computers software" 
+	data-action="build"
+	data-aggregation-measure="count" 
+	data-aggregation-dimension="date"
+	data-aggregation-over="day">
+	data-apiKey="XXXYYYZZZ"
+	data-token="AAABBBCCC">
+
+
+// cyber-dojo
+<script src="http://1self.co/1self-client-1.0.0.js"/>
+<div class="histogram" 
+	data-object="computers software kata" 
+	data-action="practice"
+	data-aggregation-measure="count" 
+	data-aggregation-dimension="date"
+	data-aggregation-over="minute">
+	data-apiKey="XXXYYYZZZ">
+
+<div class="test-button 1self-click-event"
+	data-object="computers software kata" 
+	data-action="practice"
+	data-apiKey="XXXYYYZZZ">
+
+// wear count, per item
+<script src="http://1self.co/1self-client-1.0.0.js"/>
+<div class="histogram" 
+	data-object="clothing trousers nudie jeans" 
+	data-action="wear"
+	data-properties="black nudie slimjim"
+	data-aggregation-measure="count" 
+	data-aggregation-dimension="date"
+	data-aggregation-over="day">
+	data-apiKey="XXXYYYZZZ">
+
+// wear count, per item
+<script src="http://1self.co/1self-client-1.0.0.js"/>
+<div class="histogram" 
+	data-object="clothing trousers nudie jeans" 
+	data-action="wear"
+	data-properties="black nudie slimjim"
+	data-aggregation-measure="count" 
+	data-aggregation-dimension="date"
+	data-aggregation-over="day">
+	data-apiKey="XXXYYYZZZ">
+
+// cost per wear count, per item
+<script src="http://1self.co/1self-client-1.0.0.js"/>
+<div class="line graph" 
+	data-object="clothing trousers nudie jeans" 
+	data-properties="black nudie slimjim"
+	data-aggregation-measure="(purchase + repair) / running count(wear)" 
+	data-aggregation-dimension="date"
+	data-aggregation-over="day">
+	data-apiKey="XXXYYYZZZ">
+
