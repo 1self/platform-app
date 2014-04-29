@@ -1,94 +1,34 @@
 // SparkLine Bar and Pie Charts
 $(function() {
-    $('#visits').sparkline([3, 6, 7, 1, 4, 6, 3, 2, 9, 4, 5, 1], {
-        type: 'line',
-        lineWidth: 1,
-        fillColor: '#3da9e3',
-        lineColor: '#9FD5F1',
-        height: 18,
-        width: 90,
-        spotRadius: 2,
-    });
-    $('#unique-visitors').sparkline([1, 4, 9, 2, 4, 2, 3, 8, 5, 2, 3, 8], {
-        type: 'line',
-        lineWidth: 1,
-        fillColor: '#3da9e3',
-        lineColor: '#9FD5F1',
-        height: 18,
-        width: 90,
-        spotRadius: 2,
-    });
-    $('#page-views').sparkline([2, 4, 8, 2, 5, 1, 7, 3, 2, 7, 9, 2], {
-        type: 'line',
-        lineWidth: 1,
-        fillColor: '#3da9e3',
-        lineColor: '#9FD5F1',
-        height: 18,
-        width: 90,
-        spotRadius: 2,
-    });
-    $('#bounce-rate').sparkline([4, 8, 9, 3, 5, 8, 5, 7, 2, 6, 3, 1], {
-        type: 'line',
-        lineWidth: 1,
-        fillColor: '#5e5e5e',
-        lineColor: '#9C9687',
-        height: 18,
-        width: 90,
-        spotRadius: 2,
-    });
 
-    $('#dataLine').sparkline([280, 320, 220, 385, 450, 320, 345, 150, 250, 250, 400, 380], {
-        type: 'line',
-        lineWidth: 2,
-        fillColor: '#f7f7f7',
-        lineColor: '#1e91cf',
-        height: 60,
-        width: 300,
-        spotRadius: 3,
-    });
 
-    $('#dow').sparkline([280, 320, 220, 385, 450, 320, 345, 250, 390, 250, 400, 380, 345, 250, 390, 250, 400, 380], {
-        height: '24',
-        type: 'bar',
-        barSpacing: 2,
-        barWidth: 6,
-        barColor: '#ddd',
-        tooltipPrefix: 'Volume: '
-    });
-    $('#dow').sparkline([280, 320, 220, 385, 450, 320, 345, 250, 390, 250, 400, 380, 345, 250, 390, 250, 400, 380], {
-        composite: true,
-        height: '30',
-        fillColor: false,
-        lineColor: '#1e91cf',
-        tooltipPrefix: 'Index: '
-    });
-    $('#noise').sparkline([10, 69, 58, 32, 16, 29, 15], {
-        type: 'line',
-        lineWidth: 1,
-        fillColor: '#3da9e3',
-        lineColor: '#9FD5F1',
-        height: 18,
-        width: 90,
-        spotRadius: 2,
-    });
-    $('#productivity').sparkline([69, 54, 78, 83, 24, 56, 71], {
-        type: 'line',
-        lineWidth: 1,
-        fillColor: '#3da9e3',
-        lineColor: '#9FD5F1',
-        height: 18,
-        width: 90,
-        spotRadius: 2,
-    });
-    $('#sleep').sparkline([6.2, 7.5, 6.3, 6.9, 7.3, 8.2, 8.3], {
-        type: 'line',
-        lineWidth: 1,
-        fillColor: '#3da9e3',
-        lineColor: '#9FD5F1',
-        height: 18,
-        width: 90,
-        spotRadius: 2,
-    });
+    // $('#noise-level').sparkline([10, 69, 58, 32, 16, 29, 15], {
+    //     type: 'line',
+    //     lineWidth: 1,
+    //     fillColor: '#3da9e3',
+    //     lineColor: '#9FD5F1',
+    //     height: 18,
+    //     width: 90,
+    //     spotRadius: 2,
+    // });
+    // $('#productivity').sparkline([69, 54, 78, 83, 24, 56, 71], {
+    //     type: 'line',
+    //     lineWidth: 1,
+    //     fillColor: '#3da9e3',
+    //     lineColor: '#9FD5F1',
+    //     height: 18,
+    //     width: 90,
+    //     spotRadius: 2,
+    // });
+    // $('#sleep').sparkline([6.2, 7.5, 6.3, 6.9, 7.3, 8.2, 8.3], {
+    //     type: 'line',
+    //     lineWidth: 1,
+    //     fillColor: '#3da9e3',
+    //     lineColor: '#9FD5F1',
+    //     height: 18,
+    //     width: 90,
+    //     spotRadius: 2,
+    // });
 
 });
 

@@ -1,4 +1,7 @@
 var buildHistory = function() {
+    var s = d3.select('#build-history svg');
+    s = s.remove();
+
     var w = $("#build-history").width() * 1;
     var h = w / 1.61;
     var p = [h * 0.05, w * 0.1, h * 0.2, w * 0.05],
@@ -26,7 +29,7 @@ var buildHistory = function() {
     }
 
     //HPEYJCCGREGTZOPU
-    //D6B1leGgHLIaACVQZ8ezMt2gUGT1jIY1Tc0FQXfP5HYBvRN50bEeK1ORJu7ckJT82wPmGQeojrKtiXo4HzYdeYANOZWFCfPQyw5CmKrkJyZ6EIMEoSOmvURUyNuqCgbSYhtj11t0VhxduJfOxajMxAJM+eOURleagk0UxVshvJm0cCrnhzqFf9QFQKps4VMdAI9F15BmpchaarOYmEg2whIbLN5uw0xqtQ6BCmpOX3n71ELGTr5rYkeWL1B5V8PcqcC1vmlV7FdOl59vy/Xk64/DrSO6uR/cfKVM/I+ZEDrJ4tcAK2CbfrV8u+wSkRTabAAAdW6OaHFokFl7MLsgHA==")
+    //D6B1leGgHLIaACVQZ8ezMt2gUGT1jIY1Tc0FQXfP5HYBvRN50bEeK1ORJu7ckJT82wPmGQeojrKtiXo4HzYdeYANOZWFCfPQyw5CmKrkJyZ6EIMEoSOmvURUyNuqCgbSYhtj11t0VhxduJfOxajMxAJM+eOURleagk0UxVshvJm0cCrnhzqFf9QFQKps4VMdAI9F15BmpchaarOYmEg2whIbLN5uw0xqtQ6BCmpOX3n71ELGTr5rYkeWL1B5V8PcqcC1vmlV7FdOl59vy/Xk64/DrSO6uR/cfKVM/I+ZEDrJ4tcAK2CbfrV8u+wSkRTabAAAdW6OaHFokFl7MLsgHA==
     d3.json("http://quantifieddev.herokuapp.com/quantifieddev/mydev/" + window.qd.streamId)
         .header("Authorization", window.qd.readToken)
         .header("Content-Type", "application/json")
