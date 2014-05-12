@@ -210,9 +210,9 @@ $({
 //Timer for tiles info
 
 // builds
-var incrementI = $('#builds-x').text();
+// var incrementI = $('#builds-x').text(window.qd.todaysTotalBuildCount);
 
-$({
+/*$({
     numberValue: incrementI
 }).animate({
     numberValue: 37
@@ -225,7 +225,7 @@ $({
     done: function() {
         $('#builds-x').text(Math.ceil(this.numberValue));
     }
-});
+});*/
 
 // successful builds
 var incrementJ = $('#passed-x').text();
