@@ -10,7 +10,7 @@ var qd = function() {
 
     result.updateModel = function() {
         $.ajax({
-            url: "http://localhost:5000/quantifieddev/mydev/" + result.streamId,
+            url: "http://quantifieddev.herokuapp.com/quantifieddev/mydev/" + result.streamId,
             headers: {
                 "Authorization": result.readToken,
                 "Content-Type": "application/json"
