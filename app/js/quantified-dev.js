@@ -8,9 +8,16 @@ var qd = function() {
     result.streamId = window.localStorage.streamId;
     result.readToken = window.localStorage.readToken;
 
+    var url;
+    if (location.hostname == "localhost") {
+        var url = "http://" + location.hostname + ":" + localStorage.qdport + "/quantifieddev/mydev/" + result.streamId;
+    } else {
+        var url = "http://quantifieddev.herokuapp.com/quantifieddev/mydev/" + result.streamId;
+
+    }
     result.updateModel = function() {
         $.ajax({
-            url: "http://quantifieddev.herokuapp.com/quantifieddev/mydev/" + result.streamId,
+            url: url,
             headers: {
                 "Authorization": result.readToken,
                 "Content-Type": "application/json"
@@ -45,7 +52,7 @@ var qd = function() {
         }
     }
 
-    if(result.streamId && result.readToken){
+    if (result.streamId && result.readToken) {
         result.updateModel();
     }
 

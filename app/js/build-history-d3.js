@@ -136,6 +136,7 @@ var plotChart = function() {
     var failedBuildsMovingAverage = d3.svg.line()
         .x(function(d, i) {
             //return xLinear(i) * w;
+            console.log(xLinear(i));
             return xLinear(i);
         })
         .y(function(meanDay, i) {
@@ -157,10 +158,10 @@ var plotChart = function() {
                 }
 
                 var day = new Date(rangeDay.date).getDay();
+                var sat = 6;
+                var sun = 0;
                 if (fi > i - 7 && fi <= i) {
-                    if (day != 0 && day != 6) {
-                        return rangeDay;
-                    }
+                    return rangeDay;
                 }
             })
             var curval = d3.mean(filteredData, function(d) {
@@ -172,6 +173,9 @@ var plotChart = function() {
                 // }
                 return d.failed;
             });
+
+            // When we're starting from the beginning of the range, the rolling average doesn't work.
+            curval = curval || null;
             return -y(curval); // going up in height so need to go negative
         })
         .interpolate("basis");
@@ -209,9 +213,7 @@ var plotChart = function() {
 
                 var day = new Date(rangeDay.date).getDay();
                 if (fi > i - 7 && fi <= i) {
-                    if (day != 0 && day != 6) {
-                        return rangeDay;
-                    }
+                    return rangeDay;
                 }
             });
 
