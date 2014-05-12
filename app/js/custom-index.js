@@ -263,24 +263,6 @@ $({
     }
 });
 
-// noise 
-var incrementK = $('#noise-x').text();
-
-$({
-    numberValue: incrementK
-}).animate({
-    numberValue: 41.2
-}, {
-    duration: 3000,
-    easing: 'linear',
-    step: function() {
-        $('#noise-x').text(Math.ceil(this.numberValue));
-    },
-    done: function() {
-        $('#noise-x').text(Math.ceil(this.numberValue));
-    }
-});
-
 // productivity 
 var incrementK = $('#productivity-x').text();
 
@@ -296,24 +278,6 @@ $({
     },
     done: function() {
         $('#productivity-x').text(Math.ceil(this.numberValue));
-    }
-});
-
-// sleep
-var incrementK = $('#sleep-x').text();
-
-$({
-    numberValue: incrementK
-}).animate({
-    numberValue: 7.4
-}, {
-    duration: 3000,
-    easing: 'linear',
-    step: function() {
-        $('#sleep-x').text(Math.ceil(this.numberValue));
-    },
-    done: function() {
-        $('#sleep-x').text(Math.ceil(this.numberValue));
     }
 });
 
