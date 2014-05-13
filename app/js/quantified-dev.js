@@ -27,6 +27,8 @@ var qd = function() {
                 result.allEvents = allEvents;
                 var todaysBuild = allEvents[allEvents.length - 1]; // last record
                 var totalTodaysBuilds = todaysBuild.passed + todaysBuild.failed;
+                result.todaysPassedBuildCount = todaysBuild.passed;
+                result.todaysFailedBuildCount = todaysBuild.failed;
                 result.todaysTotalBuildCount = totalTodaysBuilds;
 
                 modelUpdateCallbacks.forEach(function(c) {

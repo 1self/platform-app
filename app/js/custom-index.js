@@ -227,42 +227,6 @@ $({
     }
 });*/
 
-// successful builds
-var incrementJ = $('#passed-x').text();
-
-$({
-    numberValue: incrementJ
-}).animate({
-    numberValue: 28
-}, {
-    duration: 1500,
-    easing: 'linear',
-    step: function() {
-        $('#passed-x').text(Math.ceil(this.numberValue));
-    },
-    done: function() {
-        $('#passed-x').text(Math.ceil(this.numberValue));
-    }
-});
-
-// failed builds
-var incrementK = $('#failed-x').text();
-
-$({
-    numberValue: incrementK
-}).animate({
-    numberValue: 9
-}, {
-    duration: 3000,
-    easing: 'linear',
-    step: function() {
-        $('#failed-x').text(Math.ceil(this.numberValue));
-    },
-    done: function() {
-        $('#failed-x').text(Math.ceil(this.numberValue));
-    }
-});
-
 // productivity 
 var incrementK = $('#productivity-x').text();
 

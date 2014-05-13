@@ -16,5 +16,7 @@ $("#read-token").ready(function() {
 $("#builds-x").ready(function() {
 	window.qd.registerForModelUpdates(function() {
 		$("#builds-x").text(window.qd.todaysTotalBuildCount);
+		$("#passed-x").text(window.qd.todaysPassedBuildCount);
+		$("#failed-x").text(window.qd.todaysFailedBuildCount);
 	});
 });
