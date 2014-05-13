@@ -80,10 +80,9 @@
         <!-- Page title end -->
           <div class="row">
           <div class="col-lg-2 col-md-4 col-sm-6">
-            <a class="info-tiles tiles-secondary" href="google-graphs.html">
+            <div class="info-tiles tiles-secondary">
             <div class="tiles-heading">
               <div class="pull-left">Local Builds</div>
-              <div class="pull-right"><i class="icon-caret-down"></i> 21.9%</div>
             </div>
             <div class="tiles-body">
               <div class="pull-left animated bounceIn">
@@ -95,13 +94,12 @@
               <span class="pull-left">Today</span>
               <span class="inline-sparkline pull-right" id="visits"></span>
             </div>
-            </a>
+            </div>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6">
-            <a class="info-tiles tiles-secondary" href="graphs.html">
+            <div class="info-tiles tiles-secondary">
             <div class="tiles-heading">
               <div class="pull-left">Passed Builds</div>
-              <div class="pull-right"><i class="icon-caret-up"></i> 7.7%</div>
             </div>
             <div class="tiles-body">
               <div class="pull-left animated bounceIn">
@@ -113,13 +111,12 @@
               <span class="pull-left">Today</span>
               <span class="inline-sparkline pull-right" id="unique-visitors"></span>
             </div>
-            </a>
+            </div>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6">
-            <a class="info-tiles tiles-secondary" href="google-graphs.html">
+            <div class="info-tiles tiles-secondary">
             <div class="tiles-heading">
               <div class="pull-left">Failed Builds</div>
-              <span class="pull-right"><i class="icon-caret-down"></i> 4.9%</span>
             </div>
             <div class="tiles-body">
               <div class="pull-left animated bounceIn">
@@ -131,7 +128,7 @@
               <span class="pull-left">Today</span>
               <span class="inline-sparkline pull-right" id="page-views"></span>
             </div>
-            </a>
+            </div>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6">
             <div class="info-tiles tiles-secondary">
@@ -151,25 +148,6 @@
             </div>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6">
-            <a class="info-tiles tiles-secondary" href="graphs.html">
-            <div class="tiles-heading">
-              <div class="pull-left">Productivity</div>
-              <div class="pull-right"><i class="icon-caret-up"></i> 3.1%</div>
-            </div>
-            <div class="tiles-body">
-              <div class="pull-left animated bounceIn">
-                <i class="icon-fire"></i> 
-              </div>
-              <div class="pull-right number"><span id="productivity-x">0</span>%</div>
-            </div>
-            <div class="tiles-footer">
-              <span class="pull-left">Last Week</span>
-              <span class="inline-sparkline pull-right" id="productivity"></span>
-            </div>
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6">
-            <!-- <a class="info-tiles tiles-secondary" href="google-graphs.html"> -->
             <div class="info-tiles tiles-secondary">
             <div class="tiles-heading">
               <div class="pull-left">Average Sleep</div>
@@ -184,7 +162,6 @@
               <span class="pull-left">This week</span>
               <span class="inline-sparkline pull-right" id="sleep"></span>
             </div>
-            <!-- </a> -->
             </div>
           </div>
           
@@ -235,20 +212,11 @@
     <script src="packages/d3/topojson.v1.min.js"></script>
     <script src="packages/d3/queue.v1.min.js"></script>
 
-
     <script src="packages/regressionjs/regression.js"></script>
 
     <script src="js/quantified-dev.js"></script>
     <script src="js/build-history-d3.js"></script>
-    <script src="js/build-duration-vs-unproductivity.js"></script>
-    <script src="js/hours-slept-vs-builds.js"></script>
-    <script src="js/hours-slept-vs-passed-builds.js"></script>
-    <script src="js/noise-level.js"></script>
     <script src="js/dashboard.js"></script>
-
-
-
-
 
   </body>
 </html>
