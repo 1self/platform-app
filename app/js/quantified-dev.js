@@ -44,7 +44,7 @@ var qd = function() {
         window.localStorage.readToken = readToken;
         result.streamId = streamId;
         result.readToken = readToken;
-        // result.updateModel();
+        result.updateModel();
     }
 
     result.registerForModelUpdates = function(callback) {
