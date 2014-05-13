@@ -270,6 +270,45 @@ var plotChart = function() {
         .style("stroke", "orange")
         .style("stroke-width", 2);
 
-};
+    // add legend
 
+    var legendSvg = d3.select("#build-history").append("svg:svg")
+        .attr("width", w)
+        .attr("height", 70)
+        .append("svg:g")
+        .attr("transform", "translate(" + p[3] + "," + (0 - p[3]) + ")");
+
+    var legend = legendSvg.append("g")
+        .attr("class", "legend")
+        .attr("x", w - 65)
+        .attr("y", 25)
+        .attr("height", 100)
+        .attr("width", 100);
+
+    var legendColours = [
+        ["passed", "blue"],
+        ["failed", "red"]
+    ]
+
+    legend.selectAll("g").data(legendColours)
+        .enter()
+        .append("g")
+        .each(function(d, i) {
+            var g = d3.select(this);
+            g.append("rect")
+                .attr("x", 0)
+                .attr("y", 40 + i * 25)
+                .attr("width", 10)
+                .attr("height", 10)
+                .style("fill", legendColours[i][1]);
+
+            g.append("text")
+                .attr("x", 20)
+                .attr("y", 40 + 8 + i * 25)
+                .attr("height", 30)
+                .attr("width", 100)
+                .style("fill", "black")
+                .text(legendColours[i][0]);
+        });
+}
 window.qd.registerForModelUpdates(plotChart);
