@@ -10,7 +10,7 @@ var qd = function() {
 
     var url;
     if (location.hostname == "localhost") {
-        var url = "http://" + location.hostname + ":" + localStorage.qdport + "/quantifieddev/mydev/" + result.streamId;
+        var url = "http://" + location.hostname + ":5000/quantifieddev/mydev/" + result.streamId;
     } else {
         var url = "http://quantifieddev.herokuapp.com/quantifieddev/mydev/" + result.streamId;
 
