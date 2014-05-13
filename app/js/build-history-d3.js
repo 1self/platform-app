@@ -4,7 +4,7 @@ var plotChart = function() {
 
     var w = $("#build-history").width() * 1;
     var h = w / 1.61;
-    var p = [h * 0.05, w * 0.1, h * 0.2, w * 0.05],
+    var p = [h * 0.05, w * 0.1, h * 0.35, w * 0.05],
         x = d3.scale.ordinal().rangeRoundBands([0, w - p[1] - p[3]]),
         xLinear = d3.scale.linear().range([0, w - p[1] - p[3]]);
     y = d3.scale.linear().range([0, h - p[0] - p[2]]),
@@ -278,7 +278,7 @@ var plotChart = function() {
         .append("svg:g")
         .attr("transform", "translate(" + p[3] + "," + (0 - p[3]) + ")");
 
-    var legend = legendSvg.append("g")
+    var legend = svg.append("g")
         .attr("class", "legend")
         .attr("x", w - 65)
         .attr("y", 25)
@@ -295,16 +295,17 @@ var plotChart = function() {
         .append("g")
         .each(function(d, i) {
             var g = d3.select(this);
+            var xOffset = i * 70;
             g.append("rect")
-                .attr("x", 0)
-                .attr("y", 40 + i * 25)
+                .attr("x", xOffset)
+                .attr("y", 40)
                 .attr("width", 10)
                 .attr("height", 10)
                 .style("fill", legendColours[i][1]);
 
             g.append("text")
-                .attr("x", 20)
-                .attr("y", 40 + 8 + i * 25)
+                .attr("x", xOffset + 20)
+                .attr("y", 40 + 8)
                 .attr("height", 30)
                 .attr("width", 100)
                 .style("fill", "black")
