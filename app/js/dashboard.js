@@ -16,10 +16,27 @@ $("#read-token").ready(function() {
 $("#builds-x").ready(function() {
 	window.qd.registerForModelUpdates(function() {
 		$("#builds-x").text(window.qd.todaysTotalBuildCount);
-		$("#total-build-comparison").text(window.qd.totalBuildComparison);
+		$("#total-build-comparison").text(Math.abs(window.qd.totalBuildComparison) + "%");
+		if (window.qd.totalBuildComparison < 0) {
+			$("#total-build-comparison").addClass("icon-caret-down");
+		} else if (window.qd.totalBuildComparison > 0) {
+			$("#total-build-comparison").addClass("icon-caret-up");
+		}
+
 		$("#passed-x").text(window.qd.todaysPassedBuildCount);
-		$("#passed-build-comparison").text(window.qd.passedBuildComparison);
+		$("#passed-build-comparison").text(Math.abs(window.qd.passedBuildComparison) + "%");
+		if (window.qd.passedBuildComparison < 0) {
+			$("#passed-build-comparison").addClass("icon-caret-down");
+		} else if (window.qd.passedBuildComparison > 0) {
+			$("#passed-build-comparison").addClass("icon-caret-up");
+		}
+
 		$("#failed-x").text(window.qd.todaysFailedBuildCount);
-		$("#failed-build-comparison").text(window.qd.failedBuildComparison);
+		$("#failed-build-comparison").text(Math.abs(window.qd.failedBuildComparison) + "%");
+		if (window.qd.failedBuildComparison < 0) {
+			$("#failed-build-comparison").addClass("icon-caret-down");
+		} else if (window.qd.failedBuildComparison > 0) {
+			$("#failed-build-comparison").addClass("icon-caret-up");
+		}
 	});
 });
