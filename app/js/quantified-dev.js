@@ -15,6 +15,12 @@ var qd = function() {
         var url = "http://quantifieddev.herokuapp.com/quantifieddev/mydev/" + result.streamId;
 
     }
+    var compare = function(todaysBuilds, yesterdayBuilds) {
+        
+        var difference = todaysBuilds - yesterdayBuilds;
+        var percentChange = (difference / yesterdayBuilds) * 100;
+        return Math.ceil(percentChange);
+    }
     result.updateModel = function() {
         $.ajax({
             url: url,
@@ -26,11 +32,15 @@ var qd = function() {
                 console.log("all events are " + allEvents);
                 result.allEvents = allEvents;
                 var todaysBuild = allEvents[allEvents.length - 1]; // last record
-                var totalTodaysBuilds = todaysBuild.passed + todaysBuild.failed;
+                var yesterdaysBuild = allEvents[allEvents.length - 2];
+                var totalBuildsForToday = todaysBuild.passed + todaysBuild.failed;
+                var totalBuildsForYesterday = yesterdaysBuild.passed + yesterdaysBuild.failed;
                 result.todaysPassedBuildCount = todaysBuild.passed;
                 result.todaysFailedBuildCount = todaysBuild.failed;
-                result.todaysTotalBuildCount = totalTodaysBuilds;
-
+                result.todaysTotalBuildCount = totalBuildsForToday;
+                result.totalBuildComparison = compare(totalBuildsForToday, totalBuildsForYesterday);
+                result.passedBuildComparison = compare(todaysBuild.passed, yesterdaysBuild.passed);
+                result.failedBuildComparison = compare(todaysBuild.failed, yesterdaysBuild.failed);
                 modelUpdateCallbacks.forEach(function(c) {
                     c();
                 });
