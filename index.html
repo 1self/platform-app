@@ -105,6 +105,8 @@
                     </li>
                     <li><a href="#download" id="navbar_download">Download</a>
                     </li>
+                    <li><a href="http://blog.QuantifiedDev.org" id="navbar_blog">Blog</a>
+                    </li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -435,6 +437,9 @@
     });
     $('#navbar_download').on('click', function() {
         ga('send', 'event', 'navbar_link', 'navbar_download_click');
+    });
+    $('#navbar_blog').on('click', function() {
+        ga('send', 'event', 'navbar_link', 'navbar_blog_click');
     });
     $('#moreInfoBenefitsSignUp').on('click', function() {
         ga('send', 'event', 'moreinfo', 'moreInfoBenefitsSignUp_click');
