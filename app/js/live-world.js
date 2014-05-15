@@ -2,7 +2,7 @@
 
 var liveworld = function(){
 
-    var liveDurationMins = 1;
+    var liveDurationMins = 60;
 
     $('#last-minute').click(function(){
         liveDurationMins = 1;
@@ -112,7 +112,7 @@ var liveworld = function(){
     ];
 
     var loadData = function(){
-        d3.json("http://quantifieddev.herokuapp.com/live/devbuild/" + liveDurationMins, function(error, builds){
+        d3.json("http://localhost:5000/live/devbuild/" + liveDurationMins, function(error, builds){
             var data = builds;
             compileCoords = [];
             for (var i = builds.length - 1; i >= 0; i--) {
