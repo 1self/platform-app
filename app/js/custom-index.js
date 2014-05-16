@@ -210,9 +210,9 @@ $({
 //Timer for tiles info
 
 // builds
-var incrementI = $('#builds-x').text();
+// var incrementI = $('#builds-x').text(window.qd.todaysTotalBuildCount);
 
-$({
+/*$({
     numberValue: incrementI
 }).animate({
     numberValue: 37
@@ -225,61 +225,7 @@ $({
     done: function() {
         $('#builds-x').text(Math.ceil(this.numberValue));
     }
-});
-
-// successful builds
-var incrementJ = $('#passed-x').text();
-
-$({
-    numberValue: incrementJ
-}).animate({
-    numberValue: 28
-}, {
-    duration: 1500,
-    easing: 'linear',
-    step: function() {
-        $('#passed-x').text(Math.ceil(this.numberValue));
-    },
-    done: function() {
-        $('#passed-x').text(Math.ceil(this.numberValue));
-    }
-});
-
-// failed builds
-var incrementK = $('#failed-x').text();
-
-$({
-    numberValue: incrementK
-}).animate({
-    numberValue: 9
-}, {
-    duration: 3000,
-    easing: 'linear',
-    step: function() {
-        $('#failed-x').text(Math.ceil(this.numberValue));
-    },
-    done: function() {
-        $('#failed-x').text(Math.ceil(this.numberValue));
-    }
-});
-
-// noise 
-var incrementK = $('#noise-x').text();
-
-$({
-    numberValue: incrementK
-}).animate({
-    numberValue: 41.2
-}, {
-    duration: 3000,
-    easing: 'linear',
-    step: function() {
-        $('#noise-x').text(Math.ceil(this.numberValue));
-    },
-    done: function() {
-        $('#noise-x').text(Math.ceil(this.numberValue));
-    }
-});
+});*/
 
 // productivity 
 var incrementK = $('#productivity-x').text();
@@ -296,24 +242,6 @@ $({
     },
     done: function() {
         $('#productivity-x').text(Math.ceil(this.numberValue));
-    }
-});
-
-// sleep
-var incrementK = $('#sleep-x').text();
-
-$({
-    numberValue: incrementK
-}).animate({
-    numberValue: 7.4
-}, {
-    duration: 3000,
-    easing: 'linear',
-    step: function() {
-        $('#sleep-x').text(Math.ceil(this.numberValue));
-    },
-    done: function() {
-        $('#sleep-x').text(Math.ceil(this.numberValue));
     }
 });
 

@@ -10,6 +10,40 @@
     <link rel="shortcut icon" href="img/quantified-dev-favicon.ico">
     <link href="css/import.css" rel="stylesheet" media="screen">
     <link href="fonts/font-awesome.css" rel="stylesheet">
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-49828181-1', 'quantifieddev.org');
+    ga('send', 'pageview');
+    /*
+    var mc_embedded_subscribe_click = document.getElementById('mc-embedded-subscribe');
+    addListener(mc_embedded_subscribe_click, 'click', function() {
+    alert('sup click');
+    ga('send', 'event', 'signup_button', 'click', 'mc-embedded-subscribe');
+    });*/
+    /**
+    * Utility to wrap the different behaviors between W3C-compliant browsers
+    * and IE when adding event handlers.
+    *
+    * @param {Object} element Object on which to attach the event listener.
+    * @param {string} type A string representing the event type to listen for
+    *     (e.g. load, click, etc.).
+    * @param {function()} callback The function that receives the notification.
+    
+    function addListener(element, type, callback) {
+    if (element.addEventListener) element.addEventListener(type, callback);
+    else if (element.attachEvent) element.attachEvent('on' + type, callback);
+    }*/
+    </script>
       </head>
   <body class="animated fadeInDown">
     <div class="top-bar">
@@ -22,11 +56,6 @@
         </li>
       </ul><!-- Mini Nav Left End -->
       <ul id="mini-nav-right">
-        <li class="list-box hidden-xs">
-          <a href="#" class="sb-open-right sb-close">
-          <i class="icon-user text-warning"></i>
-          </a>
-        </li>
         <li class="list-box hidden-lg hidden-md hidden-sm" id="mob-nav">
           <a href="#">
           <span>Menu</span>
@@ -46,17 +75,11 @@
           <li class="highlight">
             <a href='dashboard.html'>
             <i class="icon-dashboard"></i>
-            <span>My Dev</span>
+            <span>My Dev Dashboard</span>
             <em class="arrow-active"></em>
             </a>
           </li>
-          <li class="highlight">
-            <a href='community.html'>
-            <i class="icon-globe"></i>
-            <span>Community</span>
-            <em class=""></em>
-            </a>
-          </li>
+          
         </ul>
       </div>
       <!-- Menu End -->
@@ -66,17 +89,17 @@
       <div class="container">
         <div class="row page-title">
           <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
-            <h2>My Dev</h2>
+            <h2>My Dev Dashboard</h2>
             <ul class="breadcrumb">
               <li>Home</li>
-              <li>My Dev</li>
+              <li>My Dev Dashboard</li>
             </ul>
           </div>
           <div class="col-lg-2 col-md-1 col-sm-12 col-xs-12">
-            <span><input id="stream-id" type="text" class="form-control input-sm" placeholder="username"></span>
+            <span><input id="stream-id" type="text" class="form-control input-sm" placeholder="streamid"></span>
           </div>
           <div class="col-lg-2 col-md-1 col-sm-12 col-xs-12">
-            <span><input id="read-token" type="text" class="form-control input-sm" placeholder="password"></span>
+            <span><input id="read-token" type="text" class="form-control input-sm" placeholder="read token"></span>
           </div>
           <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
             <span><button id="auth-save" type="button" class="btn btn-default">Save</button>
@@ -85,10 +108,10 @@
         <!-- Page title end -->
           <div class="row">
           <div class="col-lg-2 col-md-4 col-sm-6">
-            <a class="info-tiles tiles-secondary" href="google-graphs.html">
+            <div class="info-tiles tiles-secondary">
             <div class="tiles-heading">
               <div class="pull-left">Local Builds</div>
-              <div class="pull-right"><i class="icon-caret-down"></i> 21.9%</div>
+              <div id="total-build-comparison" class="pull-right"></div>
             </div>
             <div class="tiles-body">
               <div class="pull-left animated bounceIn">
@@ -100,13 +123,13 @@
               <span class="pull-left">Today</span>
               <span class="inline-sparkline pull-right" id="visits"></span>
             </div>
-            </a>
+            </div>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6">
-            <a class="info-tiles tiles-secondary" href="graphs.html">
+            <div class="info-tiles tiles-secondary">
             <div class="tiles-heading">
               <div class="pull-left">Passed Builds</div>
-              <div class="pull-right"><i class="icon-caret-up"></i> 7.7%</div>
+              <div id="passed-build-comparison" class="pull-right"></div>
             </div>
             <div class="tiles-body">
               <div class="pull-left animated bounceIn">
@@ -118,13 +141,13 @@
               <span class="pull-left">Today</span>
               <span class="inline-sparkline pull-right" id="unique-visitors"></span>
             </div>
-            </a>
+            </div>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6">
-            <a class="info-tiles tiles-secondary" href="google-graphs.html">
+            <div class="info-tiles tiles-secondary">
             <div class="tiles-heading">
               <div class="pull-left">Failed Builds</div>
-              <span class="pull-right"><i class="icon-caret-down"></i> 4.9%</span>
+              <div id="failed-build-comparison" class="pull-right"></div>
             </div>
             <div class="tiles-body">
               <div class="pull-left animated bounceIn">
@@ -136,66 +159,45 @@
               <span class="pull-left">Today</span>
               <span class="inline-sparkline pull-right" id="page-views"></span>
             </div>
-            </a>
+            </div>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6">
-            <a class="info-tiles tiles-secondary" href="google-graphs.html">
+            <div class="info-tiles tiles-secondary">
             <div class="tiles-heading">
               <div class="pull-left">Avg Noise </div>
-              <div class="pull-right"><i class="icon-caret-down"></i> 8.9%</div>
             </div>
             <div class="tiles-body">
               <div class="pull-left animated bounceIn">
                 <i class="icon-volume-up"></i>
               </div>
-              <div class="pull-right number"><span id="noise-x">0</span>dB</div>
+              <div class="h4 col-md-offset-6 space animated bounceIn">Coming soon</div>
             </div>
             <div class="tiles-footer">
               <span class="pull-left">This week</span>
               <span class="inline-sparkline pull-right" id="noise"></span>
             </div>
-            </a>
+            </div>
           </div>
           <div class="col-lg-2 col-md-4 col-sm-6">
-            <a class="info-tiles tiles-secondary" href="graphs.html">
-            <div class="tiles-heading">
-              <div class="pull-left">Productivity</div>
-              <div class="pull-right"><i class="icon-caret-up"></i> 3.1%</div>
-            </div>
-            <div class="tiles-body">
-              <div class="pull-left animated bounceIn">
-                <i class="icon-fire"></i> 
-              </div>
-              <div class="pull-right number"><span id="productivity-x">0</span>%</div>
-            </div>
-            <div class="tiles-footer">
-              <span class="pull-left">Last Week</span>
-              <span class="inline-sparkline pull-right" id="productivity"></span>
-            </div>
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6">
-            <a class="info-tiles tiles-secondary" href="google-graphs.html">
+            <div class="info-tiles tiles-secondary">
             <div class="tiles-heading">
               <div class="pull-left">Average Sleep</div>
-              <div class="pull-right"><i class="icon-caret-up"></i> 5.4%</div>
             </div>
             <div class="tiles-body">
               <div class="pull-left animated bounceIn">
                 <i class="icon-moon"></i>
               </div>
-              <div class="pull-right number"><span id="sleep-x">0</span></div>
+              <div class="h4 col-md-offset-6 animated bounceIn"><span id="sleep-x">Coming soon</span></div>
             </div>
             <div class="tiles-footer">
               <span class="pull-left">This week</span>
               <span class="inline-sparkline pull-right" id="sleep"></span>
             </div>
-            </a>
+            </div>
           </div>
           
         </div>
         <!-- Row end -->
-        <!-- Row start -->
         <div class="row sortable">
           <div class="col-lg-6 col-md-6 col-sx-12 col-sm-12">
             <div class="panel panel-secondary fixed-height">
@@ -207,58 +209,6 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 col-sx-12 col-sm-12">
-            <div class="panel panel-secondary fixed-height">
-              <div class="panel-heading cursor-move">
-                <h3 class="panel-title"><i class="icon-bar-chart"></i>Build Duration vs Rescue Time Productivity</h3>
-              </div>
-              <div class="panel-body">
-                <div id="build-duration-vs-unproductivity"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sx-12 col-sm-12">
-            <div class="panel panel-secondary fixed-height">
-              <div class="panel-heading cursor-move">
-                <h3 class="panel-title"><i class="icon-bar-chart"></i>Builds By Hour</h3>
-              </div>
-              <div class="panel-body">
-                <img src='img/builds-by-hour.png' width="84%"></img>
-                <div id="build-history"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sx-12 col-sm-12">
-            <div class="panel panel-secondary fixed-height">
-              <div class="panel-heading cursor-move">
-                <h3 class="panel-title"><i class="icon-bar-chart"></i>Average Noise Level Distribution</h3>
-              </div>
-              <div class="panel-body">
-                <div id="noise-level"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sx-12 col-sm-12">
-            <div class="panel panel-secondary fixed-height">
-              <div class="panel-heading cursor-move">
-                <h3 class="panel-title"><i class="icon-bar-chart"></i>Hours Slept Vs Builds</h3>
-              </div>
-              <div class="panel-body">
-                <div id="hours-slept-vs-builds"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sx-12 col-sm-12">
-            <div class="panel panel-secondary fixed-height">
-              <div class="panel-heading cursor-move">
-                <h3 class="panel-title"><i class="icon-bar-chart"></i>Hours Slept Vs Passed Builds</h3>
-              </div>
-              <div class="panel-body">
-                <div id="hours-slept-vs-passed-builds"></div>
-              </div>
-            </div>
-          </div>
-        </div>
         <!-- Row End -->
        
       </div>
@@ -293,20 +243,11 @@
     <script src="packages/d3/topojson.v1.min.js"></script>
     <script src="packages/d3/queue.v1.min.js"></script>
 
-
     <script src="packages/regressionjs/regression.js"></script>
 
     <script src="js/quantified-dev.js"></script>
     <script src="js/build-history-d3.js"></script>
-    <script src="js/build-duration-vs-unproductivity.js"></script>
-    <script src="js/hours-slept-vs-builds.js"></script>
-    <script src="js/hours-slept-vs-passed-builds.js"></script>
-    <script src="js/noise-level.js"></script>
     <script src="js/dashboard.js"></script>
-
-
-
-
 
   </body>
 </html>

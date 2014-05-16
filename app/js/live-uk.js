@@ -1,5 +1,5 @@
 var liveuk = function(){  
-    var liveDurationMins = 1;
+    var liveDurationMins = 60; // default duration of 1 hour
 
     $('#last-minute').click(function(){
         liveDurationMins = 1;

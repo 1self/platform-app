@@ -105,6 +105,8 @@
                     </li>
                     <li><a href="#download" id="navbar_download">Download</a>
                     </li>
+                    <li><a href="http://blog.QuantifiedDev.org" id="navbar_blog">Blog</a>
+                    </li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -328,11 +330,12 @@
                                 Our VS 2012 extension currently logs each build that you perform and whether that build succeeded or failed. It will also ask you for your location when you initially install it. Support for 2010 and 2013 is coming soon. Sign up to be notified when it's ready.
                             </p>
                             <p>
-                                You're welcome to <a href="https://github.com/QuantifiedDev/event-sources" target="_blank" id="downloadModifyCodeLink">view and modify the code</a>.
+                                <a href="/QuantifiedDevVisualStudioExtension.vsix" id="downloadVSExtensionLink">Download QuantifiedDev VS extension (alpha)</a>
                             </p>
                             <p>
-                                <a href="/QuantifiedDevVisualStudioExtension.vsix" id="downloadVSExtensionLink">Download QuantifiedDev VS extension</a>
+                                No sign up required, logs anonymously. 
                             </p>
+                            <p>To see your data visit <a href="/app">your quantified dev dashboard</a> and enter your stream id and token from the VS extension window.</p>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4">
@@ -450,6 +453,9 @@
     });
     $('#navbar_download').on('click', function() {
         ga('send', 'event', 'navbar_link', 'navbar_download_click');
+    });
+    $('#navbar_blog').on('click', function() {
+        ga('send', 'event', 'navbar_link', 'navbar_blog_click');
     });
     $('#moreInfoBenefitsSignUp').on('click', function() {
         ga('send', 'event', 'moreinfo', 'moreInfoBenefitsSignUp_click');
