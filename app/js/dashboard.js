@@ -15,28 +15,21 @@ $("#read-token").ready(function() {
 
 $("#builds-x").ready(function() {
 	window.qd.registerForModelUpdates(function() {
-		$("#builds-x").text(window.qd.todaysTotalBuildCount);
-		$("#total-build-comparison").text(Math.abs(window.qd.totalBuildComparison) + "%");
-		if (window.qd.totalBuildComparison < 0) {
-			$("#total-build-comparison").addClass("icon-caret-down");
-		} else if (window.qd.totalBuildComparison > 0) {
-			$("#total-build-comparison").addClass("icon-caret-up");
-		}
+		var displayBuildCountAndBuildComparison = function(buildCount, buildCountElementId, comparisonValue, comparisonElementId) {
+			$(buildCountElementId).text(buildCount);
+			var buildComparison = Math.abs(comparisonValue);
+			if (buildComparison && buildComparison !== Infinity) {
+				$(comparisonElementId).text(buildComparison + "%");
+				if (comparisonValue< 0) {
+					$(comparisonElementId).addClass("icon-caret-down");
+				} else if (comparisonValue > 0) {
+					$(comparisonElementId).addClass("icon-caret-up");
+				}
+			}
+		};
 
-		$("#passed-x").text(window.qd.todaysPassedBuildCount);
-		$("#passed-build-comparison").text(Math.abs(window.qd.passedBuildComparison) + "%");
-		if (window.qd.passedBuildComparison < 0) {
-			$("#passed-build-comparison").addClass("icon-caret-down");
-		} else if (window.qd.passedBuildComparison > 0) {
-			$("#passed-build-comparison").addClass("icon-caret-up");
-		}
-
-		$("#failed-x").text(window.qd.todaysFailedBuildCount);
-		$("#failed-build-comparison").text(Math.abs(window.qd.failedBuildComparison) + "%");
-		if (window.qd.failedBuildComparison < 0) {
-			$("#failed-build-comparison").addClass("icon-caret-down");
-		} else if (window.qd.failedBuildComparison > 0) {
-			$("#failed-build-comparison").addClass("icon-caret-up");
-		}
+		displayBuildCountAndBuildComparison(window.qd.todaysTotalBuildCount, "#builds-x", window.qd.totalBuildComparison, "#total-build-comparison");
+		displayBuildCountAndBuildComparison(window.qd.todaysPassedBuildCount, "#passed-x", window.qd.passedBuildComparison, "#passed-build-comparison");
+		displayBuildCountAndBuildComparison(window.qd.todaysFailedBuildCount, "#failed-x", window.qd.failedBuildComparison, "#failed-build-comparison");
 	});
 });
