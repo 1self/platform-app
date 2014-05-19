@@ -53,8 +53,8 @@ var liveeurope = function() {
 
         $("#country").text(countryName + "'s Builds");
         var projection = d3.geo.mercator()
-            .scale(width)
-            .clipAngle(90)
+            .scale(width * 2)
+            // .clipAngle(90)
             .translate([width / 2, height / 2])
             .center([centerLongitude, centerLatitude])
 
