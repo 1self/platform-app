@@ -136,7 +136,6 @@ var plotChart = function() {
     var failedBuildsMovingAverage = d3.svg.line()
         .x(function(d, i) {
             //return xLinear(i) * w;
-            console.log(xLinear(i));
             return xLinear(i);
         })
         .y(function(meanDay, i) {

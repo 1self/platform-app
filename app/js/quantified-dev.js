@@ -29,7 +29,6 @@ var qd = function() {
                 "Content-Type": "application/json"
             },
             success: function(allEvents, error) {
-                console.log("all events are " + allEvents);
                 result.allEvents = allEvents;
                 var todaysBuild = allEvents[allEvents.length - 1]; // last record
                 var yesterdaysBuild = allEvents[allEvents.length - 2];
