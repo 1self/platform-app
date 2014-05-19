@@ -69,19 +69,18 @@ var liveworld = function() {
         60000);
 
     function CircleSize(compile) {
-        var size = Math.random(1, 7) * 7;
-
+        var size = Math.random(1, 0.7) * 0.7;
         return function() {
             if (compile.status == 'buildPassed') {
-                if (size <= 0.1) {
-                    size = 0.01;
+                if (size <= 0.05) {
+                    size = 0.005;
                 } else {
-                    size -= 0.001;
+                    size -= 0.0005;
                 }
             } else {
-                size += 0.1;
-                if (size > 7) {
-                    size = 1;
+                size += 0.05;
+                if (size > 3.5) {
+                    size = 0.5;
                 }
             }
 
