@@ -126,10 +126,11 @@ var liveuk = function(){
 
             createCircles();
         });
-    };
+    }; 
+    
 
     loadData();
-    setInterval(function(){loadData()}, 5000);
+    setInterval(function(){loadData()}, 60000);
 
     function CircleSize(compile){
         var size = Math.random(1, 0.07) * 0.07;
