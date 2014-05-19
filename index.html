@@ -61,13 +61,9 @@
     <script>
     var vimeoCategory = "vimeo";
     $(document).ready(function() {
-        if (Math.random() > 0.5) {
-            vimeoCategory = "vimeo_chart";
-            $("#vidDiv1").append('<iframe id="vimeoPlayer" src="http://player.vimeo.com/video/91935724?title=0&amp;byline=0&amp;portrait=0&amp;color=38e8ae" width="500" height="281" frameborder="0" data-progress="true" data-seek="true" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
-        } else {
-            vimeoCategory = "vimeo_dogs";
-            $("#vidDiv1").append('<iframe id="vimeoPlayer" src="http://player.vimeo.com/video/91448290?title=0&amp;byline=0&amp;portrait=0&amp;color=38e8ae" width="500" height="281" frameborder="0" data-progress="true" data-seek="true" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
-        }
+        vimeoCategory = "vimeo_chart";
+        $("#vidDiv1").append('<iframe id="vimeoPlayer" src="http://player.vimeo.com/video/91935724?title=0&amp;byline=0&amp;portrait=0&amp;color=38e8ae" width="500" height="281" frameborder="0" data-progress="true" data-seek="true" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
+       
         ga('send', 'event', vimeoCategory, 'loaded video');
     });
     </script>
@@ -330,10 +326,7 @@
                                 Our VS 2012 extension currently logs each build that you perform and whether that build succeeded or failed. It will also ask you for your location when you initially install it. Support for 2010 and 2013 is coming soon. <a href="#signup">Sign up to be notified when VS2010 and VS2013 support is ready</a>.
                             </p>
                             <p>
-                                <a href="/QuantifiedDevVisualStudioExtension.vsix" class="btn btn-outline btn-prominent margin-verticals" id="downloadVSExtensionLink">Download QuantifiedDev VS extension</a>
-                            </p>
-                            <p>
-                                No sign up required, logs anonymously. 
+                                <a href="/QuantifiedDevVisualStudioExtension.vsix" class="btn btn-outline btn-prominent margin-verticals" id="downloadVSExtensionLink">Download VS extension<br /><small>No sign up required. Logs anonymously</small></a>
                             </p>
                             <p><a href="/app">Visit your QuantifiedDev dashboard</a> and enter your stream id and token from the VS extension window to see your data.</p>
                         </div>
@@ -344,17 +337,14 @@
                                 IntelliJ Idea Plugin
                             </h3>
                             <p>
-                                Our IntelliJ Idea plugin currently logs each build that you perform and whether that build succeeded or failed. It will also ask you for your location when you initially install it. We support Java 1.7. Java 1.6 support will be added soon. <a href="#signup">Sign up to be notified when support for 1.6 is ready</a>.
+                                Our IntelliJ Idea plugin currently logs each build that you perform and whether that build succeeded or failed. It will also ask you for your location when you initially install it. We support Java 1.6, 1.7 and 1.8 runtimes. <a href="#signup">Sign up to be notified when we make further updates</a>.
                             </p>
                              
                             
                             <p>
-                                <a href="/quantifiedDevIdeaPlugin-0.1.0.Beta1.zip" class="btn btn-outline btn-prominent margin-verticals" id="downloadIntelliJExtensionLink">Download IntelliJ Idea plugin</a>
+                                <a href="/quantifiedDevIdeaPlugin-0.1.0.Beta1.zip" class="btn btn-outline btn-prominent margin-verticals" id="downloadIntelliJExtensionLink">Download IntelliJ Idea plugin<br /><small>No sign up required. Logs anonymously</small></a>
                                 <br />
                                 [<a href="https://github.com/QuantifiedDev/intellij-idea-plugin" target="_blank">Installation instructions</a>]
-                            </p>
-                            <p>
-                                No sign up required, logs anonymously. 
                             </p>
                             <p><a href="/app">Visit your QuantifiedDev dashboard</a> and enter your stream id and token from the IDE extension window to see your data.</p>
                         </div>
