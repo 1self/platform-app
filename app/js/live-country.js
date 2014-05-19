@@ -39,7 +39,8 @@ var liveeurope = function() {
                 locationInfo = $.parseJSON(locationInfo);
                 var centerLatitude = locationInfo.latitude;
                 var centerLongitude = locationInfo.longitude;
-                plotCountry(centerLatitude, centerLongitude);
+                var countryName = locationInfo.country_name;
+                plotCountry(countryName, centerLatitude, centerLongitude);
             },
             error: function(err) {
                 console.log("error is " + JSON.stringify(err));
@@ -48,7 +49,9 @@ var liveeurope = function() {
     });
 
 
-    var plotCountry = function(centerLatitude, centerLongitude) {
+    var plotCountry = function(countryName, centerLatitude, centerLongitude) {
+
+        $("#country").text(countryName + "'s Builds");
         var projection = d3.geo.mercator()
             .scale(width)
             .clipAngle(90)
