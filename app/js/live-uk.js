@@ -1,35 +1,37 @@
-var liveuk = function(){  
+var liveuk = function() {
     var liveDurationMins = 60; // default duration of 1 hour
 
-    $('#last-minute').click(function(){
+    $('#last-minute').click(function() {
         liveDurationMins = 1;
         loadData();
     });
 
-    $('#last-hour').click(function(){
+    $('#last-hour').click(function() {
         liveDurationMins = 60;
         loadData();
     });
 
-    $('#last-day').click(function(){
+    $('#last-day').click(function() {
         liveDurationMins = 60 * 24;
         loadData()
     });
 
-    $('#last-week').click(function(){
-       liveDurationMins = 60 * 24 * 7;
-       loadData();
+    $('#last-week').click(function() {
+        liveDurationMins = 60 * 24 * 7;
+        loadData();
     });
 
     var width = $("#live-world").parent().parent().width()
-        height = width,
-        speed = -1e-3,
-        start = Date.now();
+    height = width,
+    speed = -1e-3,
+    start = Date.now();
 
-    var sphere = {type: "Sphere"};
+    var sphere = {
+        type: "Sphere"
+    };
 
     var projection = d3.geo.mercator()
-        .scale(width * 8 )
+        .scale(width * 8)
         .clipAngle(90)
         .translate([width / 2, height / 2])
         .center([0, 52])
@@ -40,77 +42,8 @@ var liveuk = function(){
         .attr("width", width)
         .attr("height", height);
 
-    var compileCoords = [
-        // {
-        //     id: '1',
-        //     location: [0.1275, 51.5072],
-        //     label: 'london',
-        //     status: 'buildStarted'
-        // },
-        // {
-        //     id: '2',
-        //     location: [73.8567, 18.5203],
-        //     label: 'pune',
-        //     status: 'buildStarted'
-        // },
-        // {
-        //     id: '3',
-        //     location: [72.8258, 18.9750],
-        //     label: 'mumbai',
-        //     status: 'buildFailing'
-        // },
-        // {
-        //     id: '4',
-        //     location: [-73.9400, 40.6700],
-        //     label: 'New york',
-        //     status: 'buildStarted'
-        // },
-        // {
-        //     id: '5',
-        //     location: [139.6917, 35.6895],
-        //     label: 'Tokyo',
-        //     status: 'buildStarted'
-        // },
-        // {
-        //     id: '6',
-        //     location: [144.9631, -37.8136],
-        //     label: 'Melbourne ',
-        //     status: 'buildStarted'
-        // },
-        // {
-        //     id: '7',
-        //     location: [-46.6333, -23.5500],
-        //     label: 'Sao Paulo',
-        //     status: 'buildPassed'
-        // },
-        // {
-        //     id: '8',
-        //     location: [-118.2500, 34.0500],
-        //     label: 'LA',
-        //     status: 'buildStarted'
-        // },
-        // {
-        //     id: '9',
-        //     location: [7.4833, 9.0667],
-        //     label: 'Abuja',
-        //     status: 'buildPassed'
-        // },
-        // {
-        //     id: '10',
-        //     location: [37.6167, 55.7500],
-        //     label: 'Moscow',
-        //     status: 'buildStarted'
-        // },
-        // {
-        //     id: '11',
-        //     location: [151.2111, -33.8600],
-        //     label: ' Sydney',
-        //     status: 'buildFailing'
-        // },
-    ];
-
-    var loadData = function(){
-        d3.json("http://quantifieddev.herokuapp.com/live/devbuild/" + liveDurationMins, function(error, builds){
+    var loadData = function() {
+        d3.json("http://quantifieddev.herokuapp.com/live/devbuild/" + liveDurationMins, function(error, builds) {
             var data = builds;
             compileCoords = [];
             for (var i = builds.length - 1; i >= 0; i--) {
@@ -126,64 +59,64 @@ var liveuk = function(){
 
             createCircles();
         });
-    }; 
-    
+    };
+
 
     loadData();
-    setInterval(function(){loadData()}, 60000);
+    setInterval(function() {
+        loadData()
+    }, 60000);
 
-    function CircleSize(compile){
+    function CircleSize(compile) {
         var size = Math.random(1, 0.07) * 0.07;
 
-        return function(){
-            if(compile.status == 'buildPassed'){
-                if(size <= 0.001){
+        return function() {
+            if (compile.status == 'buildPassed') {
+                if (size <= 0.001) {
                     size = 0.0001;
-                }
-                else{
+                } else {
                     size -= 0.00001;
                 }
-            }
-            else{
+            } else {
                 size += 0.001;
-                if(size > 0.07){
+                if (size > 0.07) {
                     size = 0.01;
                 }
             }
-        
+
             return size;
-        }  
+        }
     };
 
     var compiles;
 
-    function createCircles(){
-        compiles = compileCoords.map(function(compile){
+    function createCircles() {
+        compiles = compileCoords.map(function(compile) {
             var circleSize = new CircleSize(compile);
 
-            var getFillColor = function(compile){
+            var getFillColor = function(compile) {
                 var result;
-                if(compile.status == 'buildStarted'){
+                if (compile.status == 'buildStarted') {
                     result = "rgba(0,0,100,.3)";
-                }
-                else if(compile.status == 'buildFailing'){
+                } else if (compile.status == 'buildFailing') {
                     result = "rgba(180,0,0,.3)";
-                }
-                else if(compile.status == 'buildPassed'){
+                } else if (compile.status == 'buildPassed') {
                     result = "rgba(0,180,0,.3)";
-                }
-                else {
+                } else {
                     result = "rgba(100,100,100,.3)";
                 }
 
                 return result;
             }
 
-            var draw = function(context){
+            var draw = function(context) {
                 var circle = d3.geo.circle().angle(circleSize()).origin(compile.location);
                 circlePoints = [circle()];
                 context.beginPath();
-                path({type: "GeometryCollection", geometries: circlePoints});
+                path({
+                    type: "GeometryCollection",
+                    geometries: circlePoints
+                });
                 context.fillStyle = getFillColor(compile);
                 context.fill();
                 context.lineWidth = .2;
@@ -197,12 +130,11 @@ var liveuk = function(){
 
     d3.json("topo/world-110m.json", function(error, topo) {
         var land = topojson.feature(topo, topo.objects.land),
-          grid = graticule();
+            grid = graticule();
 
 
-        
 
-        d3.timer(function(){
+        d3.timer(function() {
             context.clearRect(0, 0, width, height);
 
             context.beginPath();
@@ -240,12 +172,12 @@ var liveuk = function(){
             context.strokeStyle = "#060";
             context.stroke();
 
-            if(compiles != undefined){
-                compiles.forEach(function(drawCompile){
+            if (compiles != undefined) {
+                compiles.forEach(function(drawCompile) {
                     drawCompile(context);
                 });
             }
-            
+
         });
     });
 
