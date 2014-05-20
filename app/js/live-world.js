@@ -1,6 +1,6 @@
 var liveworld = function() {
 
-    var liveDurationMins = 60; // default duration of 1 hour
+    var liveDurationMins = 1; // default duration of 1 hour
 
     var registerButtonClickHandlers = function() {
         $('#last-minute').click(function() {
@@ -64,7 +64,8 @@ var liveworld = function() {
                 var build = {
                     id: i,
                     location: [buildFromServer.location.long, buildFromServer.location.lat],
-                    status: isFinish == -1 ? 'buildStarted' : 'buildFailing'
+                    status: isFinish == -1 ? 'buildStarted' : 'buildFailing',
+                    language: buildFromServer.properties.Language[0]
                 }
                 compileCoords.push(build);
             };
@@ -83,15 +84,15 @@ var liveworld = function() {
         var size = Math.random(1, 0.7) * 0.7;
         return function() {
             if (compile.status == 'buildPassed') {
-                if (size <= 0.05) {
-                    size = 0.005;
+                if (size <= 0.03) {
+                    size = 0.003;
                 } else {
-                    size -= 0.0005;
+                    size -= 0.0003;
                 }
             } else {
-                size += 0.05;
-                if (size > 3.5) {
-                    size = 0.5;
+                size += 0.03;
+                if (size > 2.1) {
+                    size = 0.3;
                 }
             }
 
@@ -107,15 +108,27 @@ var liveworld = function() {
 
             var getFillColor = function(compile) {
                 var result;
-                if (compile.status == 'buildStarted') {
-                    result = "rgba(0,0,100,.3)";
-                } else if (compile.status == 'buildFailing') {
-                    result = "rgba(180,0,0,.3)";
-                } else if (compile.status == 'buildPassed') {
-                    result = "rgba(0,180,0,.3)";
+                // console.log("compile.language " + compile.language);
+                if (compile.language === 'java') {
+                    result = "rgba(0,0,100,1)";
+                } else if (compile.language === 'groovy') {
+                    result = "rgba(180,0,0,1)";
+                } else if (compile.language === 'javascript') {
+                    result = "rgba(0,180,0,1)";
+                } else if (compile.language === 'C#') {
+                    result = "rgba(255,255,0,1)";
                 } else {
                     result = "rgba(100,100,100,.3)";
                 }
+                /*else if (compile.status === 'buildStarted') {
+                    result = "rgba(0,0,100,.3)";
+                } else if (compile.status === 'buildFailing') {
+                    result = "rgba(180,0,0,.3)";
+                } else if (compile.status === 'buildPassed') {
+                    result = "rgba(0,180,0,.3)";
+                } else {
+                    result = "rgba(100,100,100,.3)";
+                }*/
 
                 return result;
             }

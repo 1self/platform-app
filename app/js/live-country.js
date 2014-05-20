@@ -1,5 +1,5 @@
 var liveeurope = function() {
-    var liveDurationMins = 60; // default duration of 1 hour
+    var liveDurationMins = 1; // default duration of 1 hour
 
     var registerButtonClickHandlers = function() {
         $('#last-minute').click(function() {
@@ -81,7 +81,8 @@ var liveeurope = function() {
                 var build = {
                     id: i,
                     location: [buildFromServer.location.long, buildFromServer.location.lat],
-                    status: isFinish == -1 ? 'buildStarted' : 'buildFailing'
+                    status: isFinish == -1 ? 'buildStarted' : 'buildFailing',
+                    language: buildFromServer.properties.Language[0]
                 }
                 compileCoords.push(build);
             };
@@ -123,7 +124,18 @@ var liveeurope = function() {
 
             var getFillColor = function(compile) {
                 var result;
-                if (compile.status == 'buildStarted') {
+                if (compile.language === 'java') {
+                    result = "rgba(0,0,100,1)";
+                } else if (compile.language === 'groovy') {
+                    result = "rgba(180,0,0,1)";
+                } else if (compile.language === 'javascript') {
+                    result = "rgba(0,180,0,1)";
+                } else if (compile.language === 'C#') {
+                    result = "rgba(255,255,0,1)";
+                } else {
+                    result = "rgba(100,100,100,.3)";
+                }
+                /*if (compile.status == 'buildStarted') {
                     result = "rgba(0,0,100,.3)";
                 } else if (compile.status == 'buildFailing') {
                     result = "rgba(180,0,0,.3)";
@@ -132,7 +144,7 @@ var liveeurope = function() {
                 } else {
                     result = "rgba(100,100,100,.3)";
                 }
-
+*/
                 return result;
             }
 
@@ -207,7 +219,6 @@ var liveeurope = function() {
                         drawCompile(context);
                     });
                 }
-
             });
         });
     }
