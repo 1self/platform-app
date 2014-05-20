@@ -7,17 +7,20 @@ var qd = function() {
 
     var updateStreamIdAndReadToken = function() {
         result.streamId = window.localStorage.streamId;
-        result.readToken = window.localStorage.readToken;    
+        result.readToken = window.localStorage.readToken;
     };
 
     updateStreamIdAndReadToken();
 
-    var contextualizeUrl = function() {
+    var url = function() {
+        var result = "";
         if (location.hostname == "localhost") {
-            myDevUrl = "http://" + location.hostname + ":5000/quantifieddev/mydev/" + window.localStorage.streamId;
+            result = "http://" + location.hostname + ":5000/quantifieddev/mydev/" + window.localStorage.streamId;
         } else {
-            myDevUrl = "http://quantifieddev.herokuapp.com/quantifieddev/mydev/" + window.localStorage.streamId;
+            result = "http://quantifieddev.herokuapp.com/quantifieddev/mydev/" + window.localStorage.streamId;
         }
+
+        return result;
     }
 
     var compare = function(todaysBuilds, yesterdayBuilds) {
@@ -28,7 +31,7 @@ var qd = function() {
     }
     result.updateModel = function() {
         $.ajax({
-            url: myDevUrl,
+            url: url(),
             headers: {
                 "Authorization": result.readToken,
                 "Content-Type": "application/json"
@@ -57,7 +60,6 @@ var qd = function() {
         window.localStorage.streamId = streamId;
         window.localStorage.readToken = readToken;
         updateStreamIdAndReadToken();
-        contextualizeUrl();
         result.updateModel();
     }
 
