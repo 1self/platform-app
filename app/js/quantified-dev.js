@@ -5,25 +5,30 @@ var qd = function() {
 
     var modelUpdateCallbacks = [];
 
-    result.streamId = window.localStorage.streamId;
-    result.readToken = window.localStorage.readToken;
+    var updateStreamIdAndReadToken = function() {
+        result.streamId = window.localStorage.streamId;
+        result.readToken = window.localStorage.readToken;    
+    };
 
-    var url;
-    if (location.hostname == "localhost") {
-        var url = "http://" + location.hostname + ":5000/quantifieddev/mydev/" + result.streamId;
-    } else {
-        var url = "http://quantifieddev.herokuapp.com/quantifieddev/mydev/" + result.streamId;
+    updateStreamIdAndReadToken();
 
+    var contextualizeUrl = function() {
+        if (location.hostname == "localhost") {
+            myDevUrl = "http://" + location.hostname + ":5000/quantifieddev/mydev/" + window.localStorage.streamId;
+        } else {
+            myDevUrl = "http://quantifieddev.herokuapp.com/quantifieddev/mydev/" + window.localStorage.streamId;
+        }
     }
+
     var compare = function(todaysBuilds, yesterdayBuilds) {
-        
+
         var difference = todaysBuilds - yesterdayBuilds;
         var percentChange = (difference / yesterdayBuilds) * 100;
         return Math.ceil(percentChange);
     }
     result.updateModel = function() {
         $.ajax({
-            url: url,
+            url: myDevUrl,
             headers: {
                 "Authorization": result.readToken,
                 "Content-Type": "application/json"
@@ -51,8 +56,8 @@ var qd = function() {
     result.save = function(streamId, readToken) {
         window.localStorage.streamId = streamId;
         window.localStorage.readToken = readToken;
-        result.streamId = streamId;
-        result.readToken = readToken;
+        updateStreamIdAndReadToken();
+        contextualizeUrl();
         result.updateModel();
     }
 
