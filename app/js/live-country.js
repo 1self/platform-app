@@ -133,21 +133,6 @@ var liveCountry = function() {
         compiles = compileCoords.map(function(compile) {
             var circleSize = new CircleSize(compile);
 
-            var getFillColor = function(compile) {
-                var result;
-                if (compile.status == 'buildStarted') {
-                    result = "rgba(0,0,100,.3)";
-                } else if (compile.status == 'buildFailing') {
-                    result = "rgba(180,0,0,.3)";
-                } else if (compile.status == 'buildPassed') {
-                    result = "rgba(0,180,0,.3)";
-                } else {
-                    result = "rgba(100,100,100,.3)";
-                }
-
-                return result;
-            }
-
             var draw = function(context) {
                 var circle = d3.geo.circle().angle(circleSize()).origin(compile.location);
                 circlePoints = [circle()];
@@ -156,7 +141,7 @@ var liveCountry = function() {
                     type: "GeometryCollection",
                     geometries: circlePoints
                 });
-                context.fillStyle = getFillColor(compile);
+                context.fillStyle = "rgba(17, 13, 255, .3)";
                 context.fill();
                 context.lineWidth = .2;
                 context.strokeStyle = "#FFF";
