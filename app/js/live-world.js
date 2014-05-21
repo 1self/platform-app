@@ -1,6 +1,7 @@
 var liveworld = function() {
 
     var liveDurationMins = 60; // default duration of 1 hour
+    var selectedLanguage = "all"; // default to all languages
 
     var registerButtonClickHandlers = function() {
         $('#last-minute').click(function() {
@@ -23,6 +24,12 @@ var liveworld = function() {
             loadData();
         });
     };
+
+    $("#language-select").change(function() {
+        selectedLanguage = $(this).find(":selected").val();
+        console.log("the value you selected: " + selectedLanguage);
+        loadData();
+    });
 
     registerButtonClickHandlers();
 
@@ -55,16 +62,21 @@ var liveworld = function() {
     d3.select(self.frameElement).style("height", height + "px");
 
     var loadData = function() {
-        d3.json("http://quantifieddev.herokuapp.com/live/devbuild/" + liveDurationMins, function(error, builds) {
+        var liveDevBuildUrl = "http://quantifieddev.herokuapp.com/live/devbuild/" + liveDurationMins;
+
+        liveDevBuildUrl += (selectedLanguage !== "all") ? "?lang=" + selectedLanguage : "";
+
+        d3.json(liveDevBuildUrl, function(error, builds) {
             var data = builds;
             compileCoords = [];
             for (var i = builds.length - 1; i >= 0; i--) {
-                var buildFromServer = builds[i];
+                var buildFromServer = builds[i].payload;
                 var isFinish = buildFromServer.actionTags.indexOf('Finish');
                 var build = {
                     id: i,
                     location: [buildFromServer.location.long, buildFromServer.location.lat],
-                    status: isFinish == -1 ? 'buildStarted' : 'buildFailing'
+                    status: isFinish == -1 ? 'buildStarted' : 'buildFailing',
+                    language: buildFromServer.properties.Language[0]
                 }
                 compileCoords.push(build);
             };
@@ -83,15 +95,15 @@ var liveworld = function() {
         var size = Math.random(1, 0.7) * 0.7;
         return function() {
             if (compile.status == 'buildPassed') {
-                if (size <= 0.05) {
-                    size = 0.005;
+                if (size <= 0.03) {
+                    size = 0.003;
                 } else {
-                    size -= 0.0005;
+                    size -= 0.0003;
                 }
             } else {
-                size += 0.05;
-                if (size > 3.5) {
-                    size = 0.5;
+                size += 0.03;
+                if (size > 2.1) {
+                    size = 0.3;
                 }
             }
 
@@ -105,21 +117,6 @@ var liveworld = function() {
         compiles = compileCoords.map(function(compile) {
             var circleSize = new CircleSize(compile);
 
-            var getFillColor = function(compile) {
-                var result;
-                if (compile.status == 'buildStarted') {
-                    result = "rgba(0,0,100,.3)";
-                } else if (compile.status == 'buildFailing') {
-                    result = "rgba(180,0,0,.3)";
-                } else if (compile.status == 'buildPassed') {
-                    result = "rgba(0,180,0,.3)";
-                } else {
-                    result = "rgba(100,100,100,.3)";
-                }
-
-                return result;
-            }
-
             var draw = function(context) {
                 var circle = d3.geo.circle().angle(circleSize()).origin(compile.location);
                 circlePoints = [circle()];
@@ -128,7 +125,7 @@ var liveworld = function() {
                     type: "GeometryCollection",
                     geometries: circlePoints
                 });
-                context.fillStyle = getFillColor(compile);
+                context.fillStyle = "rgba(17, 13, 255, .3)";
                 context.fill();
                 context.lineWidth = .2;
                 context.strokeStyle = "#FFF";
