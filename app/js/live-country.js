@@ -1,36 +1,18 @@
 var liveCountry = function() {
     var liveDurationMins = 60; // default duration of 1 hour
     var selectedLanguage = "all"; // default to all languages
-
-    var registerButtonClickHandlers = function() {
-        $('#last-minute').click(function() {
-            liveDurationMins = 1;
-            loadData();
-        });
-
-        $('#last-hour').click(function() {
-            liveDurationMins = 60;
-            loadData();
-        });
-
-        $('#last-day').click(function() {
-            liveDurationMins = 60 * 24;
-            loadData()
-        });
-
-        $('#last-week').click(function() {
-            liveDurationMins = 60 * 24 * 7;
-            loadData();
-        });
-    };
+    
+    $("#country-time-select").change(function() {
+        liveDurationMins = $(this).find(":selected").val();
+        console.log("the value you selected: " + liveDurationMins);
+        loadData();
+    });
 
     $("#country-language-select").change(function() {
         selectedLanguage = $(this).find(":selected").val();
         console.log("the value you selected: " + selectedLanguage);
         loadData();
     });
-
-    registerButtonClickHandlers();
 
     // Bit hacky to ge the width and height
     var width = $("#live-world").parent().parent().width();

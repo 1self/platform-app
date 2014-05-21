@@ -130,25 +130,24 @@
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 info-tiles tiles-secondary">
               <div class="tiles-heading">
-                <div>Worldwide Builds</div>
+                <div style="margin-bottom: 10px;">Worldwide Builds</div>
                 <div class="row">
-                  <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="pull-left"><button class="dropdown list-box">
-                      <a id="drop1" href="#" role="button" class="dropdown-toggle plain" data-toggle="dropdown">
-                      <i class="icon-bar-chart text-danger plain"></i>
-                      <span class='plain'>view duration</span>
-                      </a>
-                      <ul class="dropdown-menu flipInX animated browser-stats" style="color: black;">
-                        <li class="plain">Live data duration</li>
-                        <li id="last-minute"><div class="details">Last Minute</div></li>
-                        <li id='last-hour'><div class="details">Last Hour</div></li>
-                        <li id='last-day'><div class="details">Last Day</div></li>
-                        <li id='last-week'><div class="details">Last Week</div></li>
-                      </ul>
-                    </button></div>
+                  <div class="col-lg-2 col-md-2 col-sm-4 pull-left">
+                    Since:
                   </div>
-                  <div class="col-lg-6 col-md-6 col-sm-12">
-                    <select id="language-select" class="form-control">
+                  <div class="col-lg-4 col-md-4 col-sm-8 pull-left">
+                    <select id="world-time-select" class="form-control">
+                      <option value="1">Last Minute</option>
+                      <option value='60'selected="true">Last Hour</option>
+                      <option value='1440'>Last Day</option>
+                      <option value='10080'>Last Week</option>
+                    </select>
+                  </div>
+                  <div class="col-lg-1 col-md-1 col-sm-2 pull-left">
+                    For:
+                  </div>
+                  <div class="col-lg-5 col-md-5 col-sm-10 pull-left">
+                    <select id="world-language-select" class="form-control">
                       <option value="all">All Languages</option>
                       <option value="java">Java</option>
                       <option value="groovy">Groovy</option>
@@ -168,24 +167,23 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 info-tiles tiles-secondary">
               <div class="tiles-heading">
-                <div id="country">Your Country's Builds</div>
+                <div id="country" style="margin-bottom: 10px;">Your Country's Builds</div>
                 <div class="row">
-                  <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="pull-left"><button class="dropdown list-box">
-                      <a id="drop2" href="#" role="button" class="dropdown-toggle plain" data-toggle="dropdown">
-                      <i class="icon-bar-chart text-danger plain"></i>
-                      <span class='plain'>view duration</span>
-                      </a>
-                      <ul class="dropdown-menu flipInX animated browser-stats" style="color: black;">
-                        <li class="plain">Live data duration</li>
-                        <li id="country-last-minute"><div class="details">Last Minute</div></li>
-                        <li id='country-last-hour'><div class="details">Last Hour</div></li>
-                        <li id='country-last-day'><div class="details">Last Day</div></li>
-                        <li id='country-last-week'><div class="details">Last Week</div></li>
-                      </ul>
-                    </button></div>
+                  <div class="col-lg-2 col-md-2 col-sm-4">
+                    Since:
                   </div>
-                  <div class="col-lg-6 col-md-6 col-sm-12">
+                  <div class="col-lg-4 col-md-4 col-sm-8">
+                    <select id="country-time-select" class="form-control">
+                      <option value="1">Last Minute</option>
+                      <option value='60'selected="true">Last Hour</option>
+                      <option value='1440'>Last Day</option>
+                      <option value='10080'>Last Week</option>
+                    </select>
+                  </div>
+                  <div class="col-lg-1 col-md-1 col-sm-2">
+                    For:
+                  </div>
+                  <div class="col-lg-5 col-md-5 col-sm-10">
                     <select id="country-language-select" class="form-control">
                       <option value="all">All Languages</option>
                       <option value="java">Java</option>
