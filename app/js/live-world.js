@@ -1,6 +1,7 @@
 var liveworld = function() {
 
     var liveDurationMins = 60; // default duration of 1 hour
+    var selectedLanguage = "all"; // default to all languages
 
     var registerButtonClickHandlers = function() {
         $('#last-minute').click(function() {
@@ -23,6 +24,12 @@ var liveworld = function() {
             loadData();
         });
     };
+
+    $("#language-select").change(function() {
+        selectedLanguage = $(this).find(":selected").val();
+        console.log("the value you selected: " + selectedLanguage);
+        loadData();
+    });
 
     registerButtonClickHandlers();
 
@@ -55,16 +62,21 @@ var liveworld = function() {
     d3.select(self.frameElement).style("height", height + "px");
 
     var loadData = function() {
-        d3.json("http://quantifieddev.herokuapp.com/live/devbuild/" + liveDurationMins, function(error, builds) {
+        var liveDevBuildUrl = "http://quantifieddev.herokuapp.com/live/devbuild/" + liveDurationMins;
+
+        liveDevBuildUrl += (selectedLanguage !== "all") ? "?lang=" + selectedLanguage : "";
+
+        d3.json(liveDevBuildUrl, function(error, builds) {
             var data = builds;
             compileCoords = [];
             for (var i = builds.length - 1; i >= 0; i--) {
-                var buildFromServer = builds[i];
+                var buildFromServer = builds[i].payload;
                 var isFinish = buildFromServer.actionTags.indexOf('Finish');
                 var build = {
                     id: i,
                     location: [buildFromServer.location.long, buildFromServer.location.lat],
-                    status: isFinish == -1 ? 'buildStarted' : 'buildFailing'
+                    status: isFinish == -1 ? 'buildStarted' : 'buildFailing',
+                    language: buildFromServer.properties.Language[0]
                 }
                 compileCoords.push(build);
             };

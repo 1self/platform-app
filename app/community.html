@@ -139,46 +139,27 @@
                       <span class='plain'>view duration</span>
                       </a>
                       <ul class="dropdown-menu flipInX animated browser-stats" style="color: black;">
-                        <li class="plain">
-                          Live data duration
-                        </li>
-                        <li id="last-minute">
-                          <div class="details">
-                            Last Minute
-                          </div>
-                        </li>
-                        <li id='last-hour'>
-                          
-                          <div class="details">
-                            Last Hour
-                          </div>
-                        </li>
-                        <li id='last-day'>
-                          <div class="details">
-                            Last Day
-                          </div>
-                        </li>
-                        <li id='last-week'>
-                          <div class="details">
-                            Last Week
-                          </div>
-                        </li>
+                        <li class="plain">Live data duration</li>
+                        <li id="last-minute"><div class="details">Last Minute</div></li>
+                        <li id='last-hour'><div class="details">Last Hour</div></li>
+                        <li id='last-day'><div class="details">Last Day</div></li>
+                        <li id='last-week'><div class="details">Last Week</div></li>
                       </ul>
                     </button></div>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12">
-                    <select class="form-control">
-                      <option value="one">One</option>
-                      <option value="two">Two</option>
-                      <option value="three">Three</option>
-                      <option value="four">Four</option>
-                      <option value="five">Five</option>
+                    <select id="language-select" class="form-control">
+                      <option value="all">All Languages</option>
+                      <option value="java">Java</option>
+                      <option value="groovy">Groovy</option>
+                      <option value="scala">Scala</option>
+                      <option value="c#">C#</option>
+                      <option value="javascript">Javascript</option>
                     </select>
                   </div>
                 </div>
               </div>
               <div class="tiles-body">
-                
                 <div class="pull-right number"><div id='live-world'></div></div>
               </div>
               <div class="tiles-footer">
@@ -206,7 +187,6 @@
       <!-- Main Container End -->
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="js/jquery.js"></script>
-      
       <!-- Include all compiled plugins (below), or include individual files as needed -->
       <script src="js/bootstrap.min.js"></script>
       <!-- jQuery UI JS -->
