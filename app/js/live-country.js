@@ -1,5 +1,4 @@
 var liveCountry = function() {
-    var counter = 0;
     var liveDurationMins = 60; // default duration of 1 hour
     var selectedLanguage = "all"; // default to all languages
 
@@ -194,7 +193,6 @@ var liveCountry = function() {
                         drawCompile(context);
                     });
                 }
-                // console.info("counter : " + counter--);
                 setTimeout(redrawCountry, 1000);
             };
             redrawCountry();

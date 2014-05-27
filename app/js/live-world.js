@@ -1,5 +1,4 @@
 var liveworld = function() {
-    var counter = 0;
     var liveDurationMins = 60; // default duration of 1 hour
     var selectedLanguage = "all"; // default to all languages
 
@@ -69,7 +68,6 @@ var liveworld = function() {
                     allLocations.push(build.location);
                 }
             };
-            console.info("compileCoords : " + compileCoords[0] + " and length : " + compileCoords.length);
             createCircles();
         })
     };
@@ -184,7 +182,6 @@ var liveworld = function() {
                         drawCompile(context);
                     });
                 }
-                // console.info("counter : " + counter++);
                 setTimeout(redrawGlobe, 1000);
             };
             redrawGlobe();
