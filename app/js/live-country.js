@@ -1,7 +1,8 @@
 var liveCountry = function() {
+    var counter = 0;
     var liveDurationMins = 60; // default duration of 1 hour
     var selectedLanguage = "all"; // default to all languages
-    
+
     $("#country-time-select").change(function() {
         liveDurationMins = $(this).find(":selected").val();
         console.log("the value you selected: " + liveDurationMins);
@@ -68,16 +69,23 @@ var liveCountry = function() {
         d3.json(liveDevBuildUrl, function(error, builds) {
             var data = builds;
             compileCoords = [];
+            var allLocations = [];
             for (var i = builds.length - 1; i >= 0; i--) {
                 var buildFromServer = builds[i].payload;
                 var isFinish = buildFromServer.actionTags.indexOf('Finish');
                 var build = {
                     id: i,
-                    location: [buildFromServer.location.long, buildFromServer.location.lat],
+                    location: {
+                        lon: buildFromServer.location.long,
+                        lat: buildFromServer.location.lat
+                    },
                     status: isFinish == -1 ? 'buildStarted' : 'buildFailing',
                     language: buildFromServer.properties.Language[0]
                 }
-                compileCoords.push(build);
+                if (!(_.findWhere(allLocations, build.location))) {
+                    compileCoords.push(build);
+                    allLocations.push(build.location);
+                }
             };
 
             createCircles();
@@ -116,7 +124,7 @@ var liveCountry = function() {
             var circleSize = new CircleSize(compile);
 
             var draw = function(context) {
-                var circle = d3.geo.circle().angle(circleSize()).origin(compile.location);
+                var circle = d3.geo.circle().angle(circleSize()).origin([compile.location.lon, compile.location.lat]);
                 circlePoints = [circle()];
                 context.beginPath();
                 path({
@@ -140,7 +148,7 @@ var liveCountry = function() {
             var land = topojson.feature(topo, topo.objects.land),
                 grid = graticule();
 
-            setInterval(function() {
+            var redrawCountry = function() {
                 context.clearRect(0, 0, width, height);
 
                 context.beginPath();
@@ -186,8 +194,10 @@ var liveCountry = function() {
                         drawCompile(context);
                     });
                 }
-
-            }, 200);
+                // console.info("counter : " + counter--);
+                setTimeout(redrawCountry, 1000);
+            };
+            redrawCountry();
         });
     }
 
