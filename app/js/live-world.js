@@ -124,8 +124,7 @@ var liveworld = function() {
             var land = topojson.feature(topo, topo.objects.land),
                 grid = graticule();
 
-            d3.timer(function() {
-                //console.log(new Date().toJSON());
+            setInterval(function() {
                 var λ = (speed * (Date.now() - start) * 2),
                     φ = -15;
 
@@ -178,7 +177,7 @@ var liveworld = function() {
                         drawCompile(context);
                     });
                 }
-            });
+            }, 200);
         });
     }
 

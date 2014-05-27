@@ -140,7 +140,7 @@ var liveCountry = function() {
             var land = topojson.feature(topo, topo.objects.land),
                 grid = graticule();
 
-            d3.timer(function() {
+            setInterval(function() {
                 context.clearRect(0, 0, width, height);
 
                 context.beginPath();
@@ -187,7 +187,7 @@ var liveCountry = function() {
                     });
                 }
 
-            });
+            }, 200);
         });
     }
 
