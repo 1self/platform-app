@@ -1,0 +1,164 @@
+/*#myCarousel .item {
+	margin: 10px 30px;
+}*/
+
+#carousel-container-id{
+	margin: 10px auto;
+
+}
+
+.carousel-inner{
+	height: 180px;
+}
+
+#headline-id{
+	margin: 50px 0px 0px 0px;
+	padding: 10px 0px 10px 0px;
+}
+
+.carousel-indicators li{
+	border: 1px solid black;
+}
+
+.carousel-indicators .active{
+	background-color: black;
+}
+
+.mainlogo{
+	padding-top: 15px;
+}
+
+#mc-embedded-subscribe-form{
+	margin-bottom: 20px;
+}
+
+#mce-EMAIL{
+	color: black;
+	border-style: solid none solid solid;
+	border-color: #FFFFFF #FFFFFF #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.8);
+	-webkit-border-radius: 3px 0px 0px 3px;
+  	-moz-border-radius: 3px 0px 0px 3px;
+  	border-radius: 3px 0px 0px 3px;
+  	border-width: 2px;
+  	width:280px;
+
+}
+
+.build-graph{
+	width: 100%;
+	height: auto;
+}
+
+.container > .navbar-header{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+#vidDiv1{
+}
+
+.video {
+  margin: 0 auto;
+}
+
+.navbar-inverse{
+	background-color: rgb(57, 57, 57);
+	border-color: rgb(57, 57, 57);
+}
+
+.navbar-transparent .nav .active > a {
+	background-color: rgba(139, 204, 239, 0.65);
+}
+
+.btn-prominent {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #fc7364;
+  background-image: -moz-linear-gradient(top, #fc7364, #fc8173);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fc7364), to(#fc8173));
+  background-image: -webkit-linear-gradient(top, #fc7364, #fc8173);
+  background-image: -o-linear-gradient(top, #fc7364, #fc8173);
+  background-image: linear-gradient(to bottom, #fc7364, #fc8173);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fc7364', endColorstr='#fc8173', GradientType=0);
+  border-color: #FFFFFF #FFFFFF #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.8);
+  background-color: #fc8173;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+
+  border-style: solid solid solid solid;
+  border-width: 2px;
+
+
+}
+
+#mc-embedded-subscribe{
+	height: 46px;
+	margin-left:-4px;
+	-webkit-border-radius: 0px 3px 3px 0px;
+	-moz-border-radius: 0px 3px 3px 0px;
+	border-radius: 0px 3px 3px 0px;
+
+  border-style: solid solid solid none;
+}
+
+.featurefa{
+	font-size: 50px;
+	margin: 10px auto 30px auto;
+}
+
+.feature{
+	padding: 10px 3px 10px 3px;
+	border: solid;
+	border-width: 2px;
+	border-color: #555555;
+	margin-bottom:20px;
+	height: 400px;
+	-webkit-border-radius: 8px 8px 8px 8px;
+  	-moz-border-radius: 8px 8px 8px 8px;
+  	border-radius: 8px 8px 8px 8px;
+  	color: #EEEEEE;
+}
+
+.feature h2{
+	font-size: 27px;
+}
+
+@media (max-width: 767px){
+	.feature{
+		border: none;	
+		height: 400px;
+	}
+
+	#mc-embedded-subscribe {
+	  
+	  -webkit-border-radius: 3px 3px 3px 3px;
+	  -moz-border-radius: 3px 3px 3px 3px;
+	  border-radius: 3px 3px 3px 3px;
+	  margin-left:0;
+	    border-style: solid solid solid solid;
+
+	}
+
+	#mce-EMAIL{
+		border-style: solid solid solid solid;
+		-webkit-border-radius: 3px 3px 3px 3px;
+	  	-moz-border-radius: 3px 3px 3px 3px;
+  		border-radius: 3px 3px 3px 3px;
+	}
+}
+
+@media (max-width: 992px){
+	.feature{
+		height: 500px;
+	}
+
+}
+
