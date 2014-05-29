@@ -19,24 +19,25 @@
 }
 
 @media (min-width: 992px) {
-  .title-intro{
-	font-size:5em;
+  	.title-intro{
+		font-size:5em;
+	}
+
+	.title-word{
+		font-size:10em;
+		margin-top: -50px;
+	}
 }
 
-.title-word{
-	font-size:10em;
-	margin-top: -50px;
-}
-}
 @media (min-width: 1200px) {
-  .title-intro{
-	font-size:5em;
-}
+	.title-intro{
+		font-size:5em;
+	}
 
-.title-word{
-	font-size:10em;
-	margin-top: -50px;
-}
+	.title-word{
+		font-size:10em;
+		margin-top: -50px;
+	}
 }
 
 .landing-blurb{
@@ -47,7 +48,25 @@
 }
 
 .carousel-inner h1{
-	font-size:4em;
+	font-size:2em;
+}
+
+@media (min-width: 768px) {
+	.carousel-inner h1{
+		font-size:3em;
+	}
+}
+
+@media (min-width: 992px) {
+	.carousel-inner h1{
+		font-size:4em;
+	}
+}
+
+@media (min-width: 1200px) {
+	.carousel-inner h1{
+		font-size:4em;
+	}
 }
 
 .balanced{
@@ -58,7 +77,25 @@
 .balancing-line{
 	width:100%;
 	height:2px;
-	margin-top: 52px;
+	margin-top: 35px;
+}
+
+@media (min-width: 768px) {
+	.balancing-line{
+		margin-top: 45px;
+	}
+}
+
+@media (min-width: 992px) {
+	.balancing-line{
+		margin-top: 52px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.balancing-line{
+		margin-top: 52px;
+	}
 }
 
 .clear-balanced:after{
