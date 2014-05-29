@@ -37,6 +37,7 @@ var qd = function() {
                 "Content-Type": "application/json"
             },
             success: function(allEvents, error) {
+                $("#stream-id-errors").text("");
                 result.allEvents = allEvents;
                 var todaysBuild = allEvents[allEvents.length - 1]; // last record
                 var yesterdaysBuild = allEvents[allEvents.length - 2];
@@ -51,7 +52,10 @@ var qd = function() {
                 modelUpdateCallbacks.forEach(function(c) {
                     c();
                 });
-
+            },
+            error: function(error) {
+                console.info("wrong stream id or read token : " + JSON.stringify(error));
+                $("#stream-id-errors").text("Incorrect streamid or read token!");
             }
         });
     }
