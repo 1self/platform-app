@@ -76,6 +76,11 @@ section.dark {
   background: #393939;
   color: white;
 }
+section.grey {
+  padding: 60px 0;
+  background: #D8D8D8;
+  color: white;
+}
 section.white {
   padding: 60px 0;
   background: white;
