@@ -1,6 +1,6 @@
 var plotChart = function() {
-    var s = d3.select('#build-history svg');
-    s = s.remove();
+    var s = $('#build-history').empty();
+    s = d3.select('#build-history');
 
     var w = $("#build-history").width() * 1;
     var h = w / 1.61;
