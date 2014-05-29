@@ -1,10 +1,42 @@
 .title-intro{
+	font-size:3em;
+}
+
+.title-word{
+	font-size:6.5em;
+	margin-top: -25px;
+}
+
+@media (min-width: 768px) {
+	  .title-intro{
+		font-size:5em;
+	}
+
+	.title-word{
+		font-size:10em;
+		margin-top: -50px;
+	}
+}
+
+@media (min-width: 992px) {
+  .title-intro{
 	font-size:5em;
 }
 
 .title-word{
 	font-size:10em;
 	margin-top: -50px;
+}
+}
+@media (min-width: 1200px) {
+  .title-intro{
+	font-size:5em;
+}
+
+.title-word{
+	font-size:10em;
+	margin-top: -50px;
+}
 }
 
 .landing-blurb{
