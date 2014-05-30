@@ -12,31 +12,31 @@ var qd = function() {
 
     updateStreamIdAndReadToken();
 
-    var url = function() {
+    var url = function(resource) {
         var result = "";
         if (location.hostname == "localhost") {
-            result = "http://" + location.hostname + ":5000/quantifieddev/mydev/" + window.localStorage.streamId;
+            result = "http://" + location.hostname + ":5000/quantifieddev/" + resource + "/" + window.localStorage.streamId;
         } else {
-            result = "http://quantifieddev.herokuapp.com/quantifieddev/mydev/" + window.localStorage.streamId;
+            result = "http://quantifieddev.herokuapp.com/quantifieddev/" + resource + "/" + window.localStorage.streamId;
         }
 
         return result;
     }
 
-    var compare = function(todaysBuilds, yesterdayBuilds) {
+    var compare = function(todaysEvents, yesterdayEvents) {
 
-        var difference = todaysBuilds - yesterdayBuilds;
-        var percentChange = (difference / yesterdayBuilds) * 100;
+        var difference = todaysEvents - yesterdayEvents;
+        var percentChange = (difference / yesterdayEvents) * 100;
         return Math.ceil(percentChange);
     }
-    result.updateModel = function() {
+    result.updateBuildModel = function() {
         $.ajax({
-            url: url(),
+            url: url("mydev"),
             headers: {
                 "Authorization": result.readToken,
                 "Content-Type": "application/json"
             },
-            success: function(allEvents, error) {
+            success: function(allEvents) {
                 $("#stream-id-errors").text("");
                 result.allEvents = allEvents;
                 var todaysBuild = allEvents[allEvents.length - 1]; // last record
@@ -60,22 +60,35 @@ var qd = function() {
         });
     }
 
+    result.updateWTFModel = function() {
+        $.ajax({
+            url: url("mywtf"),
+            headers: {
+                "Authorization": result.readToken,
+                "Content-Type": "application/json"
+            },
+            success: function(allWTFEvents) {
+                result.allWTFEvents = allWTFEvents;
+                result.plotWTFHistory();
+            }
+        });
+    }
+
     result.save = function(streamId, readToken) {
         window.localStorage.streamId = streamId;
         window.localStorage.readToken = readToken;
         updateStreamIdAndReadToken();
-        result.updateModel();
+        result.updateBuildModel();
+        result.updateWTFModel();
     }
 
-    result.registerForModelUpdates = function(callback) {
+    result.registerForBuildModelUpdates = function(callback) {
         modelUpdateCallbacks.push(callback);
-        if (result.allEvents) {
-            callback();
-        }
     }
 
     if (result.streamId && result.readToken) {
-        result.updateModel();
+        result.updateBuildModel();
+        result.updateWTFModel();
     }
 
     return result;
