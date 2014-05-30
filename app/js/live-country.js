@@ -34,7 +34,7 @@ var liveCountry = function() {
                     var centerLongitude = locationInfo.longitude;
                     var countryName = locationInfo.country_name;
 
-                    $("#country").text(countryName + "'s Builds");
+                    $("#country").text(countryName + "'s Events");
 
                     var projection = d3.geo.mercator()
                         .scale(width * 2)

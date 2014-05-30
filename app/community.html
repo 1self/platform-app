@@ -92,7 +92,19 @@
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 info-tiles tiles-secondary">
               <div class="tiles-heading">
-                <div style="margin-bottom: 10px;">Worldwide Builds</div>
+                <div style="margin-bottom: 10px;">Worldwide Events</div>
+                <div class="row" style="margin-bottom: 10px;">
+                  <div class="col-lg-offset-3 col-lg-2 col-md-2 col-sm-4">
+                    Event:
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-8">
+                    <select id="world-event-select" class="form-control">
+                      <option value='all'selected="true">All</option>
+                      <option value='builds'>Builds</option>
+                      <option value='wtfs'>WTFs</option>
+                    </select>
+                  </div>
+                </div>
                 <div class="row">
                   <div class="col-lg-2 col-md-2 col-sm-4">
                     Since:
@@ -129,7 +141,19 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 info-tiles tiles-secondary">
               <div class="tiles-heading">
-                <div id="country" style="margin-bottom: 10px;">Your Country's Builds</div>
+                <div id="country" style="margin-bottom: 10px;">Your Country's Events</div>
+                <div class="row" style="margin-bottom: 10px;">
+                  <div class="col-lg-offset-3 col-lg-2 col-md-2 col-sm-4">
+                    Event:
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-8">
+                    <select id="country-event-select" class="form-control">
+                      <option value='all'selected="true">All</option>
+                      <option value='builds'>Builds</option>
+                      <option value='wtfs'>WTFs</option>
+                    </select>
+                  </div>
+                </div>
                 <div class="row">
                   <div class="col-lg-2 col-md-2 col-sm-4">
                     Since:
