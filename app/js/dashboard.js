@@ -14,7 +14,7 @@ $("#read-token").ready(function() {
 });
 
 $("#builds-x").ready(function() {
-	window.qd.registerForModelUpdates(function() {
+	window.qd.registerForBuildModelUpdates(function() {
 		var displayBuildCountAndBuildComparison = function(buildCount, buildCountElementId, comparisonValue, comparisonElementId) {
 			$(buildCountElementId).text(buildCount);
 			var buildComparison = Math.abs(comparisonValue);

@@ -34,7 +34,7 @@ var liveCountry = function() {
                     var centerLongitude = locationInfo.longitude;
                     var countryName = locationInfo.country_name;
 
-                    $("#country").text(countryName + "'s Builds");
+                    $("#country").text(countryName + "'s Events");
 
                     var projection = d3.geo.mercator()
                         .scale(width * 2)
@@ -79,7 +79,7 @@ var liveCountry = function() {
                         lat: buildFromServer.location.lat
                     },
                     status: isFinish == -1 ? 'buildStarted' : 'buildFailing',
-                    language: buildFromServer.properties.Language[0]
+                    language: buildFromServer.properties.Language!= undefined?buildFromServer.properties.Language[0]:""
                 }
                 if (!(_.findWhere(allLocations, build.location))) {
                     compileCoords.push(build);
