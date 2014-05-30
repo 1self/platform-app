@@ -5,19 +5,16 @@ var liveworld = function() {
     var transformedEvents = [];
     $("#world-time-select").change(function() {
         liveDurationMins = $(this).find(":selected").val();
-        console.log("the value you selected: " + liveDurationMins);
         loadData();
     });
 
     $("#world-language-select").change(function() {
         selectedLanguage = $(this).find(":selected").val();
-        console.log("the value you selected: " + selectedLanguage);
         loadData();
     });
 
     $("#world-event-select").change(function() {
         selectedEventType = $(this).find(":selected").val();
-        console.log("the value you selected: " + selectedEventType);
         loadData();
     });
 
@@ -92,7 +89,6 @@ var liveworld = function() {
             }
             for (var i = events.length - 1; i >= 0; i--) {
                 var eventFromServer = events[i].payload;
-                var isFinish = eventFromServer.actionTags.indexOf('Finish');
                 var singleEvent = {
                     id: i,
                     location: {
