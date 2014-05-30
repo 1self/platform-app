@@ -79,7 +79,7 @@ var liveCountry = function() {
                         lat: buildFromServer.location.lat
                     },
                     status: isFinish == -1 ? 'buildStarted' : 'buildFailing',
-                    language: buildFromServer.properties.Language[0]
+                    language: buildFromServer.properties.Language!= undefined?buildFromServer.properties.Language[0]:"java"
                 }
                 if (!(_.findWhere(allLocations, build.location))) {
                     compileCoords.push(build);
