@@ -59,15 +59,6 @@
         else if (element.attachEvent) element.attachEvent('on' + type, callback);
         }*/
         </script>
-        <script>
-        var vimeoCategory = "vimeo";
-        $(document).ready(function() {
-        vimeoCategory = "vimeo_chart";
-        $("#vidDiv1").append('<iframe id="vimeoPlayer" src="http://player.vimeo.com/video/91935724?title=0&amp;byline=0&amp;portrait=0&amp;color=38e8ae" width="500" height="281" frameborder="0" data-progress="true" data-seek="true" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
-        
-        ga('send', 'event', vimeoCategory, 'loaded video');
-        });
-        </script>
     </head>
     <body data-spy="scroll" data-target=".navbar">
         <!--[if lt IE 7]>
