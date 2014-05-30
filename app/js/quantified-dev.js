@@ -1,8 +1,5 @@
 var qd = function() {
-    var result = {
-
-    };
-
+    var result = {};
     var modelUpdateCallbacks = [];
 
     var updateStreamIdAndReadToken = function() {
@@ -19,42 +16,43 @@ var qd = function() {
         } else {
             result = "http://quantifieddev.herokuapp.com/quantifieddev/" + resource + "/" + window.localStorage.streamId;
         }
-
         return result;
     }
 
     var compare = function(todaysEvents, yesterdayEvents) {
-
         var difference = todaysEvents - yesterdayEvents;
         var percentChange = (difference / yesterdayEvents) * 100;
         return Math.ceil(percentChange);
     }
+
     result.updateBuildModel = function() {
+        var populateBuildTilesData = function(buildEvents) {
+            var todaysBuild = buildEvents[buildEvents.length - 1]; // last record
+            var yesterdaysBuild = buildEvents[buildEvents.length - 2];
+            var totalBuildsForToday = todaysBuild.passed + todaysBuild.failed;
+            var totalBuildsForYesterday = yesterdaysBuild.passed + yesterdaysBuild.failed;
+            result.todaysPassedBuildCount = todaysBuild.passed;
+            result.todaysFailedBuildCount = todaysBuild.failed;
+            result.todaysTotalBuildCount = totalBuildsForToday;
+            result.totalBuildComparison = compare(totalBuildsForToday, totalBuildsForYesterday);
+            result.passedBuildComparison = compare(todaysBuild.passed, yesterdaysBuild.passed);
+            result.failedBuildComparison = compare(todaysBuild.failed, yesterdaysBuild.failed);
+        }
         $.ajax({
             url: url("mydev"),
             headers: {
                 "Authorization": result.readToken,
                 "Content-Type": "application/json"
             },
-            success: function(allEvents) {
+            success: function(buildEvents) {
                 $("#stream-id-errors").text("");
-                result.allEvents = allEvents;
-                var todaysBuild = allEvents[allEvents.length - 1]; // last record
-                var yesterdaysBuild = allEvents[allEvents.length - 2];
-                var totalBuildsForToday = todaysBuild.passed + todaysBuild.failed;
-                var totalBuildsForYesterday = yesterdaysBuild.passed + yesterdaysBuild.failed;
-                result.todaysPassedBuildCount = todaysBuild.passed;
-                result.todaysFailedBuildCount = todaysBuild.failed;
-                result.todaysTotalBuildCount = totalBuildsForToday;
-                result.totalBuildComparison = compare(totalBuildsForToday, totalBuildsForYesterday);
-                result.passedBuildComparison = compare(todaysBuild.passed, yesterdaysBuild.passed);
-                result.failedBuildComparison = compare(todaysBuild.failed, yesterdaysBuild.failed);
+                result.buildEvents = buildEvents;
+                populateBuildTilesData(buildEvents);
                 modelUpdateCallbacks.forEach(function(c) {
                     c();
                 });
             },
             error: function(error) {
-                console.info("wrong stream id or read token : " + JSON.stringify(error));
                 $("#stream-id-errors").text("Incorrect streamid or read token!");
             }
         });
@@ -67,8 +65,8 @@ var qd = function() {
                 "Authorization": result.readToken,
                 "Content-Type": "application/json"
             },
-            success: function(allWTFEvents) {
-                result.allWTFEvents = allWTFEvents;
+            success: function(wtfEvents) {
+                result.wtfEvents = wtfEvents;
                 result.plotWTFHistory();
             }
         });

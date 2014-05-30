@@ -19,16 +19,7 @@ var plotChart = function() {
         .append("svg:g")
         .attr("transform", "translate(" + p[3] + "," + (h - p[2]) + ")");
 
-    example_data = function() {
-        //Building a random growing trend
-        var data = [
-            [new Date(2014, 2, 4, 8, 0, 0, 0), 42],
-            [new Date(2014, 3, 4, 8, 0, 0, 0), 42]
-        ];
-        return data;
-    }
-
-    buildHistory = window.qd.allEvents;
+    buildHistory = window.qd.buildEvents;
 
     // Transpose the data into layers by cause.
     var buildsByResult = d3.layout.stack()(["failed", "passed"].map(function(cause) {
@@ -164,12 +155,6 @@ var plotChart = function() {
                 }
             })
             var curval = d3.mean(filteredData, function(d) {
-                // var day = new Date(d.date).getDay();
-                // if (day > 0 && day < 6) {
-                //     return d.failed;
-                // } else {
-                //     return null;
-                // }
                 return d.failed;
             });
 
@@ -189,13 +174,10 @@ var plotChart = function() {
     // Successful Builds Average:
     var passedBuildsMovingAverage = d3.svg.line()
         .x(function(d, i) {
-            //return xLinear(i) * w;
             return xLinear(i);
         })
         .y(function(d, i) {
             var filteredData = buildHistory.filter(function(rangeDay, fi) {
-
-
                 var extent = 5;
                 var end = 0;
                 var begin = 5;
@@ -204,12 +186,10 @@ var plotChart = function() {
                     end += 2;
                     begin += 2;
                 }
-
                 if (day == 6) {
                     end += 1;
                     begin += 1;
                 }
-
                 var day = new Date(rangeDay.date).getDay();
                 if (fi > i - 7 && fi <= i) {
                     return rangeDay;
@@ -217,12 +197,6 @@ var plotChart = function() {
             });
 
             var curval = d3.mean(filteredData, function(d) {
-                // var day = new Date(d.date).getDay();
-                // if (day > 0 && day < 6) {
-                //     return d.passed;
-                // } else {
-                //     return null;
-                // }
                 return +d.passed + +d.failed;
             });
             return -y(curval); // going up in height so need to go negative
@@ -235,7 +209,6 @@ var plotChart = function() {
         .style("fill", "none")
         .style("stroke", "blue")
         .style("stroke-width", 2);
-
 
     var weekDays = buildHistory.filter(function(day, fi) {
 
@@ -250,11 +223,9 @@ var plotChart = function() {
         return +d.passed + +d.failed;
     });
 
-
     // Successful Builds Average:
     var overallAverage = d3.svg.line()
         .x(function(d, i) {
-            //return xLinear(i) * w;
             return xLinear(i);
         })
         .y(function(d, i) {
@@ -270,7 +241,6 @@ var plotChart = function() {
         .style("stroke-width", 2);
 
     // add legend
-
     var legendSvg = d3.select("#build-history").append("svg:svg")
         .attr("width", w)
         .attr("height", 70)

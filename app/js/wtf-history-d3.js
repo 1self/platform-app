@@ -19,7 +19,7 @@ window.qd.plotWTFHistory = function() {
         .append("svg:g")
         .attr("transform", "translate(" + p[3] + "," + (h - p[2]) + ")");
 
-    wtfHistory = window.qd.allWTFEvents;
+    wtfHistory = window.qd.wtfEvents;
 
     // Transpose the data into layers by cause.
     var wtfsByResult = d3.layout.stack()(["wtfCount"].map(function(cause) {
@@ -39,7 +39,6 @@ window.qd.plotWTFHistory = function() {
     y.domain([0, d3.max(wtfsByResult[wtfsByResult.length - 1], function(d) {
         return d.y0 + d.y;
     })]);
-
 
     // Add a group for each cause.
     var cause = svg.selectAll("g.cause")
@@ -123,65 +122,13 @@ window.qd.plotWTFHistory = function() {
         .attr("dy", ".35em")
         .text(d3.format(",d"));
 
-    /* // Failed Builds Average:
-    var failedBuildsMovingAverage = d3.svg.line()
+    // wtf Average:
+    var wtfsMovingAverage = d3.svg.line()
         .x(function(d, i) {
-            //return xLinear(i) * w;
-            return xLinear(i);
-        })
-        .y(function(meanDay, i) {
-            var filteredData = wtfHistory.filter(function(rangeDay, fi) {
-
-
-                var extent = 5;
-                var end = 0;
-                var begin = 5;
-
-                if (day == 0) {
-                    end += 2;
-                    begin += 2;
-                }
-
-                if (day == 6) {
-                    end += 1;
-                    begin += 1;
-                }
-
-                var day = new Date(rangeDay.date).getDay();
-                var sat = 6;
-                var sun = 0;
-                if (fi > i - 7 && fi <= i) {
-                    return rangeDay;
-                }
-            })
-            var curval = d3.mean(filteredData, function(d) {
-
-                return d.failed;
-            });
-
-            // When we're starting from the beginning of the range, the rolling average doesn't work.
-            curval = curval || null;
-            return -y(curval); // going up in height so need to go negative
-        })
-        .interpolate("basis");
-
-    svg.append("path")
-        .attr("class", "average")
-        .attr("d", failedBuildsMovingAverage(wtfHistory))
-        .style("fill", "none")
-        .style("stroke", "red")
-        .style("stroke-width", 2);*/
-
-    // Successful Builds Average:
-    var passedBuildsMovingAverage = d3.svg.line()
-        .x(function(d, i) {
-            //return xLinear(i) * w;
             return xLinear(i);
         })
         .y(function(d, i) {
             var filteredData = wtfHistory.filter(function(rangeDay, fi) {
-
-
                 var extent = 5;
                 var end = 0;
                 var begin = 5;
@@ -190,12 +137,10 @@ window.qd.plotWTFHistory = function() {
                     end += 2;
                     begin += 2;
                 }
-
                 if (day == 6) {
                     end += 1;
                     begin += 1;
                 }
-
                 var day = new Date(rangeDay.date).getDay();
                 if (fi > i - 7 && fi <= i) {
                     return rangeDay;
@@ -211,22 +156,20 @@ window.qd.plotWTFHistory = function() {
 
     svg.append("path")
         .attr("class", "average")
-        .attr("d", passedBuildsMovingAverage(wtfHistory))
+        .attr("d", wtfsMovingAverage(wtfHistory))
         .style("fill", "none")
         .style("stroke", "red")
         .style("stroke-width", 2);
 
     var weekDays = wtfHistory.filter(function(day, fi) {
-
         var dayOfWeek = new Date(day.date).getDay();
-
         if (dayOfWeek != 0 && dayOfWeek != 6) {
             return day;
         }
     });
 
     // add legend
-    var legendSvg = d3.select("#build-history").append("svg:svg")
+    var legendSvg = d3.select("#wtf-history").append("svg:svg")
         .attr("width", w)
         .attr("height", 70)
         .append("svg:g")
@@ -240,7 +183,7 @@ window.qd.plotWTFHistory = function() {
         .attr("width", 100);
 
     var legendColours = [
-        ["wtfCount", "red"]
+        ["number of wtfs", "red"]
     ]
 
     legend.selectAll("g").data(legendColours)
