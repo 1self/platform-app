@@ -1,6 +1,7 @@
 var liveworld = function() {
     var liveDurationMins = 60; // default duration of 1 hour
     var selectedLanguage = "all"; // default to all languages
+    var selectedEventType = "all"; // default to all events (Build + wtf)
     var transformedEvents = [];
     $("#world-time-select").change(function() {
         liveDurationMins = $(this).find(":selected").val();
@@ -11,6 +12,12 @@ var liveworld = function() {
     $("#world-language-select").change(function() {
         selectedLanguage = $(this).find(":selected").val();
         console.log("the value you selected: " + selectedLanguage);
+        loadData();
+    });
+
+    $("#world-event-select").change(function() {
+        selectedEventType = $(this).find(":selected").val();
+        console.log("the value you selected: " + selectedEventType);
         loadData();
     });
 
@@ -43,12 +50,34 @@ var liveworld = function() {
     d3.select(self.frameElement).style("height", height + "px");
 
     var getEventType = function(eventFromServer) {
-        return _.contains(eventFromServer.actionTags, "Build") ? "build" : "wtf";
+        return _.contains(eventFromServer.actionTags, "Build") ? "Build" : "wtf";
     };
 
+    var url = function() {
+        return (location.hostname == "localhost") ?
+            "http://localhost:5000/live/devbuild/" :
+            "http://quantifieddev.herokuapp.com/live/devbuild/";
+    }
+
+    var getLiveEventsUrl = function() {
+        var liveDevBuildUrl = url() + liveDurationMins;
+
+        var langQuery = (selectedLanguage !== "all") ? "lang=" + selectedLanguage : "";
+        var eventQuery = (selectedEventType !== "all") ? "eventType=" + selectedEventType : "";
+
+        if (langQuery && eventQuery) {
+            liveDevBuildUrl += "?" + langQuery + "&" + eventQuery;
+        } else if (langQuery) {
+            liveDevBuildUrl += "?" + langQuery;
+        } else if (eventQuery) {
+            liveDevBuildUrl += "?" + eventQuery;
+        };
+
+        return liveDevBuildUrl;
+    }
+
     var loadData = function() {
-        var liveDevBuildUrl = "http://quantifieddev.herokuapp.com/live/devbuild/" + liveDurationMins;
-        liveDevBuildUrl += (selectedLanguage !== "all") ? "?lang=" + selectedLanguage : "";
+        var liveDevBuildUrl = getLiveEventsUrl();
 
         d3.json(liveDevBuildUrl, function(error, events) {
             var data = events;
@@ -63,8 +92,8 @@ var liveworld = function() {
                         lon: eventFromServer.location.long,
                         lat: eventFromServer.location.lat
                     },
-                    type: getEventType(eventFromServer), // "wtf" or "build"
-                    language: eventFromServer.properties.Language!= undefined?eventFromServer.properties.Language[0]:"java"
+                    type: getEventType(eventFromServer), // "wtf" or "Build"
+                    language: eventFromServer.properties.Language != undefined ? eventFromServer.properties.Language[0] : ""
                 }
                 if (!(_.findWhere(allLocations, singleEvent.location))) {
                     transformedEvents.push(singleEvent);
@@ -106,7 +135,7 @@ var liveworld = function() {
                     type: "GeometryCollection",
                     geometries: circlePoints
                 });
-                context.fillStyle = transformedEvent.type === "build" ?  "rgba(0, 0, 255, .3)" : "rgba(255, 0, 0, .3)";
+                context.fillStyle = transformedEvent.type === "Build" ? "rgba(0, 0, 255, .3)" : "rgba(255, 0, 0, .3)";
                 context.fill();
                 context.lineWidth = .2;
                 context.strokeStyle = "#FFF";
