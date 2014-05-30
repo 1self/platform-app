@@ -1,16 +1,21 @@
 var liveCountry = function() {
     var liveDurationMins = 60; // default duration of 1 hour
     var selectedLanguage = "all"; // default to all languages
+    var selectedEventType = "all"; // default to all events (Build + wtf)
+    var transformedEvents = [];
 
     $("#country-time-select").change(function() {
         liveDurationMins = $(this).find(":selected").val();
-        console.log("the value you selected: " + liveDurationMins);
         loadData();
     });
 
     $("#country-language-select").change(function() {
         selectedLanguage = $(this).find(":selected").val();
-        console.log("the value you selected: " + selectedLanguage);
+        loadData();
+    });
+
+    $("#country-event-select").change(function() {
+        selectedEventType = $(this).find(":selected").val();
         loadData();
     });
 
@@ -24,10 +29,20 @@ var liveCountry = function() {
     var context = canvas.node().getContext("2d");
     var path;
 
+    var getEventType = function(eventFromServer) {
+        return _.contains(eventFromServer.actionTags, "Build") ? "Build" : "wtf";
+    };
+
+    var url = function() {
+        return (location.hostname == "localhost") ?
+            "http://localhost:5000/" :
+            "http://quantifieddev.herokuapp.com/";
+    }
+
     var plotGraph = function() {
         $.getJSON("http://jsonip.com?callback=?", function(ipDetails) {
             $.ajax({
-                url: "http://quantifieddev.herokuapp.com/" + ipDetails.ip,
+                url: url() + ipDetails.ip,
                 success: function(locationInfo) {
                     locationInfo = $.parseJSON(locationInfo);
                     var centerLatitude = locationInfo.latitude;
@@ -59,31 +74,55 @@ var liveCountry = function() {
 
     plotGraph();
 
+    var getLiveEventsUrl = function() {
+        var liveDevBuildUrl = url() + "live/devbuild/" + liveDurationMins;
+
+        var langQuery = (selectedLanguage !== "all") ? "lang=" + selectedLanguage : "";
+        var eventQuery = (selectedEventType !== "all") ? "eventType=" + selectedEventType : "";
+
+        if (langQuery && eventQuery) {
+            liveDevBuildUrl += "?" + langQuery + "&" + eventQuery;
+        } else if (langQuery) {
+            liveDevBuildUrl += "?" + langQuery;
+        } else if (eventQuery) {
+            liveDevBuildUrl += "?" + eventQuery;
+        };
+
+        return liveDevBuildUrl;
+    }
 
     var loadData = function() {
-        var liveDevBuildUrl = "http://quantifieddev.herokuapp.com/live/devbuild/" + liveDurationMins;
+        var liveDevBuildUrl = getLiveEventsUrl();
 
-        liveDevBuildUrl += (selectedLanguage !== "all") ? "?lang=" + selectedLanguage : "";
-
-        d3.json(liveDevBuildUrl, function(error, builds) {
-            var data = builds;
-            compileCoords = [];
-            var allLocations = [];
-            for (var i = builds.length - 1; i >= 0; i--) {
-                var buildFromServer = builds[i].payload;
-                var isFinish = buildFromServer.actionTags.indexOf('Finish');
-                var build = {
+        d3.json(liveDevBuildUrl, function(error, events) {
+            var data = events;
+            transformedEvents = [];
+            var buildLocations = [];
+            var wtfLocations = [];
+            var isBuildLocationUnique = function(singleEvent) {
+                return singleEvent.type === "Build" && !(_.findWhere(buildLocations, singleEvent.location))
+            }
+            var isWtfLocationUnique = function(singleEvent) {
+                return singleEvent.type === "wtf" && !(_.findWhere(wtfLocations, singleEvent.location))
+            }
+            for (var i = events.length - 1; i >= 0; i--) {
+                var eventFromServer = events[i].payload;
+                var singleEvent = {
                     id: i,
                     location: {
-                        lon: buildFromServer.location.long,
-                        lat: buildFromServer.location.lat
+                        lon: eventFromServer.location.long,
+                        lat: eventFromServer.location.lat
                     },
-                    status: isFinish == -1 ? 'buildStarted' : 'buildFailing',
-                    language: buildFromServer.properties.Language!= undefined?buildFromServer.properties.Language[0]:""
+                    type: getEventType(eventFromServer), // "wtf" or "Build"
+                    language: eventFromServer.properties.Language != undefined ? eventFromServer.properties.Language[0] : ""
                 }
-                if (!(_.findWhere(allLocations, build.location))) {
-                    compileCoords.push(build);
-                    allLocations.push(build.location);
+                if (isBuildLocationUnique(singleEvent)) {
+                    transformedEvents.push(singleEvent);
+                    buildLocations.push(singleEvent.location);
+                }
+                if (isWtfLocationUnique(singleEvent)) {
+                    transformedEvents.push(singleEvent);
+                    wtfLocations.push(singleEvent.location);
                 }
             };
 
@@ -95,42 +134,33 @@ var liveCountry = function() {
         loadData()
     }, 60000);
 
-    function CircleSize(compile) {
+    function CircleSize(transformedEvent) {
         var size = Math.random(1, 0.7) * 0.7;
 
         return function() {
-            if (compile.status == 'buildPassed') {
-                if (size <= 0.01) {
-                    size = 0.001;
-                } else {
-                    size -= 0.0001;
-                }
-            } else {
-                size += 0.01;
-                if (size > 0.7) {
-                    size = 0.1;
-                }
+            size += 0.01;
+            if (size > 0.7) {
+                size = 0.1;
             }
-
             return size;
         }
     };
 
-    var compiles;
+    var eventsToDraw;
 
     function createCircles() {
-        compiles = compileCoords.map(function(compile) {
-            var circleSize = new CircleSize(compile);
+        eventsToDraw = transformedEvents.map(function(transformedEvent) {
+            var circleSize = new CircleSize(transformedEvent);
 
             var draw = function(context) {
-                var circle = d3.geo.circle().angle(circleSize()).origin([compile.location.lon, compile.location.lat]);
+                var circle = d3.geo.circle().angle(circleSize()).origin([transformedEvent.location.lon, transformedEvent.location.lat]);
                 circlePoints = [circle()];
                 context.beginPath();
                 path({
                     type: "GeometryCollection",
                     geometries: circlePoints
                 });
-                context.fillStyle = "rgba(17, 13, 255, .3)";
+                context.fillStyle = transformedEvent.type === "Build" ? "rgba(0, 0, 255, .3)" : "rgba(255, 0, 0, .3)";
                 context.fill();
                 context.lineWidth = .2;
                 context.strokeStyle = "#FFF";
@@ -188,8 +218,8 @@ var liveCountry = function() {
                 context.strokeStyle = "#060";
                 context.stroke();
 
-                if (compiles != undefined) {
-                    compiles.forEach(function(drawCompile) {
+                if (eventsToDraw != undefined) {
+                    eventsToDraw.forEach(function(drawCompile) {
                         drawCompile(context);
                     });
                 }
