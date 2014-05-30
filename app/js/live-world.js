@@ -82,7 +82,14 @@ var liveworld = function() {
         d3.json(liveDevBuildUrl, function(error, events) {
             var data = events;
             transformedEvents = [];
-            var allLocations = [];
+            var buildLocations = [];
+            var wtfLocations = [];
+            var isBuildLocationUnique= function(singleEvent) {
+                return singleEvent.type === "Build" && !(_.findWhere(buildLocations, singleEvent.location))
+            }
+            var isWtfLocationUnique= function(singleEvent) {
+                return singleEvent.type === "wtf" && !(_.findWhere(wtfLocations, singleEvent.location))
+            }
             for (var i = events.length - 1; i >= 0; i--) {
                 var eventFromServer = events[i].payload;
                 var isFinish = eventFromServer.actionTags.indexOf('Finish');
@@ -95,9 +102,13 @@ var liveworld = function() {
                     type: getEventType(eventFromServer), // "wtf" or "Build"
                     language: eventFromServer.properties.Language != undefined ? eventFromServer.properties.Language[0] : ""
                 }
-                if (!(_.findWhere(allLocations, singleEvent.location))) {
+                if (isBuildLocationUnique(singleEvent)) {
                     transformedEvents.push(singleEvent);
-                    allLocations.push(singleEvent.location);
+                    buildLocations.push(singleEvent.location);
+                }
+                if (isWtfLocationUnique(singleEvent)) {
+                    transformedEvents.push(singleEvent);
+                    wtfLocations.push(singleEvent.location);
                 }
             };
             createCircles();
@@ -135,7 +146,7 @@ var liveworld = function() {
                     type: "GeometryCollection",
                     geometries: circlePoints
                 });
-                context.fillStyle = transformedEvent.type === "Build" ? "rgba(0, 0, 255, .3)" : "rgba(255, 0, 0, .3)";
+                context.fillStyle = transformedEvent.type === "Build" ? "rgba(0, 0, 255, .5)" : "rgba(255, 0, 0, .5)";
                 context.fill();
                 context.lineWidth = .2;
                 context.strokeStyle = "#FFF";
