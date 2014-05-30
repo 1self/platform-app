@@ -1,7 +1,7 @@
 var liveworld = function() {
     var liveDurationMins = 60; // default duration of 1 hour
     var selectedLanguage = "all"; // default to all languages
-
+    var transformedEvents = [];
     $("#world-time-select").change(function() {
         liveDurationMins = $(this).find(":selected").val();
         console.log("the value you selected: " + liveDurationMins);
@@ -42,30 +42,33 @@ var liveworld = function() {
 
     d3.select(self.frameElement).style("height", height + "px");
 
+    var getEventType = function(eventFromServer) {
+        return _.contains(eventFromServer.actionTags, "Build") ? "build" : "wtf";
+    };
+
     var loadData = function() {
         var liveDevBuildUrl = "http://quantifieddev.herokuapp.com/live/devbuild/" + liveDurationMins;
-
         liveDevBuildUrl += (selectedLanguage !== "all") ? "?lang=" + selectedLanguage : "";
 
-        d3.json(liveDevBuildUrl, function(error, builds) {
-            var data = builds;
-            compileCoords = [];
+        d3.json(liveDevBuildUrl, function(error, events) {
+            var data = events;
+            transformedEvents = [];
             var allLocations = [];
-            for (var i = builds.length - 1; i >= 0; i--) {
-                var buildFromServer = builds[i].payload;
-                var isFinish = buildFromServer.actionTags.indexOf('Finish');
-                var build = {
+            for (var i = events.length - 1; i >= 0; i--) {
+                var eventFromServer = events[i].payload;
+                var isFinish = eventFromServer.actionTags.indexOf('Finish');
+                var singleEvent = {
                     id: i,
                     location: {
-                        lon: buildFromServer.location.long,
-                        lat: buildFromServer.location.lat
+                        lon: eventFromServer.location.long,
+                        lat: eventFromServer.location.lat
                     },
-                    status: isFinish == -1 ? 'buildStarted' : 'buildFailing',
-                    language: buildFromServer.properties.Language[0]
+                    type: getEventType(eventFromServer), // "wtf" or "build"
+                    language: eventFromServer.properties.Language[0]
                 }
-                if (!(_.findWhere(allLocations, build.location))) {
-                    compileCoords.push(build);
-                    allLocations.push(build.location);
+                if (!(_.findWhere(allLocations, singleEvent.location))) {
+                    transformedEvents.push(singleEvent);
+                    allLocations.push(singleEvent.location);
                 }
             };
             createCircles();
@@ -78,41 +81,32 @@ var liveworld = function() {
         },
         60000);
 
-    var CircleSize = function(compile) {
+    var CircleSize = function(transformedEvent) {
         var size = Math.random(1, 0.7) * 0.7;
         return function() {
-            if (compile.status == 'buildPassed') {
-                if (size <= 0.03) {
-                    size = 0.003;
-                } else {
-                    size -= 0.0003;
-                }
-            } else {
-                size += 0.03;
-                if (size > 2.1) {
-                    size = 0.3;
-                }
+            size += 0.03;
+            if (size > 2.1) {
+                size = 0.3;
             }
-
             return size;
         }
     };
 
-    var compiles;
+    var eventsToDraw;
 
     var createCircles = function() {
-        compiles = compileCoords.map(function(compile) {
-            var circleSize = new CircleSize(compile);
+        eventsToDraw = transformedEvents.map(function(transformedEvent) {
+            var circleSize = new CircleSize(transformedEvent);
 
             var draw = function(context) {
-                var circle = d3.geo.circle().angle(circleSize()).origin([compile.location.lon, compile.location.lat]);
+                var circle = d3.geo.circle().angle(circleSize()).origin([transformedEvent.location.lon, transformedEvent.location.lat]);
                 circlePoints = [circle()];
                 context.beginPath();
                 path({
                     type: "GeometryCollection",
                     geometries: circlePoints
                 });
-                context.fillStyle = "rgba(17, 13, 255, .3)";
+                context.fillStyle = transformedEvent.type === "build" ?  "rgba(0, 0, 255, .3)" : "rgba(255, 0, 0, .3)";
                 context.fill();
                 context.lineWidth = .2;
                 context.strokeStyle = "#FFF";
@@ -177,8 +171,8 @@ var liveworld = function() {
                 context.strokeStyle = "#060";
                 context.stroke();
 
-                if (compiles != undefined) {
-                    compiles.forEach(function(drawCompile) {
+                if (eventsToDraw != undefined) {
+                    eventsToDraw.forEach(function(drawCompile) {
                         drawCompile(context);
                     });
                 }
