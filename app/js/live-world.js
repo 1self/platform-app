@@ -64,7 +64,7 @@ var liveworld = function() {
                         lat: eventFromServer.location.lat
                     },
                     type: getEventType(eventFromServer), // "wtf" or "build"
-                    language: eventFromServer.properties.Language[0]
+                    language: eventFromServer.properties.Language!= undefined?eventFromServer.properties.Language[0]:"java"
                 }
                 if (!(_.findWhere(allLocations, singleEvent.location))) {
                     transformedEvents.push(singleEvent);
