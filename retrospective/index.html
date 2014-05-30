@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../campaign/bootstrap-3.1.1/css/bootstrap.css">
     <link rel="stylesheet" href="../campaign/css/main.css">
     <link rel="stylesheet" href="../campaign/css/custom.css">
+    <link rel="stylesheet" href="../campaign/css/custom-landing.css">
     <link rel="stylesheet" href="pagecustom.css">
     <link rel="shortcut icon" href="../app/img/quantified-dev-favicon.ico">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -87,24 +88,23 @@
         </div>
     </div>
     <div class="body">
-        <section class="center" id="top">
+    <section class="center" id="top">
             <div class="container">
                 <div class="row" id="headline-id">
-                    <div class="col-12" id="carousel-container-id">
-                        <h1>REAL-TIME RETROSPECTIVES</h1>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="title-intro">RETROSPECTIVES IN</div>
+                        <div class="title-intro">REAL-TIME</div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 col-md-6 landing-blurb">
                         <p>Retrospectives are a known best practice for software development but how many times do you get to one and have forgotten what to mention or who to thank?
 With QuantifiedDev you can track your behaviour in real-time and what’s affecting you in real-time. You can send thanks to someone who’s helped you. You can act immediately to change things or you can use your data record to help your discussions in your normal retrospective
-</p>
-
+                         </p>
                     </div>
                 </div>
+               
                 <div class="row">
                     <div class="col-12" id="carousel-container-id">
-                        <div id="myCarousel" class="carousel " data-ride="carousel" data-interval="false" data-interval-array="true">
+                        <div id="myCarousel" class="carousel" data-ride="carousel" data-interval="false" data-interval-array="true">
                             <ol class="carousel-indicators">
                                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                                 <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -113,30 +113,83 @@ With QuantifiedDev you can track your behaviour in real-time and what’s affect
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item item-padded active " data-array-step-pause="4000">
-                                    <h2>Connect</h2>
-                                    <p class="lead">Plug in your favourite dev tools to auto-log your data
-                                    </p>
-                                    <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
-                                    <a class="btn btn-large" href="#">Boring!</a> -->
+                                    <div class="container center ">
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <img src="../campaign/images/line.png" class="balanced balancing-line">
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <h1 class="balanced">Connect</h1>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <img src="../campaign/images/line.png" class="clear-balanced balancing-line">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">                                            
+                                                <p class="lead">Plug in your favourite dev tools to auto-log your data</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="item item-padded" data-array-step-pause="4000">
-                                    <h2>Keep</h2>
-                                    <p class="lead">Your personal record - across projects, tools and languages</p>
-                                    <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
-                                    <a class="btn btn-large" href="#">Boring!</a> -->
+                                    <div class="container center">
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <img src="../campaign/images/line.png" class="balanced balancing-line">
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <h1 class="balanced">Keep</h1>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <img src="../campaign/images/line.png" class="clear-balanced balancing-line">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">                                            
+                                                <p class="lead">Your personal record - across projects, tools and languages </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="item item-padded" data-array-step-pause="4000">
-                                    <h2>Improve</h2>
-                                    <p class="lead">See what affects the metrics that matter to you<br />Set targets to improve them
-                                    </p>
-                                    <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
-                                    <a class="btn btn-large" href="#">Boring!</a> -->
+                                    <div class="container center">
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <img src="../campaign/images/line.png" class="balanced balancing-line">
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <h1 class="balanced">Improve</h1>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <img src="../campaign/images/line.png" class="clear-balanced balancing-line">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">                                            
+                                                <p class="lead">See what affects the metrics that matter to you<br />Set targets to improve them</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="item item-padded" data-array-step-pause="4000">
-                                    <h2>Compare</h2>
-                                    <p class="lead">See how you compare to your peers, your team and the experts</p>
-                                    <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
-                                    <a class="btn btn-large" href="#">Boring!</a> -->
+                                    <div class="container center">
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <img src="../campaign/images/line.png" class="balanced balancing-line">
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <h1 class="balanced">Compare</h1>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <img src="../campaign/images/line.png" class="clear-balanced balancing-line">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">                                            
+                                                <p class="lead">See how you compare to your peers, your team and the experts</p>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
 
@@ -156,7 +209,7 @@ With QuantifiedDev you can track your behaviour in real-time and what’s affect
                         <div class="input-append">
                             <!-- Begin MailChimp Signup Form -->
                             <div id="mc_embed_signup">
-                                <form action="http://QuantifiedDev.us8.list-manage.com/subscribe/post?u=6cba468ceea6fc41a7d7db50e&amp;id=e430478c86" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate role="form">
+                                <form action="http://QuantifiedDev.us8.list-manage.com/subscribe/post?u=6cba468ceea6fc41a7d7db50e&amp;id=cc12bc3b63" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate role="form">
                                     <div class="form-group">
                                     <input type="email" value="" name="EMAIL" class="input input-lg" id="mce-EMAIL" placeholder="you@email.com" required>
                                     </div>
@@ -176,6 +229,7 @@ With QuantifiedDev you can track your behaviour in real-time and what’s affect
                 </div>
             </div>
         </section>
+        
         
         
         
