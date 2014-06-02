@@ -227,6 +227,7 @@
             <div class="panel panel-secondary fixed-height">
               <div class="panel-heading cursor-move">
                 <h3 class="panel-title"><i class="icon-bar-chart"></i>Build History</h3>
+                <a id="tweetMyBuilds" onclick="qd.tweetBuildSparkline()">Tweet</a>
               </div>
               <div class="panel-body">
                 <div id="build-history"></div>
@@ -237,6 +238,7 @@
             <div class="panel panel-secondary fixed-height">
               <div class="panel-heading cursor-move">
                 <h3 class="panel-title"><i class="icon-bar-chart"></i>WTF History</h3>
+                <a id="tweetMyWtfs" onclick="qd.tweetWtfSparkline()">Tweet</a>
               </div>
               <div class="panel-body">
                 <div id="wtf-history"></div>
@@ -276,7 +278,7 @@
     <script src="packages/d3/queue.v1.min.js"></script>
 
     <script src="packages/regressionjs/regression.js"></script>
-
+    <script src="js/1self.js"></script>
     <script src="js/quantified-dev.js"></script>
     <script src="js/build-history-d3.js"></script>
     <script src="js/wtf-history-d3.js"></script>
