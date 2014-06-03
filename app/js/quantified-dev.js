@@ -92,10 +92,11 @@ var qd = function() {
 
     result.tweetBuildSparkline = function() {
         var totalBuilds = [];
+        var sparkbarDataForDays = 14;
         result.buildEvents.map( function(buildEvent) {
             totalBuilds.push(buildEvent.passed+buildEvent.failed);
         });
-        console.info(totalBuilds.length);
+        totalBuilds = totalBuilds.slice(totalBuilds.length-sparkbarDataForDays, totalBuilds.length)
         var sparkBar = window.oneSelf.toSparkBars(totalBuilds);
         var tweetText = sparkBar +  " my builds over the last month. See yours at quantifieddev.org";
         var hashTags = ['code'].join(',');
@@ -104,9 +105,11 @@ var qd = function() {
 
     result.tweetWtfSparkline = function() {
         var totalWtfs = [];
+        var sparkbarDataForDays = 14;
         result.wtfEvents.map( function(wtfEvent) {
             totalWtfs.push(wtfEvent.wtfCount);
         });
+        totalWtfs = totalWtfs.slice(totalWtfs.length-sparkbarDataForDays, totalWtfs.length)
         var sparkBar = window.oneSelf.toSparkBars(totalWtfs);
         var tweetText = sparkBar +  " my WTFs over the last month. The only measure of code quality. See yours at quantifieddev.org";
         var hashTags = ['wtf', 'code'].join(',');
