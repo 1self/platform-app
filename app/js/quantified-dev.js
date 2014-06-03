@@ -11,11 +11,11 @@ var qd = function() {
 
     var url = function(resource) {
         var result = "";
-        if (location.hostname == "localhost") {
+        /*if (location.hostname == "localhost") {
             result = "http://" + location.hostname + ":5000/quantifieddev/" + resource + "/" + window.localStorage.streamId;
-        } else {
+        } else {*/
             result = "http://quantifieddev.herokuapp.com/quantifieddev/" + resource + "/" + window.localStorage.streamId;
-        }
+        // }
         return result;
     }
 
@@ -95,8 +95,9 @@ var qd = function() {
         result.buildEvents.map( function(buildEvent) {
             totalBuilds.push(buildEvent.passed+buildEvent.failed);
         });
+        console.info(totalBuilds.length);
         var sparkBar = window.oneSelf.toSparkBars(totalBuilds);
-        var tweetText = sparkBar +  " my builds over the last 2 weeks. See yours at quantifieddev.org";
+        var tweetText = sparkBar +  " my builds over the last month. See yours at quantifieddev.org";
         var hashTags = ['code'].join(',');
         var tweetMyBuilds = $('#tweetMyBuilds').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };
@@ -107,7 +108,7 @@ var qd = function() {
             totalWtfs.push(wtfEvent.wtfCount);
         });
         var sparkBar = window.oneSelf.toSparkBars(totalWtfs);
-        var tweetText = sparkBar +  " my WTFs over the last 2 weeks. The only measure of code quality. See yours at quantifieddev.org";
+        var tweetText = sparkBar +  " my WTFs over the last month. The only measure of code quality. See yours at quantifieddev.org";
         var hashTags = ['wtf', 'code'].join(',');
         var tweetMyWtfs = $('#tweetMyWtfs').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };
