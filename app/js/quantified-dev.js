@@ -11,11 +11,11 @@ var qd = function() {
 
     var url = function(resource) {
         var result = "";
-       /* if (location.hostname == "localhost") {
+        if (location.hostname == "localhost") {
             result = "http://" + location.hostname + ":5000/quantifieddev/" + resource + "/" + window.localStorage.streamId;
-        } else {*/
+        } else {
             result = "http://quantifieddev.herokuapp.com/quantifieddev/" + resource + "/" + window.localStorage.streamId;
-        //}
+        }
         return result;
     }
 
