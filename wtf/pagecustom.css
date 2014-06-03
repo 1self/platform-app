@@ -1,0 +1,25 @@
+.headline{
+	margin-top:50px;
+}
+
+#headline1{
+	font-size: 2em;
+}
+
+#headline2{
+	margin-top: -10px;
+	font-size: 1.3em;
+}
+
+#headline3{
+	margin-top: -10px;
+	font-size: 2.5em;
+}
+
+.step{
+	border:	solid;
+	border-radius: 8px;
+	border-width: 8px;
+	width: 100%;
+	height: 256px;
+}
