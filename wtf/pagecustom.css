@@ -2,21 +2,22 @@
 	margin-top:50px;
 }
 
-#headline1{
-	font-size: 2em;
-}
+@media (min-width: 768px){
+	#headline1{
+	font-size: 5.4em;
+	}
 
-#headline2{
-	margin-top: -10px;
-	font-size: 1.3em;
-	color: #AAAAAA;
-}
+	#headline2{
+		margin-top: -10px;
+		font-size: 3.5em;
+		color: #AAAAAA;
+	}
 
-#headline3{
-	margin-top: -10px;
-	font-size: 2.5em;
+	#headline3{
+		margin-top: -10px;
+		font-size: 6.6em;
+	}
 }
-
 
 .step{
 	border:	solid;
@@ -34,8 +35,16 @@
 	}
 }
 
+
 #subscribe-blurb{
 	font-size: 1.3em;
+}
+
+@media (min-width: 768px){
+	#subscribe-blurb{
+		margin-top: -5px;
+		font-size: 1.4em;
+	}
 }
 
 #mce-EMAIL {
@@ -44,6 +53,14 @@
 	padding: 5px 8px;
 }
 
+@media (min-width: 768px){
+
+	#mce-EMAIL {
+		border-color: rgba(100, 100, 100, 1) rgba(100, 100, 100, 1) rgba(100, 100, 100, 1);
+		width: 220px;
+		padding: 5px 8px;
+	}
+}
 
 #mc-embedded-subscribe{
 		border-style: solid solid solid none;
