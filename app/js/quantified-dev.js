@@ -91,30 +91,24 @@ var qd = function() {
 
 
     result.tweetBuildSparkline = function() {
-        console.info("In tweet sparkline data - ", result.buildEvents);
         var totalBuilds = [];
         result.buildEvents.map( function(buildEvent) {
             totalBuilds.push(buildEvent.passed+buildEvent.failed);
         });
-        console.info(totalBuilds);
         var sparkBar = window.oneSelf.toSparkBars(totalBuilds);
-        var tweetText = sparkBar +  "See yours at quantifieddev.org";
+        var tweetText = sparkBar +  " my builds over the last 2 weeks. See yours at quantifieddev.org";
         var hashTags = ['code'].join(',');
-        console.info("TweetText: ",tweetText);
         var tweetMyBuilds = $('#tweetMyBuilds').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };
 
     result.tweetWtfSparkline = function() {
-        console.info("In tweet sparkline data - ", result.wtfEvents);
         var totalWtfs = [];
         result.wtfEvents.map( function(wtfEvent) {
             totalWtfs.push(wtfEvent.wtfCount);
         });
-        console.info(totalWtfs);
         var sparkBar = window.oneSelf.toSparkBars(totalWtfs);
-        var tweetText = sparkBar +  "See yours at quantifieddev.org";
+        var tweetText = sparkBar +  " my WTFs over the last 2 weeks. The only measure of code quality. See yours at quantifieddev.org";
         var hashTags = ['wtf', 'code'].join(',');
-        console.info("TweetText: ",tweetText);
         var tweetMyWtfs = $('#tweetMyWtfs').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };
 
