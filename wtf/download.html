@@ -38,25 +38,7 @@
     })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
     ga('create', 'UA-49828181-1', 'quantifieddev.org');
     ga('send', 'pageview');
-    /*
-    var mc_embedded_subscribe_click = document.getElementById('mc-embedded-subscribe');
-    addListener(mc_embedded_subscribe_click, 'click', function() {
-    alert('sup click');
-    ga('send', 'event', 'signup_button', 'click', 'mc-embedded-subscribe');
-    });*/
-    /**
-    * Utility to wrap the different behaviors between W3C-compliant browsers
-    * and IE when adding event handlers.
-    *
-    * @param {Object} element Object on which to attach the event listener.
-    * @param {string} type A string representing the event type to listen for
-    *     (e.g. load, click, etc.).
-    * @param {function()} callback The function that receives the notification.
-    
-    function addListener(element, type, callback) {
-    if (element.addEventListener) element.addEventListener(type, callback);
-    else if (element.attachEvent) element.attachEvent('on' + type, callback);
-    }*/
+
     </script>
 </head>
 
@@ -117,35 +99,15 @@
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <div class="plan">
-                            <h3>
-                                Visual Studio extension
-                            </h3>
-                            <p>
-                                Our VS 2012 extension currently logs each build that you perform and whether that build succeeded or failed. It will also ask you for your location when you initially install it. Support for 2010 and 2013 is coming soon. <a href="#signup">Sign up to be notified when VS2010 and VS2013 support is ready</a>.
-                            </p>
-                            <p>
-                                <center>
-                                <a href="/QuantifiedDevVisualStudioExtension.vsix" class="btn btn-outline btn-prominent margin-verticals" id="downloadVSExtensionLink">Download VS extension<br /><small>No sign up required. Logs anonymously</small></a>
-                                </center>
-                            </p>
-                            <p><a href="/app">Visit your QuantifiedDev dashboard</a> and enter your stream id and token from the VS extension window to see your data.</p>
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
+                            <small>Your personal WTF history</small>
+                            <img src="/images/BuildFreqByDay.png" class="build-graph"/>
                             <br />
                             <br />
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <div class="plan">
-                            <small>Your personal build history</small>
-                            <img src="/images/BuildFreqByDay.png" class="build-graph"/>
-                            <br />
-                            <br />
-                            <small>Builds around the world </small>
+                            <small>WTFs around the world </small>
                             <img src="/images/globe.png" class="build-graph" />
                         </div>
                     </div>
