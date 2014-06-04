@@ -42,25 +42,7 @@
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA-49828181-1', 'quantifieddev.org');
         ga('send', 'pageview');
-        /*
-        var mc_embedded_subscribe_click = document.getElementById('mc-embedded-subscribe');
-        addListener(mc_embedded_subscribe_click, 'click', function() {
-        alert('sup click');
-        ga('send', 'event', 'signup_button', 'click', 'mc-embedded-subscribe');
-        });*/
-        /**
-        * Utility to wrap the different behaviors between W3C-compliant browsers
-        * and IE when adding event handlers.
-        *
-        * @param {Object} element Object on which to attach the event listener.
-        * @param {string} type A string representing the event type to listen for
-        *     (e.g. load, click, etc.).
-        * @param {function()} callback The function that receives the notification.
         
-        function addListener(element, type, callback) {
-        if (element.addEventListener) element.addEventListener(type, callback);
-        else if (element.attachEvent) element.attachEvent('on' + type, callback);
-        }*/
         </script>
     </head>
     <body data-spy="scroll" data-target=".navbar">
@@ -98,66 +80,92 @@
                             <div class="step">
                                 <div>1. Install the IntelliJ plugin</div>
                                 <div><img src="images/ij.png" class="intellij"></div>
-                                <div></div>
+                                <div>For IDEA 11, 12 & 13</div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-xs-height">
                             <div class="step">
-                                <div>2. Keep the plugin open</div>
+                                <div>2. Use the plugin</div>
                                 <div><img src="images/plugin.png" class="plugin"></div>
-                                <div>Use the WTF button</div>
+                                <div>Keep plugin window open. Hit WTF button</div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-xs-height">
                             <div class="step">
                                 <div>3. Go to quantifieddev.org/app</div>
                                 <div><img src="images/wtfgraph.png" class="wtfgraph"></div>
-                                <div>see your history</div>
+                                <div>See your history and WTFs around the world</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
             <section>
-                <div class="container">
+                <div class="container dark">
                     <div class="row">
                         <div class="col-xs-12">
                             <h2>Let’s get started</h2>
                         </div>
                         <div class="col-xs-12">
-                            <h3>Download the plugin</h3>
+                            <h3>1. Install the plugin</h3>
                         </div>
                         <div class="col-xs-12">
-                            <div>QuantifiedDev starts with installing a plugin. The plugin is built for IntelliJ IDEA 11, 12 and 13 - both full and community editions. You will need java 1.6, 1.7 or 1.8. You can download the plugin here. You don’t need to unzip the folder, IntelliJ knows what to do with the zip.
-
-                            Once you have the plugin, open IntelliJ and go to your plugin settings. On windows and Ubuntu this is under the settings folder under the file menu. On OSX you go to preferences under the intellij menu. From the plugin settings click on the ‘Install plugin from disk button’. A file browser will appear, from here select the zip file with the plugin inside it. IntelliJ will install the plugin. IntelliJ will ask permission to restart, you should let it. After the restart you can go back to the plugin settings and see it installed.
+                            <div>
+                                <p>
+                                    The plugin is built for IntelliJ IDEA 11, 12 and 13 - both full and community editions. You'll need java 1.6, 1.7 or 1.8. You can <a href="/wtf/download.html">download the plugin here</a>.
+                                    <br /><strong>Don't unzip the folder</strong>, IntelliJ knows what to do with the zip.
+                                </p>
+                                <p>
+                                    After downloading the plugin open IntelliJ and go to Plugin/Extension settings. On Windows and Ubuntu you'll need the Settings folder under the File menu. On OSX you go to Preferences under the IntelliJ menu. From the Plugin/Extension settings click on the ‘Install plugin from disk button’. A file browser will appear. From here, select the zip file with the plugin inside it. IntelliJ will install the plugin. IntelliJ will ask permission to restart, you should let it. After the restart you can go back to the plugin settings and see it installed.
+                                </p>
                             </div>
                         </div>
                         <div class="col-xs-12">
-                            <h3>Configure the plugin</h3>
+                            <h3>2. Use the plugin</h3>
                         </div>
                         <div class="col-xs-12">
-                            <div>QuantifiedDev attempts to guess where you are based on your IP. Often, this will default to a location that doesn’t truly reflect where you are. You can help the QuantifiedDev community by filling in your lat and long. Go to your settings, as described above, and go to QuantifiedDev settings. Here you will see your stream id, read token, latitude and longitude. More on stream id and read token later. Here you can edit lat and long with your correct location. Google search can help you find out your location. </div>
+                            <div>
+                                <p>
+                                    Whenever you encounter confusing, poorly written code <strong>hit the WTF button</strong> to log a WTF. Simply open the quantified dev tool window by going through the menu system: View > Tool Windows > QuantiedDev. Now, you should see the tool window with the WTF button. Go ahead and press it a few times. Dock the window for easy access.
+                                </p>
+                            </div>
                         </div>
                         <div class="col-xs-12">
-                            <h3>Log your WTFs</h3>
+                            <h3>3. View your WTFs</h3>
                         </div>
                         <div class="col-xs-12">
-                            <div>Now that you have the plugin, whenever you encounter confusing, poorly written code you can log a WTF. Simply open the quantified dev tool window by going through the menu system: View > Tool Windows > QuantiedDev. Now, you should see the tool window with the WTF button. Go ahead and press it a few times. 
-
-</div>
+                            <div>
+                                <p>
+                                    See your WTF history and other live WTFs happening around the world at <a href="/app">quantifeddev.org/app</a>. To get your personal data open the QuanitifedDev settings page from the "cog" button on the QuantifiedDev tool window. Copy your stream id and the read token and paste them into the form fields on the dashboard page and press "Save". The graphs will update and you will be able to see your WTFs. Click on "Community" to see other WTFs happening in the world.
+                                </p>
+                            </div>
                         </div>
                         <div class="col-xs-12">
-                            <h3>View your WTFs</h3>
+                            <center>
+                                <a href="https://github.com/QuantifiedDev/plugin-binaries/blob/master/intellijidea-plugin/quantifiedDevIdeaPlugin-0.6.2.Beta1.zip?raw=true" class="btn btn-outline btn-prominent margin-verticals" id="downloadIntelliJExtensionLink">
+                                    Download QuantifiedDev IntelliJ Plugin
+                                </a>
+                            </center>
                         </div>
                         <div class="col-xs-12">
-                            <div>Now that you’re logging your WTFs you can go to quantifeddev.org/app and see your WTF history. First, open the quanitifed dev settings page. There is a handy button labelled ‘?' on the tool window to the left of the WTF button. Make a note of your stream id and the read token. Click on the button labelled ‘QD’ on the tool window and a browser will open at the QuantifiedDev dashboard. Now, enter your stream id and read token and press save. The graphs will update and you will be able to see your WTFs</div>
+                            <h3>Bonus! Log builds</h3>
                         </div>
                         <div class="col-xs-12">
-                            <h3>Log builds</h3>
+                            <div>
+                                <p>
+                                    WTFs aren’t the only thing that you can log with QuantifiedDev. If you are working on a project that involves compiled languages you can also log builds. Just use the make command and we’ll send up a build event. Your build history is shown right alongside the WTFs.
+                                </p>
+                            </div>
                         </div>
                         <div class="col-xs-12">
-                            <div>WTFs aren’t the only thing that you can log with QuantifiedDev. If you are working on a project that involves compiled languages you can also log builds. Just use the make command and we’ll send up a build event. Your build history is shown right alongside the WTFs.</div>
+                            <h3>Other info</h3>
+                        </div>
+                        <div class="col-xs-12">
+                            <div>
+                                <p>
+                                    QuantifiedDev infers where you are based on your IP. Often, this will default to a location that doesn’t truly reflect where you are. You can override the default lat and long by filling in them in manually. Go to your settings, as described above, and go to QuantifiedDev settings. Here you will see your stream id, read token, latitude and longitude. More on stream id and read token later. Here you can edit lat and long with your correct location. Google search can help you find out your location.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
