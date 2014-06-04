@@ -19,6 +19,23 @@
 	}
 }
 
+@media (min-width: 1200px){
+	#headline1{
+	font-size: 5.7em;
+	}
+
+	#headline2{
+		margin-top: -10px;
+		font-size: 3.7em;
+		color: #AAAAAA;
+	}
+
+	#headline3{
+		margin-top: -10px;
+		font-size: 7em;
+	}
+}
+
 .step{
 	border:	solid;
 	border-radius: 4px;
@@ -47,6 +64,13 @@
 	}
 }
 
+@media (min-width: 1200px){
+	#subscribe-blurb{
+		margin-top: 0px;
+		font-size: 2.2em;
+	}
+}
+
 #mce-EMAIL {
 	border-color: rgba(100, 100, 100, 1) rgba(100, 100, 100, 1) rgba(100, 100, 100, 1);
 	width: 150px;
@@ -62,6 +86,14 @@
 	}
 }
 
+@media (min-width: 1200px){
+
+	#mce-EMAIL {
+		width: 223px;
+		padding: 20px 44px;
+	}
+}
+
 #mc-embedded-subscribe{
 		border-style: solid solid solid none;
 		margin-top: -5px;
@@ -72,6 +104,13 @@
 		padding: 5px 8px;
 	}
 
+@media (min-width: 1200px){
+	#mc-embedded-subscribe{
+		width: 126px;
+		padding: 10px 8px;
+	}
+
+}
 #signup{
 	padding-top: 20px;
 	padding-bottom: 10px;
@@ -82,4 +121,14 @@
 	border: solid;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+.wtfcartoon{
+	height: 240px;
+	margin-top: 30px;
+}
+
+.subscriberow {
+	padding-top:20px;
+	background-color: #DDDDDD;
 }
