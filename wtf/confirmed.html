@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>QuantifiedDev | Become a better developer</title>
+    <title>QuantifiedDev | WTF?!</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <meta name="google-site-verification" content="2nQMCYUg7F7nHAOl6fTyThrdNcOmOT7cXKWOMfB0onk" />
@@ -59,15 +59,6 @@
     else if (element.attachEvent) element.attachEvent('on' + type, callback);
     }*/
     </script>
-    <script>
-    var vimeoCategory = "vimeo";
-    $(document).ready(function() {
-        vimeoCategory = "vimeo_chart";
-        $("#vidDiv1").append('<iframe id="vimeoPlayer" src="http://player.vimeo.com/video/91935724?title=0&amp;byline=0&amp;portrait=0&amp;color=38e8ae" width="500" height="281" frameborder="0" data-progress="true" data-seek="true" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
-       
-        ga('send', 'event', vimeoCategory, 'loaded video');
-    });
-    </script>
 </head>
 
 <body data-spy="scroll" data-target=".navbar">
@@ -79,7 +70,7 @@
             <div class="navbar-header">
 
                 <div class="mainlogo">
-                <a class="brand" href="/mytribe">
+                <a class="brand" href="/wtf">
                     <img src="../app/img/quantified-dev-logo.png" />
                 </a>
                 </div>
@@ -150,20 +141,6 @@
         }
     }(document, 'script', 'twitter-wjs');
     </script>
-    <script>
-    ! function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0],
-            p = /^http:/.test(d.location) ? 'http' : 'https';
-        if (!d.getElementById(id)) {
-            js = d.createElement(s);
-            js.id = id;
-            js.src = p + '://platform.twitter.com/widgets.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }
-    }(document, 'script', 'twitter-wjs');
-    </script>
-    <script type="text/javascript" src="../campaign/js/fitvid.js"></script>
-    <script type="text/javascript" src="../campaign/js/launch.js"></script>
     <script type="text/javascript">
     $('#navbar_top').on('click', function() {
         ga('send', 'event', 'navbar_link', 'navbar_top_click');
