@@ -38,7 +38,7 @@
 
 .step{
 	border:	solid;
-	border-radius: 4px;
+	border-radius: 12px;
 	border-width: 4px;
 	height: 256px;
 	margin-bottom: 10px;
@@ -52,6 +52,12 @@
 	}
 }
 
+@media (min-width: 1200px){
+	.step{
+		height: 325px;
+	}
+}
+
 
 #subscribe-blurb{
 	font-size: 1.3em;
@@ -59,9 +65,11 @@
 
 @media (min-width: 768px){
 	#subscribe-blurb{
-		margin-top: -5px;
-		font-size: 1.4em;
-	}
+		margin-top: 10px;
+		font-size: 1.2em;
+	
+		margin-right: -10px;
+}
 }
 
 @media (min-width: 1200px){
@@ -81,7 +89,7 @@
 
 	#mce-EMAIL {
 		border-color: rgba(100, 100, 100, 1) rgba(100, 100, 100, 1) rgba(100, 100, 100, 1);
-		width: 220px;
+		width: 168px;
 		padding: 5px 8px;
 	}
 }
@@ -131,4 +139,60 @@
 .subscriberow {
 	padding-top:20px;
 	background-color: #DDDDDD;
+}
+
+.intellij {
+	width: 180px;
+}
+
+.plugin {
+	width: 228px;
+}
+
+.wtfgraph {
+	width: 310px;
+}
+
+@media (min-width: 768px){
+	.intellij {
+	width: 180px;
+	}
+
+	.plugin {
+		width: 174px;
+	}
+
+	.wtfgraph {
+		width: 194px;
+	}
+}
+
+@media (min-width:1200px){
+	.intellij {
+	width: 180px;
+	}
+
+	.plugin {
+		width: 228px;
+	}
+
+	.wtfgraph {
+		width: 310px;
+	}
+}
+
+.get-started-title{
+	font-size: 1em;
+}
+
+@media (min-width: 768px){
+	.get-started-title{
+		font-size: 1.6em;
+	}
+}
+
+@media (min-width: 1200px){
+	.get-started-title{
+		font-size: 2em;
+	}
 }
