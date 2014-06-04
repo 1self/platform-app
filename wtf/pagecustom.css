@@ -1,5 +1,21 @@
+
 .headline{
 	margin-top:50px;
+}
+
+#headline1{
+font-size: 2em;
+}
+
+#headline2{
+	margin-top: -10px;
+	font-size: 1.3em;
+	color: #AAAAAA;
+}
+
+#headline3{
+	margin-top: -10px;
+	font-size: 2.5em;
 }
 
 @media (min-width: 768px){
@@ -60,7 +76,7 @@
 
 
 #subscribe-blurb{
-	font-size: 1.3em;
+	font-size: 1em;
 }
 
 @media (min-width: 768px){
@@ -81,7 +97,7 @@
 
 #mce-EMAIL {
 	border-color: rgba(100, 100, 100, 1) rgba(100, 100, 100, 1) rgba(100, 100, 100, 1);
-	width: 150px;
+	width: 160px;
 	padding: 5px 8px;
 }
 
@@ -129,6 +145,13 @@
 	border: solid;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	padding: 10px 20px;
+}
+
+@media (min-width: 768px){
+	.more-info{
+		height: 500px;
+	}
 }
 
 .wtfcartoon{
@@ -150,7 +173,7 @@
 }
 
 .wtfgraph {
-	width: 310px;
+	width: 241px;
 }
 
 @media (min-width: 768px){
@@ -194,5 +217,65 @@
 @media (min-width: 1200px){
 	.get-started-title{
 		font-size: 2em;
+	}
+}
+
+
+.more-info-headline-1.wtf-your-way{
+	font-size: 1.5em;
+}
+
+.more-info-headline-2.wtf-your-way{
+	font-size: 2.em;
+	margin-top: -12px
+	}
+
+
+	.more-info-headline-1.wtf-is-this-about{
+		font-size: 1.8em;
+	}
+
+	.more-info-headline-2.wtf-is-this-about{
+		font-size: 1.4em;
+		margin-top: -12px
+	}
+
+@media (min-width: 768px){
+	.more-info-headline-1.wtf-your-way{
+		font-size: 2.1em;
+	}
+
+	.more-info-headline-2.wtf-your-way{
+		font-size: 3.5em;
+		margin-top: -20.4px;}
+
+
+	.more-info-headline-1.wtf-is-this-about{
+		font-size: 2.4em;
+	}
+
+	.more-info-headline-2.wtf-is-this-about{
+		font-size: 1.9em;
+		margin-top: -12px
+	}
+}
+
+@media (min-width: 1200px){
+	.more-info-headline-1.wtf-your-way{
+		font-size: 3.7em;
+	}
+
+	.more-info-headline-2.wtf-your-way{
+		font-size: 6.2em;
+		margin-top: -20.4px;}
+
+
+	.more-info-headline-1.wtf-is-this-about{
+		font-size: 4.2em;
+	}
+
+	.more-info-headline-2.wtf-is-this-about{
+		font-size: 3.4em;
+		margin-top: -12px
 	}
 }
