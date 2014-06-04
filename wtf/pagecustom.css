@@ -57,7 +57,7 @@ font-size: 2em;
 	border-radius: 12px;
 	border-width: 4px;
 	height: 256px;
-	margin-bottom: 10px;
+	margin-bottom: 45px;
 	margin-top: 10px;
 	color: #888888;
 }
@@ -76,7 +76,8 @@ font-size: 2em;
 
 
 #subscribe-blurb{
-	font-size: 1em;
+	font-size: 1.3em;
+	margin-bottom: 11px;
 }
 
 @media (min-width: 768px){
@@ -146,6 +147,9 @@ font-size: 2em;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	padding: 10px 20px;
+	border-radius: 8px;
+	border-color: #6884AA;
+	color: #525252;
 }
 
 @media (min-width: 768px){
@@ -162,6 +166,7 @@ font-size: 2em;
 .subscriberow {
 	padding-top:20px;
 	background-color: #DDDDDD;
+	border-radius: 2px;
 }
 
 .intellij {
@@ -178,7 +183,7 @@ font-size: 2em;
 
 @media (min-width: 768px){
 	.intellij {
-	width: 180px;
+	width: 158px;
 	}
 
 	.plugin {
@@ -192,11 +197,11 @@ font-size: 2em;
 
 @media (min-width:1200px){
 	.intellij {
-	width: 180px;
+	width: 250px;
 	}
 
 	.plugin {
-		width: 228px;
+		width: 302px;
 	}
 
 	.wtfgraph {
@@ -222,11 +227,11 @@ font-size: 2em;
 
 
 .more-info-headline-1.wtf-your-way{
-	font-size: 1.5em;
+	font-size: 1.6em;
 }
 
 .more-info-headline-2.wtf-your-way{
-	font-size: 2.em;
+	font-size: 2.7em;
 	margin-top: -12px
 	}
 
@@ -236,7 +241,7 @@ font-size: 2em;
 	}
 
 	.more-info-headline-2.wtf-is-this-about{
-		font-size: 1.4em;
+		font-size: 1.5em;
 		margin-top: -12px
 	}
 
@@ -277,5 +282,24 @@ font-size: 2em;
 	.more-info-headline-2.wtf-is-this-about{
 		font-size: 3.4em;
 		margin-top: -12px
+	}
+}
+
+.step-blurb{
+	font-size: 1.2em;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	color: #111111;
+}
+
+@media (min-width: 768px){
+	.step-blurb{
+		font-size:1em;
+	}
+}
+
+@media (min-width: 1200px){
+	.step-blurb{
+		font-size: 1.5em;
 	}
 }
