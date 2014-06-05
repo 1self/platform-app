@@ -7,7 +7,7 @@ var oneSelf = (function() {
         var min = Math.min.apply(Math, array) ;
         var div = (max - min) / (barUnicodes.length - 1);
         return array.map(function(dataPoint) {
-            var translated = Math.floor((dataPoint - min) / div);
+            var translated = div === 0? 0 : Math.floor((dataPoint - min) / div);
             var value = 0x2581 + translated;
             return String.fromCharCode(value);
         }).join('');

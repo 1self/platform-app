@@ -93,6 +93,9 @@ var qd = function() {
     result.tweetBuildSparkline = function() {
         var totalBuilds = [];
         var sparkbarDataForDays = 14;
+        if(result.buildEvents === undefined) {
+            return;
+        }
         result.buildEvents.map( function(buildEvent) {
             totalBuilds.push(buildEvent.passed+buildEvent.failed);
         });
@@ -100,12 +103,15 @@ var qd = function() {
         var sparkBar = window.oneSelf.toSparkBars(totalBuilds);
         var tweetText = sparkBar +  " my builds over the last 2 weeks. See yours at quantifieddev.org";
         var hashTags = ['coding'].join(',');
-        var tweetMyBuilds = $('#tweetMyBuilds').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
+        var tweetMyBuilds = $('#tweetMyBuilds').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);    
     };
 
     result.tweetWtfSparkline = function() {
         var totalWtfs = [];
         var sparkbarDataForDays = 14;
+        if(result.wtfEvents === undefined) {
+            return;
+        }
         result.wtfEvents.map( function(wtfEvent) {
             totalWtfs.push(wtfEvent.wtfCount);
         });
