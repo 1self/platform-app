@@ -101,7 +101,7 @@
                     </li>
                     <li><a href="http://blog.QuantifiedDev.org" id="navbar_blog">Blog</a>
                     </li>
-                    <li><a href="/app" id="navbar_blog">My Dashboard</a>
+                    <li><a href="/app" id="navbar_mydashboard">My Dashboard</a>
                     </li>
                 </ul>
             </div>
@@ -450,6 +450,9 @@
     });
     $('#navbar_blog').on('click', function() {
         ga('send', 'event', 'navbar_link', 'navbar_blog_click');
+    });
+    $('#navbar_mydashboard').on('click', function() {
+        ga('send', 'event', 'navbar_link', 'navbar_mydashboard_click');
     });
     $('#moreInfoBenefitsSignUp').on('click', function() {
         ga('send', 'event', 'moreinfo', 'moreInfoBenefitsSignUp_click');
