@@ -66,7 +66,7 @@ var qd = function() {
                 "Content-Type": "application/json"
             },
             success: function(wtfEvents) {
-                result.hydrationEvents = wtfEvents;
+                result.wtfEvents = wtfEvents;
                 result.plotWTFHistory();
             }
         });
@@ -133,6 +133,7 @@ var qd = function() {
             totalBuilds.push(buildEvent.passed+buildEvent.failed);
         });
         totalBuilds = totalBuilds.slice(totalBuilds.length-sparkbarDataForDays, totalBuilds.length)
+        console.log("sparking builds:", totalBuilds)
         var sparkBar = window.oneSelf.toSparkBars(totalBuilds);
         var tweetText = sparkBar +  " my builds over the last 2 weeks. See yours at quantifieddev.org";
         var hashTags = ['coding'].join(',');
@@ -150,10 +151,11 @@ var qd = function() {
             totalWtfs.push(wtfEvent.wtfCount);
         });
         totalWtfs = totalWtfs.slice(totalWtfs.length-sparkbarDataForDays, totalWtfs.length)
+        console.log("sparking wtfs:", totalWtfs)
         var sparkBar = window.oneSelf.toSparkBars(totalWtfs);
         var tweetText = sparkBar +  " my WTFs over the last 2 weeks. The only measure of code quality. See yours at quantifieddev.org";
         var hashTags = ['wtf', 'coding'].join(',');
-        var tweetMyWtfs = $('#tweetMyWtfs').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
+        $('#tweetMyWtfs').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };
 
     result.tweetHydrationSparkline = function() {
@@ -169,6 +171,7 @@ var qd = function() {
         });
 
         totalHydrations = totalHydrations.slice(totalHydrations.length-sparkbarDataForDays, totalHydrations.length);
+        console.log("sparking hydrations:", totalHydrations)
         var sparkBar = window.oneSelf.toSparkBars(totalHydrations);
         var tweetText = sparkBar +  " my hydration levels over the last month. See yours at quantifieddev.org";
         var hashTags = ['hydrate', 'coding'].join(',');
@@ -187,6 +190,7 @@ var qd = function() {
         });
 
         totalCaffeine = totalCaffeine.slice(totalCaffeine.length-sparkbarDataForDays, totalCaffeine.length);
+        console.log("sparking caffeine:", totalCaffeine)
         var sparkBar = window.oneSelf.toSparkBars(totalCaffeine);
         var tweetText = sparkBar +  " my caffeine levels over the last month. See yours at quantifieddev.org";
         var hashTags = ['coffee', 'coding'].join(',');
