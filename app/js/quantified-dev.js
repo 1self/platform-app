@@ -66,11 +66,39 @@ var qd = function() {
                 "Content-Type": "application/json"
             },
             success: function(wtfEvents) {
-                result.wtfEvents = wtfEvents;
+                result.hydrationEvents = wtfEvents;
                 result.plotWTFHistory();
             }
         });
-    }
+    };
+
+    result.updateHydrationModel = function() {
+        $.ajax({
+            url: url("myhydration"),
+            headers: {
+                "Authorization": result.readToken,
+                "Content-Type": "application/json"
+            },
+            success: function(hydrationEvents) {
+                result.hydrationEvents = hydrationEvents;
+                result.plotHydrationHistory();
+            }
+        });
+    };
+
+    result.updateCaffeineModel = function() {
+        $.ajax({
+            url: url("mycaffeine"),
+            headers: {
+                "Authorization": result.readToken,
+                "Content-Type": "application/json"
+            },
+            success: function(caffeineEvents) {
+                result.caffeineEvents = caffeineEvents;
+                result.plotCaffeineHistory();
+            }
+        });
+    };
 
     result.save = function(streamId, readToken) {
         window.localStorage.streamId = streamId;
@@ -78,6 +106,8 @@ var qd = function() {
         updateStreamIdAndReadToken();
         result.updateBuildModel();
         result.updateWTFModel();
+        result.updateHydrationModel();
+        result.updateCaffeineModel();
     }
 
     result.registerForBuildModelUpdates = function(callback) {
@@ -87,15 +117,18 @@ var qd = function() {
     if (result.streamId && result.readToken) {
         result.updateBuildModel();
         result.updateWTFModel();
+        result.updateHydrationModel();
+        result.updateCaffeineModel();
     }
 
 
     result.tweetBuildSparkline = function() {
-        var totalBuilds = [];
-        var sparkbarDataForDays = 14;
         if(result.buildEvents === undefined) {
             return;
         }
+
+        var totalBuilds = [];
+        var sparkbarDataForDays = 14;
         result.buildEvents.map( function(buildEvent) {
             totalBuilds.push(buildEvent.passed+buildEvent.failed);
         });
@@ -103,15 +136,16 @@ var qd = function() {
         var sparkBar = window.oneSelf.toSparkBars(totalBuilds);
         var tweetText = sparkBar +  " my builds over the last 2 weeks. See yours at quantifieddev.org";
         var hashTags = ['coding'].join(',');
-        var tweetMyBuilds = $('#tweetMyBuilds').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);    
+        $('#tweetMyBuilds').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };
 
     result.tweetWtfSparkline = function() {
-        var totalWtfs = [];
-        var sparkbarDataForDays = 14;
         if(result.wtfEvents === undefined) {
             return;
         }
+
+        var totalWtfs = [];
+        var sparkbarDataForDays = 14;
         result.wtfEvents.map( function(wtfEvent) {
             totalWtfs.push(wtfEvent.wtfCount);
         });
@@ -120,6 +154,43 @@ var qd = function() {
         var tweetText = sparkBar +  " my WTFs over the last 2 weeks. The only measure of code quality. See yours at quantifieddev.org";
         var hashTags = ['wtf', 'coding'].join(',');
         var tweetMyWtfs = $('#tweetMyWtfs').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
+    };
+
+    result.tweetHydrationSparkline = function() {
+        if(result.hydrationEvents === undefined) {
+            return;
+        }
+
+        var totalHydrations = [];
+        var sparkbarDataForDays = 14;
+
+        result.hydrationEvents.map( function(hydrationEvent) {
+            totalHydrations.push(hydrationEvent.hydrationCount);
+        });
+
+        totalHydrations = totalHydrations.slice(totalHydrations.length-sparkbarDataForDays, totalHydrations.length);
+        var sparkBar = window.oneSelf.toSparkBars(totalHydrations);
+        var tweetText = sparkBar +  " my hydration levels over the last month. See yours at quantifieddev.org";
+        var hashTags = ['hydrate', 'coding'].join(',');
+        $('#tweetMyHydration').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
+    };
+
+    result.tweetCaffeineSparkline = function() {
+        if(result.caffeineEvents === undefined) {
+            return;
+        }
+
+        var totalCaffeine = [];
+        var sparkbarDataForDays = 14;
+        result.caffeineEvents.map( function(caffeineEvent) {
+            totalCaffeine.push(caffeineEvent.caffeineCount);
+        });
+
+        totalCaffeine = totalCaffeine.slice(totalCaffeine.length-sparkbarDataForDays, totalCaffeine.length);
+        var sparkBar = window.oneSelf.toSparkBars(totalCaffeine);
+        var tweetText = sparkBar +  " my caffeine levels over the last month. See yours at quantifieddev.org";
+        var hashTags = ['coffee', 'coding'].join(',');
+        $('#tweetMyCaffeine').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };
 
     return result;
