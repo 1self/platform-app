@@ -1,19 +1,19 @@
-window.qd.plotWTFHistory = function() {
-    var s = $('#wtf-history').empty();
-    s = d3.select('#wtf-history');
+window.qd.plotHydrationHistory = function() {
+    var s = $('#hydration-history').empty();
+    s = d3.select('#hydration-history');
 
-    var w = $("#wtf-history").width() * 1;
+    var w = $("#hydration-history").width() * 1;
     var h = w / 1.61;
     var p = [h * 0.05, w * 0.1, h * 0.35, w * 0.05],
         x = d3.scale.ordinal().rangeRoundBands([0, w - p[1] - p[3]]),
         xLinear = d3.scale.linear().range([0, w - p[1] - p[3]]);
     y = d3.scale.linear().range([0, h - p[0] - p[2]]),
-    z = d3.scale.ordinal().range(["lightpink"]),
+    z = d3.scale.ordinal().range(["lightblue"]),
     parse = d3.time.format("%m/%d/%Y").parse,
     format = d3.time.format("%d");
     formatMonth = d3.time.format("%b");
 
-    var svg = d3.select("#wtf-history").append("svg:svg")
+    var svg = d3.select("#hydration-history").append("svg:svg")
         .attr("width", w)
         .attr("height", h)
         .append("svg:g")
@@ -22,7 +22,7 @@ window.qd.plotWTFHistory = function() {
     hydrationHistory = window.qd.hydrationEvents;
 
     // Transpose the data into layers by cause.
-    var wtfsByResult = d3.layout.stack()(["wtfCount"].map(function(cause) {
+    var hydrationsByResult = d3.layout.stack()(["hydrationCount"].map(function(cause) {
         return hydrationHistory.map(function(d) {
             return {
                 x: parse(d.date),
@@ -32,17 +32,17 @@ window.qd.plotWTFHistory = function() {
     }));
 
     // Compute the x-domain (by date) and y-domain (by top).        
-    x.domain(wtfsByResult[0].map(function(d) {
+    x.domain(hydrationsByResult[0].map(function(d) {
         return d.x;
     }));
-    xLinear.domain([0, wtfsByResult[0].length]);
-    y.domain([0, d3.max(wtfsByResult[wtfsByResult.length - 1], function(d) {
+    xLinear.domain([0, hydrationsByResult[0].length]);
+    y.domain([0, d3.max(hydrationsByResult[hydrationsByResult.length - 1], function(d) {
         return d.y0 + d.y;
     })]);
 
     // Add a group for each cause.
     var cause = svg.selectAll("g.cause")
-        .data(wtfsByResult)
+        .data(hydrationsByResult)
         .enter().append("svg:g")
         .attr("class", "cause")
         .style("fill", function(d, i) {
@@ -122,8 +122,8 @@ window.qd.plotWTFHistory = function() {
         .attr("dy", ".35em")
         .text(d3.format(",d"));
 
-    // wtf Average:
-    var wtfsMovingAverage = d3.svg.line()
+    // hydration Average:
+    var hydrationsMovingAverage = d3.svg.line()
         .x(function(d, i) {
             return xLinear(i);
         })
@@ -148,7 +148,7 @@ window.qd.plotWTFHistory = function() {
             });
 
             var curval = d3.mean(filteredData, function(d) {
-                return +d.wtfCount;
+                return +d.hydrationCount;
             });
             return -y(curval); // going up in height so need to go negative
         })
@@ -156,9 +156,9 @@ window.qd.plotWTFHistory = function() {
 
     svg.append("path")
         .attr("class", "average")
-        .attr("d", wtfsMovingAverage(hydrationHistory))
+        .attr("d", hydrationsMovingAverage(hydrationHistory))
         .style("fill", "none")
-        .style("stroke", "red")
+        .style("stroke", "blue")
         .style("stroke-width", 2);
 
     var weekDays = hydrationHistory.filter(function(day, fi) {
@@ -169,7 +169,7 @@ window.qd.plotWTFHistory = function() {
     });
 
     // add legend
-    var legendSvg = d3.select("#wtf-history").append("svg:svg")
+    var legendSvg = d3.select("#hydration-history").append("svg:svg")
         .attr("width", w)
         .attr("height", 70)
         .append("svg:g")
@@ -183,7 +183,7 @@ window.qd.plotWTFHistory = function() {
         .attr("width", 100);
 
     var legendColours = [
-        ["number of wtfs", "red"]
+        ["number of glasses", "blue"]
     ]
 
     legend.selectAll("g").data(legendColours)
