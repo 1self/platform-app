@@ -19,11 +19,11 @@ window.qd.plotWTFHistory = function() {
         .append("svg:g")
         .attr("transform", "translate(" + p[3] + "," + (h - p[2]) + ")");
 
-    hydrationHistory = window.qd.hydrationEvents;
+    wtfHistory = window.qd.wtfEvents;
 
     // Transpose the data into layers by cause.
     var wtfsByResult = d3.layout.stack()(["wtfCount"].map(function(cause) {
-        return hydrationHistory.map(function(d) {
+        return wtfHistory.map(function(d) {
             return {
                 x: parse(d.date),
                 y: +d[cause]
@@ -128,7 +128,7 @@ window.qd.plotWTFHistory = function() {
             return xLinear(i);
         })
         .y(function(d, i) {
-            var filteredData = hydrationHistory.filter(function(rangeDay, fi) {
+            var filteredData = wtfHistory.filter(function(rangeDay, fi) {
                 var extent = 5;
                 var end = 0;
                 var begin = 5;
@@ -156,12 +156,12 @@ window.qd.plotWTFHistory = function() {
 
     svg.append("path")
         .attr("class", "average")
-        .attr("d", wtfsMovingAverage(hydrationHistory))
+        .attr("d", wtfsMovingAverage(wtfHistory))
         .style("fill", "none")
         .style("stroke", "red")
         .style("stroke-width", 2);
 
-    var weekDays = hydrationHistory.filter(function(day, fi) {
+    var weekDays = wtfHistory.filter(function(day, fi) {
         var dayOfWeek = new Date(day.date).getDay();
         if (dayOfWeek != 0 && dayOfWeek != 6) {
             return day;
