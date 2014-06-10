@@ -100,6 +100,20 @@ var qd = function() {
         });
     };
 
+    result.updateBuildDurationModel = function() {
+        $.ajax({
+            url: url("buildDuration"),
+            headers: {
+                "Authorization": result.readToken,
+                "Content-Type": "application/json"
+            },
+            success: function(buildDurationEvents) {
+                result.buildDurationEvents = buildDurationEvents;
+                result.plotBuildDurationHistory();
+            }
+        });
+    };
+
     result.save = function(streamId, readToken) {
         window.localStorage.streamId = streamId;
         window.localStorage.readToken = readToken;
@@ -108,6 +122,7 @@ var qd = function() {
         result.updateWTFModel();
         result.updateHydrationModel();
         result.updateCaffeineModel();
+        result.updateBuildDurationModel();
     }
 
     result.registerForBuildModelUpdates = function(callback) {
@@ -119,6 +134,7 @@ var qd = function() {
         result.updateWTFModel();
         result.updateHydrationModel();
         result.updateCaffeineModel();
+        result.updateBuildDurationModel();
     }
 
 
@@ -195,6 +211,25 @@ var qd = function() {
         var tweetText = sparkBar +  " my caffeine levels over the last month. See yours at quantifieddev.org";
         var hashTags = ['coffee', 'coding'].join(',');
         $('#tweetMyCaffeine').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
+    };
+
+    result.tweetBuildDurationSparkline = function() {
+        if(result.buildDurationEvents === undefined) {
+            return;
+        }
+
+        var totalBuildDuration = [];
+        var sparkbarDataForDays = 14;
+        result.buildDurationEvents.map( function(buildDurationEvent) {
+            totalBuildDuration.push(buildDurationEvent.avgBuildDuration);
+        });
+
+        totalBuildDuration = totalBuildDuration.slice(totalBuildDuration.length-sparkbarDataForDays, totalBuildDuration.length);
+        console.log("sparking totalBuildDuration:", totalBuildDuration)
+        var sparkBar = window.oneSelf.toSparkBars(totalBuildDuration);
+        var tweetText = sparkBar +  " my build duration over the last month. See yours at quantifieddev.org";
+        var hashTags = ['buildDuration', 'coding'].join(',');
+        $('#tweetMyBuildDuration').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };
 
     return result;
