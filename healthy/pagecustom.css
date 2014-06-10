@@ -49,3 +49,332 @@
 	}
 }
 
+.headline{
+	margin-top:50px;
+}
+
+#headline1{
+font-size: 2em;
+}
+
+#headline2{
+	margin-top: -10px;
+	font-size: 1.3em;
+	color: #AAAAAA;
+}
+
+#headline3{
+	margin-top: -10px;
+	font-size: 2.5em;
+}
+
+@media (min-width: 768px){
+	#headline1{
+	font-size: 5.4em;
+	}
+
+	#headline2{
+		margin-top: -10px;
+		font-size: 3.5em;
+		color: #AAAAAA;
+	}
+
+	#headline3{
+		margin-top: -10px;
+		font-size: 6.6em;
+	}
+}
+
+@media (min-width: 992px){
+	#headline1{
+	font-size: 5.1em;
+	}
+
+	#headline2{
+		margin-top: -10px;
+		font-size: 3.3em;
+		color: #AAAAAA;
+	}
+
+	#headline3{
+		margin-top: -10px;
+		font-size: 6.3em;
+	}
+}
+
+@media (min-width: 1200px){
+	#headline1{
+	font-size: 5.7em;
+	}
+
+	#headline2{
+		margin-top: -10px;
+		font-size: 3.6em;
+		color: #AAAAAA;
+	}
+
+	#headline3{
+		margin-top: -10px;
+		font-size: 7em;
+	}
+}
+
+.step{
+	border:	solid;
+	border-radius: 12px;
+	border-width: 2px;
+	height: 256px;
+	margin-bottom: 45px;
+	margin-top: 10px;
+	color: #888888;
+	background-color: #ffffff;
+}
+
+@media (min-width: 768px){
+	.step{
+		height: 220px;
+	}
+}
+
+@media (min-width: 1200px){
+	.step{
+		height: 325px;
+	}
+}
+
+
+#subscribe-blurb{
+	font-size: 1.3em;
+	margin-bottom: 11px;
+}
+
+@media (min-width: 768px){
+	#subscribe-blurb{
+		margin-top: 10px;
+		font-size: 1.2em;
+	
+		margin-right: -10px;
+}
+}
+
+@media (min-width: 1200px){
+	#subscribe-blurb{
+		margin-top: 0px;
+		font-size: 2.2em;
+	}
+}
+
+#mce-EMAIL {
+	border-color: rgba(100, 100, 100, 1) rgba(100, 100, 100, 1) rgba(100, 100, 100, 1);
+	width: 160px;
+	padding: 5px 8px;
+}
+
+@media (min-width: 768px){
+
+	#mce-EMAIL {
+		border-color: rgba(100, 100, 100, 1) rgba(100, 100, 100, 1) rgba(100, 100, 100, 1);
+		width: 168px;
+		padding: 5px 8px;
+	}
+}
+
+@media (min-width: 1200px){
+
+	#mce-EMAIL {
+		width: 223px;
+		padding: 20px 44px;
+	}
+}
+
+#mc-embedded-subscribe{
+		border-style: solid solid solid none;
+		margin-top: -5px;
+		margin-left:-6px;
+		border-color: rgba(100, 100, 100, 0.8) rgba(100, 100, 100, 0.8) rgba(100, 100, 100, 0.8);
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 0px;
+		padding: 5px 8px;
+	}
+
+@media (min-width: 1200px){
+	#mc-embedded-subscribe{
+		width: 126px;
+		padding: 10px 8px;
+	}
+
+}
+#signup{
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+.more-info{
+	border-width: 4px;
+	border: solid;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px 20px;
+	border-radius: 8px;
+	border-color: #6884AA;
+	color: #525252;
+}
+
+@media (min-width: 768px){
+	.more-info{
+		height: 500px;
+	}
+}
+
+.wtfcartoon{
+	height: 212px;
+	margin-top: 30px;
+}
+
+@media (min-width: 1200px){
+	.wtfcartoon{
+		height: 240px;
+		margin-top: 30px;
+	}
+}
+
+.subscriberow {
+	padding-top:20px;
+	background-color: #DDDDDD;
+	border-radius: 2px;
+}
+
+.intellij {
+	width: 180px;
+}
+
+.plugin {
+	width: 228px;
+}
+
+.wtfgraph {
+	width: 241px;
+}
+
+@media (min-width: 768px){
+	.intellij {
+	width: 158px;
+	}
+
+	.plugin {
+		width: 174px;
+	}
+
+	.wtfgraph {
+		width: 194px;
+	}
+}
+
+@media (min-width:1200px){
+	.intellij {
+	width: 250px;
+	}
+
+	.plugin {
+		width: 302px;
+	}
+
+	.wtfgraph {
+		width: 310px;
+	}
+}
+
+.get-started-title{
+	font-size: 1em;
+}
+
+@media (min-width: 768px){
+	.get-started-title{
+		font-size: 1.6em;
+	}
+}
+
+@media (min-width: 1200px){
+	.get-started-title{
+		font-size: 2em;
+	}
+}
+
+
+.more-info-headline-1.wtf-your-way{
+	font-size: 1.6em;
+}
+
+.more-info-headline-2.wtf-your-way{
+	font-size: 2.7em;
+	margin-top: -12px
+	}
+
+
+	.more-info-headline-1.wtf-is-this-about{
+		font-size: 1.8em;
+	}
+
+	.more-info-headline-2.wtf-is-this-about{
+		font-size: 1.5em;
+		margin-top: -12px
+	}
+
+@media (min-width: 768px){
+	.more-info-headline-1.wtf-your-way{
+		font-size: 2.1em;
+	}
+
+	.more-info-headline-2.wtf-your-way{
+		font-size: 3.5em;
+		margin-top: -20.4px;}
+
+
+	.more-info-headline-1.wtf-is-this-about{
+		font-size: 2.4em;
+	}
+
+	.more-info-headline-2.wtf-is-this-about{
+		font-size: 1.9em;
+		margin-top: -12px
+	}
+}
+
+@media (min-width: 1200px){
+	.more-info-headline-1.wtf-your-way{
+		font-size: 3.7em;
+	}
+
+	.more-info-headline-2.wtf-your-way{
+		font-size: 6.2em;
+		margin-top: -20.4px;}
+
+
+	.more-info-headline-1.wtf-is-this-about{
+		font-size: 4.2em;
+	}
+
+	.more-info-headline-2.wtf-is-this-about{
+		font-size: 3.4em;
+		margin-top: -12px
+	}
+}
+
+.step-blurb{
+	font-size: 1.2em;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	color: #000000;
+}
+
+@media (min-width: 768px){
+	.step-blurb{
+		font-size:1em;
+	}
+}
+
+@media (min-width: 1200px){
+	.step-blurb{
+		font-size: 1.5em;
+	}
+}
