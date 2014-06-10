@@ -183,7 +183,7 @@ window.qd.plotBuildDurationHistory = function() {
         .attr("width", 100);
 
     var legendColours = [
-        ["avg Build Duration", "blue"]
+        ["avg build duration(sec)", "blue"]
     ]
 
     legend.selectAll("g").data(legendColours)
