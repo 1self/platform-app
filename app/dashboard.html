@@ -280,29 +280,29 @@
                 </div>
               </div>
               <div class="row sortable">
-                    <div class="col-lg-6 col-md-6 col-sx-12 col-sm-12">
-                        <div class="panel panel-secondary fixed-height">
-                            <div class="panel-heading cursor-move">
-                                <h3 class="panel-title"><i class="icon-bar-chart"></i>Water Intake History</h3>
-                                <a id="tweetMyHydration" class="twitter-share-button pull-right" target="_blank" onclick="qd.tweetHydrationSparkline()">Tweet</a>
-                            </div>
-                            <div class="panel-body">
-                                <div id="hydration-history"></div>
-                            </div>
-                        </div>
+                <div class="col-lg-6 col-md-6 col-sx-12 col-sm-12">
+                  <div class="panel panel-secondary fixed-height">
+                    <div class="panel-heading cursor-move">
+                      <h3 class="panel-title"><i class="icon-bar-chart"></i>Water Intake History</h3>
+                      <a id="tweetMyHydration" class="twitter-share-button pull-right" target="_blank" onclick="qd.tweetHydrationSparkline()">Tweet</a>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sx-12 col-sm-12">
-                        <div class="panel panel-secondary fixed-height">
-                            <div class="panel-heading cursor-move">
-                                <h3 class="panel-title"><i class="icon-bar-chart"></i>Caffeine Intake History</h3>
-                                <a id="tweetMyCaffeine" class="twitter-share-button pull-right" target="_blank" onclick="qd.tweetCaffeineSparkline()">Tweet</a>
-                            </div>
-                            <div class="panel-body">
-                                <div id="caffeine-history"></div>
-                            </div>
-                        </div>
+                    <div class="panel-body">
+                      <div id="hydration-history"></div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sx-12 col-sm-12">
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sx-12 col-sm-12">
+                  <div class="panel panel-secondary fixed-height">
+                    <div class="panel-heading cursor-move">
+                      <h3 class="panel-title"><i class="icon-bar-chart"></i>Caffeine Intake History</h3>
+                      <a id="tweetMyCaffeine" class="twitter-share-button pull-right" target="_blank" onclick="qd.tweetCaffeineSparkline()">Tweet</a>
+                    </div>
+                    <div class="panel-body">
+                      <div id="caffeine-history"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sx-12 col-sm-12">
                   <div class="panel panel-secondary fixed-height">
                     <div class="panel-heading cursor-move">
                       <h3 class="panel-title"><i class="icon-bar-chart"></i>Build Duration History</h3>
@@ -313,48 +313,59 @@
                     </div>
                   </div>
                 </div>
+                <div class="col-lg-6 col-md-6 col-sx-12 col-sm-12">
+                  <div class="panel panel-secondary fixed-height">
+                    <div class="panel-heading cursor-move">
+                      <h3 class="panel-title"><i class="icon-bar-chart"></i>Hourly Builds</h3>
+                    </div>
+                    <div class="panel-body">
+                      <div id="hourlyBuild-heat-map"></div>
+                    </div>
+                  </div>
                 </div>
+              </div>
               <!-- Bootstrap Container End -->
             </div>
-        </div>
-            <!-- Main Container End -->
-            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-            <script src="js/jquery.js"></script>
-            
-            <!-- Include all compiled plugins (below), or include individual files as needed -->
-            <script src="js/bootstrap.min.js"></script>
-            <script src="js/bootstrap-modal.js"></script>
-            <script src="js/bootstrap-modalmanager.js"></script>
-            <!-- jQuery UI JS -->
-            <script src="js/jquery-ui-v1.10.3.js"></script>
-            <!-- Sparkline graphs -- >
-            <script src="js/sparkline.js"></script>
-            <!-- Data tables -->
-            <script src="js/jquery.datatables.js"></script>
-            <!-- Date Range -->
-            <script src="js/daterange/moment.js"></script>
-            <script src="js/daterange/daterangepicker.js"></script>
-            <!-- Animated Right Sidebar -->
-            <script src="js/slidebars.js"></script>
-            <!-- JVector Map -->
-            <script src="js/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-            <script src="js/jvectormap/jquery-jvectormap-usa.js"></script>
-            <!-- Custom JS -->
-            <script src="js/custom.js"></script>
-            <script src="js/custom-index.js"></script>
-            <script src="js/authorization.js"></script>
-            <script src="packages/d3/d3.js"></script>
-            <script src="packages/d3/d3.geo.projection.v0.min.js"></script>
-            <script src="packages/d3/topojson.v1.min.js"></script>
-            <script src="packages/d3/queue.v1.min.js"></script>
-            <script src="packages/regressionjs/regression.js"></script>
-            <script src="js/1self.js"></script>
-            <script src="js/quantified-dev.js"></script>
-            <script src="js/build-history-d3.js"></script>
-            <script src="js/wtf-history-d3.js"></script>
-            <script src="js/hydration-history-d3.js"></script>
-            <script src="js/caffeine-history-d3.js"></script>
-            <script src="js/buildDuration-history-d3.js"></script>
-            <script src="js/dashboard.js"></script>
-          </body>
-        </html>
+          </div>
+          <!-- Main Container End -->
+          <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+          <script src="js/jquery.js"></script>
+          
+          <!-- Include all compiled plugins (below), or include individual files as needed -->
+          <script src="js/bootstrap.min.js"></script>
+          <script src="js/bootstrap-modal.js"></script>
+          <script src="js/bootstrap-modalmanager.js"></script>
+          <!-- jQuery UI JS -->
+          <script src="js/jquery-ui-v1.10.3.js"></script>
+          <!-- Sparkline graphs -- >
+          <script src="js/sparkline.js"></script>
+          <!-- Data tables -->
+          <script src="js/jquery.datatables.js"></script>
+          <!-- Date Range -->
+          <script src="js/daterange/moment.js"></script>
+          <script src="js/daterange/daterangepicker.js"></script>
+          <!-- Animated Right Sidebar -->
+          <script src="js/slidebars.js"></script>
+          <!-- JVector Map -->
+          <script src="js/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+          <script src="js/jvectormap/jquery-jvectormap-usa.js"></script>
+          <!-- Custom JS -->
+          <script src="js/custom.js"></script>
+          <script src="js/custom-index.js"></script>
+          <script src="js/authorization.js"></script>
+          <script src="packages/d3/d3.js"></script>
+          <script src="packages/d3/d3.geo.projection.v0.min.js"></script>
+          <script src="packages/d3/topojson.v1.min.js"></script>
+          <script src="packages/d3/queue.v1.min.js"></script>
+          <script src="packages/regressionjs/regression.js"></script>
+          <script src="js/1self.js"></script>
+          <script src="js/quantified-dev.js"></script>
+          <script src="js/build-history-d3.js"></script>
+          <script src="js/wtf-history-d3.js"></script>
+          <script src="js/hydration-history-d3.js"></script>
+          <script src="js/caffeine-history-d3.js"></script>
+          <script src="js/buildDuration-history-d3.js"></script>
+          <script src="js/hourlyBuild-heatMap-d3.js"></script>
+          <script src="js/dashboard.js"></script>
+        </body>
+      </html>

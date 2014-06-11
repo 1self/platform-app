@@ -113,7 +113,19 @@ var qd = function() {
             }
         });
     };
-
+  result.updateHourlyBuildHeatMap = function() {
+        $.ajax({
+            url: url("hourlyBuildCount"),
+            headers: {
+                "Authorization": result.readToken,
+                "Content-Type": "application/json"
+            },
+            success: function(hourlyBuildEvents) {
+                result.hourlyBuildEvents = hourlyBuildEvents;
+                result.plotHourlyBuildHeatMap();
+            }
+        });
+    };
     result.save = function(streamId, readToken) {
         window.localStorage.streamId = streamId;
         window.localStorage.readToken = readToken;
@@ -123,6 +135,7 @@ var qd = function() {
         result.updateHydrationModel();
         result.updateCaffeineModel();
         result.updateBuildDurationModel();
+        result.updateHourlyBuildHeatMap();
     }
 
     result.registerForBuildModelUpdates = function(callback) {
@@ -135,6 +148,7 @@ var qd = function() {
         result.updateHydrationModel();
         result.updateCaffeineModel();
         result.updateBuildDurationModel();
+        result.updateHourlyBuildHeatMap();
     }
 
 
