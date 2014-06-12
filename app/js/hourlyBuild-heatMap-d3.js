@@ -39,7 +39,8 @@ window.qd.plotHourlyBuildHeatMap = function() {
 					.attr("d", d3.svg.arc().innerRadius(ir).outerRadius(or).startAngle(sa).endAngle(ea))
 					.attr("fill", function(d) {
 						return color(accessor(d));
-					});
+					})
+					.attr("stroke","lightgrey");
 
 
 				// Unique id so that the text path defs are unique - is there a better way to do this?
@@ -219,7 +220,7 @@ window.qd.plotHourlyBuildHeatMap = function() {
 
 	var chart = circularHeatChart()
 		.innerRadius(30)
-		.range(["#A5D1AC", "green"])
+		.range(["#EFF0DD", "green"])
 		.radialLabels(labels)
 		.segmentLabels(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
 			"11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"
