@@ -179,28 +179,44 @@ window.qd.plotHourlyBuildHeatMap = function() {
 		return chart;
 	}
 	var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-	
-	var data = [];
-	var dateWithoutHours = {};
-	for (var i = 0; i < 168; i++) {
-		data[i] = window.qd.hourlyBuildEvents[i].hourlyBuildCount;
-		var dateWithHours = window.qd.hourlyBuildEvents[i].date.split(" ");
-		console.log("Date With hours", dateWithHours);
-		if (!dateWithoutHours[dateWithHours[0]]) {
-			var dayOfWeek = new Date(dateWithHours[0]).getDay();
-			console.log("dayOfWeek : ", dayOfWeek);
-			dateWithoutHours[dateWithHours[0]] = daysOfWeek[dayOfWeek]
-			console.log("Date without hours : ", dateWithoutHours)
 
+	var assignDaysOfWeekTo = function(datesOfWeek, dateString) {
+		var dayOfWeek = new Date(dateString).getDay();
+		datesOfWeek[dateString] = daysOfWeek[dayOfWeek]
+	}
+
+	var datesOfWeekWithoutHours = {};
+
+	var extractDatesOfWeekFrom = function(segmentDate) {
+		var dateWithHours = segmentDate.split(" ");
+		if (!datesOfWeekWithoutHours[dateWithHours[0]]) {
+			assignDaysOfWeekTo(datesOfWeekWithoutHours, dateWithHours[0])
 		}
+	}
+	var segmentData = [];
+
+	var assignValueTo = function(segment, segmentValue) {
+		segmentData[segment] = segmentValue;
+	}
+
+	for (var segment = 0; segment < 24 * 7; segment++) {
+		var segmentValue = window.qd.hourlyBuildEvents[segment].hourlyBuildCount;
+		var segmentDate = window.qd.hourlyBuildEvents[segment].date;
+
+		assignValueTo(segment, segmentValue)
+		extractDatesOfWeekFrom(segmentDate)
 	};
 
 	var labels = [];
-	var i = 0;
-	for (date in dateWithoutHours) {
-		labels[i] = dateWithoutHours[date]
-		i++;
+	var assignValuesTo = function(labels, values) {
+		var i = 0;
+		for (value in values) {
+			labels[i] = values[value]
+			i++;
+		}
 	}
+	assignValuesTo(labels, datesOfWeekWithoutHours);
+
 	var chart = circularHeatChart()
 		.innerRadius(30)
 		.range(["#A5D1AC", "green"])
@@ -211,7 +227,7 @@ window.qd.plotHourlyBuildHeatMap = function() {
 
 	d3.select('#hourlyBuild-heat-map')
 		.selectAll('svg')
-		.data([data])
+		.data([segmentData])
 		.enter()
 		.append('svg')
 		.call(chart);
