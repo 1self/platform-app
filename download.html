@@ -121,12 +121,13 @@
                                 Visual Studio extension
                             </h3>
                             <p>
-                                Our VS 2012 extension currently logs each build that you perform and whether that build succeeded or failed. It will also ask you for your location when you initially install it. Support for 2010 and 2013 is coming soon. <a href="#signup">Sign up to be notified when VS2010 and VS2013 support is ready</a>.
+                                Our VS 2013 and VS 2012 extension currently logs each build that you perform and whether that build succeeded or failed. It will also ask you for your location when you initially install it. Support for 2010 is coming soon. <a href="#signup">Sign up to be notified when VS2010 support is ready</a>.
                             </p>
                             <p>
-                                <center>
-                                <a href="/QuantifiedDevVisualStudioExtension.vsix" class="btn btn-outline btn-prominent margin-verticals" id="downloadVSExtensionLink">Download VS extension<br /><small>No sign up required. Logs anonymously</small></a>
-                                </center>
+                                <a href="https://github.com/QuantifiedDev/plugin-binaries/blob/master/visualstudio-plugin/quantifieddev-visualstudio2013-plugin-0.1.0.beta.vsix?raw=true" class="btn btn-outline btn-prominent margin-verticals" id="downloadVS2013ExtensionLink">Download VS 2013 extension<br /><small>No sign up required. Logs anonymously</small></a>
+                            </p>
+                            <p>
+                                <a href="https://github.com/QuantifiedDev/plugin-binaries/blob/master/visualstudio-plugin/quantifieddev-visualstudio2012-plugin-0.1.0.beta.vsix?raw=true" class="btn btn-outline btn-prominent margin-verticals" id="downloadVS2012ExtensionLink">Download VS 2012 extension<br /><small>No sign up required. Logs anonymously</small></a>
                             </p>
                             <p><a href="/app">Visit your QuantifiedDev dashboard</a> and enter your stream id and token from the VS extension window to see your data.</p>
                             <br />
@@ -240,8 +241,11 @@
     $('#mc-embedded-subscribe').on('click', function() {
         ga('send', 'event', 'mc-embedded-subscribe', 'click');
     });
-    $('#downloadVSExtensionLink').on('click', function() {
-        ga('send', 'event', 'download', 'DownloadVSExtension_click');
+    $('#downloadVS2013ExtensionLink').on('click', function() {
+        ga('send', 'event', 'download', 'DownloadVS2013Extension_click');
+    });  
+    $('#downloadVS2012ExtensionLink').on('click', function() {
+        ga('send', 'event', 'download', 'DownloadVS2012Extension_click');
     });
     $('#downloadIntelliJExtensionLink').on('click', function() {
         ga('send', 'event', 'download', 'DownloadIntelliJExtension_click');
