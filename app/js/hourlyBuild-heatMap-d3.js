@@ -219,7 +219,7 @@ window.qd.plotHourlyBuildHeatMap = function() {
 
 	d3.select('#hourlyBuild-heat-map')
 		.selectAll('svg')
-		.data([data])
+		.data([segmentData])
 		.enter()
 		.append('svg')
 		.call(chart);
