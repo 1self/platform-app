@@ -193,7 +193,6 @@ window.qd.plotHourlyBuildHeatMap = function() {
 		var segmentDay = window.qd.hourlyBuildEvents[hour].day;
 
 		segmentData[hour] = buildCountForAnHour;
-		extractDatesOfWeekFrom(segmentDay)
 	};
 
 	var labels = [];
