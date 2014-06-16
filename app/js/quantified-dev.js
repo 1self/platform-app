@@ -113,7 +113,7 @@ var qd = function() {
             }
         });
     };
-  result.updateHourlyBuildHeatMap = function() {
+    result.updateHourlyBuildHeatMap = function() {
         $.ajax({
             url: url("hourlyBuildCount"),
             headers: {
@@ -121,6 +121,17 @@ var qd = function() {
                 "Content-Type": "application/json"
             },
             success: function(hourlyBuildEvents) {
+                var timezoneOffset = new Date().getTimezoneOffset();
+                var hourDifference = Math.round(timezoneOffset / 60);
+
+                _.map(hourlyBuildEvents, function(event) {
+                    var dayOfWeek = event.day.split(" ")[0];
+                    var dateOfWeek = moment().day(parseInt(dayOfWeek)).format("MM/DD/YYYY");
+                    var hourOfDay = event.day.split(" ")[1];
+                    dateOfWeek = dateOfWeek + " " + hourOfDay;
+                    event.day = moment(dateOfWeek, "MM/DD/YYYY HH").subtract('hour', hourDifference).format("e HH");
+                    return event;
+                });
                 result.hourlyBuildEvents = hourlyBuildEvents;
                 result.plotHourlyBuildHeatMap();
             }
@@ -153,95 +164,95 @@ var qd = function() {
 
 
     result.tweetBuildSparkline = function() {
-        if(result.buildEvents === undefined) {
+        if (result.buildEvents === undefined) {
             return;
         }
 
         var totalBuilds = [];
         var sparkbarDataForDays = 14;
-        result.buildEvents.map( function(buildEvent) {
-            totalBuilds.push(buildEvent.passed+buildEvent.failed);
+        result.buildEvents.map(function(buildEvent) {
+            totalBuilds.push(buildEvent.passed + buildEvent.failed);
         });
-        totalBuilds = totalBuilds.slice(totalBuilds.length-sparkbarDataForDays, totalBuilds.length)
+        totalBuilds = totalBuilds.slice(totalBuilds.length - sparkbarDataForDays, totalBuilds.length)
         console.log("sparking builds:", totalBuilds)
         var sparkBar = window.oneSelf.toSparkBars(totalBuilds);
-        var tweetText = sparkBar +  " my builds over the last 2 weeks. See yours at quantifieddev.org";
+        var tweetText = sparkBar + " my builds over the last 2 weeks. See yours at quantifieddev.org";
         var hashTags = ['coding'].join(',');
         $('#tweetMyBuilds').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };
 
     result.tweetWtfSparkline = function() {
-        if(result.wtfEvents === undefined) {
+        if (result.wtfEvents === undefined) {
             return;
         }
 
         var totalWtfs = [];
         var sparkbarDataForDays = 14;
-        result.wtfEvents.map( function(wtfEvent) {
+        result.wtfEvents.map(function(wtfEvent) {
             totalWtfs.push(wtfEvent.wtfCount);
         });
-        totalWtfs = totalWtfs.slice(totalWtfs.length-sparkbarDataForDays, totalWtfs.length)
+        totalWtfs = totalWtfs.slice(totalWtfs.length - sparkbarDataForDays, totalWtfs.length)
         console.log("sparking wtfs:", totalWtfs)
         var sparkBar = window.oneSelf.toSparkBars(totalWtfs);
-        var tweetText = sparkBar +  " my WTFs over the last 2 weeks. The only measure of code quality. See yours at quantifieddev.org";
+        var tweetText = sparkBar + " my WTFs over the last 2 weeks. The only measure of code quality. See yours at quantifieddev.org";
         var hashTags = ['wtf', 'coding'].join(',');
         $('#tweetMyWtfs').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };
 
     result.tweetHydrationSparkline = function() {
-        if(result.hydrationEvents === undefined) {
+        if (result.hydrationEvents === undefined) {
             return;
         }
 
         var totalHydrations = [];
         var sparkbarDataForDays = 14;
 
-        result.hydrationEvents.map( function(hydrationEvent) {
+        result.hydrationEvents.map(function(hydrationEvent) {
             totalHydrations.push(hydrationEvent.hydrationCount);
         });
 
-        totalHydrations = totalHydrations.slice(totalHydrations.length-sparkbarDataForDays, totalHydrations.length);
+        totalHydrations = totalHydrations.slice(totalHydrations.length - sparkbarDataForDays, totalHydrations.length);
         console.log("sparking hydrations:", totalHydrations)
         var sparkBar = window.oneSelf.toSparkBars(totalHydrations);
-        var tweetText = sparkBar +  " my hydration levels over the last month. See yours at quantifieddev.org";
+        var tweetText = sparkBar + " my hydration levels over the last month. See yours at quantifieddev.org";
         var hashTags = ['hydrate', 'coding'].join(',');
         $('#tweetMyHydration').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };
 
     result.tweetCaffeineSparkline = function() {
-        if(result.caffeineEvents === undefined) {
+        if (result.caffeineEvents === undefined) {
             return;
         }
 
         var totalCaffeine = [];
         var sparkbarDataForDays = 14;
-        result.caffeineEvents.map( function(caffeineEvent) {
+        result.caffeineEvents.map(function(caffeineEvent) {
             totalCaffeine.push(caffeineEvent.caffeineCount);
         });
 
-        totalCaffeine = totalCaffeine.slice(totalCaffeine.length-sparkbarDataForDays, totalCaffeine.length);
+        totalCaffeine = totalCaffeine.slice(totalCaffeine.length - sparkbarDataForDays, totalCaffeine.length);
         console.log("sparking caffeine:", totalCaffeine)
         var sparkBar = window.oneSelf.toSparkBars(totalCaffeine);
-        var tweetText = sparkBar +  " my caffeine levels over the last month. See yours at quantifieddev.org";
+        var tweetText = sparkBar + " my caffeine levels over the last month. See yours at quantifieddev.org";
         var hashTags = ['coffee', 'coding'].join(',');
         $('#tweetMyCaffeine').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };
 
     result.tweetBuildDurationSparkline = function() {
-        if(result.buildDurationEvents === undefined) {
+        if (result.buildDurationEvents === undefined) {
             return;
         }
 
         var totalBuildDuration = [];
         var sparkbarDataForDays = 14;
-        result.buildDurationEvents.map( function(buildDurationEvent) {
+        result.buildDurationEvents.map(function(buildDurationEvent) {
             totalBuildDuration.push(buildDurationEvent.avgBuildDuration);
         });
 
-        totalBuildDuration = totalBuildDuration.slice(totalBuildDuration.length-sparkbarDataForDays, totalBuildDuration.length);
+        totalBuildDuration = totalBuildDuration.slice(totalBuildDuration.length - sparkbarDataForDays, totalBuildDuration.length);
         console.log("sparking totalBuildDuration:", totalBuildDuration)
         var sparkBar = window.oneSelf.toSparkBars(totalBuildDuration);
-        var tweetText = sparkBar +  " my build duration over the last month. See yours at quantifieddev.org";
+        var tweetText = sparkBar + " my build duration over the last month. See yours at quantifieddev.org";
         var hashTags = ['buildDuration', 'coding'].join(',');
         $('#tweetMyBuildDuration').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };

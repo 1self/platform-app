@@ -40,7 +40,7 @@ window.qd.plotHourlyBuildHeatMap = function() {
 					.attr("fill", function(d) {
 						return color(accessor(d));
 					})
-					.attr("stroke","lightgrey");
+					.attr("stroke", "lightgrey");
 
 
 				// Unique id so that the text path defs are unique - is there a better way to do this?
@@ -179,33 +179,21 @@ window.qd.plotHourlyBuildHeatMap = function() {
 
 		return chart;
 	}
-	var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	var daysOfWeek = ["Sunday", "Saturday", "Friday", "Thursday", "Wednesday", "Tuesday", "Monday"];
 
 	var assignDaysOfWeekTo = function(datesOfWeek, dateString) {
 		var dayOfWeek = new Date(dateString).getDay();
 		datesOfWeek[dateString] = daysOfWeek[dayOfWeek]
 	}
 
-	var datesOfWeekWithoutHours = {};
-
-	var extractDatesOfWeekFrom = function(segmentDate) {
-		var dateWithHours = segmentDate.split(" ");
-		if (!datesOfWeekWithoutHours[dateWithHours[0]]) {
-			assignDaysOfWeekTo(datesOfWeekWithoutHours, dateWithHours[0])
-		}
-	}
 	var segmentData = [];
 
-	var assignValueTo = function(segment, segmentValue) {
-		segmentData[segment] = segmentValue;
-	}
+	for (var hour = 0; hour < 24 * 7; hour++) {
+		var buildCountForAnHour = window.qd.hourlyBuildEvents[hour].hourlyBuildCount;
+		var segmentDay = window.qd.hourlyBuildEvents[hour].day;
 
-	for (var segment = 0; segment < 24 * 7; segment++) {
-		var segmentValue = window.qd.hourlyBuildEvents[segment].hourlyBuildCount;
-		var segmentDate = window.qd.hourlyBuildEvents[segment].date;
-
-		assignValueTo(segment, segmentValue)
-		extractDatesOfWeekFrom(segmentDate)
+		segmentData[hour] = buildCountForAnHour;
+		extractDatesOfWeekFrom(segmentDay)
 	};
 
 	var labels = [];
@@ -216,7 +204,7 @@ window.qd.plotHourlyBuildHeatMap = function() {
 			i++;
 		}
 	}
-	assignValuesTo(labels, datesOfWeekWithoutHours);
+	assignValuesTo(labels, daysOfWeek);
 
 	var chart = circularHeatChart()
 		.innerRadius(30)
@@ -226,9 +214,13 @@ window.qd.plotHourlyBuildHeatMap = function() {
 			"11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"
 		]);
 
+	segmentData = _.flatten(_.toArray(_.groupBy(segmentData, function(element, index) {
+		return Math.floor(index / 24);
+	})).reverse());
+
 	d3.select('#hourlyBuild-heat-map')
 		.selectAll('svg')
-		.data([segmentData])
+		.data([data])
 		.enter()
 		.append('svg')
 		.call(chart);
