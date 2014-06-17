@@ -213,13 +213,23 @@ window.qd.plotHourlyBuildHeatMap = function() {
 			"11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"
 		]);
 
-	segmentData = _.flatten(_.toArray(_.groupBy(segmentData, function(element, index) {
-		return Math.floor(index / 24);
-	})).reverse());
+    var daywiseHourlyBuildCountsSundayToMonday = _.toArray(_.groupBy(segmentData, function(element, index) {
+        return Math.floor(index / 24);
+    }));
+
+    var hourlyBuildCountsMondayToSunday = _.flatten(daywiseHourlyBuildCountsSundayToMonday.reverse());
+
+    var rotateArray = function(a, inc) {
+        for (var l = a.length, inc = (Math.abs(inc) >= l && (inc %= l), inc < 0 && (inc += l), inc), i, x; inc; inc = (Math.ceil(l / inc) - 1) * inc - l + (l = inc))
+            for (i = l; i > inc; x = a[--i], a[i] = a[i - inc], a[i - inc] = x);
+        return a;
+    };
+
+    var hourlyBuildCountsData = rotateArray(hourlyBuildCountsMondayToSunday.slice(), -1 * window.qd.timezoneDifferenceInHours);
 
 	d3.select('#hourlyBuild-heat-map')
 		.selectAll('svg')
-		.data([segmentData])
+		.data([hourlyBuildCountsData])
 		.enter()
 		.append('svg')
 		.call(chart);

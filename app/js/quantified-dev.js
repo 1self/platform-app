@@ -122,16 +122,8 @@ var qd = function() {
             },
             success: function(hourlyBuildEvents) {
                 var timezoneOffset = new Date().getTimezoneOffset();
-                var hourDifference = Math.round(timezoneOffset / 60);
-
-                _.map(hourlyBuildEvents, function(event) {
-                    var dayOfWeek = event.day.split(" ")[0];
-                    var dateOfWeek = moment().day(parseInt(dayOfWeek)).format("MM/DD/YYYY");
-                    var hourOfDay = event.day.split(" ")[1];
-                    dateOfWeek = dateOfWeek + " " + hourOfDay;
-                    event.day = moment(dateOfWeek, "MM/DD/YYYY HH").subtract('hour', hourDifference).format("e HH");
-                    return event;
-                });
+                var timezoneDifferenceInHours = Math.round(timezoneOffset / 60);
+                result.timezoneDifferenceInHours = timezoneDifferenceInHours;
                 result.hourlyBuildEvents = hourlyBuildEvents;
                 result.plotHourlyBuildHeatMap();
             }
