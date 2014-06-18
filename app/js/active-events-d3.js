@@ -167,7 +167,7 @@ window.qd.plotActiveEvents = function() {
         .attr("width", 100);
 
     var legendColours = [
-        ["totalActiveDuration(mins)", "blue"]
+        ["Total Active Duration/Number of breaks", "orange"]
     ]
 
     legend.selectAll("g").data(legendColours)
