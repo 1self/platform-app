@@ -133,7 +133,9 @@ window.qd.plotActiveEvents = function() {
     });
 
     var overallMean = d3.mean(weekDays, function(d) {
-        return +d.totalActiveDuration / +d.inActiveCount;
+        if(+d.inActiveCount !== 0)
+            return +d.totalActiveDuration / +d.inActiveCount;
+        return 0;
     });
 
     var overallAverage = d3.svg.line()
