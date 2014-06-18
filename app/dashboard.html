@@ -324,6 +324,19 @@
                     </div>
                   </div>
                 </div>
+                </div>
+                <div class="row sortable">
+                <div class="col-lg-6 col-md-6 col-sx-12 col-sm-12">
+                  <div class="panel panel-secondary fixed-height">
+                    <div class="panel-heading cursor-move">
+                      <h3 class="panel-title"><i class="icon-bar-chart"></i>IDE Active Work History</h3>
+                      <a id="tweetMyActiveDuration" class="twitter-share-button pull-right" target="_blank" onclick="qd.tweetActiveEventSparkline()">Tweet</a>
+                    </div>
+                    <div class="panel-body">
+                      <div id="active-event-history"></div>
+                    </div>
+                  </div>
+                </div>
               
               </div>
               <!-- Bootstrap Container End -->
@@ -368,6 +381,7 @@
           <script src="js/hydration-history-d3.js"></script>
           <script src="js/caffeine-history-d3.js"></script>
           <script src="js/buildDuration-history-d3.js"></script>
+          <script src="js/active-events-d3.js"></script>
           <script src="js/hourlyBuild-heatMap-d3.js"></script>
           <script src="js/dashboard.js"></script>
         </body>

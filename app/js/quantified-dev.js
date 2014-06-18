@@ -129,6 +129,19 @@ var qd = function() {
             }
         });
     };
+    result.updateActiveEvents = function() {
+        $.ajax({
+            url: url("myActiveEvents"),
+            headers: {
+                "Authorization": result.readToken,
+                "Content-Type": "application/json"
+            },
+            success: function(activeEvents) {
+                result.activeEvents = activeEvents;
+                result.plotActiveEvents();
+            }
+        });
+    };
     result.save = function(streamId, readToken) {
         window.localStorage.streamId = streamId;
         window.localStorage.readToken = readToken;
@@ -139,6 +152,7 @@ var qd = function() {
         result.updateCaffeineModel();
         result.updateBuildDurationModel();
         result.updateHourlyBuildHeatMap();
+        result.updateActiveEvents();
     }
 
     result.registerForBuildModelUpdates = function(callback) {
@@ -152,6 +166,7 @@ var qd = function() {
         result.updateCaffeineModel();
         result.updateBuildDurationModel();
         result.updateHourlyBuildHeatMap();
+        result.updateActiveEvents();
     }
 
 
@@ -206,7 +221,7 @@ var qd = function() {
         totalHydrations = totalHydrations.slice(totalHydrations.length - sparkbarDataForDays, totalHydrations.length);
         console.log("sparking hydrations:", totalHydrations)
         var sparkBar = window.oneSelf.toSparkBars(totalHydrations);
-        var tweetText = sparkBar + " my hydration levels over the last month. See yours at quantifieddev.org";
+        var tweetText = sparkBar + " my hydration levels over the last 2 weeks. See yours at quantifieddev.org";
         var hashTags = ['hydrate', 'coding'].join(',');
         $('#tweetMyHydration').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };
@@ -225,7 +240,7 @@ var qd = function() {
         totalCaffeine = totalCaffeine.slice(totalCaffeine.length - sparkbarDataForDays, totalCaffeine.length);
         console.log("sparking caffeine:", totalCaffeine)
         var sparkBar = window.oneSelf.toSparkBars(totalCaffeine);
-        var tweetText = sparkBar + " my caffeine levels over the last month. See yours at quantifieddev.org";
+        var tweetText = sparkBar + " my caffeine levels over the last 2 weeks. See yours at quantifieddev.org";
         var hashTags = ['coffee', 'coding'].join(',');
         $('#tweetMyCaffeine').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };
@@ -244,9 +259,28 @@ var qd = function() {
         totalBuildDuration = totalBuildDuration.slice(totalBuildDuration.length - sparkbarDataForDays, totalBuildDuration.length);
         console.log("sparking totalBuildDuration:", totalBuildDuration)
         var sparkBar = window.oneSelf.toSparkBars(totalBuildDuration);
-        var tweetText = sparkBar + " my build duration over the last month. See yours at quantifieddev.org";
+        var tweetText = sparkBar + " my build duration over the last 2 weeks. See yours at quantifieddev.org";
         var hashTags = ['buildDuration', 'coding'].join(',');
         $('#tweetMyBuildDuration').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
+    };
+
+    result.tweetActiveEventSparkline = function() {
+        if (result.activeEvents === undefined) {
+            return;
+        }
+
+        var totalActiveDuration = [];
+        var sparkbarDataForDays = 14;
+        result.activeEvents.map(function(activeEvent) {
+            totalActiveDuration.push(activeEvent.totalActiveDuration);
+        });
+
+        totalActiveDuration = totalActiveDuration.slice(totalActiveDuration.length - sparkbarDataForDays, totalActiveDuration.length);
+        console.log("sparking totalActiveDuration:", totalActiveDuration)
+        var sparkBar = window.oneSelf.toSparkBars(totalActiveDuration);
+        var tweetText = sparkBar + " my programming activity over the last 2 weeks. See yours at quantifieddev.org";
+        var hashTags = ['IntelliJ', 'coding'].join(',');
+        $('#tweetMyActiveDuration').attr('href', "https://twitter.com/share?url=''&hashtags=" + hashTags + "&text=" + tweetText);
     };
 
     return result;
