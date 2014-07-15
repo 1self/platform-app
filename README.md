@@ -1,6 +1,5 @@
 <h2>website</h2>
-the website that has the landing page and the dashboard on it
-Development Enviorment setup for One self
+Website that has the landing page and the dashboard on it.<br>
   For website 
   - Install python <br>
 	 for windows add it to path variable<br>
