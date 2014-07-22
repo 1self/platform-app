@@ -38,27 +38,7 @@
     })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
     ga('create', 'UA-49828181-1', 'quantifieddev.org');
     ga('send', 'pageview');
-    /*
-    var mc_embedded_subscribe_click = document.getElementById('mc-embedded-subscribe');
-    addListener(mc_embedded_subscribe_click, 'click', function() {
-    alert('sup click');
-    ga('send', 'event', 'signup_button', 'click', 'mc-embedded-subscribe');
-    });*/
-    /**
-    * Utility to wrap the different behaviors between W3C-compliant browsers
-    * and IE when adding event handlers.
-    *
-    * @param {Object} element Object on which to attach the event listener.
-    * @param {string} type A string representing the event type to listen for
-    *     (e.g. load, click, etc.).
-    * @param {function()} callback The function that receives the notification.
-    
-    function addListener(element, type, callback) {
-    if (element.addEventListener) element.addEventListener(type, callback);
-    else if (element.attachEvent) element.attachEvent('on' + type, callback);
-    }*/
     </script>
-    <a href="https://plus.google.com/103831210163166259412" rel="publisher">Google+</a>
 </head>
 
 <body data-spy="scroll" data-target=".navbar">
@@ -77,30 +57,21 @@
 
                 <div class="mainlogo">
                 <a class="brand" href="/">
-                    <!--img src="/app/img/quantified-dev-logo.png" /--><h1>1self.co {developers}</h1>
+                    <img src="/app/img/quantified-dev-logo.png" />
                 </a>
                 </div>
             </div>
             <div class="collapse navbar-collapse pull-right">
                 <ul class="nav navbar-nav">
-
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Info <span class="caret"></span></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="/features.html">What &amp; Why</a></li>
-                        <li class="divider"></li>
-                        <li><a href="/download.html#integrations">Integrations</a></li>
-                        <li><a href="/download.html#plugins">Plugins</a></li>
-                      </ul>
+                    <li><a href="#signup" id="navbar_signup">Sign Up</a>
                     </li>
-
+                    <li><a href="/features.html" id="navbar_moreinfo">Features</a>
+                    </li>
+                    <li><a href="#download" id="navbar_download">Plugins</a>
+                    </li>
                     <li><a href="http://blog.QuantifiedDev.org" id="navbar_blog">Blog</a>
                     </li>
-                    <li><a href="/contact.html" id="navbar_blog">Contact</a>
-                    </li>
-                    <li><a href="http://app.quantifieddev.org/dashboard" id="navbar_mydashboard">Log In</a>
-                    </li>
-                    <li><a href="http://app.quantifieddev.org/dashboard" id="navbar_mydashboard">Sign Up</a>
+                    <li><a href="http://app.quantifieddev.org/dashboard" id="navbar_mydashboard">My Dashboard</a>
                     </li>
                 </ul>
             </div>
@@ -108,54 +79,28 @@
         </div>
     </div>
     <div class="body">
-
         <section class="white" id="privacy">
             <div class="container">
                 <div class="row pricing">
+                    <h1 class="trocchi center white-shadow-text">Privacy</h1>
                     <div class="col-xs-12">
                         <div class="plan">
-                            <center>
-                                <h1>The Internet of Me</h1>
-                                <h1>All your software development activity in one place</h1>
-                                <h2>Track, correlate, compare, discover and visualize the data about you</h2>
-                            </center>
+                            <p>
+                                We value your privacy. Your data is your data. Identifiable and individual data will always remain private unless you choose to share it. If there are large enough data groups to aggregate your data into without it there being a possibility of identifying you then we will do this so that we can show you comparisons of your data versus the average of a certain group - e.g. How do I compare to other developers in my city?
+                            </p>
+                            <p>
+                                You can export your data from QuantifiedDev at any time if you want to use it elsewhere. You can also delete your data from QuantifiedDev at any time, though we hope you won't want to.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="dark" id="signup">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 center">
-                        <img src="/images/getStarted.png" class="img-responsive" />
-                        &nbsp;&nbsp;
-                        <img src="/images/learnMore.png" />
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="white" id="privacy">
-            <div class="container">
-                <div class="row pricing">
-                    <div class="col-xs-1">
-                        &nbsp;
-                    </div>
-                    <div class="col-xs-10">
-                        <img class="img-responsive" src="images/dashboard.png" />
-                    </div>
-                    <div class="col-xs-1">
-                        &nbsp;
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </div>
     <footer>
         <ul class="unstyled links center">
             <li>
-            <a href="/contact.html">
+            <a href="http://blog.quantifieddev.org/ask">
             Contact Us
             </a>
         </li>
