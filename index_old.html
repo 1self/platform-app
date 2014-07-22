@@ -16,9 +16,6 @@
     <link rel="stylesheet" href="bootstrap-3.1.1/css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/theme-responsive.css">
-
     <link rel="shortcut icon" href="/app/img/quantified-dev-favicon.ico">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
@@ -79,139 +76,94 @@
                 </button>
 
                 <div class="mainlogo">
-                    <a class="brand" href="/">
-                        <!--img src="/app/img/quantified-dev-logo.png" /-->
-                        <h1 class="theme-logo">1self.co {developers}</h1>
-                    </a>
+                <a class="brand" href="/">
+                    <!--img src="/app/img/quantified-dev-logo.png" /--><h1>1self.co {developers}</h1>
+                </a>
                 </div>
             </div>
             <div class="collapse navbar-collapse pull-right">
                 <ul class="nav navbar-nav">
 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Info <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/features.html">What &amp; Why</a>
-                            </li>
-                           <li><a href="/download.html#integrations">Integrations</a>
-                            </li>
-                            <li><a href="/download.html#plugins">Plugins</a>
-                            </li>
-                        </ul>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Info <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="/features.html">What &amp; Why</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/download.html#integrations">Integrations</a></li>
+                        <li><a href="/download.html#plugins">Plugins</a></li>
+                      </ul>
                     </li>
 
                     <li><a href="http://blog.QuantifiedDev.org" id="navbar_blog">Blog</a>
                     </li>
                     <li><a href="/contact.html" id="navbar_blog">Contact</a>
                     </li>
-                    <li><a href="http://app.quantifieddev.org/dashboard" id="navbar_mydashboard" class="custom-btn custom-login" >Log In</a>
+                    <li><a href="http://app.quantifieddev.org/dashboard" id="navbar_mydashboard">Log In</a>
                     </li>
-                    <li><a href="http://app.quantifieddev.org/dashboard" id="navbar_mydashboard" class="custom-btn custom-signup" data-toggle="modal" data-target="#signup">Sign Up</a>
+                    <li><a href="http://app.quantifieddev.org/dashboard" id="navbar_mydashboard">Sign Up</a>
                     </li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
         </div>
-
     </div>
-
     <div class="body">
-        <div class="modal fade custom-modal" id="signup" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                <h2 class="header-text">Signup</h2>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                <h6 class="pull-right signup-details step-heading">Step 1 of 2</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row margin-top-five">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <a class="btn btn-lg signup-button" href="#" onClick="signup();">Signup with GitHub</a>
-                            </div>
-                        </div>
-                        <div class="row login-link-container">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <span class="signup-details">Already have an account?</span>
-                                <a href="/auth/github">Log in</a>
-                            </div>
-                        </div>
-                        <div class="row signup-message">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <span class="signup-details">We'll use your GitHub email address to talk to you when important things happen. We'll never share it or use it to spam you.</span>
-                            </div>
+
+        <section class="white" id="privacy">
+            <div class="container">
+                <div class="row pricing">
+                    <div class="col-xs-12">
+                        <div class="plan">
+                            <center>
+                                <h1>All your software development activity in one place</h1>
+                                <h2>Track, correlate, compare, discover and visualize the data about you</h2>
+                            </center>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </div>
-    <section class="dark" id="privacy">
-        <div class="container">
-            <div class="row pricing">
-                <div class="col-xs-12">
-                    <div class="plan dark">
-                        <center>
-                            <h1>All your software development activity in one place</h1>
-                            <h2>Track, correlate, compare, discover and visualize the data about you</h2>
-                        </center>
+        </section>
+        <section class="dark" id="signup">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 center">
+                        <img src="/images/getStarted.png" />
+                        &nbsp;&nbsp;
+                        <img src="/images/learnMore.png" />
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="dark" id="signup">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-3 col-xs-0 center"></div>
-                <div class="col-md-3 col-sm-3 col-xs-12 center btn-container">
-                    <a class="custom-btn custom-signup" data-toggle="modal" data-target="#signup">Get Started</a>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-12 center btn-container">
-                    <a class="custom-btn custom-login">More</a>
-                </div>
-
-
-                <div class="col-md-3 col-sm-3 col-xs-0 center"></div>
-            </div>
-        </div>
-    </section>
-    <section class="white" id="privacy">
-        <div class="container">
-            <div class="row pricing">
-                <div class="col-xs-2">
-                    &nbsp;
-                </div>
-                <div class="col-xs-8">
-                    <img class="img-responsive" src="images/oneself-responsive-view.png" />
-                </div>
-                <div class="col-xs-2">
-                    &nbsp;
+        </section>
+        <section class="white" id="privacy">
+            <div class="container">
+                <div class="row pricing">
+                    <div class="col-xs-1">
+                        &nbsp;
+                    </div>
+                    <div class="col-xs-10">
+                        <img class="img-responsive" src="images/dashboard.png" />
+                    </div>
+                    <div class="col-xs-1">
+                        &nbsp;
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     </div>
     <footer>
         <ul class="unstyled links center">
             <li>
-                <a href="/contact.html">
+            <a href="/contact.html">
             Contact Us
             </a>
-            </li>
+        </li>
             <li>
-                <a href="/privacy.html">
+            <a href="/privacy.html">
             Privacy Policy
             </a>
-            </li>
-        </ul>
+        </li>
+    </ul>
         <ul class="unstyled rights center">
             <li>
                 Copyright &copy; 2014 QuantifiedDev. All rights reserved.
@@ -234,7 +186,6 @@
     <script type="text/javascript" src="js/fitvid.js"></script>
     <script type="text/javascript" src="js/launch.js"></script>
     <script type="text/javascript" src="js/vimeo.ga.js"></script>
-    <script type="text/javascript" src="js/website.js"></script>
     <script type="text/javascript">
     $('#navbar_top').on('click', function() {
         ga('send', 'event', 'navbar_link', 'navbar_top_click');
@@ -284,15 +235,17 @@
     });
     $('#downloadVS2013ExtensionLink').on('click', function() {
         ga('send', 'event', 'download', 'DownloadVS2013Extension_click');
-    });
+    });  
     $('#downloadVS2012ExtensionLink').on('click', function() {
         ga('send', 'event', 'download', 'DownloadVS2012Extension_click');
     });
     $('#downloadIntelliJExtensionLink').on('click', function() {
         ga('send', 'event', 'download', 'DownloadIntelliJExtension_click');
     });
-    </script>
 
+
+    </script>
+    
 </body>
 
 </html>
