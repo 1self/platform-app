@@ -4,6 +4,12 @@
         margin: 18px 100px 18px auto;
         float: right;
     }
+    .contact-us-grid{
+        width: 90%;
+    }
+    .pricing .contact-us-plan {
+    margin: 58px 12px 7px 12px;
+    }
 }
 @media (max-width: 767px) {
     .plan h1 {
@@ -19,5 +25,8 @@
         width: 100%;
         text-align: center;
         margin: 0 auto;
+    }
+    .contact-us-text{
+        margin-top: 0;
     }
 }

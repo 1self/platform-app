@@ -58,10 +58,10 @@
                 </button>
 
                 <div class="mainlogo">
-                <a class="brand" href="/">
-                    <!-- <img src="/app/img/quantified-dev-logo.png" /> -->
-                    <h1 class="theme-logo">1self.co {developers}</h1>
-                </a>
+                    <a class="brand" href="/">
+                        <!-- <img src="/app/img/quantified-dev-logo.png" /> -->
+                        <h1 class="theme-logo">1self.co {developers}</h1>
+                    </a>
                 </div>
             </div>
             <div class="collapse navbar-collapse pull-right">
@@ -85,18 +85,28 @@
         <section class="white" id="privacy">
             <div class="container">
                 <div class="row pricing">
-                    <h1 class="trocchi center white-shadow-text">Contact</h1>
+
                     <div class="col-xs-12">
-                        <div class="plan">
-                            <p>
-                                You can contact us at {team *at* quantifieddev.org}.                                
-                            </p>
-                            <p>
-                                Or you can <a href="http://blog.quantifieddev.org/ask">ask us anything here</a>
-                            </p>
-                            <p>
-                                Or drop us a line on Twitter: <a href="https://twitter.com/quantifieddev" target="_blank">@QuantifiedDev</a>
-                            </p>
+                        <div class="plan contact-us-plan">
+                            <h1 class="center white-shadow-text margin-zero">Contact Us</h1>
+                            <div class="row contact-us-grid">
+                                 <img class="contact-us-icon left" src="images/email.png">
+                               <span class="left contact-us-text">You can contact us at {team *at* quantifieddev.org}.</span>
+                                                      
+                            </div>
+                            <div class="row contact-us-grid">
+                               <img class="contact-us-icon left" src="images/ask-us-icon.png">
+                               <span class="left contact-us-text"> 
+                                <a href="http://blog.quantifieddev.org/ask">Ask us anything here</a>.
+                               </span>
+                            </div>
+                            <div class="row contact-us-grid">
+                               <img class="contact-us-icon left" src="images/contact-us-twitter-icon.png">
+                               <span class="left contact-us-text"> 
+                                 Or drop us a line on Twitter: <a href="https://twitter.com/quantifieddev" target="_blank">@QuantifiedDev</a>
+                               </span>
+                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -106,16 +116,16 @@
     <footer>
         <ul class="unstyled links center">
             <li>
-            <a href="http://blog.quantifieddev.org/ask">
+                <a href="http://blog.quantifieddev.org/ask">
             Contact Us
             </a>
-        </li>
+            </li>
             <li>
-            <a href="/privacy.html">
+                <a href="/privacy.html">
             Privacy Policy
             </a>
-        </li>
-    </ul>
+            </li>
+        </ul>
         <ul class="unstyled rights center">
             <li>
                 Copyright &copy; 2014 QuantifiedDev. All rights reserved.
@@ -187,17 +197,15 @@
     });
     $('#downloadVS2013ExtensionLink').on('click', function() {
         ga('send', 'event', 'download', 'DownloadVS2013Extension_click');
-    });  
+    });
     $('#downloadVS2012ExtensionLink').on('click', function() {
         ga('send', 'event', 'download', 'DownloadVS2012Extension_click');
     });
     $('#downloadIntelliJExtensionLink').on('click', function() {
         ga('send', 'event', 'download', 'DownloadIntelliJExtension_click');
     });
-
-
     </script>
-    
+
 </body>
 
 </html>

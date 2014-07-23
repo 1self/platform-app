@@ -1,6 +1,9 @@
+a{
+    cursor: pointer;
+}
 a:hover {
     text-decoration: none;
-    color: #FFF;
+   color: #428bca;
 }
 .navbar-inverse {
     box-shadow: 0 8px 6px -6px #000;
@@ -62,7 +65,9 @@ section.dark {
     margin-top: 10px;
 }
 /*sign-up pop-up CSS */
-
+.btn-container .custom-btn:hover{
+    color: #fff;
+}
 .margin-top-five, .custom-error {
     margin-top: 5px;
 }
@@ -100,7 +105,7 @@ section.dark {
 /*sign-up pop-up CSS */
 
 .pop-up-close {
-    margin-right: 10px;
+    margin: 9px 10px 0 0;
     background: url("../images/close.png") no-repeat;
     height: 20px;
     width: 20px;
@@ -109,3 +114,29 @@ section.dark {
  .pop-up-close:hover{
     background: url("../images/close.png") no-repeat;
  }
+.contact-us-icon{
+    width: 50px;
+    height: auto;
+}
+.left{
+    float: left;
+    display: block;
+}
+.contact-us-text{
+    width: 66%;
+    margin-top: 13px;
+    margin-left: 10px;
+}
+.contact-us-grid {
+    margin: 26px auto;
+}
+.margin-zero{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.pricing .contact-us-plan {
+    padding: 40px 0;
+    margin: 58px 12px 7px 12px;
+   }
