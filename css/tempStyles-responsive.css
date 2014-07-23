@@ -1,0 +1,23 @@
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 400px;
+        margin: 18px 100px 18px auto;
+        float: right;
+    }
+}
+@media (max-width: 767px) {
+    .plan h1 {
+        font-size: 24px
+    }
+    .plan h2 {
+        font-size: 20px
+    }
+    .navbar-nav > li > a.custom-signup, .custom-signup {
+        margin-left: 0;
+    }
+    .container .navbar-collapse {
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
