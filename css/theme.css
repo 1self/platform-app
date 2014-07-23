@@ -143,3 +143,9 @@ section.dark {
 .custom-heading{
         margin-top: 72px;
     }
+    .privacy-grid{
+    margin: 0 auto;
+   }
+   .contact-us-grid,.privacy-grid{
+        width: 90%;
+    }

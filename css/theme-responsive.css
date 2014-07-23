@@ -4,12 +4,7 @@
         margin: 18px 100px 18px auto;
         float: right;
     }
-    .contact-us-grid,.privacy-grid{
-        width: 90%;
-    }
-   .privacy-grid{
-    margin: 0 auto;
-   }
+   
 
 }
 @media (max-width: 767px) {
@@ -33,4 +28,5 @@
     .custom-heading {
      margin-top: 32px; 
     }
+    
 }
