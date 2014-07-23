@@ -136,7 +136,10 @@ section.dark {
     margin-left: 0;
     margin-right: 0;
 }
-.pricing .contact-us-plan {
+.pricing .custom-plan {
     padding: 40px 0;
-    margin: 58px 12px 7px 12px;
+   margin: 30px 12px 7px 12px;
    }
+.custom-heading{
+        margin-top: 72px;
+    }
