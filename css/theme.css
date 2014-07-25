@@ -180,3 +180,9 @@ section.dark {
 .instruction .single-download-btn{
     padding: 5px 50px;
 }
+.instruction-container{
+    padding-top: 80px;
+}
+.adjust-width-download #plugins{
+    width: 94%;
+}
