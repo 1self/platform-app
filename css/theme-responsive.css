@@ -29,9 +29,6 @@
     .custom-heading {
         margin-top: 32px;
     }
-    .download-title {
-        font-size: 25px;
-    }
     .download-header-img {
         width: 64px;
         display: none;
@@ -67,10 +64,13 @@
      padding-bottom: 0;
  }
  .instruction-container {
-     padding-top: 40px;
-      }
+    padding-top: 40px;
+}
+.download-title {
+    font-size: 25px;
+}
 
-    
+
     
 }
 @media (min-width: 557px) {
