@@ -186,3 +186,15 @@ section.dark {
 .adjust-width-download #plugins{
     width: 94%;
 }
+.download-img-container .row{
+  margin-bottom: 20px;
+}
+#mce-EMAIL{
+    width: 260px;
+}
+.instruction .download-head-section{
+    padding: 25px 15px 15px 15px;
+}
+.instruction h2{
+    margin-top: 0;
+}
