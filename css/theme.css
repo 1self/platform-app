@@ -1,9 +1,12 @@
-a{
+a {
     cursor: pointer;
 }
 a:hover {
     text-decoration: none;
-   color: #428bca;
+    color: #428bca;
+}
+.inline-block {
+    display: inline-block;
 }
 .navbar-inverse {
     box-shadow: 0 8px 6px -6px #000;
@@ -65,7 +68,8 @@ section.dark {
     margin-top: 10px;
 }
 /*sign-up pop-up CSS */
-.btn-container .custom-btn:hover{
+
+.btn-container .custom-btn:hover {
     color: #fff;
 }
 .margin-top-five, .custom-error {
@@ -110,19 +114,19 @@ section.dark {
     height: 20px;
     width: 20px;
     border: none;
- }
- .pop-up-close:hover{
+}
+.pop-up-close:hover {
     background: url("../images/close.png") no-repeat;
- }
-.contact-us-icon{
+}
+.contact-us-icon {
     width: 50px;
     height: auto;
 }
-.left{
+.left {
     float: left;
     display: block;
 }
-.contact-us-text{
+.contact-us-text {
     width: 66%;
     margin-top: 13px;
     margin-left: 10px;
@@ -130,7 +134,7 @@ section.dark {
 .contact-us-grid {
     margin: 26px auto;
 }
-.margin-zero{
+.margin-zero {
     margin-top: 0;
     margin-bottom: 0;
     margin-left: 0;
@@ -138,14 +142,41 @@ section.dark {
 }
 .pricing .custom-plan {
     padding: 40px 0;
-   margin: 30px 12px 7px 12px;
-   }
-.custom-heading{
-        margin-top: 72px;
-    }
-    .privacy-grid{
+    margin: 30px 12px 7px 12px;
+}
+.custom-heading {
+    margin-top: 72px;
+}
+.privacy-grid {
     margin: 0 auto;
-   }
-   .contact-us-grid,.privacy-grid{
-        width: 90%;
-    }
+}
+.contact-us-grid, .privacy-grid {
+    width: 90%;
+}
+/*download Css*/
+
+.download-title {
+    color: #363636;
+    font-size: 48px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.download-header-img {
+    vertical-align: super;
+    width: 100px;
+    height: auto;
+}
+.instruction{
+    margin-top: 20px;
+}
+.instruction h1{
+    font-size: 51px;
+}
+.instruction .custom-signup{
+     font-size: 18px;
+     margin-bottom: 5px;
+}
+.instruction .single-download-btn{
+    padding: 5px 50px;
+}

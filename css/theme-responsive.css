@@ -4,14 +4,15 @@
         margin: 18px 100px 18px auto;
         float: right;
     }
-   
-
+    .download-container .instruction {
+        width: 540px;
+    }
 }
 @media (max-width: 767px) {
     .plan h1 {
         font-size: 24px
     }
-    .plan h2 {
+    .plan h2, .download-container h3 {
         font-size: 20px
     }
     .navbar-nav > li > a.custom-signup, .custom-signup {
@@ -22,11 +23,41 @@
         text-align: center;
         margin: 0 auto;
     }
-    .contact-us-text{
+    .contact-us-text {
         margin-top: 0;
     }
     .custom-heading {
-     margin-top: 32px; 
+        margin-top: 32px;
     }
-    
+    .download-title {
+        font-size: 25px;
+    }
+    .download-header-img {
+        width: 64px;
+    }
+    .container, .padding-left-right-zero {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .download-container .instruction {
+        width: 90%;
+    }
+}
+@media (max-width: 556px) {
+    .instruction h1 {
+        font-size: 24px
+    }
+    .instruction .single-download-btn {
+        padding: 5px 10px;
+    }
+    .go-img {
+        display: none;
+    }
+}
+@media (min-width: 557px) {
+    .go-img {
+        width: 71px;
+        vertical-align: sub;
+        margin: 0 0 -9px 12px;
+    }
 }

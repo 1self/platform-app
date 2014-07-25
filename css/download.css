@@ -8,26 +8,6 @@
   border-radius: 8px;
 }
 
-.container {
-	margin-bottom: 25px;
-}
-
-@media (min-width: 768px) {
-  .container {
-    width: 550px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 670px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 770px;
-  }
-}
-
 #signup .row{
 	margin-bottom:50px;
 }
@@ -49,26 +29,3 @@
 	font-size:70px;
 }
 
-#download-title{
-	font-size:14vw;
-	color: #363636;
-}
-
-@media (min-width: 768px) {
-  #download-title{
-	font-size:10vw;
-}
-
-}
-@media (min-width: 992px) {
-   #download-title{
-	font-size:8vw;
-}
-
-}
-@media (min-width: 1200px) {
-   #download-title{
-	font-size:8vw;
-}
-
-}
