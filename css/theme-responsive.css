@@ -42,8 +42,8 @@
     }
     .download-container .instruction {
         width: 90%;
-        padding-left: 2px;
-        padding-right: 2px;
+        padding-left: 0;
+        padding-right: 0;
     }
     .instruction .download-head-section {
         padding-bottom: 0;
