@@ -49,9 +49,6 @@
         font-size: 21px;
         margin-top: 0;
     }
-    .instruction .single-download-btn {
-        padding: 5px 10px;
-    }
     .go-img {
         display: none;
     }
@@ -78,6 +75,9 @@
         width: 71px;
         vertical-align: sub;
         margin: 0 0 -9px 12px;
+    }
+    .sublime-text-go-img{
+        margin: 0 0 -9px 39px;
     }
 
 }
