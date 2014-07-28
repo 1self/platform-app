@@ -5,6 +5,10 @@ a:hover {
     text-decoration: none;
     color: #428bca;
 }
+.custom-ul{
+    list-style-type: none;
+    padding: 0;
+}
 .inline-block {
     display: inline-block;
 }
@@ -19,6 +23,9 @@ a:hover {
 }
 section.dark, .pricing .dark, .dark {
     background: #393939;
+}
+.bold{
+    font-weight: bold;
 }
 .nav {
     padding-top: 5px;
@@ -173,7 +180,7 @@ section.dark {
 .instruction {
     margin-top: 20px;
 }
-.instruction h1 {
+.instruction h1, .install-info h1 {
     font-size: 49px;
 }
 .instruction .custom-signup {
@@ -201,4 +208,36 @@ section.dark {
 }
 .download-container section.white {
     padding: 30px 0;
+}
+.install-info {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 17px;
+    text-align: center;
+}
+.install-info h1 {
+    color: #363636;
+}
+.install-info {
+    padding-top: 30px;
+}
+.grid {
+    display: table;
+    display: table;
+    border-top: 1px solid #FFF;
+    border-right: 1px solid #FFF;
+    width: 100%;
+}
+.grid-row {
+    display: table-row;
+}
+.grid-cell {
+    display: table-cell;
+    padding: 10px 5px;
+    border-bottom: 1px solid #FFF;
+    border-left: 1px solid #FFF;
+    width: 50%;
+}
+.faq-container span{
+    display:block;
 }

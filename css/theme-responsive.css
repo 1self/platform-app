@@ -42,13 +42,15 @@
     }
     .download-container .instruction {
         width: 90%;
+        padding-left: 2px;
+        padding-right: 2px;
     }
     .instruction .download-head-section {
         padding-bottom: 0;
     }
 }
 @media (max-width: 556px) {
-    .instruction h1 {
+    .instruction h1 , .instruction h2{
         font-size: 21px;
         margin-top: 0;
     }
@@ -66,12 +68,16 @@
     .instruction-container {
         padding-top: 40px;
     }
-    .download-title {
+    .download-title,.install-info h1 {
         font-size: 25px;
     }
     .theme-logo {
         font-size: 17px;
     }
+    .install-info{
+        width: 90%;
+    }
+    
 }
 @media (min-width: 557px) {
     .go-img {
