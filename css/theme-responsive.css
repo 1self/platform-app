@@ -7,6 +7,9 @@
     .download-container .instruction {
         width: 540px;
     }
+    .instruction .single-download-btn {
+        padding: 5px 51px;
+    }
 }
 @media (max-width: 767px) {
     .plan h1 {
@@ -40,7 +43,7 @@
     .download-container .instruction {
         width: 90%;
     }
-    .instruction .download-head-section{
+    .instruction .download-head-section {
         padding-bottom: 0;
     }
 }
@@ -57,18 +60,18 @@
         padding-right: 5px;
     }
     .padding-top-bottom-zero {
-     padding-top: 0;
-     padding-bottom: 0;
- }
- .instruction-container {
-    padding-top: 40px;
-}
-.download-title {
-    font-size: 25px;
-}
-
-
-    
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .instruction-container {
+        padding-top: 40px;
+    }
+    .download-title {
+        font-size: 25px;
+    }
+    .theme-logo {
+        font-size: 17px;
+    }
 }
 @media (min-width: 557px) {
     .go-img {
@@ -76,8 +79,7 @@
         vertical-align: sub;
         margin: 0 0 -9px 12px;
     }
-    .sublime-text-go-img{
+    .sublime-text-go-img {
         margin: 0 0 -9px 39px;
     }
-
 }
