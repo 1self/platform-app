@@ -50,7 +50,7 @@
     }
 }
 @media (max-width: 556px) {
-    .instruction h1 , .instruction h2{
+   .download-container .instruction h1 , .download-container .instruction h2{
         font-size: 21px;
         margin-top: 0;
     }

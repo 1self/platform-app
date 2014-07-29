@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js">
+<html class="no-js" ng-app="main">
 <!--<![endif]-->
 
 <head>
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="bootstrap-3.1.1/css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/download.css">
     <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/theme-responsive.css">
 
@@ -24,6 +25,9 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
     <script src="bootstrap-3.1.1/js/bootstrap.js"></script>
     <script src="js/bootstrap-carousel-interval-array.js"></script>
+    <script src="js/angular.min.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+
     <script>
     window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js"><\/script>')
     </script>
@@ -64,7 +68,7 @@
     <a href="https://plus.google.com/103831210163166259412" rel="publisher">Google+</a>
 </head>
 
-<body data-spy="scroll" data-target=".navbar">
+<body data-spy="scroll" data-target=".navbar" ng-controller="angular-application as angular" ng-init="tab=1">
     <!--[if lt IE 7]>
     <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -88,23 +92,17 @@
             <div class="collapse navbar-collapse pull-right">
                 <ul class="nav navbar-nav">
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Info <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/features.html">What &amp; Why</a>
-                            </li>
-                           <li><a href="/download.html#integrations">Integrations</a>
-                            </li>
-                            <li><a href="/download.html#plugins">Plugins</a>
-                            </li>
-                        </ul>
+                    <li ng-class="{ active:tab === 1 }"><a href="#home" ng-click="tab = 1" >Home</a>
                     </li>
-
-                    <li><a href="http://blog.QuantifiedDev.org" id="navbar_blog">Blog</a>
+                    <li><a href="#features">Feature</a>
                     </li>
-                    <li><a href="/contact.html" id="navbar_blog">Contact</a>
+                    <li><a href="http://blog.QuantifiedDev.org">Blog</a>
                     </li>
-                    <li><a  id="navbar_mydashboard" class="custom-btn custom-login" onClick="signup();">Log In</a>
+                    <li ng-class="{ active:tab === 2 }"><a href="#download" ng-click="tab = 2">Download</a>
+                    </li>
+                    <li ng-class="{ active:tab === 3 }"><a href="#contact-us" ng-click="tab = 3">Contact</a>
+                    </li>
+                    <li><a id="navbar_mydashboard" class="custom-btn custom-login" onClick="signup();">Log In</a>
                     </li>
                     <li><a href="http://app.quantifieddev.org/dashboard" id="navbar_mydashboard" class="custom-btn custom-signup" data-toggle="modal" data-target="#signup">Sign Up</a>
                     </li>
@@ -155,53 +153,59 @@
             </div>
         </div>
     </div>
-    <section class="dark" id="privacy">
-        <div class="container">
-            <div class="row pricing">
-                <div class="col-xs-12">
-                    <div class="plan dark">
-                        <center>
-                            <h1>All your software development activity in one place</h1>
-                            <h2>Track, correlate, compare, discover and visualize the data about you</h2>
-                        </center>
+
+    <div ng-show="tab === 1" id="home" class="box">
+        <section class="dark" id="privacy">
+            <div class="container">
+                <div class="row pricing">
+                    <div class="col-xs-12">
+                        <div class="plan dark">
+                            <center>
+                                <h1>All your software development activity in one place</h1>
+                                <h2>Track, correlate, compare, discover and visualize the data about you</h2>
+                            </center>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="dark" id="signup">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-3 col-xs-0 center"></div>
-                <div class="col-md-3 col-sm-3 col-xs-12 center btn-container">
-                    <a class="custom-btn custom-signup" data-toggle="modal" data-target="#signup">Get Started</a>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-12 center btn-container">
-                    <a class="custom-btn custom-login">Learn More</a>
-                </div>
+        </section>
+        <section class="dark" id="signup">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-0 center"></div>
+                    <div class="col-md-3 col-sm-3 col-xs-12 center btn-container">
+                        <a class="custom-btn custom-signup" data-toggle="modal" data-target="#signup">Get Started</a>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12 center btn-container">
+                        <a class="custom-btn custom-login">Learn More</a>
+                    </div>
 
 
-                <div class="col-md-3 col-sm-3 col-xs-0 center"></div>
-            </div>
-        </div>
-    </section>
-    <section class="white" id="privacy">
-        <div class="container">
-            <div class="row pricing">
-                <div class="col-xs-2">
-                    &nbsp;
-                </div>
-                <div class="col-xs-8">
-                    <img class="img-responsive" src="images/oneself-responsive-view.png" />
-                </div>
-                <div class="col-xs-2">
-                    &nbsp;
+                    <div class="col-md-3 col-sm-3 col-xs-0 center"></div>
                 </div>
             </div>
-        </div>
-    </section>
-
+        </section>
+        <section class="white" id="privacy">
+            <div class="container">
+                <div class="row pricing">
+                    <div class="col-xs-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-xs-8">
+                        <img class="img-responsive" src="images/oneself-responsive-view.png" />
+                    </div>
+                    <div class="col-xs-2">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
+
+
+
+    <div ng-include src="'download.html'"></div>
+    <div ng-include src="'contact.html'"></div>
     <footer>
         <ul class="unstyled links center">
             <li>

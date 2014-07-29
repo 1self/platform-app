@@ -1,512 +1,201 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
+     <div ng-show="tab === 2" id="download" class="box">
+            <div class="body download-container">
+                <section class="center grey" id="top">
+                    <div class="container">
+                        <div class="row">
+                            <div class='col-xs-12 padding-left-right-zero'>
+                                <img class="download-header-img" src="images/right.png">
+                                <span class="download-title inline-block custom-heading">DOWNLOADS</span>
+                                <img class="download-header-img" src="images/left.png">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 center">
+                                <h3>Don't see your tool listed? Subscribe to let us know</h3>
+                                <div class="input-append">
+                                    <!-- Begin MailChimp Signup Form -->
+                                    <div id="mc_embed_signup">
+                                        <form action="http://QuantifiedDev.us8.list-manage.com/subscribe/post?u=6cba468ceea6fc41a7d7db50e&amp;id=36b7c99957" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate role="form">
+                                            <div class="form-group">
+                                                <input type="email" value="" name="EMAIL" class="input input-lg" id="mce-EMAIL" placeholder="you@email.com" required>
+                                            </div>
+                                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                            <div style="position: absolute; left: -5000px;">
+                                                <input type="text" name="b_6cba468ceea6fc41a7d7db50e_36b7c99957" value="">
+                                            </div>
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>QuantifiedDev | Become a better developer</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
-    <meta name="google-site-verification" content="2nQMCYUg7F7nHAOl6fTyThrdNcOmOT7cXKWOMfB0onk" />
-    <link rel="stylesheet" href="bootstrap-3.1.1/css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="css/download.css">
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/theme-responsive.css">
-    <link rel="shortcut icon" href="/app/img/quantified-dev-favicon.ico">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
-    <script src="bootstrap-3.1.1/js/bootstrap.js"></script>
-    <script src="js/bootstrap-carousel-interval-array.js"></script>
-    <script>
-    window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js"><\/script>')
-    </script>
-    <script>
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-49828181-1', 'quantifieddev.org');
-    ga('send', 'pageview');
-    /*
-    var mc_embedded_subscribe_click = document.getElementById('mc-embedded-subscribe');
-    addListener(mc_embedded_subscribe_click, 'click', function() {
-    alert('sup click');
-    ga('send', 'event', 'signup_button', 'click', 'mc-embedded-subscribe');
-    });*/
-    /**
-    * Utility to wrap the different behaviors between W3C-compliant browsers
-    * and IE when adding event handlers.
-    *
-    * @param {Object} element Object on which to attach the event listener.
-    * @param {string} type A string representing the event type to listen for
-    *     (e.g. load, click, etc.).
-    * @param {function()} callback The function that receives the notification.
-    
-    function addListener(element, type, callback) {
-    if (element.addEventListener) element.addEventListener(type, callback);
-    else if (element.attachEvent) element.attachEvent('on' + type, callback);
-    }*/
-    </script>
-    <script>
-    var vimeoCategory = "vimeo";
-    $(document).ready(function() {
-        vimeoCategory = "vimeo_chart";
-        $("#vidDiv1").append('<iframe id="vimeoPlayer" src="http://player.vimeo.com/video/91935724?title=0&amp;byline=0&amp;portrait=0&amp;color=38e8ae" width="500" height="281" frameborder="0" data-progress="true" data-seek="true" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
+                                            <div class="form-group">
+                                                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-prominent btn-lg custom-signup">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+                <section class="white">
+                    <div class="container center download-img-container">
+                        <div class="row gap">
+                            <div class="col-xs-1 col-sm-3"></div>
+                            <div class="col-xs-10 col-sm-6 active-plugin-img-container">
+                                <div class="col-xs-4">
+                                    <a href="#visual-studio-details">
+                                        <img id="plugins" src="images/visualstudio.png">
+                                    </a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="#intellij">
+                                        <img id="plugins" src="images/idea.png">
+                                    </a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="#sublime-text3">
+                                        <img id="plugins" src="images/sublime.png">
+                                    </a>
+                                </div>
 
-        ga('send', 'event', vimeoCategory, 'loaded video');
-    });
-    </script>
-</head>
-
-<body data-spy="scroll" data-target=".navbar">
-    <!--[if lt IE 7]>
-    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-    <![endif]-->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <div class="mainlogo">
-                    <a class="brand" href="/">
-                        <!-- <img src="/app/img/quantified-dev-logo.png" /> -->
-                        <h1 class="theme-logo">1self.co {developers}</h1>
-                    </a>
-                </div>
-            </div>
-            <!--/.nav-collapse -->
-        </div>
-    </div>
-    <div class="body download-container">
-        <section class="center grey" id="top">
-            <div class="container">
-                <div class="row">
-                    <div class='col-xs-12 padding-left-right-zero'>
-                        <img class="download-header-img" src="images/right.png">
-                        <span class="download-title inline-block custom-heading">DOWNLOADS</span>
-                        <img class="download-header-img" src="images/left.png">
+                            </div>
+                            <div class="col-xs-1 col-sm-3"></div>
+                        </div>
+                        <div class="row adjust-width-download gap">
+                            <div class="col-xs-1 col-sm-3"></div>
+                            <div class="col-xs-10 col-sm-6">
+                                <img id="plugins" src="images/plugin-row-1.png">
+                            </div>
+                            <div class="col-xs-1 col-sm-3"></div>
+                        </div>
+                        <div class="row adjust-width-download">
+                            <div class="col-xs-1 col-sm-3"></div>
+                            <div class="col-xs-10 col-sm-6">
+                                <img id="plugins" src="images/plugin-row-2.png">
+                            </div>
+                            <div class="col-xs-1 col-sm-3"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 center">
-                        <h3>Don't see your tool listed? Subscribe to let us know</h3>
-                        <div class="input-append">
-                            <!-- Begin MailChimp Signup Form -->
-                            <div id="mc_embed_signup">
-                                <form action="http://QuantifiedDev.us8.list-manage.com/subscribe/post?u=6cba468ceea6fc41a7d7db50e&amp;id=36b7c99957" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate role="form">
+                </section>
+                <section class="grey padding-top-zero">
+                    <div id="visual-studio-details" class="instruction-container">
+                        <div class="container dark center instruction">
+                            <div class="row download-head-section">
+                                <div class="col-xs-4">
+                                    <img src="images/visual-studio.png" class="download-logo">
+                                </div>
+                                <div class="col-xs-8">
+                                    <h1>Visual Studio</h1>
                                     <div class="form-group">
-                                        <input type="email" value="" name="EMAIL" class="input input-lg" id="mce-EMAIL" placeholder="you@email.com" required>
+                                        <input type="submit" value="Download 2010" name="download-visual-studio" id="mc-embedded-download" class="btn btn-prominent custom-signup btn-lg btn-sm">
+                                        <input type="submit" value="Download 2012" name="download-visual-studio" id="mc-embedded-download" class="btn btn-prominent custom-signup btn-lg btn-sm">
                                     </div>
-                                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                    <div style="position: absolute; left: -5000px;">
-                                        <input type="text" name="b_6cba468ceea6fc41a7d7db50e_36b7c99957" value="">
-                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 padding-top-bottom-zero">
+                                    <h2>Instructions</h2>
+                                    <h3>Download</h3>
+                                    <p>
+                                        First, download the plugin for the version of visual studio that you work with. Load a solution or project and quantified dev will automatically be loaded. Immediately, your development events are being sent to quantified dev.
+                                    </p>
 
+                                    <h3>View your events</h3>
+                                    <p>
+                                        Quantified dev has a console where you can view your events. First, you need the stream id and read token from the plugin. You can find this in the plugin view. Go to the view menu, other windows and click on quantified dev. Take the stream id and the read token and copy them. Go to quantifieddev.org and put them into the stream id and read token boxes. Press save. Now your development events will appear in the console.
+                                    </p>
+
+                                    <h3>Configure</h3>
+                                    <p>
+                                        The quantified dev plugin makes a guess about where you are, based on your IP address. This will normally be accurate to the country level. You can enter your lat and long manually in the plugin to increase the accuracy.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="intellij" class="instruction-container">
+                        <div class="container dark center instruction">
+                            <div class="row download-head-section">
+                                <div class="col-xs-4">
+                                    <img src="images/intellij.png" class="download-logo">
+                                </div>
+                                <div class="col-xs-8">
+                                    <h1>IntelliJ IDEA</h1>
                                     <div class="form-group">
-                                        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-prominent btn-lg custom-signup">
+                                        <input type="submit" value="Download" name="download-intellij" id="mc-embedded-download" class="btn btn-prominent custom-signup btn-lg btn-sm single-download-btn">
+                                        <img src="images/go.png" class="go-img">
                                     </div>
-                                </form>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h2>Instructions</h2>
+                                    <h3>Download</h3>
+                                    <p>
+                                        First, download and install the plugin for intellij. Load a solution or project and quantified dev will automatically be loaded. Immediately, your development events are being sent to quantified dev.
+                                    </p>
+
+                                    <h3>View your events</h3>
+                                    <p>
+                                        Quantified dev has a console where you can view your events. First, you need the stream id and read token from the plugin. You can find this in the plugin view. Go to the view menu, other windows and click on quantified dev. Take the stream id and the read token and copy them. Go to quantifieddev.org and put them into the stream id and read token boxes. Press save. Now your development events will appear in the console.
+                                    </p>
+
+                                    <h3>Configure</h3>
+                                    <p>
+                                        The quantified dev plugin makes a guess about where you are, based on your IP address. This will normally be accurate to the country level. You can enter your lat and long manually in the plugin to increase the accuracy.
+                                    </p>
+
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-        </section>
-        <section class="white">
-            <div class="container center download-img-container">
-                <div class="row gap">
-                    <div class="col-xs-1 col-sm-3"></div>
-                    <div class="col-xs-10 col-sm-6 active-plugin-img-container">
-                        <div class="col-xs-4">
-                            <a href="#visual-studio-details">
-                                <img id="plugins" src="images/visualstudio.png">
-                            </a>
-                        </div>
-                        <div class="col-xs-4">
-                            <a href="#intellij">
-                                <img id="plugins" src="images/idea.png">
-                            </a>
-                        </div>
-                        <div class="col-xs-4">
-                            <a href="#sublime-text3">
-                                <img id="plugins" src="images/sublime.png">
-                            </a>
-                        </div>
+                    <div id="sublime-text3" class="instruction-container">
+                        <div class="container dark center instruction">
+                            <div class="row download-head-section">
+                                <div class="col-xs-4">
+                                    <img src="images/sublime.png" class="download-logo">
+                                </div>
+                                <div class="col-xs-8">
+                                    <h1>Sublime Text3</h1>
+                                    <div class="form-group">
+                                        <input type="submit" value="Download" name="download-intellij" id="mc-embedded-download" class="btn btn-prominent custom-signup btn-lg btn-sm single-download-btn">
+                                        <img src="images/go.png" class="go-img sublime-text-go-img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h2>Instructions</h2>
+                                    <h3>Download</h3>
+                                    <p>
+                                        Below are steps to install Quantified Dev Sublime Text 3 Plugin
+                                        <p>1. Go to 'View' then click on 'Show Console'</p>
+                                        <p>2. Copy following code snippet into the text bar of the console (visible at bottom of window)</p>
+                                        <p>import urllib.request, os, hashlib; pf = 'QuantifiedDev.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));by = urllib.request.urlopen('http://app.quantifieddev.org/' + pf.replace(' ', '%20') ).read();open(os.path.join(ipp, pf), 'wb').write(by)</p>
+                                        <p>1. Press Enter</p>
+                                        <p>2. Go to 'View' and then click on 'Hide console' to hide console.</p>
+                                        <p>The plugin will be installed and your Sublime Text 3 activity will be logged by plugin</p>
+                                        <p>To go to the QD Dashboard from Sublime Text 3, there are two ways</p>
+                                        <ul>
+                                            <li>Go to 'Tools' then click on' QuantifiedDev'. Then click on 'Go to QuantifiedDev Dashboard' OR
+                                            </li>
+                                            <li>Press CMD + Shift + P on Mac and Ctrl + Shift + P on LInux/Windows then type 'Go to QuantifiedDev Dashboard'</li>
+                                        </ul>
 
-                    </div>
-                    <div class="col-xs-1 col-sm-3"></div>
-                </div>
-                <div class="row adjust-width-download gap">
-                    <div class="col-xs-1 col-sm-3"></div>
-                    <div class="col-xs-10 col-sm-6">
-                        <img id="plugins" src="images/plugin-row-1.png">
-                    </div>
-                    <div class="col-xs-1 col-sm-3"></div>
-                </div>
-                <div class="row adjust-width-download">
-                    <div class="col-xs-1 col-sm-3"></div>
-                    <div class="col-xs-10 col-sm-6">
-                        <img id="plugins" src="images/plugin-row-2.png">
-                    </div>
-                    <div class="col-xs-1 col-sm-3"></div>
-                </div>
-            </div>
-        </section>
-        <section class="grey padding-top-zero">
-            <div class="install-info">
-                <h1>Install Plugins</h1>
-                <p>You’re so close to connecting your data. Find your IDE below, install the plugin and register it with your dashboard. If you use multiple IDEs, multiple versions and multiple computers, install and register the plugin on all of them. Then, the dashboard will show you a complete picture of your development. For all the plugins you must first install, then register.
-                </p>
-            </div>
-            <div id="visual-studio-details" class="instruction-container">
-                <div class="container dark center instruction">
-                    <div class="row download-head-section">
-                        <div class="col-xs-4">
-                            <img src="images/visual-studio.png" class="download-logo">
-                        </div>
-                        <div class="col-xs-8">
-                            <h1>Visual Studio</h1>
-                            <div class="form-group">
-                                <input type="submit" value="Download 2010" name="download-visual-studio" id="mc-embedded-download" class="btn btn-prominent custom-signup btn-lg btn-sm">
-                                <input type="submit" value="Download 2012" name="download-visual-studio" id="mc-embedded-download" class="btn btn-prominent custom-signup btn-lg btn-sm">
+                                    </p>
+
+                                    <h3>View your events</h3>
+                                    <p>
+                                        Quantified dev has a console where you can view your events. First, you need the stream id and read token from the plugin. You can find this in the plugin view. Go to the view menu, other windows and click on quantified dev. Take the stream id and the read token and copy them. Go to quantifieddev.org and put them into the stream id and read token boxes. Press save. Now your development events will appear in the console.
+                                    </p>
+
+                                    <h3>Configure</h3>
+                                    <p>
+                                        The quantified dev plugin makes a guess about where you are, based on your IP address. This will normally be accurate to the country level. You can enter your lat and long manually in the plugin to increase the accuracy.
+                                    </p>
+
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12 padding-top-bottom-zero">
-                            <h2>Instructions</h2>
-                            <p>Complete both installation and registration to see your data
-                            </p>
-                            <h3>Install</h3>
-                            <p>
-                                There are two versions of the visual studio plugin. We support 2012 and 2013. Installation for both of them is the same. Click on the button above to download the version of Visual Studio that you use, then double click to install.
-
-                            </p>
-
-                            <h3>Register</h3>
-                            <p>
-                                Quantified dev has a console where you can view your events. First, you need the stream id and read token from the plugin. You can find thisOnce you’ve installed you’ll need to register your plugin manually. To do this, you need to copy the stream id and read token from the plugin and register it manually. Don’t worry, it’s really easy! Go to tools, other windows, quantified dev. The tool window will pop up which contains the stream id and read token. Make a note of them. Now, open up your dashboard
-                                <link>. Click on Link Data and a form will pop up. Take the stream id and read token and enter it into the fields in the form and hit save. Now the data that’s been collected is part of your IDE.
-
-                                <p>Don’t forget you need to install the plugin on every copy of visual studio that you use!</p>
-
-                            </p>
-
-                            <h3>Configure</h3>
-                            <p>
-                                The quantified dev plugin makes a guess about where you are, based on your IP address. This will normally be accurate to the country level. You can enter your lat and long manually in the plugin to increase the accuracy.
-                            </p>
-                            <h3>Features</h3>
-                            <div class="grid">
-                                <div class="grid-row">
-                                    <div class="grid-cell">Builds</div>
-                                    <div class="grid-cell">Yes</div>
-                                </div>
-                                <div class="grid-row">
-                                    <div class="grid-cell">Activity</div>
-                                    <div class="grid-cell">Coming Soon</div>
-                                </div>
-                                <div class="grid-row">
-                                    <div class="grid-cell">Water Intake</div>
-                                    <div class="grid-cell">Coming Soon</div>
-                                </div>
-                                <div class="grid-row">
-                                    <div class="grid-cell">Caffeine Intake</div>
-                                    <div class="grid-cell">Coming Soon</div>
-                                </div>
-                                <div class="grid-row">
-                                    <div class="grid-cell">WTFs</div>
-                                    <div class="grid-cell">Coming Soon</div>
-                                </div>
-                            </div>
-                            <div class="faq-container">
-                                <h3>FAQ:</h3>
-                                <p>
-                                    <span class="bold">Can I download the plugin through the visual studio plugin library?</span>
-                                    <span>No, we haven’t submitted it yet.</span>
-                                </p>
-                                <p>
-                                    <span class="bold">I downloaded and installed the plugin, but didn’t register it for a month, will all my data be lost?
-                                    </span>
-                                    <span>No! We keep on collecting your data even before you register. Once you do register we link it to your username.
-                                    </span>
-                                </p>
-                                <p>
-                                    <span class="bold">When are you going to support Visual Studio 2010?
-                                    </span>
-                                    <span>It’s on our backlog but we don’t have a specific date. If this is important to you tell us. Better still, it’s all open source, so why not help us out and implement it yourself?
-                                    </span>
-                                </p>
-                                <p>
-                                    <span class="bold">When are you going to support IDE activity in Visual Studio 2012 and 2013</span>
-                                    <span>It’s in the backlog, if you’d like this, let us know and we can bump up the priority. Better still, get involved. Fork the code and send us a pull request.
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                </section>
                 </div>
             </div>
-            <div id="intellij" class="instruction-container">
-                <div class="container dark center instruction">
-                    <div class="row download-head-section">
-                        <div class="col-xs-4">
-                            <img src="images/intellij.png" class="download-logo">
-                        </div>
-                        <div class="col-xs-8">
-                            <h1>IntelliJ IDEA</h1>
-                            <div class="form-group">
-                                <input type="submit" value="Download" name="download-intellij" id="mc-embedded-download" class="btn btn-prominent custom-signup btn-lg btn-sm single-download-btn">
-                                <img src="images/go.png" class="go-img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <h2>Instructions</h2>
-                            <p>Complete both installation and registration to see your data
-                            </p>
-                            <h3>Installation</h3>
-                            <p>
-                                There is a single version of the IntelliJ plugin that works across all versions, including the community editions.
-                            </p>
-                            <ul class="custom-ul">
-                                <li>1. Click the button above to download the plugin.</li>
-                                <li>2. Open the version of IDEA that you want to add the plugin to.</li>
-                                <li>3. Open the IntelliJ preferences, this is different depending on the operating system you’re on.</li>
-                                <li>4. Click on plugins in the navigation pane on the left and then click the ‘Install plugin from disk’ button on the right.</li>
-                                <li>5. Find the downloaded zip file and choose it. Hit ok and let IDEA restart.</li>
-                            </ul>
-
-                            <h3>Registration</h3>
-                            <p>
-                                Registration in IDEA is simple, you just need to click on the registration link that takes you to the dashboard. This can be find in the plugin window name ‘Quantified Dev’ which should be docked on the bottom right. If you can’t find it, you can also get to it by going to View, Tool Windows, Quantified Dev. The registration button is on the left of the tool window marked ‘QD’. Click it to register the plugin and a browser will open with the dashboard open.
-                            </p>
-                            <p>Congratulations, you’ve installed and registered the plugin!</p>
-                            <p>Don’t forget you need to install the plugin on every copy of IntelliJ IDEA that you use!</p>
-                            <h3>Configure</h3>
-                            <p>
-                                The quantified dev plugin makes a guess about where you are, based on your IP address. This will normally be accurate to the country level. You can enter your lat and long manually in the plugin to increase the accuracy.
-                            </p>
-                            <h3>Features</h3>
-                            <div class="grid">
-                                <div class="grid-row">
-                                    <div class="grid-cell">Builds</div>
-                                    <div class="grid-cell">Yes</div>
-                                </div>
-                                <div class="grid-row">
-                                    <div class="grid-cell">Activity</div>
-                                    <div class="grid-cell">Yes</div>
-                                </div>
-                                <div class="grid-row">
-                                    <div class="grid-cell">Water Intake</div>
-                                    <div class="grid-cell">Yes</div>
-                                </div>
-                                <div class="grid-row">
-                                    <div class="grid-cell">Caffeine Intake</div>
-                                    <div class="grid-cell">Yes</div>
-                                </div>
-                                <div class="grid-row">
-                                    <div class="grid-cell">WTFs</div>
-                                    <div class="grid-cell">Yes</div>
-                                </div>
-                            </div>
-                            <div class="faq-container">
-                                <h3>FAQ:</h3>
-                                <p>
-                                    <span class="bold">Can the plugin be installed from a repository?
-                                    </span>
-                                    <span>No, we haven’t submitted it yet.</span>
-                                </p>
-                                <p>
-                                    <span class="bold">I downloaded and installed the plugin, but didn’t register it for a month, will all my data be lost?
-                                    </span>
-                                    <span>No! We keep on collecting your data even before you register. Once you do register we link it to your username.
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="sublime-text3" class="instruction-container">
-                <div class="container dark center instruction">
-                    <div class="row download-head-section">
-                        <div class="col-xs-4">
-                            <img src="images/sublime.png" class="download-logo">
-                        </div>
-                        <div class="col-xs-8">
-                            <h1>Sublime Text3</h1>
-                            <div class="form-group">
-                                <input type="submit" value="Download" name="download-intellij" id="mc-embedded-download" class="btn btn-prominent custom-signup btn-lg btn-sm single-download-btn">
-                                <img src="images/go.png" class="go-img sublime-text-go-img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <h2>Instructions</h2>
-                            <p>Complete both installation and registration to see your data</p>
-
-                            <h3>Download</h3>
-                            <p>Sublime has a single plugin that works across both versions 2 and 3. The installation process on Sublime is via Sublime itself. The download is done within Sublime Text.
-                            </p>
-                            <p>Open sublime and open the console. Copy and paste the command below and press enter.</p>
-                            <p>import urllib.request, os, hashlib; pf = 'QuantifiedDev.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));by = urllib.request.urlopen('http://app.quantifieddev.org/' + pf.replace(' ', '%20') ).read();open(os.path.join(ipp, pf), 'wb').write(by)
-
-                            </p>
-
-                            <h3>Registration</h3>
-                            <p>
-                                Registration of the plugin with your Dashboard is done through following the QuantifiedDev link in our plugin in Sublime Text. There are two ways to do this: go to the tools window, QuantifiedDev and click on ‘Go to QuantifiedDev dashboard; or go to the command palette and type ‘Go to QuantifiedDev dashboard’ and hit enter. A browser will open and you’ll be taken to the dashboard, which will automatically register your plugin.
-                            </p>
-                            <p>Congratulations, you’ve installed and registered the plugin!
-                            </p>
-                            <p>Don’t forget you need to install the plugin on every copy of Sublime Text that you use!
-                            </p>
-
-                            <h3>Configure</h3>
-                            <p>
-                                The quantified dev plugin makes a guess about where you are, based on your IP address. This will normally be accurate to the country level. You can enter your lat and long manually in the plugin to increase the accuracy.
-                            </p>
-                            <h3>Features</h3>
-                            <div class="grid">
-                                <div class="grid-row">
-                                    <div class="grid-cell">Builds</div>
-                                    <div class="grid-cell">No</div>
-                                </div>
-                                <div class="grid-row">
-                                    <div class="grid-cell">Activity</div>
-                                    <div class="grid-cell">Yes</div>
-                                </div>
-                                <div class="grid-row">
-                                    <div class="grid-cell">Water Intake</div>
-                                    <div class="grid-cell">Coming Soon</div>
-                                </div>
-                                <div class="grid-row">
-                                    <div class="grid-cell">Caffeine Intake</div>
-                                    <div class="grid-cell">Coming Soon</div>
-                                </div>
-                                <div class="grid-row">
-                                    <div class="grid-cell">WTFs</div>
-                                    <div class="grid-cell">Coming Soon</div>
-                                </div>
-                            </div>
-                            <div class="faq-container">
-                                <h3>FAQ:</h3>
-                                <p>
-                                    <span class="bold">I downloaded and installed the plugin, but didn’t register it for a month, will all my data be lost?
-                                    </span>
-                                    <span>No! We keep on collecting your data even before you register. Once you do register we link it to your username.
-                                    </span>
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        </div>
-        <footer>
-
-            <ul class="unstyled rights center">
-                <li>
-                    Copyright &copy; 2014 QuantifiedDev. All rights reserved
-                </li>
-            </ul>
-        </footer>
-        <link href='http://fonts.googleapis.com/css?family=Questrial|Lato:300,400,700,900,300italic,400italic,700italic,900italic|Trocchi' rel='stylesheet' type='text/css'>
-        <script>
-        ! function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0],
-                p = /^http:/.test(d.location) ? 'http' : 'https';
-            if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = p + '://platform.twitter.com/widgets.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }
-        }(document, 'script', 'twitter-wjs');
-        </script>
-        <script>
-        ! function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0],
-                p = /^http:/.test(d.location) ? 'http' : 'https';
-            if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = p + '://platform.twitter.com/widgets.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }
-        }(document, 'script', 'twitter-wjs');
-        </script>
-        <script type="text/javascript" src="js/fitvid.js"></script>
-        <script type="text/javascript" src="js/launch.js"></script>
-        <script type="text/javascript" src="js/vimeo.ga.js"></script>
-        <script type="text/javascript">
-        $('#navbar_top').on('click', function() {
-            ga('send', 'event', 'navbar_link', 'navbar_top_click');
-        });
-        $('#navbar_signup').on('click', function() {
-            ga('send', 'event', 'navbar_link', 'navbar_signup_click');
-        });
-        $('#navbar_moreinfo').on('click', function() {
-            //                alert('mi click');
-            ga('send', 'event', 'navbar_link', 'navbar_moreinfo_click');
-        });
-        $('#navbar_getinvolved').on('click', function() {
-            ga('send', 'event', 'navbar_link', 'navbar_getinvolved_click');
-        });
-        $('#navbar_download').on('click', function() {
-            ga('send', 'event', 'navbar_link', 'navbar_download_click');
-        });
-        $('#navbar_blog').on('click', function() {
-            ga('send', 'event', 'navbar_link', 'navbar_blog_click');
-        });
-        $('#moreInfoBenefitsSignUp').on('click', function() {
-            ga('send', 'event', 'moreinfo', 'moreInfoBenefitsSignUp_click');
-        });
-        $('#moreInfoPossibilitiesSignUp').on('click', function() {
-            ga('send', 'event', 'moreinfo', 'moreInfoPossibilitiesSignUpd_click');
-        });
-        $('#moreInfoCommunitySignUp').on('click', function() {
-            ga('send', 'event', 'moreinfo', 'moreInfoCommunitySignUp_click');
-        });
-        $('#getInvolvedSignUpButton').on('click', function() {
-            ga('send', 'event', 'getinvolved', 'getInvolvedSignUpButton_click');
-        });
-        $('#getInvolvedGitHubButton').on('click', function() {
-            ga('send', 'event', 'getinvolved', 'getInvolvedGitHubButton_click');
-        });
-        $('#getInvolvedTweetButton').on('click', function() {
-            ga('send', 'event', 'getinvolved', 'getInvolvedTweetButton_click');
-        });
-        $('#downloadModifyCodeLink').on('click', function() {
-            ga('send', 'event', 'download', 'downloadModifyCodeLink_click');
-        });
-        $('#mc-embedded-subscribe').on('click', function() {
-            ga('send', 'event', 'mc-embedded-subscribe', 'click');
-        });
-        $('#downloadVSExtensionLink').on('click', function() {
-            ga('send', 'event', 'download', 'DownloadVSExtension_click');
-        });
-        $('#downloadIntelliJExtensionLink').on('click', function() {
-            ga('send', 'event', 'download', 'DownloadIntelliJExtension_click');
-        });
-        </script>
-
-</body>
-
-</html>
+             
+             
