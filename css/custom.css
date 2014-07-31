@@ -34,15 +34,12 @@
 
 #mce-EMAIL{
 	color: black;
-	border-style: solid none solid solid;
-	border-color: #FFFFFF #FFFFFF #FFFFFF;
-  border-color: rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.8);
 	-webkit-border-radius: 3px 0px 0px 3px;
   	-moz-border-radius: 3px 0px 0px 3px;
   	border-radius: 3px 0px 0px 3px;
   	border-width: 2px;
   	width:280px;
-
+  	border: 1px solid #D8D8D8;
 }
 
 .build-graph{

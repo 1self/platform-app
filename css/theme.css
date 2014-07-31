@@ -5,7 +5,7 @@ a:hover {
     text-decoration: none;
     color: #428bca;
 }
-.custom-ul{
+.custom-ul {
     list-style-type: none;
     padding: 0;
 }
@@ -24,7 +24,7 @@ a:hover {
 section.dark, .pricing .dark, .dark {
     background: #393939;
 }
-.bold{
+.bold {
     font-weight: bold;
 }
 .nav {
@@ -179,6 +179,7 @@ section.dark {
 }
 .instruction {
     margin-top: 20px;
+    border-radius: 5px;
 }
 .instruction h1, .install-info h1 {
     font-size: 49px;
@@ -188,7 +189,7 @@ section.dark {
     margin-bottom: 5px;
 }
 .instruction-container {
-    padding-top: 60px;
+    padding-top: 30px;
     word-break: break-word;
 }
 .adjust-width-download #plugins {
@@ -238,6 +239,16 @@ section.dark {
     border-left: 1px solid #FFF;
     width: 50%;
 }
-.faq-container span{
-    display:block;
+.faq-container span {
+    display: block;
+}
+section.dark-grey {
+    background: #656565;
+}
+.white-background-conatiner {
+    background: #FFF;
+    color: #393939;
+}
+.padding-bottom-fifty{
+    padding-bottom: 50px;
 }
