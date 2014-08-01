@@ -106,7 +106,6 @@
         font-size: 15px;
     }
 }
-
 @media (min-width: 557px) {
     .go-img {
         width: 99px;
@@ -133,7 +132,9 @@
     .theme-logo {
         font-size: 17px;
     }
-    .download-header-img{
+}
+@media (max-width: 992px) {
+    .download-header-img {
         display: none;
     }
 }
