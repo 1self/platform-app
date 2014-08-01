@@ -4,11 +4,14 @@
         margin: 18px 100px 18px auto;
         float: right;
     }
-    .download-container .instruction {
+    /*.download-container .instruction {
         width: 540px;
-    }
+    }*/
     .instruction .single-download-btn {
         padding: 5px 51px;
+    }
+    .navbar .container {
+        width: 98%;
     }
 }
 @media (max-width: 767px) {
@@ -31,6 +34,10 @@
     }
     .custom-heading {
         margin-top: 32px;
+        font-size: 60px;
+    }
+    .download-container .custom-heading {
+        margin-top: 72px;
     }
     .download-header-img {
         width: 64px;
@@ -48,9 +55,21 @@
     .instruction .download-head-section {
         padding-bottom: 0;
     }
+    .go-img {
+        width: 67px;
+        margin: 0 0 -8px 25px;
+    }
+}
+@media (max-width: 700px) {
+    .download-container .instruction h1 {
+        font-size: 33px;
+    }
+    .instruction .custom-signup {
+        font-size: 23px;
+    }
 }
 @media (max-width: 556px) {
-   .download-container .instruction h1 , .download-container .instruction h2{
+    .download-container .instruction h1, .download-container .instruction h2 {
         font-size: 21px;
         margin-top: 0;
     }
@@ -68,24 +87,53 @@
     .instruction-container {
         padding-top: 40px;
     }
-    .download-title,.install-info h1 {
+    .download-title, .install-info h1 {
         font-size: 25px;
     }
     .theme-logo {
         font-size: 17px;
     }
-    .install-info{
+    .install-info, #mce-EMAIL.download-input, #mc-embedded-subscribe.download-input {
         width: 90%;
     }
-    
+    .download-img-container .col-xs-3, .download-head-section .col-xs-3 {
+        padding: 0 5px;
+    }
+    .download-container .instruction h1 {
+        font-size: 22px;
+    }
+    .instruction .custom-signup {
+        font-size: 15px;
+    }
 }
+
 @media (min-width: 557px) {
     .go-img {
-        width: 71px;
+        width: 99px;
         vertical-align: sub;
-        margin: 0 0 -9px 12px;
+        margin: 0 0 -18px 10px;
     }
     .sublime-text-go-img {
-        margin: 0 0 -9px 39px;
+        margin: 0 0 -18px 22px;
+    }
+}
+@media (min-width: 992px) {
+    .instruction-container .container {
+        width: 814px;
+    }
+}
+@media (max-width: 978px) {
+    .navbar-inverse .navbar-collapse {
+        float: left!important;
+        margin-left: 12px;
+    }
+    .navbar-inverse .navbar-nav > li > a {
+        font-size: 15px;
+    }
+    .theme-logo {
+        font-size: 17px;
+    }
+    .download-header-img{
+        display: none;
     }
 }

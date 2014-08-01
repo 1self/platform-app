@@ -11,13 +11,13 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 center">
-                        <h3>Don't see your tool listed? Subscribe to let us know</h3>
+                        <h3 class="download-header-info">Your tool is missing? Tell us! We'll email you when it's ready</h3>
                         <div class="input-append">
                             <!-- Begin MailChimp Signup Form -->
                             <div id="mc_embed_signup">
                                 <form action="http://QuantifiedDev.us8.list-manage.com/subscribe/post?u=6cba468ceea6fc41a7d7db50e&amp;id=36b7c99957" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate role="form">
                                     <div class="form-group">
-                                        <input type="email" value="" name="EMAIL" class="input input-lg" id="mce-EMAIL" placeholder="you@email.com" required>
+                                        <input type="email" value="" name="EMAIL" class="input input-lg download-input " id="mce-EMAIL" placeholder="you@email.com" required>
                                     </div>
                                     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                                     <div style="position: absolute; left: -5000px;">
@@ -25,7 +25,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-prominent btn-lg custom-signup">
+                                        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-prominent btn-lg download-input download-input-btn">
                                     </div>
                                 </form>
                             </div>
@@ -36,56 +36,74 @@
         <section class="white">
             <div class="container center download-img-container">
                 <div class="row gap">
-                    <div class="col-xs-1 col-sm-3"></div>
-                    <div class="col-xs-10 col-sm-6 active-plugin-img-container">
-                        <div class="col-xs-4">
-                            <a href="#sublime-text3">
+
+                    <div class="col-xs-12 col-sm-12 active-plugin-img-container">
+                        <div class="col-xs-0 col-sm-0 col-md-2"></div>
+                        <div class="col-xs-3 col-sm-3 col-md-2">
+                            <a ng-href="/{{'index_new.html#/download/#sublime-text3'}}">
                                 <img id="plugins" src="images/sublime.png">
                             </a>
                         </div>
-                        <div class="col-xs-4">
-                            <a href="#intellij">
+                        <div class="col-xs-3 col-sm-3 col-md-2">
+                            <a ng-href="/{{'index_new.html#/download/#intellij'}}">
                                 <img id="plugins" src="images/idea.png">
                             </a>
                         </div>
-                        <div class="col-xs-4">
-                            <a href="#visual-studio-details">
+                        <div class="col-xs-3 col-sm-3 col-md-2">
+                            <a ng-href="/{{'index_new.html#/download/#visual-studio-details'}}">
                                 <img id="plugins" src="images/visualstudio.png">
                             </a>
                         </div>
+                        <div class="col-xs-3 col-sm-3 col-md-2">
+                            <img id="plugins" src="images/eclipse.png">
+                        </div>
+                        <div class="col-xs-0 col-sm-0 col-md-2"></div>
                     </div>
-                    <div class="col-xs-1 col-sm-3"></div>
+
                 </div>
                 <div class="row adjust-width-download gap">
-                    <div class="col-xs-1 col-sm-3"></div>
-                    <div class="col-xs-10 col-sm-6">
-                        <img id="plugins" src="images/plugin-row-1.png">
+                    <div class="col-xs-12 col-sm-12 active-plugin-img-container">
+                        <div class="col-xs-0 col-sm-0 col-md-2"></div>
+                    <div class="col-xs-3 col-sm-3 col-md-2">
+                        <img id="plugins" src="images/ws.png">
                     </div>
-                    <div class="col-xs-1 col-sm-3"></div>
+                    <div class="col-xs-3 col-sm-3 col-md-2">
+                        <img id="plugins" src="images/m.png">
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-2">
+                        <img id="plugins" src="images/material.png">
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-2">
+                        <img id="plugins" src="images/vm.png">
+                    </div>
+                    <div class="col-xs-0 col-sm-0 col-md-2"></div>
+                    
                 </div>
-                <div class="row adjust-width-download">
-                    <div class="col-xs-1 col-sm-3"></div>
-                    <div class="col-xs-10 col-sm-6">
+                </div>
+                <!--   <div class="row adjust-width-download">
+
+                    <div class="col-xs-12 col-sm-12">
                         <img id="plugins" src="images/plugin-row-2.png">
                     </div>
-                    <div class="col-xs-1 col-sm-3"></div>
-                </div>
+
+                </div> -->
             </div>
         </section>
-        <section class="dark-grey padding-top-zero padding-bottom-fifty">
-           <div id="sublime-text3" class="instruction-container">
+        <section class="dark-grey padding-top-zero padding-bottom-fifty" id="plug-in-conatiner">
+            <div id="sublime-text3" class="instruction-container">
                 <div class="container white-background-conatiner center instruction">
                     <div class="row download-head-section">
-                        <div class="col-xs-4">
+                        <div class="col-xs-3 col-sm-3">
                             <img src="images/sublime.png" class="download-logo">
                         </div>
-                        <div class="col-xs-8">
+                        <div class="col-xs-9 col-sm-8">
                             <h1>Sublime Text3</h1>
                             <div class="form-group">
                                 <input type="submit" value="Download" name="download-intellij" id="mc-embedded-download" class="btn btn-prominent custom-signup btn-lg btn-sm single-download-btn">
                                 <img src="images/go.png" class="go-img sublime-text-go-img">
                             </div>
                         </div>
+                        <div class="col-xs-0 col-sm-1"></div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
@@ -125,7 +143,7 @@
             <div id="intellij" class="instruction-container">
                 <div class="container white-background-conatiner center instruction">
                     <div class="row download-head-section">
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
                             <img src="images/idea.png" class="download-logo">
                         </div>
                         <div class="col-xs-8">
@@ -135,6 +153,7 @@
                                 <img src="images/go.png" class="go-img">
                             </div>
                         </div>
+                         <div class="col-xs-1"></div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
@@ -158,20 +177,21 @@
                     </div>
                 </div>
             </div>
-            
-             <div id="visual-studio-details" class="instruction-container">
+
+            <div id="visual-studio-details" class="instruction-container">
                 <div class="container white-background-conatiner center instruction">
                     <div class="row download-head-section">
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
                             <img src="images/visualstudio.png" class="download-logo">
                         </div>
                         <div class="col-xs-8">
                             <h1>Visual Studio</h1>
                             <div class="form-group">
-                                <input type="submit" value="Download 2010" name="download-visual-studio" id="mc-embedded-download" class="btn btn-prominent custom-signup btn-lg btn-sm">
                                 <input type="submit" value="Download 2012" name="download-visual-studio" id="mc-embedded-download" class="btn btn-prominent custom-signup btn-lg btn-sm">
+                                <input type="submit" value="Download 2013" name="download-visual-studio" id="mc-embedded-download" class="btn btn-prominent custom-signup btn-lg btn-sm">
                             </div>
                         </div>
+                        <div class="col-xs-1"></div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 padding-top-bottom-zero">
@@ -195,5 +215,8 @@
                 </div>
             </div>
         </section>
+        </div>
+        <div id="top-button" onclick="goToTop();" class="go-to-top">
+            <img src="images/Button-Up.png">
         </div>
     </div>
