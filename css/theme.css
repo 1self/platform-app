@@ -166,17 +166,12 @@ section.dark {
 /*download Css*/
 
 .download-title {
-    color: #363636;
     font-size: 89px;
     font-weight: bold;
     margin-left: 10px;
     margin-right: 10px;
 }
-.download-header-img {
-    width: 100px;
-    height: auto;
-    margin-top: -56px;
-}
+
 .instruction {
     margin-top: 20px;
     border-radius: 5px;
@@ -253,25 +248,23 @@ section.dark-grey {
     padding-bottom: 50px;
 }
 .download-header-info {
-    font-size: 31px;
+    font-size: 28.4px;
 }
 #mce-EMAIL.download-input, #mc-embedded-subscribe.download-input {
-    width: 400px;
+    width: 373px;
     border-radius: 5px;
     margin-right: 6px;
     height: 40px;
-    color: #393939;
     border: 1px solid #D8D8D8;
     padding-top: 6px;
+    margin-right: 4px;
 }
-.download-input-btn {
-    background: url("../images/btn-bg.png") repeat-x;
-}
+
 .instruction h1 {
     font-size: 58px;
 }
 .instruction .custom-signup {
-    font-size: 29px;
+    font-size: 27px;
 }
 .go-to-top {
     position: fixed;
@@ -318,4 +311,11 @@ footer .unstyled {
 .navbar-inverse .navbar-toggle{
     border: 1px solid #333;
     box-shadow: 0 0 2px #000;
+}
+.faint-black-text{
+    color: #5a5a5a;
+}
+.active-plugin-img-container{
+    padding-right: 0;
+    padding-left: 0;
 }

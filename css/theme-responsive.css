@@ -4,14 +4,14 @@
         margin: 18px 100px 18px auto;
         float: right;
     }
-    /*.download-container .instruction {
-        width: 540px;
-    }*/
     .instruction .single-download-btn {
         padding: 5px 51px;
     }
     .navbar .container {
         width: 98%;
+    }
+    .navbar-inverse .navbar-collapse{
+        height: auto!important;
     }
 }
 @media (max-width: 767px) {
@@ -43,10 +43,7 @@
     .download-container .custom-heading {
         margin-top: 72px;
     }
-    .download-header-img {
-        width: 64px;
-        display: none;
-    }
+    
     .padding-left-right-zero {
         padding-right: 0;
         padding-left: 0;
@@ -127,7 +124,7 @@
 }
 @media (min-width: 992px) {
     .instruction-container .container {
-        width: 814px;
+        width: 758px;
     }
 }
 @media (max-width: 978px) {
@@ -140,10 +137,5 @@
     }
     .theme-logo {
         font-size: 17px;
-    }
-}
-@media (max-width: 992px) {
-    .download-header-img {
-        display: none;
     }
 }
