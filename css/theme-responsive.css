@@ -10,7 +10,7 @@
     .navbar .container {
         width: 98%;
     }
-    .navbar-inverse .navbar-collapse{
+    .navbar-inverse .navbar-collapse {
         height: auto!important;
     }
 }
@@ -21,8 +21,8 @@
     .plan h2, .download-container h3 {
         font-size: 20px
     }
-    .quick-instruction p{
-        font-size: 16px   
+    .quick-instruction p {
+        font-size: 16px
     }
     .navbar-nav > li > a.custom-signup, .custom-signup {
         margin-left: 0;
@@ -38,12 +38,11 @@
     }
     .custom-heading {
         margin-top: 32px;
-        font-size: 60px;
+        font-size: 25px;
     }
     .download-container .custom-heading {
         margin-top: 72px;
     }
-    
     .padding-left-right-zero {
         padding-right: 0;
         padding-left: 0;
@@ -60,11 +59,14 @@
         width: 67px;
         margin: 0 0 -8px 25px;
     }
-    .navbar .container{
+    .navbar .container {
         padding-left: 0;
         padding-right: 0;
     }
-
+    .navbar-nav > li > a.custom-btn {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
 }
 @media (max-width: 700px) {
     .download-container .instruction h1 {
