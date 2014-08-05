@@ -94,13 +94,13 @@
             <div class="collapse navbar-collapse pull-right">
                 <ul class="nav navbar-nav">
 
-                    <li ng-class="{ active:tab === 1 }"><a href="#home" ng-click="tab = 1">Home</a>
+                    <li ng-class="{ active:tab === 1 }"><a  data-toggle="collapse" data-target=".navbar-collapse" href="#home" ng-click="tab = 1">Home</a>
                     </li>
-                    <li><a href="#features">Feature</a>
+                    <li><a  data-toggle="collapse" data-target=".navbar-collapse" href="#features">Feature</a>
                     </li>
-                    <li><a href="http://blog.QuantifiedDev.org">Blog</a>
+                    <li><a data-toggle="collapse" data-target=".navbar-collapse" href="http://blog.QuantifiedDev.org">Blog</a>
                     </li>
-                    <li ng-class="{ active:tab === 2 }"><a href="#download" ng-click="tab = 2" onClick="showTopButton();">Download</a>
+                    <li ng-class="{ active:tab === 2 }"><a data-toggle="collapse" data-target=".navbar-collapse" href="#download" ng-click="tab = 2" onClick="showTopButton();">Download</a>
                     </li>
                     <li ng-class="{ active:tab === 3 }"><a href="#contact-us" ng-click="tab = 3">Contact</a>
                     </li>

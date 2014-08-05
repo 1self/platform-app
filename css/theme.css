@@ -314,5 +314,8 @@ footer .unstyled {
 }
 .social-container li  a:hover{
     opacity: 1;
-
+}
+.navbar-inverse .navbar-toggle{
+    border: 1px solid #333;
+    box-shadow: 0 0 2px #000;
 }
