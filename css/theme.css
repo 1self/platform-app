@@ -301,3 +301,18 @@ section.dark-grey {
 .dark-grey-text,a.dark-grey-text:hover{
     color: #656565;
 }
+.social-link{
+    display: inline-block;
+    opacity: 0.9;
+}
+footer .unstyled {
+    padding: 0;
+}
+.contactus-privacy-container a:hover{
+    color: #393939;
+    text-decoration: none;
+}
+.social-container li  a:hover{
+    opacity: 1;
+
+}

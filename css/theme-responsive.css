@@ -21,6 +21,9 @@
     .plan h2, .download-container h3 {
         font-size: 20px
     }
+    .quick-instruction p{
+        font-size: 16px   
+    }
     .navbar-nav > li > a.custom-signup, .custom-signup {
         margin-left: 0;
     }
@@ -48,7 +51,7 @@
         padding-left: 0;
     }
     .download-container .instruction {
-        width: 90%;
+        width: 89%;
         padding-left: 0;
         padding-right: 0;
     }

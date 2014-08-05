@@ -94,7 +94,7 @@ footer {
 }
 footer .links li {
   display: inline-block;
-  margin-left: 20px;
+  margin: 0 3px;
 }
 footer .rights {
   font-size: 13px;
