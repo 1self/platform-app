@@ -129,7 +129,7 @@ section.dark {
     background: url("../images/close.png") no-repeat;
 }
 .contact-us-icon {
-    width: 50px;
+    width: 60px;
     height: auto;
 }
 .left {
@@ -137,7 +137,7 @@ section.dark {
     display: block;
 }
 .contact-us-text {
-    width: 66%;
+    width: 70%;
     margin-top: 13px;
     margin-left: 10px;
 }
@@ -170,8 +170,8 @@ section.dark {
     font-weight: bold;
     margin-left: 10px;
     margin-right: 10px;
+    text-transform: uppercase;
 }
-
 .instruction {
     margin-top: 20px;
     border-radius: 5px;
@@ -259,7 +259,6 @@ section.dark-grey {
     padding-top: 6px;
     margin-right: 4px;
 }
-
 .instruction h1 {
     font-size: 58px;
 }
@@ -275,47 +274,54 @@ section.dark-grey {
     display: none;
     overflow: hidden;
 }
-.go-to-top img{
+.go-to-top img {
     width: 50px;
     height: 50px;
     border-radius: 5px;
     opacity: 0.9;
 }
-.go-to-top img:hover{
+.go-to-top img:hover {
     opacity: 1;
 }
-.underline,a.dark-grey-text:hover{
+.underline, a.dark-grey-text:hover {
     text-decoration: underline;
 }
-.quick-instruction p{
+.quick-instruction p {
     font-size: 18px;
     margin: 0 0 5px;
 }
-.dark-grey-text,a.dark-grey-text:hover{
+.dark-grey-text, a.dark-grey-text:hover {
     color: #656565;
+    text-decoration: none;
 }
-.social-link{
+a.dark-grey-text:hover {
+    color: #393939;
+ }
+.social-link {
     display: inline-block;
     opacity: 0.9;
 }
 footer .unstyled {
     padding: 0;
 }
-.contactus-privacy-container a:hover{
+.contactus-privacy-container a:hover {
     color: #393939;
     text-decoration: none;
 }
-.social-container li  a:hover{
+.social-container li a:hover {
     opacity: 1;
 }
-.navbar-inverse .navbar-toggle{
+.navbar-inverse .navbar-toggle {
     border: 1px solid #333;
     box-shadow: 0 0 2px #000;
 }
-.faint-black-text{
+.faint-black-text {
     color: #5a5a5a;
 }
-.active-plugin-img-container{
+.active-plugin-img-container {
     padding-right: 0;
     padding-left: 0;
+}
+.margin-bottom-65 {
+    margin-bottom: 65px;
 }
