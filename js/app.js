@@ -3,9 +3,9 @@
 
     app.controller('angular-application', function($scope, $location, $anchorScroll) {
         
-        this.tab = 1;
-        this.selectTab = function(setTab) {
+        $scope.selectTab = function(setTab) {
             this.tab = setTab;
+             $(window).scrollTop(0);
         };
 
         $scope.$watch(function() {
