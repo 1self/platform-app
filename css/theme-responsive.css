@@ -26,6 +26,9 @@
     .more-info-wrapper .more-info-subtitle-small {
        text-align: left;
     }
+    .more-info .custom-heading{
+        margin-bottom: 27px;
+    }
 }
 @media (max-width: 767px) {
     .plan h1 {
@@ -81,7 +84,7 @@
         text-align: center;
     }
     .more-info-subtitle-big,.more-info-section-heading {
-        font-size: 28px;
+        font-size: 26px;
         line-height: 25px;
     }
     .more-info-subtitle-small {
@@ -93,6 +96,9 @@
     .mobile-padding-left-right-zero{
         padding-left: 0;
         padding-right: 0;
+    }
+    .home .plan{
+        padding: 0;
     }
 }
 @media (max-width: 700px) {
