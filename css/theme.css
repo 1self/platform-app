@@ -27,6 +27,9 @@ section.dark, .pricing .dark, .dark {
 .bold {
     font-weight: bold;
 }
+.red-text , a.red-text:hover{
+    color: #b63434;
+}
 .nav {
     padding-top: 5px;
 }
@@ -368,4 +371,7 @@ footer .unstyled {
 }
 .more-info-wrapper .more-info-subtitle-big{
     text-align: left;
+}
+.quick-instruction .get-help-msg{
+    margin-top: 25px;
 }

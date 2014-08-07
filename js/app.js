@@ -7,13 +7,16 @@
             this.tab = setTab;
             $(window).scrollTop(0);
             if (setTab == 2) {
-
-                setTimeout(
+                
+                 $('.carousel').carousel({
+                            interval: 2000
+                        })
+                /*setTimeout(
                     function() {
                         $('.carousel').carousel({
                             interval: 2000
                         })
-                    }, 5000);
+                    }, 5000);*/
             }
         };
 
