@@ -8,7 +8,7 @@
 }
 
 .carousel-inner{
-	height: 180px;
+	height: 140px;
 }
 
 #headline-id{
@@ -17,11 +17,11 @@
 }
 
 .carousel-indicators li{
-	border: 1px solid black;
+	border: 1px solid  #989898;
 }
 
 .carousel-indicators .active{
-	background-color: black;
+	background-color:  #989898;
 }
 
 .mainlogo{
