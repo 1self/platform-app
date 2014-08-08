@@ -14,7 +14,18 @@ var showTopButton = function() {
             $("#top-button").hide();
         }
     });
-
+}
+var showTopButtonForMoreInfo = function() {
+    $(window).scroll(function() {
+        var scrollTop = $(window).scrollTop();
+        var elementOffset = $('#videoConatiner').offset().top;
+        var distance = (elementOffset - scrollTop);
+        if (distance < 20) {
+            $("#top-button-on-more-info").show();
+        } else {
+            $("#top-button-on-more-info").hide();
+        }
+    });
 }
 var goToTop = function(){
 	$('html,body').animate({
