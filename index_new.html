@@ -74,6 +74,7 @@
     <!--[if lt IE 7]>
     <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
+    <!-- header starts-->
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -114,7 +115,8 @@
         </div>
 
     </div>
-
+    <!-- header ends-->
+<!-- pop-up starts -->
     <div class="body">
         <div class="modal fade custom-modal" id="signup" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
             <div class="modal-dialog">
@@ -156,55 +158,9 @@
         </div>
     </div>
 
-    <div ng-show="tab === 1" id="home" class="home">
-        <section class="dark" id="privacy">
-            <div class="container">
-                <div class="row pricing">
-                    <div class="col-xs-12">
-                        <div class="plan dark">
-                            <center>
-                                <h1>All your software development activity in one place</h1>
-                                <h2>Track, correlate, compare, discover and visualize the data about you</h2>
-                            </center>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="dark" id="signup">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-0 center"></div>
-                    <div class="col-md-3 col-sm-3 col-xs-12 center btn-container">
-                        <a class="custom-btn custom-signup" data-toggle="modal" data-target="#signup">Get Started</a>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-12 center btn-container">
-                        <a class="custom-btn custom-login">Learn More</a>
-                    </div>
+  <!-- pop up ends -->
 
-
-                    <div class="col-md-3 col-sm-3 col-xs-0 center"></div>
-                </div>
-            </div>
-        </section>
-        <section class="white" id="privacy">
-            <div class="container" id="temp">
-                <div class="row pricing">
-                    <div class="col-xs-2">
-                        &nbsp;
-                    </div>
-                    <div class="col-xs-8">
-                        <img class="img-responsive" src="images/oneself-responsive-view.png" />
-                    </div>
-                    <div class="col-xs-2">
-                        &nbsp;
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-   
+   <div ng-include src="'home.html'"></div>
     <div ng-include src="'more-info.html'"></div>
     <div ng-include src="'download.html'"></div>
 
