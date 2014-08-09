@@ -1,0 +1,117 @@
+a:hover {
+    text-decoration: none;
+    color: #FFF;
+}
+.navbar-inverse {
+    box-shadow: 0 8px 6px -6px #000;
+}
+.theme-logo {
+    font-size: 23px;
+}
+/*.navbar-inverse .navbar-nav > li > a {
+    font-size: 18px;
+}*/
+section.dark, .pricing .dark, .dark {
+    background: #393939;
+}
+.nav {
+    padding-top: 5px;
+}
+.pricing .dark {
+    color: #FFF;
+}
+section.dark {
+    padding: 60px 0 0px 0;
+}
+.navbar-nav > li > a.custom-btn, .custom-btn {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    color: #FFF;
+    margin-top: 6px;
+}
+.navbar-nav > li > a.custom-login, .custom-login {
+    color: #FFF;
+    border: 1px solid #ccc;
+}
+.navbar-nav > li > a.custom-login:hover, .custom-login:hover, .navbar-nav > li > a.custom-signup:hover, .custom-signup:hover {
+    opacity: 0.8
+}
+.navbar-nav > li > a.custom-signup, .navbar-nav > li > a.custom-signup:hover, .signup-button {
+    background: #3fc73a;
+}
+.navbar-nav > li > a.custom-signup, .custom-signup {
+    border: 1px solid #3fc73a;
+    margin-left: 5px;
+    background: #3fc73a;
+}
+.btn-container .custom-btn {
+    width: 100%;
+    display: block;
+    font-size: 21px;
+    cursor: pointer;
+}
+.custom-modal .modal-header {
+    padding: 0 15px;
+}
+.step-heading {
+    margin: 27px 0 0 0;
+    font-weight: bold;
+    font-size: 15px;
+}
+.header-text {
+    margin-top: 10px;
+}
+/*sign-up pop-up CSS */
+
+.margin-top-five, .custom-error {
+    margin-top: 5px;
+}
+.signup-button {
+    /*border: 1px solid #54FFFA;*/
+    width: 100%;
+}
+.btn:hover, .btn:focus, .signup-button {
+    color: #FFF;
+}
+.login-link-container {
+    font-size: 18px;
+}
+.login-link-container, .signup-message {
+    margin-top: 15px;
+}
+.signup-details {
+    color: #979797;
+}
+.custom-modal .modal-content {
+    border: 2px solid #000;
+    border-radius: 0;
+    background: #515151;
+}
+.custom-modal .modal-header {
+    border-bottom: none;
+}
+.header-text {
+    color: #E2E2E2;
+}
+.custom-modal .modal-header {
+    border-bottom: none;
+    margin-top: 11px;
+}
+/*sign-up pop-up CSS */
+
+.pop-up-close {
+    margin-right: 10px;
+    background: url("../images/close.png") no-repeat;
+    height: 20px;
+    width: 20px;
+    border: none;
+ }
+ .pop-up-close:hover{
+    background: url("../images/close.png") no-repeat;
+ }
+ .pad-top {
+    padding-top: 26px;
+ }
+ .pad-bottom {
+    padding-bottom: 26px;
+ }
