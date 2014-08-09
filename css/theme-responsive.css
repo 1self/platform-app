@@ -103,6 +103,10 @@
     .carousel-inner {
         height: 207px;
     }
+    .container > .navbar-header {
+        margin-left: 14px;
+        margin-right: 0px;
+    }
 }
 @media (max-width: 700px) {
     .download-container .instruction h1 {
