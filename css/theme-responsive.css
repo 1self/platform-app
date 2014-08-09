@@ -178,7 +178,8 @@
         font-size: 15px;
     }
     .theme-logo {
-        font-size: 17px;
+                font-size: 19px;
+margin-top: 18px;
     }
 }
 @media (max-width: 600px) {

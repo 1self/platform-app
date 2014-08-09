@@ -3,24 +3,33 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js">
+<html class="no-js" ng-app="main">
 <!--<![endif]-->
 
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>QuantifiedDev | Become a better developer</title>
+    <title>QuantifiedDev | All your software development activity in one place</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <meta name="google-site-verification" content="2nQMCYUg7F7nHAOl6fTyThrdNcOmOT7cXKWOMfB0onk" />
     <link rel="stylesheet" href="bootstrap-3.1.1/css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/download.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/theme-responsive.css">
+    <link rel="stylesheet" href="css/github.css">
+
     <link rel="shortcut icon" href="/app/img/quantified-dev-favicon.ico">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
     <script src="bootstrap-3.1.1/js/bootstrap.js"></script>
     <script src="js/bootstrap-carousel-interval-array.js"></script>
+    <script src="js/angular.min.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/highlight.pack.js" type="text/javascript"></script>
+
     <script>
     window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js"><\/script>')
     </script>
@@ -58,22 +67,14 @@
     else if (element.attachEvent) element.attachEvent('on' + type, callback);
     }*/
     </script>
-    <script>
-    var vimeoCategory = "vimeo";
-    $(document).ready(function() {
-        vimeoCategory = "vimeo_chart";
-        $("#vidDiv1").append('<iframe id="vimeoPlayer" src="http://player.vimeo.com/video/91935724?title=0&amp;byline=0&amp;portrait=0&amp;color=38e8ae" width="500" height="281" frameborder="0" data-progress="true" data-seek="true" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
-       
-        ga('send', 'event', vimeoCategory, 'loaded video');
-    });
-    </script>
     <a href="https://plus.google.com/103831210163166259412" rel="publisher">Google+</a>
 </head>
 
-<body data-spy="scroll" data-target=".navbar">
+<body data-spy="scroll" data-target=".navbar" ng-controller="angular-application as angular" ng-init="tab=1">
     <!--[if lt IE 7]>
     <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
+    <!-- header starts-->
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -85,340 +86,88 @@
                 </button>
 
                 <div class="mainlogo">
-                <a class="brand" href="/">
-                    <img src="/app/img/quantified-dev-logo.png" />
-                </a>
+                    <a class="brand" href="/">
+                        <!--img src="/app/img/quantified-dev-logo.png" /-->
+                        <h1 class="theme-logo">QuantifiedDev</h1>
+                    </a>
                 </div>
             </div>
             <div class="collapse navbar-collapse pull-right">
                 <ul class="nav navbar-nav">
-                    <li class="active" id="liclass"><a href="#top" id="navbar_top">Top</a>
+
+                    <li ng-class="{ active:tab === 1 }"><a data-toggle="collapse" data-target=".navbar-collapse" href="#home" ng-click="selectTab(1)">Home</a>
                     </li>
-                    <li><a href="#signup" id="navbar_signup">Sign Up</a>
+                    <li ng-class="{ active:tab === 2 }"><a data-toggle="collapse" data-target=".navbar-collapse" href="#more-info" ng-click="selectTab(2)" onClick="showTopButtonForMoreInfo();">More info</a>
                     </li>
-                    <li><a href="#moreinfo" id="navbar_moreinfo">More Info</a>
+                    <li><a data-toggle="collapse" data-target=".navbar-collapse" href="http://blog.QuantifiedDev.org">Blog</a>
                     </li>
-                    <li><a href="#download" id="navbar_download">Download</a>
+                    <li ng-class="{ active:tab === 3 }"><a data-toggle="collapse" data-target=".navbar-collapse" href="#download" ng-click="selectTab(3)" onClick="showTopButton();">Download</a>
                     </li>
-                    <li><a href="http://blog.QuantifiedDev.org" id="navbar_blog">Blog</a>
+                    <li ng-class="{ active:tab === 4 }"><a data-toggle="collapse" data-target=".navbar-collapse" href="#contact-us" ng-click="selectTab(4)">Contact</a>
                     </li>
-                    <li><a href="http://app.quantifieddev.org/dashboard" id="navbar_mydashboard">My Dashboard</a>
+                    <li><a id="navbar_mydashboard" class="custom-btn custom-login" onClick="signup();">Log In</a>
+                    </li>
+                    <li><a href="http://app.quantifieddev.org/dashboard" id="navbar_mydashboard" class="custom-btn custom-signup" data-toggle="modal" data-target="#signup">Sign Up</a>
                     </li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
         </div>
+
     </div>
+    <!-- header ends-->
+<!-- pop-up starts -->
     <div class="body">
-        <section class="center" id="top">
-            <div class="container">
-                <div class="row" id="headline-id">
-                    <div class="col-xs-12 col-sm-7" id="carousel-container-id">
-                        <div id="myCarousel" class="carousel " data-ride="carousel" data-interval="false" data-interval-array="true">
-                            <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                                <li data-target="#myCarousel" data-slide-to="2"></li>
-                                <li data-target="#myCarousel" data-slide-to="3"></li>
-                                <li data-target="#myCarousel" data-slide-to="4"></li>
-                                <li data-target="#myCarousel" data-slide-to="5"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="item item-padded active" data-array-step-pause="6000">
-                                    <h1>Track</h1>
-                                    <p class="lead">Log and compare your software development data for personal insights</p>
-                                    <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
-                                    <a class="btn btn-large" href="#">Boring!</a> -->
-
-                                </div>
-                                <div class="item item-padded " data-array-step-pause="4000">
-                                    <h1>Connect</h1>
-                                    <p class="lead">Plug in your favourite dev tools to auto-log your data
-                                    </p>
-                                    <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
-                                    <a class="btn btn-large" href="#">Boring!</a> -->
-                                </div>
-                                <div class="item item-padded" data-array-step-pause="4000">
-                                    <h1>Keep</h1>
-                                    <p class="lead">Your personal record - across projects, tools and languages</p>
-                                    <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
-                                    <a class="btn btn-large" href="#">Boring!</a> -->
-                                </div>
-                                <div class="item item-padded" data-array-step-pause="4000">
-                                    <h1>Improve</h1>
-                                    <p class="lead">See what affects the metrics that matter to you<br />Set targets to improve them
-                                    </p>
-                                    <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
-                                    <a class="btn btn-large" href="#">Boring!</a> -->
-                                </div>
-                                <div class="item item-padded" data-array-step-pause="4000">
-                                    <h1>Compare</h1>
-                                    <p class="lead">See how you compare to your peers, your team and the experts</p>
-                                    <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
-                                    <a class="btn btn-large" href="#">Boring!</a> -->
-                                </div>
-                                <div class="item item-padded" data-array-step-pause="4000">
-                                    <h1>Prove</h1>
-                                    <p class="lead">Improve your career prospects with your provable skills CV</p>
-                                    <!-- <a class="btn btn-large" href="#">Yes, I want this!</a>
-                                    <a class="btn btn-large" href="#">Boring!</a> -->
-                                </div>
+        <div class="modal fade custom-modal" id="signup" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="row">
+                            <button type="button" class="btn btn-default pull-right pop-up-close" data-dismiss="modal"></button>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <h2 class="header-text">Signup</h2>
                             </div>
-
-                        </div>
-                        <!-- /.carousel -->
-
-                    </div>
-                    <div class="video col-xs-12 col-sm-5" id="vidDiv1">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="dark" id="signup">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 center">
-                        <h2 class="cursive">Sign up to get the earliest updates</h2>
-                        <div class="input-append">
-                            <!-- Begin MailChimp Signup Form -->
-                            <div id="mc_embed_signup">
-                                <form action="http://QuantifiedDev.us8.list-manage.com/subscribe/post?u=6cba468ceea6fc41a7d7db50e&amp;id=36b7c99957" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate role="form">
-                                    <div class="form-group">
-                                    <input type="email" value="" name="EMAIL" class="input input-lg" id="mce-EMAIL" placeholder="you@email.com" required>
-                                    </div>
-                                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                    <div style="position: absolute; left: -5000px;">
-                                        <input type="text" name="b_6cba468ceea6fc41a7d7db50e_36b7c99957" value="">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-prominent btn-lg">
-                                    </div>
-                                </form>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <h6 class="pull-right signup-details step-heading">Step 1 of 2</h6>
                             </div>
-                            <!--End mc_embed_signup-->
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row margin-top-five">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <a class="btn btn-lg signup-button" href="#" onClick="signup();">Signup with GitHub</a>
+                            </div>
+                        </div>
+                        <div class="row login-link-container">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <span class="signup-details">Already have an account?</span>
+                                <a onClick="signup();">Log in</a>
+                            </div>
+                        </div>
+                        <div class="row signup-message">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <span class="signup-details">We'll use your GitHub email address to talk to you when important things happen. We'll never share it or use it to spam you.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row center">
-                    <div class="col-xs-12 center">
-                        <a href="https://twitter.com/QuantifiedDev" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @QuantifiedDev</a>
-                        <a href="https://twitter.com/intent/tweet?button_hashtag=QuantifiedDev" class="twitter-hashtag-button" data-size="large" data-related="QuantifiedDev" data-url="http://QuantifiedDev.org">Tweet #QuantifiedDev</a>
-                        <iframe src="http://ghbtns.com/github-btn.html?user=QuantifiedDev&type=follow&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="220" height="30"></iframe>
-                    </div>
-                </div>
+
             </div>
-        </section>
-        <section class="white" id="moreinfo">
-            <div class="container">
-                <div class="row center">
-                    <div class="col-xs-12">
-                        <h3 class="cursive">QuantifiedDev is a free open source platform built by developers for developers.</h3>
-                    </div>
-                </div>
-                <div class="row pricing">
-                    <!--h1 class="trocchi center white-shadow-text"> Clear pricing, with no hidden costs. </h1-->
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="plan center">
-                            <h3>
-                                Benefits
-                            </h3>
-                            <p>
-                                QuantifiedDev is Quantified Self for developers - self knowledge through numbers.
-                            </p>
-                            <p>
-                                Plug in your favourite development tools and other sources of data to create your own private store of development statistics.
-                            </p>
-                            <p>
-                                <a href="#signup" id="moreInfoBenefitsSignUp">Sign up</a> to find out new insights about yourself by discovering new connections between data sets and by comparisons with your peers.
-                                <br />
-                                <br />
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="plan center">
-                            <h3>Possibilities</h3>
-                            <p>
-                                What's the best music for development?
-                                <br/>How can I reduce my cycle time?
-                                <br/>Is it better to pair or work alone?
-                                <br/>How do I compare to my peers?
-                                <br/>Which language is most popular?
-                                <br/>What effect does build duration have on my focus?
-                            </p>
-                            <p>
-                                QuantifiedDev gives you these answers and more
-                            </p>
-                            <p><a href="#signup" id="moreInfoPossibilitiesSignUp">Sign up</a> to start exploring
-                                <br/>
-                                <br/>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="plan center">
-                            <h3>Community</h3>
-                            <p>QuantifiedDev is a community project. We need your <a href="#getinvolved">help</a> to create useful data and to extend the platform.
-                            </p>
-                            <p>Once we're up and running QuantifiedDev will be open source. Please help us to extend the capability of QuantifiedDev by building extensions to it that plug into your favourite tools to log the information and deliver the insights that interest you.
-                            </p>
-                            <p><a href="#signup" id="moreInfoCommunitySignUp">Sign up</a> for more information and the earliest access
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="dark" id="getinvolved">
-            <div class="container">
-                <!-- List of the key, unquie features  of your app -->
-                <div class="row center">
-                    <div class="col-xs-12 col-sm-4 col-md-4">
-                        <div class="feature">
-                            <h2>More = Merrier</h2>
-                            <i class="fa fa-users featurefa"></i>
-                            <p>Start logging your own stats to help create a richer data set.</p>
-                            <p>Your personal stats are private but QuantifiedDev will aggregate statistics to enable comparisons with the wider community</p>
-                            <p><a class="btn btn-outline btn-prominent margin-verticals" href="#signup" id="getInvolvedSignUpButton">&nbsp;Sign up&nbsp;&nbsp; &raquo;</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4">
-                        <div class="feature">
-                            <h2>Help Us</h2>
-                            <i class="fa fa-plus featurefa"></i>
-                            <p>QuantifiedDev will get better and better as it is integrated with more development tools</p>
-                            <p>Help the community by extending the open source platform
-                                <br />
-                                <br />
-                            </P>
-                            <p><a class="btn btn-outline btn-prominent margin-verticals" href="https://github.com/QuantifiedDev" target="_blank" id="getInvolvedGitHubButton">&nbsp;&nbsp;GitHub&nbsp;&nbsp; &raquo;</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4">
-                        <div class="feature">
-                            <h2>Spread the word</h2>
-                            <i class="fa-bullhorn fa featurefa"></i>
-                            <p>QuantifiedDev can take off with your help</p>
-                            <p>Tell your friends and we'll soon have an amazing community
-                                <br />
-                                <br />
-                                <br />
-                            </p>
-                            <p><a class="btn btn-outline btn-prominent margin-verticals" href="https://twitter.com/intent/tweet?url=http://QuantifiedDev.org&button_hashtag=QuantifiedDev" data-related="QuantifiedDev" data-url="http://QuantifiedDev.org" id="getInvolvedTweetButton">Tweet us &raquo;</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="white" id="download">
-            <div class="container">
-                <div class="row pricing">
-                    <h1 class="trocchi center white-shadow-text">Downloads</h1>
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="plan">
-                            <h3>
-                                Visual Studio extension
-                            </h3>
-                            <p>
-                                Our VS 2013 and VS 2012 extension currently logs each build that you perform and whether that build succeeded or failed. It will also ask you for your location when you initially install it. Support for 2010 is coming soon. <a href="#signup">Sign up to be notified when VS2010 support is ready</a>.
-                            </p>
-                            <p>
-                                <a href="https://github.com/QuantifiedDev/plugin-binaries/blob/master/visualstudio-plugin/quantifieddev-visualstudio2013-plugin-0.1.0.beta.vsix?raw=true" class="btn btn-outline btn-prominent margin-verticals" id="downloadVS2013ExtensionLink">Download VS 2013 extension<br /><small>No sign up required. Logs anonymously</small></a>
-                            </p>
-                            <p>
-                                <a href="https://github.com/QuantifiedDev/plugin-binaries/blob/master/visualstudio-plugin/quantifieddev-visualstudio2012-plugin-0.1.0.beta.vsix?raw=true" class="btn btn-outline btn-prominent margin-verticals" id="downloadVS2012ExtensionLink">Download VS 2012 extension<br /><small>No sign up required. Logs anonymously</small></a>
-                            </p>
-                            <p><a href="/app">Visit your QuantifiedDev dashboard</a> and enter your stream id and token from the VS extension window to see your data.</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="plan">
-                            <h3>
-                                IntelliJ Idea Plugin
-                            </h3>
-                            <p>
-                                Our IntelliJ Idea plugin currently logs each build that you perform and whether that build succeeded or failed. It will also ask you for your location when you initially install it. We support Java 1.6, 1.7 and 1.8 runtimes. <a href="#signup">Sign up to be notified when we make further updates</a>.
-                            </p>
-                            <p>
-                                <a href="https://github.com/QuantifiedDev/plugin-binaries/blob/master/intellijidea-plugin/quantifieddev-idea-plugin-0.13.7.beta1.zip?raw=true" class="btn btn-outline btn-prominent margin-verticals" id="downloadIntelliJExtensionLink">Download IntelliJ IDEA plugin<br /><small>No sign up required. Logs anonymously</small></a>
-                                <br />
-                                [<a href="https://github.com/QuantifiedDev/intellij-idea-plugin" target="_blank">Installation instructions</a>]
-                            </p>
-                            <p><a href="/app">Visit your QuantifiedDev dashboard</a> and enter your stream id and token from the IDE extension window to see your data.</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="plan">
-                            <img src="images/BuildFreqByDay.png" class="build-graph"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="dark" id="privacy">
-            <div class="container">
-                <div class="row pricing">
-                    <h1 class="trocchi center white-shadow-text">Privacy</h1>
-                    <div class="col-xs-12">
-                        <div class="plan">
-                            <p>
-                                We value your privacy. Your data is your data. Identifiable and individual data will always remain private unless you choose to share it. If there are large enough data groups to aggregate your data into without it there being a possibility of identifying you then we will do this so that we can show you comparisons of your data versus the average of a certain group - e.g. How do I compare to other developers in my city?
-                            </p>
-                            <p>
-                                You can export your data from QuantifiedDev at any time if you want to use it elsewhere. You can also delete your data from QuantifiedDev at any time, though we hope you won't want to.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </div>
-    <footer>
-        <!--ul class="unstyled links center">
-            <li>
-            <a href="">
-            Contact Us
-            </a>
-        </li>
-            <li>
-            <a href="">
-            FAQ
-            </a>
-        </li>
-            <li>
-            <a href="">
-            Privacy Policy
-            </a>
-        </li>
-            <li>
-            <a href="">
-            Terms of Service
-            </a>
-        </li>
-    </ul-->
-        <ul class="unstyled rights center">
-            <li>
-                Copyright &copy; 2014 QuantifiedDev. All rights reserved
-            </li>
-        </ul>
-    </footer>
+
+  <!-- pop up ends -->
+
+   <div ng-include src="'home.html'"></div>
+    <div ng-include src="'more-info.html'"></div>
+    <div ng-include src="'download.html'"></div>
+
+    <div ng-include src="'contact.html'"></div>
+
+    <div ng-include src="'footer.html'"></div>
     <link href='http://fonts.googleapis.com/css?family=Questrial|Lato:300,400,700,900,300italic,400italic,700italic,900italic|Trocchi' rel='stylesheet' type='text/css'>
-    <script>
-    ! function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0],
-            p = /^http:/.test(d.location) ? 'http' : 'https';
-        if (!d.getElementById(id)) {
-            js = d.createElement(s);
-            js.id = id;
-            js.src = p + '://platform.twitter.com/widgets.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }
-    }(document, 'script', 'twitter-wjs');
-    </script>
     <script>
     ! function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],
@@ -434,6 +183,7 @@
     <script type="text/javascript" src="js/fitvid.js"></script>
     <script type="text/javascript" src="js/launch.js"></script>
     <script type="text/javascript" src="js/vimeo.ga.js"></script>
+    <script type="text/javascript" src="js/website.js"></script>
     <script type="text/javascript">
     $('#navbar_top').on('click', function() {
         ga('send', 'event', 'navbar_link', 'navbar_top_click');
@@ -483,17 +233,16 @@
     });
     $('#downloadVS2013ExtensionLink').on('click', function() {
         ga('send', 'event', 'download', 'DownloadVS2013Extension_click');
-    });  
+    });
     $('#downloadVS2012ExtensionLink').on('click', function() {
         ga('send', 'event', 'download', 'DownloadVS2012Extension_click');
     });
     $('#downloadIntelliJExtensionLink').on('click', function() {
         ga('send', 'event', 'download', 'DownloadIntelliJExtension_click');
     });
-
-
+    /* For code highlighting*/
     </script>
-    
+
 </body>
 
 </html>

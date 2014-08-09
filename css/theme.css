@@ -17,6 +17,7 @@ a:hover {
 }
 .theme-logo {
     font-size: 23px;
+    margin-top: 18px;
 }
 .navbar-inverse .navbar-nav > li > a {
     font-size: 18px;
