@@ -23,7 +23,7 @@
                 controller: 'moreInfoCtrl'
 
             }).
-             when('/privacy', {
+            when('/privacy', {
                 templateUrl: 'privacy.html'
             }).
             otherwise({
@@ -33,21 +33,6 @@
     ]);
 
     qdApp.controller('angular-application', function($scope, $location, $anchorScroll) {
-
-        $scope.selectTab = function(setTab) {
-            this.tab = setTab;
-            $(window).scrollTop(0);
-            if (setTab == 2) {
-
-
-                /*setTimeout(
-                    function() {
-                        $('.carousel').carousel({
-                            interval: 2000
-                        })
-                    }, 5000);*/
-            }
-        };
 
         $scope.$watch(function() {
                 return document.getElementById("codehighlighting");
@@ -67,50 +52,42 @@
             return route === $location.path();
         }
 
+        $scope.handleTopButton = function(elementId, buttonId) {
+            var scrollTop = $(window).scrollTop();
+            var elementOffset = $(elementId).offset().top;
+            var distance = (elementOffset - scrollTop);
+            if (distance < 20) {
+                $(buttonId).show();
+            } else {
+                $(buttonId).hide();
+            }
+        }
+
 
     });
     qdApp.controller('downloadCtrl', ['$scope', '$http',
         function($scope, $http) {
             $(window).unbind('scroll');
-            $(window).scroll(function() {
-                var scrollTop = $(window).scrollTop();
-                var elementOffset = $('#plug-in-conatiner').offset().top;
-                var distance = (elementOffset - scrollTop);
-                if (distance < 20) {
-                    $("#top-button").show();
-                } else {
-                    $("#top-button").hide();
-                }
-            });
-
-            /*          showTopButton();*/
+            $(window).scroll(function() { $scope.$parent.handleTopButton("#plug-in-conatiner", "#top-button") });
         }
     ]);
 
     qdApp.controller('moreInfoCtrl', ['$scope', '$http',
         function($scope, $http) {
 
-        $scope.$watch(function() {
-                return $("#myCarousel");
-            },
-            function(element) {
-                if (element) {
-                    $('.carousel').carousel({
-                        interval: 2000
-                    })
-                }
-            });
+            $scope.$watch(function() {
+                    return $("#myCarousel");
+                },
+                function(element) {
+                    if (element) {
+                        $('.carousel').carousel({
+                            interval: 2000
+                        })
+                    }
+                });
 
-            $(window).unbind('scroll');
-            $(window).scroll(function() {
-                var scrollTop = $(window).scrollTop();
-                var elementOffset = $('#videoContainer').offset().top;
-                var distance = (elementOffset - scrollTop);
-                if (distance) {
-                    $("#top-button-on-more-info").show();
-                } else {
-                    $("#top-button-on-more-info").hide();
-                }
+            $(window).unbind('scroll');$(window).scroll(function() {
+                $scope.$parent.handleTopButton("#videoContainer", "#top-button-on-more-info")
             });
         }
     ]);
