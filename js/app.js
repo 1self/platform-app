@@ -23,6 +23,9 @@
                 controller: 'moreInfoCtrl'
 
             }).
+             when('/privacy', {
+                templateUrl: 'privacy.html'
+            }).
             otherwise({
                 redirectTo: '/home'
             });
