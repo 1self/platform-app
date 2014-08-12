@@ -29,6 +29,12 @@
     .more-info .custom-heading {
         margin-bottom: 27px;
     }
+    .navbar-inverse .navbar-nav > li > a {
+        border-radius: 4px;
+    }
+    .navbar-nav > li > a.custom-login{
+        margin-left: 5px;
+    }
 }
 @media (max-width: 767px) {
     .plan h1 {
@@ -156,9 +162,9 @@
 }
 @media (min-width: 557px) {
     .go-img {
-        width: 99px;
+        width: 80px;
         vertical-align: sub;
-        margin: 0 0 -18px 10px;
+        margin: 0 0 -14px 10px;
     }
     .sublime-text-go-img {
         margin: 0 0 -18px 22px;

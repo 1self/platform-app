@@ -80,19 +80,19 @@
                 <ul class="nav navbar-nav">
 
 
-                    <li ng-class="{active:isActive('/home')}"><a data-toggle="collapse" data-target=".navbar-collapse" href="#home" >Home</a>
+                    <li ng-class="{active:isActive('/home')}"><a data-toggle="collapse" data-target=".navbar-collapse" href="#home" onclick="resetScroll()">Home</a>
 
                     </li>
-                    <li ng-class="{active:isActive('/more')}"><a data-toggle="collapse" data-target=".navbar-collapse" href="#more"  >More info</a>
+                    <li ng-class="{active:isActive('/more')}"><a data-toggle="collapse" data-target=".navbar-collapse" href="#more"  onclick="resetScroll()">More info</a>
                     </li>
-                    <li><a data-toggle="collapse" data-target=".navbar-collapse" href="http://blog.QuantifiedDev.org" target="_blank">Blog</a>
+                    <li><a data-toggle="collapse" data-target=".navbar-collapse" href="http://blog.QuantifiedDev.org" target="_blank" >Blog</a>
                     </li>
-                    <li ng-class="{active:isActive('/download')}"><a data-toggle="collapse" data-target=".navbar-collapse" href="#download"  >Download</a>
+                    <li ng-class="{active:isActive('/download')}"><a data-toggle="collapse" data-target=".navbar-collapse" href="#download"  onclick="resetScroll()">Download</a>
                     </li>
 
                    <!--  <li ><a data-toggle="collapse" data-target=".navbar-collapse" href="#download">Download</a>
                     </li> -->
-                    <li ng-class="{active:isActive('/contact')}"><a data-toggle="collapse" data-target=".navbar-collapse" href="#contact" >Contact</a>
+                    <li ng-class="{active:isActive('/contact')}"><a data-toggle="collapse" data-target=".navbar-collapse" href="#contact" onclick="resetScroll()">Contact</a>
 
                     </li>
                     <li><a id="navbar_mydashboard" class="custom-btn custom-login" onClick="signup();">Log In</a>

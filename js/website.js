@@ -11,3 +11,6 @@ var goToTop = function(){
         }, 500);
 
 }
+var resetScroll = function(){
+	window.scrollTo(0,0);
+}
