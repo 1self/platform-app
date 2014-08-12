@@ -32,8 +32,11 @@
     .navbar-inverse .navbar-nav > li > a {
         border-radius: 4px;
     }
-    .navbar-nav > li > a.custom-login{
+    .navbar-nav > li > a.custom-login {
         margin-left: 5px;
+    }
+    .download-container section.white {
+        min-height: 350px;
     }
 }
 @media (max-width: 767px) {
@@ -184,8 +187,8 @@
         font-size: 15px;
     }
     .theme-logo {
-                font-size: 19px;
-margin-top: 18px;
+        font-size: 19px;
+        margin-top: 18px;
     }
 }
 @media (max-width: 600px) {
