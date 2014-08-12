@@ -68,25 +68,26 @@
     qdApp.controller('downloadCtrl', ['$scope', '$http',
         function($scope, $http) {
             $(window).unbind('scroll');
-            $(window).scroll(function() { $scope.$parent.handleTopButton("#plug-in-conatiner", "#top-button") });
+            $(window).scroll(function() {
+                $scope.$parent.handleTopButton("#plug-in-conatiner", "#top-button")
+            });
         }
     ]);
 
     qdApp.controller('moreInfoCtrl', ['$scope', '$http',
         function($scope, $http) {
 
-            $scope.$watch(function() {
-                    return $("#myCarousel");
-                },
-                function(element) {
-                    if (element) {
-                        $('.carousel').carousel({
-                            interval: 2000
-                        })
-                    }
-                });
 
-            $(window).unbind('scroll');$(window).scroll(function() {
+            var element = $('.carousel');
+            if (element) {
+                element.carousel({
+                    interval: 2000
+                })
+            }
+
+
+            $(window).unbind('scroll');
+            $(window).scroll(function() {
                 $scope.$parent.handleTopButton("#videoContainer", "#top-button-on-more-info")
             });
         }
