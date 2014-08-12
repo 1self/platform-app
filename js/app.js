@@ -65,12 +65,22 @@
 
 
     });
-    qdApp.controller('downloadCtrl', ['$scope', '$http',
-        function($scope, $http) {
+    qdApp.controller('downloadCtrl', ['$scope', '$http', '$anchorScroll',
+        function($scope, $http, $anchorScroll) {
             $(window).unbind('scroll');
             $(window).scroll(function() {
                 $scope.$parent.handleTopButton("#plug-in-conatiner", "#top-button")
             });
+
+            if (window.location.href.indexOf("sublime-text3") > -1) {
+                $scope.$parent.scrollTo('sublime-text3');
+            }
+            if (window.location.href.indexOf("intellij") > -1) {
+                $scope.$parent.scrollTo('intellij');
+            }
+            if (window.location.href.indexOf("visual-studio-details") > -1) {
+                $scope.$parent.scrollTo('visual-studio-details');
+            }
         }
     ]);
 
