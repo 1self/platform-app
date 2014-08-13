@@ -38,6 +38,9 @@
     .download-container section.white {
         min-height: 350px;
     }
+    .nav{
+        padding-bottom: 3px;
+    }
 }
 @media (max-width: 767px) {
     .plan h1 {

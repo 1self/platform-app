@@ -23,7 +23,7 @@ a:hover {
 }
 .navbar-inverse .navbar-nav > li > a {
     font-size: 17.3px;
-
+    font-weight: 300;
 }
 section.dark, .pricing .dark, .dark {
     background: #393939;
@@ -52,6 +52,9 @@ section.dark {
     color: #FFF;
     margin-top: 6px;
 }
+.navbar-inverse .navbar-nav > li > a,.navbar-nav > li > a.custom-btn {
+     font-weight: 300;
+}
 .navbar-nav > li > a.custom-login, .custom-login {
     color: #FFF;
     border: 1px solid #ccc;
@@ -73,6 +76,7 @@ section.dark {
     font-size: 21px;
     cursor: pointer;
     border-radius: 4px;
+    font-weight: 300;
 }
 .custom-modal .modal-header {
     padding: 0 15px;
@@ -179,7 +183,7 @@ section.dark {
     margin-left: 10px;
     margin-right: 10px;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 400;
 }
 .instruction {
     margin-top: 20px;
@@ -258,6 +262,10 @@ section.dark-grey {
 }
 .download-header-info {
     font-size: 28.4px;
+    font-weight: 400;
+}
+.instruction h1,.download-header-info {
+     font-weight: 400;
 }
 #mce-EMAIL.download-input, #mc-embedded-subscribe.download-input {
     width: 373px;
@@ -390,6 +398,9 @@ footer .unstyled {
 }
 .home h1{
     font-size: 32px;
+}
+.home h1,.home h2{
+    font-weight: 400;
 }
 .home h2{
     font-size: 27px;
