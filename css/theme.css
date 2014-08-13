@@ -57,7 +57,7 @@ section.dark {
 }
 .navbar-nav > li > a.custom-login, .custom-login {
     color: #FFF;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
 }
 .navbar-nav > li > a.custom-login:hover, .custom-login:hover, .navbar-nav > li > a.custom-signup:hover, .custom-signup:hover {
     opacity: 0.8
@@ -77,6 +77,9 @@ section.dark {
     cursor: pointer;
     border-radius: 4px;
     font-weight: 300;
+}
+.btn-container .custom-signup,.navbar-nav > li > a.custom-signup{
+    border:2px solid #3C9B47;
 }
 .custom-modal .modal-header {
     padding: 0 15px;
