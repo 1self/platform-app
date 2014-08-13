@@ -279,11 +279,15 @@ section.dark-grey {
 }
 .instruction h1 {
     font-size: 55px;
+    color: #5a5a5a
 }
 .instruction .custom-signup {
     font-size: 23px;
     border: 2px solid #3C9B47;
     border-radius: 4px;
+}
+#mce-EMAIL.download-input, #mc-embedded-subscribe.download-input,.instruction .custom-signup {
+    font-weight: 300;
 }
 .go-to-top {
     position: fixed;
@@ -309,6 +313,7 @@ section.dark-grey {
 .quick-instruction p {
     font-size: 17.3px;
     margin: 0 0 5px;
+    font-weight: 300;
 }
 .dark-grey-text, a.dark-grey-text:hover {
     color: #656565;
