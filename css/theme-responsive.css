@@ -42,6 +42,13 @@
         padding-bottom: 3px;
     }
 }
+@media (max-width: 867px) {
+    .navbar-inverse .navbar-nav > li > a{
+        padding-left: 8px;
+        padding-right: 8px;
+
+    }
+}
 @media (max-width: 767px) {
     .plan h1 {
         font-size: 24px

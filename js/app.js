@@ -26,6 +26,10 @@
             when('/privacy', {
                 templateUrl: 'privacy.html'
             }).
+             when('/contribute', {
+                templateUrl: 'contribute.html'
+            }).
+            
             otherwise({
                 redirectTo: '/home'
             });

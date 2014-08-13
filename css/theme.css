@@ -413,3 +413,14 @@ footer .unstyled {
 .home h2{
     font-size: 27px;
 }
+.sub-heading-contribute{
+    font-size: 30px;
+    font-style: italic;
+    margin-bottom: 40px;
+}
+.contibute{
+    margin-left: 10px;
+}
+.contibute p{
+    text-align: left;
+}
