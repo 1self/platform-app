@@ -181,7 +181,7 @@ section.dark {
 /*download Css*/
 
 .download-title {
-    font-size: 89px;
+    font-size: 59px;
     font-weight: bold;
     margin-left: 10px;
     margin-right: 10px;
@@ -281,7 +281,7 @@ section.dark-grey {
     font-size: 17.3px;
 }
 .instruction h1 {
-    font-size: 55px;
+    font-size: 50px;
     color: #5a5a5a
 }
 .instruction .custom-signup {
@@ -358,7 +358,7 @@ footer .unstyled {
     color: #989898;
 }
 .more-info-subtitle-big, .more-info-section-heading {
-    font-size: 45px;
+    font-size: 40px;
 }
 .more-info-section-image-holder img {
     width: 95%;
@@ -417,6 +417,7 @@ footer .unstyled {
     font-size: 30px;
     font-style: italic;
     margin-bottom: 40px;
+    display: block;
 }
 .contibute{
     margin-left: 10px;
