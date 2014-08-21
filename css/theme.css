@@ -279,6 +279,8 @@ section.dark-grey {
     border: 1px solid #D8D8D8;
     padding-top: 8px;
     margin-right: 4px;
+}
+.contributeLink,#mce-EMAIL.download-input, #mc-embedded-subscribe.download-input {
     font-size: 17.3px;
 }
 .instruction h1 {
@@ -290,7 +292,7 @@ section.dark-grey {
     border: 2px solid #3C9B47;
     border-radius: 4px;
 }
-#mce-EMAIL.download-input, #mc-embedded-subscribe.download-input,.instruction .custom-signup {
+#mce-EMAIL.download-input, #mc-embedded-subscribe.download-input,.instruction .custom-signup,.contributeLink {
     font-weight: 300;
 }
 .go-to-top {
