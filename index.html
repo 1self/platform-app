@@ -95,7 +95,7 @@
                     <li ng-class="{active:isActive('/contact')}"><a data-toggle="collapse" data-target=".navbar-collapse" href="#contact" onclick="resetScroll()">Contact</a>
 
                     </li>
-                    <li><a id="navbar_mydashboard" class="custom-btn custom-login" onClick="signup();">Log In</a>
+                    <li><a  class="custom-btn custom-login" onClick="signup();">Log In</a>
                     </li>
                     <li><a  id="navbar_mydashboard" class="custom-btn custom-signup" data-toggle="modal" data-target="#signup">Sign Up</a>
                     </li>
@@ -183,6 +183,9 @@
     <script type="text/javascript" src="js/vimeo.ga.js"></script>
     <script type="text/javascript" src="js/website.js"></script>
     <script type="text/javascript">
+     $('#navbar_mydashboard').on('click', function() {
+        ga('send', 'event', 'navbar_link', 'navbar_mydashboard_click');
+    });
     $('#btn_LearnMore').on('click', function() {
         ga('send', 'event', 'action_button', 'btn_LearnMore_click');
     });
@@ -198,9 +201,7 @@
     $('#navbar_blog').on('click', function() {
         ga('send', 'event', 'navbar_link', 'navbar_blog_click');
     });
-    $('#navbar_mydashboard').on('click', function() {
-        ga('send', 'event', 'navbar_link', 'navbar_mydashboard_click');
-    });
+   
 
     $('#moreInfoBenefitsSignUp').on('click', function() {
         ga('send', 'event', 'moreinfo', 'moreInfoBenefitsSignUp_click');
