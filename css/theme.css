@@ -432,3 +432,10 @@ footer .unstyled {
 .italic {
     font-style: italic;
 }
+.see-stats{
+    padding: 0 0 0 10px;
+}
+.see-stats p{
+    margin: 0;
+    font-size: 14px;
+}

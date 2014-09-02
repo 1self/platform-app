@@ -118,11 +118,14 @@
                             <p><pre><code id="codehighlighting" class="python" >import urllib.request, os, hashlib; pf = 'QuantifiedDev.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));by = urllib.request.urlopen('http://app.quantifieddev.org/' + pf.replace(' ', '%20') ).read();open(os.path.join(ipp, pf), 'wb').write(by)</code></pre></p>
                             <p>3. Register by following the link in the QuantifiedDev tool menu</p>
                             <p>4. How do i see my stats</p>
+                             <div class="see-stats">
                             <p>- Open Sublime Text Editor</p>
                             <p>- Go to tools  &#8594; QuantifiedDev &#8594;  Go to QuantifiedDev Dashboard or CTRL + SHIFT + P  &#8594; Go to QuantifiedDev Dashboard </p>
                             <p></p>
+                            </div>
                             <p class="red-text get-help-msg">Struggling with download, installation or registration?&nbsp <a class="red-text bold" href="http://quantifieddev.uservoice.com" target="_blank">Get help here</a>
                             </p>
+
                         </div>
                     </div>
                 </div>
@@ -151,10 +154,21 @@
                             <p>1. Download the intellij plugin - it works with all versions</p>
                             <p>2. Open plugin preferences and choose install from disk</p>
                             <p>3. Register by following the link in the tool window with the QD logo</p>
-                            <p></p>
-                             <p class="red-text get-help-msg">Struggling with download, installation or registration?&nbsp <a class="red-text bold" href="http://quantifieddev.uservoice.com" target="_blank">Get help here</a>
-                            </p>
-
+                            <p>4. How do i see my stats</p>
+                            <div class="see-stats">
+                                <p>- Open Intellij Idea</p>
+                                <p>- Go to File -> Settings(Ctrl + Alt + S) -> Quantified Dev Settings</p>
+                                <p>- Copy streamid</p>
+                                <p>- Go to http://quantifieddev.azurewebsites.net/app </p>
+                                <p>- Paste the streamid in 'streamid' textbox</p>
+                                <p>- Go back to IntelliJIdea and copy read token</p>
+                                <p>- Go back to website and paste the read token in 'read token' textbox</p>
+                                <p>- Click 'Save'. </p>
+                                 <p>Now as you build your projects from Idea, you can see corresponding stats reflected on the website<a href="http://app.quantifieddev.org/dashboard">http://app.quantifieddev.org/dashboard</a> </p>       
+                                <p></p>
+                                 <p class="red-text get-help-msg">Struggling with download, installation or registration?&nbsp <a class="red-text bold" href="http://quantifieddev.uservoice.com" target="_blank">Get help here</a>
+                                </p>
+                         </div> 
                         </div>
                     </div>
                 </div>
