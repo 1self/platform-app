@@ -439,3 +439,7 @@ footer .unstyled {
     margin: 0;
     font-size: 14px;
 }
+.quick-instruction .bold{
+    font-weight: 700;
+
+}
