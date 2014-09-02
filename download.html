@@ -101,7 +101,7 @@
                             <img src="images/sublime.png" class="download-logo">
                         </div>
                         <div class="col-xs-9 col-sm-8">
-                            <h1>Sublime Text 3</h1>
+                            <h1>Sublime Text </h1>
                             
 
                         </div>
@@ -112,8 +112,14 @@
                             <p class="underline">Quickstart</p>
                             <p>1. Open the console</p>
                             <p>2. Paste in:</p>
+                            <p>For Sublime Text 2</p>
+                            <p><pre><code id="codehighlighting" class="python" >import urllib2,os,hashlib;pf = 'QuantifiedDev.sublime-package';ipp = sublime.installed_packages_path();os.makedirs( ipp ) if not os.path.exists(ipp) else None;urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) );by = urllib2.urlopen( 'http://app.quantifieddev.org/' + pf.replace(' ', '%20')).read();open( os.path.join( ipp, pf), 'wb' ).write(by)</code></pre></p>
+                            <p>For Sublime Text 3</p>
                             <p><pre><code id="codehighlighting" class="python" >import urllib.request, os, hashlib; pf = 'QuantifiedDev.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));by = urllib.request.urlopen('http://app.quantifieddev.org/' + pf.replace(' ', '%20') ).read();open(os.path.join(ipp, pf), 'wb').write(by)</code></pre></p>
                             <p>3. Register by following the link in the QuantifiedDev tool menu</p>
+                            <p>4. How do i see my stats</p>
+                            <p>- Open Sublime Text Editor</p>
+                            <p>- Go to tools  &#8594; QuantifiedDev &#8594;  Go to QuantifiedDev Dashboard or CTRL + SHIFT + P  &#8594; Go to QuantifiedDev Dashboard </p>
                             <p></p>
                             <p class="red-text get-help-msg">Struggling with download, installation or registration?&nbsp <a class="red-text bold" href="http://quantifieddev.uservoice.com" target="_blank">Get help here</a>
                             </p>
