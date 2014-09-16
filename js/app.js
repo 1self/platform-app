@@ -1,5 +1,5 @@
 (function() {
-    var qdApp = angular.module('qdApp', ["ngRoute"]);
+    var qdApp = angular.module('qdApp', ["ngRoute", "hljs"]);
 
     qdApp.config(['$routeProvider',
         function($routeProvider) {
@@ -38,14 +38,6 @@
 
     qdApp.controller('angular-application', function($scope, $location, $anchorScroll) {
 
-        $scope.$watch(function() {
-                return document.getElementById("codehighlighting");
-            },
-            function(element) {
-                if (element) {
-                    hljs.highlightBlock(document.getElementById("codehighlighting"));
-                }
-            });
 
         $scope.scrollTo = function(elementId) {
             $location.hash(elementId);
