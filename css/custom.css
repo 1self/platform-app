@@ -152,7 +152,18 @@
 @media (max-width: 992px){
 	.feature{
 		height: 500px;
+	
 	}
 
 }
 
+@media screen and (min-width:1700px) {
+    body{
+        background: #ccc;
+
+    }
+    #sb-site{
+        width: 1600px;
+        margin: 0 auto;
+    }
+}
