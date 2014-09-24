@@ -124,7 +124,9 @@
 .feature h2{
 	font-size: 27px;
 }
-
+.navbar-inverse .navbar-nav > li > a{
+	color: #ccc;
+}
 @media (max-width: 767px){
 	.feature{
 		border: none;	
@@ -155,15 +157,4 @@
 	
 	}
 
-}
-
-@media screen and (min-width:1700px) {
-    body{
-        background: #ccc;
-
-    }
-    #sb-site{
-        width: 1600px;
-        margin: 0 auto;
-    }
 }
